@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		19B707E51F7E2E2E0086C565 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B707E41F7E2E2E0086C565 /* AppDelegate.m */; };
 		19B707E81F7E2E2E0086C565 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B707E71F7E2E2E0086C565 /* ViewController.m */; };
 		19B707EB1F7E2E2E0086C565 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B707E91F7E2E2E0086C565 /* Main.storyboard */; };
 		19B707ED1F7E2E2E0086C565 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19B707EC1F7E2E2E0086C565 /* Assets.xcassets */; };
@@ -21,8 +20,6 @@
 		09D79BB739306A2B5A9B0F0A /* Pods-NJDHome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NJDHome.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NJDHome/Pods-NJDHome.debug.xcconfig"; sourceTree = "<group>"; };
 		14E7618F081DACC69B781771 /* libPods-NJDHome.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NJDHome.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B707E01F7E2E2E0086C565 /* NJDHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NJDHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		19B707E31F7E2E2E0086C565 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		19B707E41F7E2E2E0086C565 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		19B707E61F7E2E2E0086C565 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		19B707E71F7E2E2E0086C565 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		19B707EA1F7E2E2E0086C565 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -71,8 +68,6 @@
 				19B707FE1F7E36270086C565 /* Landlord */,
 				19B707FA1F7E35FC0086C565 /* Appdelegate */,
 				19B707F91F7E34BF0086C565 /* New Group */,
-				19B707E31F7E2E2E0086C565 /* AppDelegate.h */,
-				19B707E41F7E2E2E0086C565 /* AppDelegate.m */,
 				19B707E61F7E2E2E0086C565 /* ViewController.h */,
 				19B707E71F7E2E2E0086C565 /* ViewController.m */,
 				19B707E91F7E2E2E0086C565 /* Main.storyboard */,
@@ -249,7 +244,6 @@
 				19B707FD1F7E35FC0086C565 /* AppDelegate.m in Sources */,
 				19B707E81F7E2E2E0086C565 /* ViewController.m in Sources */,
 				19B707F31F7E2E2E0086C565 /* main.m in Sources */,
-				19B707E51F7E2E2E0086C565 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
