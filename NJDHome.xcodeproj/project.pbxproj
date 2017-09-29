@@ -65,9 +65,11 @@
 		19B707E21F7E2E2E0086C565 /* NJDHome */ = {
 			isa = PBXGroup;
 			children = (
+				19B708011F7E3B3A0086C565 /* WindowClerk */,
+				19B708001F7E3B350086C565 /* TrafficAssistant */,
+				19B707FF1F7E3B2D0086C565 /* Renter */,
 				19B707FE1F7E36270086C565 /* Landlord */,
 				19B707FA1F7E35FC0086C565 /* Appdelegate */,
-				19B707F91F7E34BF0086C565 /* New Group */,
 				19B707E61F7E2E2E0086C565 /* ViewController.h */,
 				19B707E71F7E2E2E0086C565 /* ViewController.m */,
 				19B707E91F7E2E2E0086C565 /* Main.storyboard */,
@@ -77,13 +79,6 @@
 				19B707F21F7E2E2E0086C565 /* main.m */,
 			);
 			path = NJDHome;
-			sourceTree = "<group>";
-		};
-		19B707F91F7E34BF0086C565 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		19B707FA1F7E35FC0086C565 /* Appdelegate */ = {
@@ -100,6 +95,27 @@
 			children = (
 			);
 			path = Landlord;
+			sourceTree = "<group>";
+		};
+		19B707FF1F7E3B2D0086C565 /* Renter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Renter;
+			sourceTree = "<group>";
+		};
+		19B708001F7E3B350086C565 /* TrafficAssistant */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TrafficAssistant;
+			sourceTree = "<group>";
+		};
+		19B708011F7E3B3A0086C565 /* WindowClerk */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WindowClerk;
 			sourceTree = "<group>";
 		};
 		ADEE84AD8324FA01FC3A4522 /* Pods */ = {
