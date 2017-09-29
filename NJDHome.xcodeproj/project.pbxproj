@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		19B707E51F7E2E2E0086C565 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B707E41F7E2E2E0086C565 /* AppDelegate.m */; };
 		19B707E81F7E2E2E0086C565 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B707E71F7E2E2E0086C565 /* ViewController.m */; };
 		19B707EB1F7E2E2E0086C565 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B707E91F7E2E2E0086C565 /* Main.storyboard */; };
 		19B707ED1F7E2E2E0086C565 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19B707EC1F7E2E2E0086C565 /* Assets.xcassets */; };
@@ -21,8 +20,6 @@
 		09D79BB739306A2B5A9B0F0A /* Pods-NJDHome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NJDHome.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NJDHome/Pods-NJDHome.debug.xcconfig"; sourceTree = "<group>"; };
 		14E7618F081DACC69B781771 /* libPods-NJDHome.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NJDHome.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B707E01F7E2E2E0086C565 /* NJDHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NJDHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		19B707E31F7E2E2E0086C565 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		19B707E41F7E2E2E0086C565 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		19B707E61F7E2E2E0086C565 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		19B707E71F7E2E2E0086C565 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		19B707EA1F7E2E2E0086C565 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -68,11 +65,7 @@
 		19B707E21F7E2E2E0086C565 /* NJDHome */ = {
 			isa = PBXGroup;
 			children = (
-				19B707FE1F7E36270086C565 /* Landlord */,
 				19B707FA1F7E35FC0086C565 /* Appdelegate */,
-				19B707F91F7E34BF0086C565 /* New Group */,
-				19B707E31F7E2E2E0086C565 /* AppDelegate.h */,
-				19B707E41F7E2E2E0086C565 /* AppDelegate.m */,
 				19B707E61F7E2E2E0086C565 /* ViewController.h */,
 				19B707E71F7E2E2E0086C565 /* ViewController.m */,
 				19B707E91F7E2E2E0086C565 /* Main.storyboard */,
@@ -84,13 +77,6 @@
 			path = NJDHome;
 			sourceTree = "<group>";
 		};
-		19B707F91F7E34BF0086C565 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		19B707FA1F7E35FC0086C565 /* Appdelegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,13 +84,6 @@
 				19B707FC1F7E35FC0086C565 /* AppDelegate.m */,
 			);
 			path = Appdelegate;
-			sourceTree = "<group>";
-		};
-		19B707FE1F7E36270086C565 /* Landlord */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Landlord;
 			sourceTree = "<group>";
 		};
 		ADEE84AD8324FA01FC3A4522 /* Pods */ = {
@@ -158,7 +137,7 @@
 				TargetAttributes = {
 					19B707DF1F7E2E2E0086C565 = {
 						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -200,13 +179,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NJDHome-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		477E205565694053916ABC6A /* [CP] Copy Pods Resources */ = {
@@ -249,7 +231,6 @@
 				19B707FD1F7E35FC0086C565 /* AppDelegate.m in Sources */,
 				19B707E81F7E2E2E0086C565 /* ViewController.m in Sources */,
 				19B707F31F7E2E2E0086C565 /* main.m in Sources */,
-				19B707E51F7E2E2E0086C565 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,13 +365,15 @@
 			baseConfigurationReference = 09D79BB739306A2B5A9B0F0A /* Pods-NJDHome.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 93B3E338LV;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = NJDHome/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yy.NJDHome;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -399,13 +382,15 @@
 			baseConfigurationReference = BB196FD89180E5F2CC770622 /* Pods-NJDHome.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 93B3E338LV;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = NJDHome/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yy.NJDHome;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
