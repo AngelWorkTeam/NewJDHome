@@ -1,0 +1,436 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		19B707E51F7E2E2E0086C565 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B707E41F7E2E2E0086C565 /* AppDelegate.m */; };
+		19B707E81F7E2E2E0086C565 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B707E71F7E2E2E0086C565 /* ViewController.m */; };
+		19B707EB1F7E2E2E0086C565 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B707E91F7E2E2E0086C565 /* Main.storyboard */; };
+		19B707ED1F7E2E2E0086C565 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19B707EC1F7E2E2E0086C565 /* Assets.xcassets */; };
+		19B707F01F7E2E2E0086C565 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B707EE1F7E2E2E0086C565 /* LaunchScreen.storyboard */; };
+		19B707F31F7E2E2E0086C565 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B707F21F7E2E2E0086C565 /* main.m */; };
+		19B707FD1F7E35FC0086C565 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B707FC1F7E35FC0086C565 /* AppDelegate.m */; };
+		A8B2F21DC4E992B93081E18F /* libPods-NJDHome.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E7618F081DACC69B781771 /* libPods-NJDHome.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		09D79BB739306A2B5A9B0F0A /* Pods-NJDHome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NJDHome.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NJDHome/Pods-NJDHome.debug.xcconfig"; sourceTree = "<group>"; };
+		14E7618F081DACC69B781771 /* libPods-NJDHome.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NJDHome.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		19B707E01F7E2E2E0086C565 /* NJDHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NJDHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		19B707E31F7E2E2E0086C565 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		19B707E41F7E2E2E0086C565 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		19B707E61F7E2E2E0086C565 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		19B707E71F7E2E2E0086C565 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		19B707EA1F7E2E2E0086C565 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		19B707EC1F7E2E2E0086C565 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		19B707EF1F7E2E2E0086C565 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		19B707F11F7E2E2E0086C565 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		19B707F21F7E2E2E0086C565 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		19B707FB1F7E35FC0086C565 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		19B707FC1F7E35FC0086C565 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BB196FD89180E5F2CC770622 /* Pods-NJDHome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NJDHome.release.xcconfig"; path = "Pods/Target Support Files/Pods-NJDHome/Pods-NJDHome.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		19B707DD1F7E2E2E0086C565 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8B2F21DC4E992B93081E18F /* libPods-NJDHome.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		19B707D71F7E2E2E0086C565 = {
+			isa = PBXGroup;
+			children = (
+				19B707E21F7E2E2E0086C565 /* NJDHome */,
+				19B707E11F7E2E2E0086C565 /* Products */,
+				ADEE84AD8324FA01FC3A4522 /* Pods */,
+				B319F066908678E9E25C3404 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		19B707E11F7E2E2E0086C565 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				19B707E01F7E2E2E0086C565 /* NJDHome.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		19B707E21F7E2E2E0086C565 /* NJDHome */ = {
+			isa = PBXGroup;
+			children = (
+				19B707FE1F7E36270086C565 /* Landlord */,
+				19B707FA1F7E35FC0086C565 /* Appdelegate */,
+				19B707F91F7E34BF0086C565 /* New Group */,
+				19B707E31F7E2E2E0086C565 /* AppDelegate.h */,
+				19B707E41F7E2E2E0086C565 /* AppDelegate.m */,
+				19B707E61F7E2E2E0086C565 /* ViewController.h */,
+				19B707E71F7E2E2E0086C565 /* ViewController.m */,
+				19B707E91F7E2E2E0086C565 /* Main.storyboard */,
+				19B707EC1F7E2E2E0086C565 /* Assets.xcassets */,
+				19B707EE1F7E2E2E0086C565 /* LaunchScreen.storyboard */,
+				19B707F11F7E2E2E0086C565 /* Info.plist */,
+				19B707F21F7E2E2E0086C565 /* main.m */,
+			);
+			path = NJDHome;
+			sourceTree = "<group>";
+		};
+		19B707F91F7E34BF0086C565 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		19B707FA1F7E35FC0086C565 /* Appdelegate */ = {
+			isa = PBXGroup;
+			children = (
+				19B707FB1F7E35FC0086C565 /* AppDelegate.h */,
+				19B707FC1F7E35FC0086C565 /* AppDelegate.m */,
+			);
+			path = Appdelegate;
+			sourceTree = "<group>";
+		};
+		19B707FE1F7E36270086C565 /* Landlord */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Landlord;
+			sourceTree = "<group>";
+		};
+		ADEE84AD8324FA01FC3A4522 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				09D79BB739306A2B5A9B0F0A /* Pods-NJDHome.debug.xcconfig */,
+				BB196FD89180E5F2CC770622 /* Pods-NJDHome.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B319F066908678E9E25C3404 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				14E7618F081DACC69B781771 /* libPods-NJDHome.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		19B707DF1F7E2E2E0086C565 /* NJDHome */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 19B707F61F7E2E2E0086C565 /* Build configuration list for PBXNativeTarget "NJDHome" */;
+			buildPhases = (
+				3E03B3926ECB6906F0E58F7E /* [CP] Check Pods Manifest.lock */,
+				19B707DC1F7E2E2E0086C565 /* Sources */,
+				19B707DD1F7E2E2E0086C565 /* Frameworks */,
+				19B707DE1F7E2E2E0086C565 /* Resources */,
+				DE4033CBABE635F0AB6F9F8C /* [CP] Embed Pods Frameworks */,
+				477E205565694053916ABC6A /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NJDHome;
+			productName = NJDHome;
+			productReference = 19B707E01F7E2E2E0086C565 /* NJDHome.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		19B707D81F7E2E2E0086C565 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "yuan yunlong";
+				TargetAttributes = {
+					19B707DF1F7E2E2E0086C565 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 19B707DB1F7E2E2E0086C565 /* Build configuration list for PBXProject "NJDHome" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 19B707D71F7E2E2E0086C565;
+			productRefGroup = 19B707E11F7E2E2E0086C565 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				19B707DF1F7E2E2E0086C565 /* NJDHome */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		19B707DE1F7E2E2E0086C565 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19B707F01F7E2E2E0086C565 /* LaunchScreen.storyboard in Resources */,
+				19B707ED1F7E2E2E0086C565 /* Assets.xcassets in Resources */,
+				19B707EB1F7E2E2E0086C565 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3E03B3926ECB6906F0E58F7E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		477E205565694053916ABC6A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NJDHome/Pods-NJDHome-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE4033CBABE635F0AB6F9F8C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NJDHome/Pods-NJDHome-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		19B707DC1F7E2E2E0086C565 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19B707FD1F7E35FC0086C565 /* AppDelegate.m in Sources */,
+				19B707E81F7E2E2E0086C565 /* ViewController.m in Sources */,
+				19B707F31F7E2E2E0086C565 /* main.m in Sources */,
+				19B707E51F7E2E2E0086C565 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		19B707E91F7E2E2E0086C565 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				19B707EA1F7E2E2E0086C565 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		19B707EE1F7E2E2E0086C565 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				19B707EF1F7E2E2E0086C565 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		19B707F41F7E2E2E0086C565 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		19B707F51F7E2E2E0086C565 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		19B707F71F7E2E2E0086C565 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09D79BB739306A2B5A9B0F0A /* Pods-NJDHome.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 93B3E338LV;
+				INFOPLIST_FILE = NJDHome/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yy.NJDHome;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		19B707F81F7E2E2E0086C565 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB196FD89180E5F2CC770622 /* Pods-NJDHome.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 93B3E338LV;
+				INFOPLIST_FILE = NJDHome/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yy.NJDHome;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		19B707DB1F7E2E2E0086C565 /* Build configuration list for PBXProject "NJDHome" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				19B707F41F7E2E2E0086C565 /* Debug */,
+				19B707F51F7E2E2E0086C565 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		19B707F61F7E2E2E0086C565 /* Build configuration list for PBXNativeTarget "NJDHome" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				19B707F71F7E2E2E0086C565 /* Debug */,
+				19B707F81F7E2E2E0086C565 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 19B707D81F7E2E2E0086C565 /* Project object */;
+}

@@ -1,0 +1,50 @@
+PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - Bugly (2.4.8)
+  - FMDB (2.7.2):
+    - FMDB/standard (= 2.7.2)
+  - FMDB/standard (2.7.2)
+  - Masonry (1.0.2)
+  - SDWebImage (3.7.5):
+    - SDWebImage/Core (= 3.7.5)
+  - SDWebImage/Core (3.7.5)
+  - YTKKeyValueStore (0.1.2):
+    - FMDB (~> 2.0)
+  - YYKit (1.0.9):
+    - YYKit/no-arc (= 1.0.9)
+  - YYKit/no-arc (1.0.9)
+
+DEPENDENCIES:
+  - AFNetworking (~> 3.0)
+  - Bugly (~> 2.4.0)
+  - Masonry
+  - SDWebImage (= 3.7.5)
+  - YTKKeyValueStore (~> 0.1.2)
+  - YYKit
+
+SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  Bugly: da3c02408c14838d498429320545a8e439392978
+  FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
+  YTKKeyValueStore: 4d002941540dd5108fa23009b71e0f2f937f7a0f
+  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
+
+PODFILE CHECKSUM: 0d4b5cd60d5229c09d38c2718b9031bcb480496c
+
+COCOAPODS: 1.2.0
