@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "UserInfo.h"
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
+
++ (AppDelegate *)sharedApplicationDelegate;
+
+- (void)loginSuccessWithUserType:(RoleType)role;
 
 @end
 

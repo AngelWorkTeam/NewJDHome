@@ -13,6 +13,7 @@
 		1976ECC51F7F2C3C00A15BE4 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECC41F7F2C3C00A15BE4 /* UserInfo.m */; };
 		1976ECC81F7F2CE500A15BE4 /* RoleInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECC71F7F2CE500A15BE4 /* RoleInfo.m */; };
 		1976ECCE1F7F2D5100A15BE4 /* PersonInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECCD1F7F2D5100A15BE4 /* PersonInfo.m */; };
+		1976ECD71F7F3F7500A15BE4 /* TrafficAssistantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECD61F7F3F7500A15BE4 /* TrafficAssistantViewController.m */; };
 		19B707E81F7E2E2E0086C565 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B707E71F7E2E2E0086C565 /* ViewController.m */; };
 		19B707EB1F7E2E2E0086C565 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B707E91F7E2E2E0086C565 /* Main.storyboard */; };
 		19B707ED1F7E2E2E0086C565 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19B707EC1F7E2E2E0086C565 /* Assets.xcassets */; };
@@ -36,6 +37,8 @@
 		1976ECC71F7F2CE500A15BE4 /* RoleInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoleInfo.m; sourceTree = "<group>"; };
 		1976ECCC1F7F2D5100A15BE4 /* PersonInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonInfo.h; sourceTree = "<group>"; };
 		1976ECCD1F7F2D5100A15BE4 /* PersonInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonInfo.m; sourceTree = "<group>"; };
+		1976ECD51F7F3F7500A15BE4 /* TrafficAssistantViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrafficAssistantViewController.h; sourceTree = "<group>"; };
+		1976ECD61F7F3F7500A15BE4 /* TrafficAssistantViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrafficAssistantViewController.m; sourceTree = "<group>"; };
 		19B707E01F7E2E2E0086C565 /* NJDHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NJDHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B707E61F7E2E2E0086C565 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		19B707E71F7E2E2E0086C565 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
@@ -88,6 +91,29 @@
 			children = (
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		1976ECD21F7F3F7500A15BE4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1976ECD31F7F3F7500A15BE4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1976ECD41F7F3F7500A15BE4 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1976ECD51F7F3F7500A15BE4 /* TrafficAssistantViewController.h */,
+				1976ECD61F7F3F7500A15BE4 /* TrafficAssistantViewController.m */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		19B707D71F7E2E2E0086C565 = {
@@ -156,6 +182,9 @@
 		19B708001F7E3B350086C565 /* TrafficAssistant */ = {
 			isa = PBXGroup;
 			children = (
+				1976ECD31F7F3F7500A15BE4 /* Model */,
+				1976ECD21F7F3F7500A15BE4 /* View */,
+				1976ECD41F7F3F7500A15BE4 /* ViewController */,
 			);
 			path = TrafficAssistant;
 			sourceTree = "<group>";
@@ -335,6 +364,7 @@
 				1976ECC01F7F2B4A00A15BE4 /* NJDNavigationViewController.m in Sources */,
 				19B707FD1F7E35FC0086C565 /* AppDelegate.m in Sources */,
 				19B707E81F7E2E2E0086C565 /* ViewController.m in Sources */,
+				1976ECD71F7F3F7500A15BE4 /* TrafficAssistantViewController.m in Sources */,
 				1976ECC51F7F2C3C00A15BE4 /* UserInfo.m in Sources */,
 				19B707F31F7E2E2E0086C565 /* main.m in Sources */,
 			);

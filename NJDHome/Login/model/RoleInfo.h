@@ -16,7 +16,7 @@
 
 @property (nonatomic, copy) NSString *roleName;
 
-@property (nonatomic, copy) NSString *no;
+@property (nonatomic, copy) NSString *no;  //角色名称，分协管员 XGY，房东 FD和流动人口
 
 
 @end
