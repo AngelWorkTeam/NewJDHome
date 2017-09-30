@@ -23,6 +23,9 @@
     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
+    
+     
+    
     [_window makeKeyAndVisible];
     
     // 4.添加bugly检测

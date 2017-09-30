@@ -14,6 +14,9 @@
 		1976ECC81F7F2CE500A15BE4 /* RoleInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECC71F7F2CE500A15BE4 /* RoleInfo.m */; };
 		1976ECCE1F7F2D5100A15BE4 /* PersonInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECCD1F7F2D5100A15BE4 /* PersonInfo.m */; };
 		1976ECD71F7F3F7500A15BE4 /* TrafficAssistantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECD61F7F3F7500A15BE4 /* TrafficAssistantViewController.m */; };
+		1976ECE01F7F49C200A15BE4 /* PersonInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECDA1F7F49C200A15BE4 /* PersonInfo.m */; };
+		1976ECE11F7F49C200A15BE4 /* RoleInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECDC1F7F49C200A15BE4 /* RoleInfo.m */; };
+		1976ECE21F7F49C200A15BE4 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECDE1F7F49C200A15BE4 /* UserInfo.m */; };
 		19B707E81F7E2E2E0086C565 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B707E71F7E2E2E0086C565 /* ViewController.m */; };
 		19B707EB1F7E2E2E0086C565 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B707E91F7E2E2E0086C565 /* Main.storyboard */; };
 		19B707ED1F7E2E2E0086C565 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19B707EC1F7E2E2E0086C565 /* Assets.xcassets */; };
@@ -36,6 +39,12 @@
 		1976ECCD1F7F2D5100A15BE4 /* PersonInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonInfo.m; sourceTree = "<group>"; };
 		1976ECD51F7F3F7500A15BE4 /* TrafficAssistantViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrafficAssistantViewController.h; sourceTree = "<group>"; };
 		1976ECD61F7F3F7500A15BE4 /* TrafficAssistantViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrafficAssistantViewController.m; sourceTree = "<group>"; };
+		1976ECD91F7F49C200A15BE4 /* PersonInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonInfo.h; sourceTree = "<group>"; };
+		1976ECDA1F7F49C200A15BE4 /* PersonInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonInfo.m; sourceTree = "<group>"; };
+		1976ECDB1F7F49C200A15BE4 /* RoleInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoleInfo.h; sourceTree = "<group>"; };
+		1976ECDC1F7F49C200A15BE4 /* RoleInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoleInfo.m; sourceTree = "<group>"; };
+		1976ECDD1F7F49C200A15BE4 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		1976ECDE1F7F49C200A15BE4 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
 		19B707E01F7E2E2E0086C565 /* NJDHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NJDHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B707E61F7E2E2E0086C565 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		19B707E71F7E2E2E0086C565 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
@@ -67,36 +76,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-
-		1976ECBD1F7F2B1400A15BE4 /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				1976ECBE1F7F2B4A00A15BE4 /* NJDNavigationViewController.h */,
-				1976ECBF1F7F2B4A00A15BE4 /* NJDNavigationViewController.m */,
-			);
-			path = Base;
-			sourceTree = "<group>";
-		};
-		1976ECC11F7F2C2400A15BE4 /* model */ = {
-			isa = PBXGroup;
-			children = (
-				1976ECC31F7F2C3C00A15BE4 /* UserInfo.h */,
-				1976ECC41F7F2C3C00A15BE4 /* UserInfo.m */,
-				1976ECC61F7F2CE500A15BE4 /* RoleInfo.h */,
-				1976ECC71F7F2CE500A15BE4 /* RoleInfo.m */,
-				1976ECCC1F7F2D5100A15BE4 /* PersonInfo.h */,
-				1976ECCD1F7F2D5100A15BE4 /* PersonInfo.m */,
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
-		1976ECC21F7F2C2400A15BE4 /* view */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
 		1976ECD21F7F3F7500A15BE4 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,7 +99,26 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-
+		1976ECD81F7F49C200A15BE4 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				1976ECD91F7F49C200A15BE4 /* PersonInfo.h */,
+				1976ECDA1F7F49C200A15BE4 /* PersonInfo.m */,
+				1976ECDB1F7F49C200A15BE4 /* RoleInfo.h */,
+				1976ECDC1F7F49C200A15BE4 /* RoleInfo.m */,
+				1976ECDD1F7F49C200A15BE4 /* UserInfo.h */,
+				1976ECDE1F7F49C200A15BE4 /* UserInfo.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		1976ECDF1F7F49C200A15BE4 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		19B707D71F7E2E2E0086C565 = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +211,8 @@
 		19B708051F7E3D3E0086C565 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				1976ECD81F7F49C200A15BE4 /* model */,
+				1976ECDF1F7F49C200A15BE4 /* view */,
 				1976ECB81F7F26BC00A15BE4 /* LoginViewController.h */,
 				1976ECB91F7F26BC00A15BE4 /* LoginViewController.m */,
 				1976ECBB1F7F26E100A15BE4 /* LoginStoryboard.storyboard */,
@@ -394,6 +394,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1976ECE21F7F49C200A15BE4 /* UserInfo.m in Sources */,
 				1976ECBA1F7F26BC00A15BE4 /* LoginViewController.m in Sources */,
 				1976ECC81F7F2CE500A15BE4 /* RoleInfo.m in Sources */,
 				1976ECCE1F7F2D5100A15BE4 /* PersonInfo.m in Sources */,
@@ -401,6 +402,8 @@
 				19B707FD1F7E35FC0086C565 /* AppDelegate.m in Sources */,
 				1BA8425C1F7E935100D4221B /* NetworkingManager.m in Sources */,
 				19B707E81F7E2E2E0086C565 /* ViewController.m in Sources */,
+				1976ECE11F7F49C200A15BE4 /* RoleInfo.m in Sources */,
+				1976ECE01F7F49C200A15BE4 /* PersonInfo.m in Sources */,
 				1976ECD71F7F3F7500A15BE4 /* TrafficAssistantViewController.m in Sources */,
 				1976ECC51F7F2C3C00A15BE4 /* UserInfo.m in Sources */,
 				19B707F31F7E2E2E0086C565 /* main.m in Sources */,
