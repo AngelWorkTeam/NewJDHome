@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1976ECBA1F7F26BC00A15BE4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECB91F7F26BC00A15BE4 /* LoginViewController.m */; };
+		1976ECBC1F7F26E100A15BE4 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1976ECBB1F7F26E100A15BE4 /* LoginStoryboard.storyboard */; };
+		1976ECC01F7F2B4A00A15BE4 /* NJDNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECBF1F7F2B4A00A15BE4 /* NJDNavigationViewController.m */; };
+		1976ECC51F7F2C3C00A15BE4 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECC41F7F2C3C00A15BE4 /* UserInfo.m */; };
+		1976ECC81F7F2CE500A15BE4 /* RoleInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECC71F7F2CE500A15BE4 /* RoleInfo.m */; };
+		1976ECCE1F7F2D5100A15BE4 /* PersonInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECCD1F7F2D5100A15BE4 /* PersonInfo.m */; };
 		19B707E81F7E2E2E0086C565 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B707E71F7E2E2E0086C565 /* ViewController.m */; };
 		19B707EB1F7E2E2E0086C565 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B707E91F7E2E2E0086C565 /* Main.storyboard */; };
 		19B707ED1F7E2E2E0086C565 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19B707EC1F7E2E2E0086C565 /* Assets.xcassets */; };
@@ -14,13 +20,19 @@
 		19B707F31F7E2E2E0086C565 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B707F21F7E2E2E0086C565 /* main.m */; };
 		19B707FD1F7E35FC0086C565 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B707FC1F7E35FC0086C565 /* AppDelegate.m */; };
 		1BA8425C1F7E935100D4221B /* NetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA8425B1F7E935100D4221B /* NetworkingManager.m */; };
-		1BA842611F7F307000D4221B /* GlobleMacro.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA842601F7F307000D4221B /* GlobleMacro.m */; };
 		A8B2F21DC4E992B93081E18F /* libPods-NJDHome.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E7618F081DACC69B781771 /* libPods-NJDHome.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		09D79BB739306A2B5A9B0F0A /* Pods-NJDHome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NJDHome.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NJDHome/Pods-NJDHome.debug.xcconfig"; sourceTree = "<group>"; };
 		14E7618F081DACC69B781771 /* libPods-NJDHome.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NJDHome.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1976ECB81F7F26BC00A15BE4 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		1976ECB91F7F26BC00A15BE4 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		1976ECBB1F7F26E100A15BE4 /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
+		1976ECBF1F7F2B4A00A15BE4 /* NJDNavigationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NJDNavigationViewController.m; sourceTree = "<group>"; };
+		1976ECC41F7F2C3C00A15BE4 /* UserInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
+		1976ECC71F7F2CE500A15BE4 /* RoleInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoleInfo.m; sourceTree = "<group>"; };
+		1976ECCD1F7F2D5100A15BE4 /* PersonInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonInfo.m; sourceTree = "<group>"; };
 		19B707E01F7E2E2E0086C565 /* NJDHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NJDHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B707E61F7E2E2E0086C565 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		19B707E71F7E2E2E0086C565 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
@@ -31,11 +43,12 @@
 		19B707F21F7E2E2E0086C565 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		19B707FB1F7E35FC0086C565 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		19B707FC1F7E35FC0086C565 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1BA8425A1F7E935100D4221B /* NetworkingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingManager.h; sourceTree = "<group>"; };
 		1BA8425B1F7E935100D4221B /* NetworkingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkingManager.m; sourceTree = "<group>"; };
-		1BA8425E1F7F2E1900D4221B /* DJDHome.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJDHome.pch; sourceTree = "<group>"; };
-		1BA8425F1F7F307000D4221B /* GlobleMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobleMacro.h; sourceTree = "<group>"; };
-		1BA842601F7F307000D4221B /* GlobleMacro.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobleMacro.m; sourceTree = "<group>"; };
+		1BA842641F7F463400D4221B /* DJDHome.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJDHome.pch; sourceTree = "<group>"; };
+		1BA842651F7F463400D4221B /* GlobleMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobleMacro.h; sourceTree = "<group>"; };
+		1BA842661F7F463400D4221B /* GlobleMacro.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobleMacro.m; sourceTree = "<group>"; };
+		1BA842681F7F463400D4221B /* NetworkingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingManager.h; sourceTree = "<group>"; };
+		1BA842691F7F463400D4221B /* NetworkingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkingManager.m; sourceTree = "<group>"; };
 		BB196FD89180E5F2CC770622 /* Pods-NJDHome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NJDHome.release.xcconfig"; path = "Pods/Target Support Files/Pods-NJDHome/Pods-NJDHome.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,6 +71,7 @@
 				19B707E11F7E2E2E0086C565 /* Products */,
 				ADEE84AD8324FA01FC3A4522 /* Pods */,
 				B319F066908678E9E25C3404 /* Frameworks */,
+				1BA842621F7F43D500D4221B /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,8 +86,10 @@
 		19B707E21F7E2E2E0086C565 /* NJDHome */ = {
 			isa = PBXGroup;
 			children = (
-				1BA8425D1F7F2DE900D4221B /* Globle */,
-				1BC2FAE31F7E56C30057AB69 /* Networking */,
+				1BA842631F7F463400D4221B /* Globle */,
+				1BA842671F7F463400D4221B /* Networking */,
+				19B708051F7E3D3E0086C565 /* Login */,
+				19B708031F7E3D150086C565 /* UserInfo */,
 				19B708011F7E3B3A0086C565 /* WindowClerk */,
 				19B708001F7E3B350086C565 /* TrafficAssistant */,
 				19B707FF1F7E3B2D0086C565 /* Renter */,
@@ -127,21 +143,50 @@
 			path = WindowClerk;
 			sourceTree = "<group>";
 		};
-		1BA8425D1F7F2DE900D4221B /* Globle */ = {
+		19B708031F7E3D150086C565 /* UserInfo */ = {
 			isa = PBXGroup;
 			children = (
-				1BA8425E1F7F2E1900D4221B /* DJDHome.pch */,
-				1BA8425F1F7F307000D4221B /* GlobleMacro.h */,
-				1BA842601F7F307000D4221B /* GlobleMacro.m */,
+			);
+			path = UserInfo;
+			sourceTree = "<group>";
+		};
+		19B708051F7E3D3E0086C565 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				1976ECB81F7F26BC00A15BE4 /* LoginViewController.h */,
+				1976ECB91F7F26BC00A15BE4 /* LoginViewController.m */,
+				1976ECBB1F7F26E100A15BE4 /* LoginStoryboard.storyboard */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		1BA842621F7F43D500D4221B /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				1976ECC71F7F2CE500A15BE4 /* RoleInfo.m */,
+				1976ECCD1F7F2D5100A15BE4 /* PersonInfo.m */,
+				1976ECBF1F7F2B4A00A15BE4 /* NJDNavigationViewController.m */,
+				1BA8425B1F7E935100D4221B /* NetworkingManager.m */,
+				1976ECC41F7F2C3C00A15BE4 /* UserInfo.m */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		1BA842631F7F463400D4221B /* Globle */ = {
+			isa = PBXGroup;
+			children = (
+				1BA842641F7F463400D4221B /* DJDHome.pch */,
+				1BA842651F7F463400D4221B /* GlobleMacro.h */,
+				1BA842661F7F463400D4221B /* GlobleMacro.m */,
 			);
 			path = Globle;
 			sourceTree = "<group>";
 		};
-		1BC2FAE31F7E56C30057AB69 /* Networking */ = {
+		1BA842671F7F463400D4221B /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				1BA8425A1F7E935100D4221B /* NetworkingManager.h */,
-				1BA8425B1F7E935100D4221B /* NetworkingManager.m */,
+				1BA842681F7F463400D4221B /* NetworkingManager.h */,
+				1BA842691F7F463400D4221B /* NetworkingManager.m */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -197,7 +242,7 @@
 				TargetAttributes = {
 					19B707DF1F7E2E2E0086C565 = {
 						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -227,6 +272,7 @@
 				19B707F01F7E2E2E0086C565 /* LaunchScreen.storyboard in Resources */,
 				19B707ED1F7E2E2E0086C565 /* Assets.xcassets in Resources */,
 				19B707EB1F7E2E2E0086C565 /* Main.storyboard in Resources */,
+				1976ECBC1F7F26E100A15BE4 /* LoginStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,7 +294,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		477E205565694053916ABC6A /* [CP] Copy Pods Resources */ = {
@@ -288,10 +334,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BA842611F7F307000D4221B /* GlobleMacro.m in Sources */,
+				1976ECBA1F7F26BC00A15BE4 /* LoginViewController.m in Sources */,
+				1976ECC81F7F2CE500A15BE4 /* RoleInfo.m in Sources */,
+				1976ECCE1F7F2D5100A15BE4 /* PersonInfo.m in Sources */,
+				1976ECC01F7F2B4A00A15BE4 /* NJDNavigationViewController.m in Sources */,
 				19B707FD1F7E35FC0086C565 /* AppDelegate.m in Sources */,
 				1BA8425C1F7E935100D4221B /* NetworkingManager.m in Sources */,
 				19B707E81F7E2E2E0086C565 /* ViewController.m in Sources */,
+				1976ECC51F7F2C3C00A15BE4 /* UserInfo.m in Sources */,
 				19B707F31F7E2E2E0086C565 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,10 +477,9 @@
 			baseConfigurationReference = 09D79BB739306A2B5A9B0F0A /* Pods-NJDHome.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = WU2WFZ2B66;
-				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/NJDhome/Globle/DJDHome.pch";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 93B3E338LV;
 				INFOPLIST_FILE = NJDHome/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -447,10 +496,9 @@
 			baseConfigurationReference = BB196FD89180E5F2CC770622 /* Pods-NJDHome.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
-				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/NJDhome/Globle/DJDHome.pch";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 93B3E338LV;
 				INFOPLIST_FILE = NJDHome/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
