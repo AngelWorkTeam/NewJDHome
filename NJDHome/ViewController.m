@@ -25,5 +25,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)loginHandle:(id)sender {
+    [NetworkingManager loginWithUsername:@"143" password:@"111111"];
+}
 
 @end
