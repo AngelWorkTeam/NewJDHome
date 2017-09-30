@@ -51,7 +51,6 @@
 //    Role_Renter = 1,//租客
 //    Role_WindowClerk = 2,//窗口人员
 //    Role_TrafficAssistant = 3,//协管员
-    
     switch (role) {
         case Role_LandLord:
             
