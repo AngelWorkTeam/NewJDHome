@@ -65,6 +65,8 @@
 		19B707E21F7E2E2E0086C565 /* NJDHome */ = {
 			isa = PBXGroup;
 			children = (
+				19B708051F7E3D3E0086C565 /* Login */,
+				19B708031F7E3D150086C565 /* UserInfo */,
 				19B708011F7E3B3A0086C565 /* WindowClerk */,
 				19B708001F7E3B350086C565 /* TrafficAssistant */,
 				19B707FF1F7E3B2D0086C565 /* Renter */,
@@ -116,6 +118,20 @@
 			children = (
 			);
 			path = WindowClerk;
+			sourceTree = "<group>";
+		};
+		19B708031F7E3D150086C565 /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UserInfo;
+			sourceTree = "<group>";
+		};
+		19B708051F7E3D3E0086C565 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		ADEE84AD8324FA01FC3A4522 /* Pods */ = {
