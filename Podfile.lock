@@ -14,6 +14,11 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - BNRSDKLib (0.0.8):
+    - BNRSDKLib/Category (= 0.0.8)
+    - BNRSDKLib/Utility (= 0.0.8)
+  - BNRSDKLib/Category (0.0.8)
+  - BNRSDKLib/Utility (0.0.8)
   - Bugly (2.4.8)
   - FMDB (2.7.2):
     - FMDB/standard (= 2.7.2)
@@ -30,6 +35,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
+  - BNRSDKLib
   - Bugly (~> 2.4.0)
   - Masonry
   - SDWebImage (= 3.7.5)
@@ -38,6 +44,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  BNRSDKLib: 3513c45de6e6ebb965191afe06c03372e64bd1ae
   Bugly: da3c02408c14838d498429320545a8e439392978
   FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
@@ -45,6 +52,6 @@ SPEC CHECKSUMS:
   YTKKeyValueStore: 4d002941540dd5108fa23009b71e0f2f937f7a0f
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: b0b3df99d9db71e979214917a7872b442ba26322
+PODFILE CHECKSUM: 7e6a22f39d41560b75f8c0a69b6018727afbddb3
 
 COCOAPODS: 1.2.0
