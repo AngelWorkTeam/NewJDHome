@@ -21,19 +21,19 @@
     // Override point for customization after application launch.
     
     
-    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.backgroundColor = [UIColor whiteColor];
-    
-     
-    
-    [_window makeKeyAndVisible];
-    
-    // 4.添加bugly检测
-    //    AppID：
-    //    02841f4dd3
-    //    AppKey：
-    //    fe6785a7-0265-4954-a066-9f238ef1c839
-    [Bugly startWithAppId:@"02841f4dd3"];
+//    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+//    self.window.backgroundColor = [UIColor whiteColor];
+//    
+//     
+//    
+//    [_window makeKeyAndVisible];
+//    
+//    // 4.添加bugly检测
+//    //    AppID：
+//    //    02841f4dd3
+//    //    AppKey：
+//    //    fe6785a7-0265-4954-a066-9f238ef1c839
+//    [Bugly startWithAppId:@"02841f4dd3"];
     
     
     return YES;

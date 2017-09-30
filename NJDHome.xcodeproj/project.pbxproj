@@ -9,10 +9,6 @@
 /* Begin PBXBuildFile section */
 		1976ECBA1F7F26BC00A15BE4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECB91F7F26BC00A15BE4 /* LoginViewController.m */; };
 		1976ECBC1F7F26E100A15BE4 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1976ECBB1F7F26E100A15BE4 /* LoginStoryboard.storyboard */; };
-		1976ECC01F7F2B4A00A15BE4 /* NJDNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECBF1F7F2B4A00A15BE4 /* NJDNavigationViewController.m */; };
-		1976ECC51F7F2C3C00A15BE4 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECC41F7F2C3C00A15BE4 /* UserInfo.m */; };
-		1976ECC81F7F2CE500A15BE4 /* RoleInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECC71F7F2CE500A15BE4 /* RoleInfo.m */; };
-		1976ECCE1F7F2D5100A15BE4 /* PersonInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECCD1F7F2D5100A15BE4 /* PersonInfo.m */; };
 		1976ECD71F7F3F7500A15BE4 /* TrafficAssistantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECD61F7F3F7500A15BE4 /* TrafficAssistantViewController.m */; };
 		1976ECE01F7F49C200A15BE4 /* PersonInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECDA1F7F49C200A15BE4 /* PersonInfo.m */; };
 		1976ECE11F7F49C200A15BE4 /* RoleInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECDC1F7F49C200A15BE4 /* RoleInfo.m */; };
@@ -23,7 +19,8 @@
 		19B707F01F7E2E2E0086C565 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B707EE1F7E2E2E0086C565 /* LaunchScreen.storyboard */; };
 		19B707F31F7E2E2E0086C565 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B707F21F7E2E2E0086C565 /* main.m */; };
 		19B707FD1F7E35FC0086C565 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B707FC1F7E35FC0086C565 /* AppDelegate.m */; };
-		1BA8425C1F7E935100D4221B /* NetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA8425B1F7E935100D4221B /* NetworkingManager.m */; };
+		1BA8426A1F7F733800D4221B /* NetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA842691F7F463400D4221B /* NetworkingManager.m */; };
+		1BA8426B1F7F734100D4221B /* GlobleMacro.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA842661F7F463400D4221B /* GlobleMacro.m */; };
 		A8B2F21DC4E992B93081E18F /* libPods-NJDHome.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E7618F081DACC69B781771 /* libPods-NJDHome.a */; };
 /* End PBXBuildFile section */
 
@@ -33,10 +30,6 @@
 		1976ECB81F7F26BC00A15BE4 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		1976ECB91F7F26BC00A15BE4 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		1976ECBB1F7F26E100A15BE4 /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
-		1976ECBF1F7F2B4A00A15BE4 /* NJDNavigationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NJDNavigationViewController.m; sourceTree = "<group>"; };
-		1976ECC41F7F2C3C00A15BE4 /* UserInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
-		1976ECC71F7F2CE500A15BE4 /* RoleInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoleInfo.m; sourceTree = "<group>"; };
-		1976ECCD1F7F2D5100A15BE4 /* PersonInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonInfo.m; sourceTree = "<group>"; };
 		1976ECD51F7F3F7500A15BE4 /* TrafficAssistantViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrafficAssistantViewController.h; sourceTree = "<group>"; };
 		1976ECD61F7F3F7500A15BE4 /* TrafficAssistantViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrafficAssistantViewController.m; sourceTree = "<group>"; };
 		1976ECD91F7F49C200A15BE4 /* PersonInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonInfo.h; sourceTree = "<group>"; };
@@ -55,7 +48,6 @@
 		19B707F21F7E2E2E0086C565 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		19B707FB1F7E35FC0086C565 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		19B707FC1F7E35FC0086C565 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1BA8425B1F7E935100D4221B /* NetworkingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkingManager.m; sourceTree = "<group>"; };
 		1BA842641F7F463400D4221B /* DJDHome.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJDHome.pch; sourceTree = "<group>"; };
 		1BA842651F7F463400D4221B /* GlobleMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobleMacro.h; sourceTree = "<group>"; };
 		1BA842661F7F463400D4221B /* GlobleMacro.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobleMacro.m; sourceTree = "<group>"; };
@@ -223,11 +215,6 @@
 		1BA842621F7F43D500D4221B /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				1976ECC71F7F2CE500A15BE4 /* RoleInfo.m */,
-				1976ECCD1F7F2D5100A15BE4 /* PersonInfo.m */,
-				1976ECBF1F7F2B4A00A15BE4 /* NJDNavigationViewController.m */,
-				1BA8425B1F7E935100D4221B /* NetworkingManager.m */,
-				1976ECC41F7F2C3C00A15BE4 /* UserInfo.m */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -302,7 +289,7 @@
 				TargetAttributes = {
 					19B707DF1F7E2E2E0086C565 = {
 						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -354,7 +341,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		477E205565694053916ABC6A /* [CP] Copy Pods Resources */ = {
@@ -396,16 +383,13 @@
 			files = (
 				1976ECE21F7F49C200A15BE4 /* UserInfo.m in Sources */,
 				1976ECBA1F7F26BC00A15BE4 /* LoginViewController.m in Sources */,
-				1976ECC81F7F2CE500A15BE4 /* RoleInfo.m in Sources */,
-				1976ECCE1F7F2D5100A15BE4 /* PersonInfo.m in Sources */,
-				1976ECC01F7F2B4A00A15BE4 /* NJDNavigationViewController.m in Sources */,
+				1BA8426A1F7F733800D4221B /* NetworkingManager.m in Sources */,
 				19B707FD1F7E35FC0086C565 /* AppDelegate.m in Sources */,
-				1BA8425C1F7E935100D4221B /* NetworkingManager.m in Sources */,
 				19B707E81F7E2E2E0086C565 /* ViewController.m in Sources */,
+				1BA8426B1F7F734100D4221B /* GlobleMacro.m in Sources */,
 				1976ECE11F7F49C200A15BE4 /* RoleInfo.m in Sources */,
 				1976ECE01F7F49C200A15BE4 /* PersonInfo.m in Sources */,
 				1976ECD71F7F3F7500A15BE4 /* TrafficAssistantViewController.m in Sources */,
-				1976ECC51F7F2C3C00A15BE4 /* UserInfo.m in Sources */,
 				19B707F31F7E2E2E0086C565 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -542,8 +526,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 93B3E338LV;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = WU2WFZ2B66;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/NJDHome/Globle/DJDHome.pch";
 				INFOPLIST_FILE = NJDHome/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -561,8 +546,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 93B3E338LV;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/NJDHome/Globle/DJDHome.pch";
 				INFOPLIST_FILE = NJDHome/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
