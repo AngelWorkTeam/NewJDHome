@@ -22,7 +22,12 @@ NSString * const kLoginPath = @"login";
 +(void)printfUrl:(NSURL *)url{
     NSLog(@"req:%@",url.absoluteString);
 }
-
++(NSError *)responseTypeError{
+    NSError *err = [NSError errorWithDomain:@"response type error"
+                                       code:1001
+                                   userInfo:@{@"NSLocalizedDescription":@"response type error from server"}];
+    return err;
+}
 +(AFHTTPSessionManager *)manager{
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
@@ -34,18 +39,23 @@ NSString * const kLoginPath = @"login";
     return manager;
 }
 
-+(AFHTTPSessionManager *)loginWithUsername:(NSString *)userName
-                                  password:(NSString *)password{
++(AFHTTPSessionManager *)loginWithUsername:(NSString *)username
+                                  password:(NSString *)password
+                                   success:(NJDHttpSuccessBlockDictionary)success
+                                   failure:(NJDHttpFailureBlock)fail{
     AFHTTPSessionManager *manager = [self manager];
    NSURLSessionTask *task = [manager GET:kURL(kUserDomain, kLoginPath)
-                        parameters:@{@"username":SAFE_STRING(userName),
+                              parameters:@{@"username":SAFE_STRING(username),
                                      @"password":SAFE_STRING(password)
                                      }
                         progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                            
+                            if([responseObject isKindOfClass:[NSDictionary class]]){
+                               !success?:success(responseObject);
+                            }else{
+                                !fail?:fail([self responseTypeError]);
+                            }
                         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-
-                            
+                            !fail?:fail(error);
                         }];
     
     [self printfUrl:task.currentRequest.URL];
