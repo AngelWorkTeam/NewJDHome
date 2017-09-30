@@ -26,6 +26,7 @@
     // Override point for customization after application launch.
     
     
+
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     
@@ -43,13 +44,13 @@
     }
     
    
-    
     // 4.添加bugly检测
     //    AppID：
     //    02841f4dd3
     //    AppKey：
     //    fe6785a7-0265-4954-a066-9f238ef1c839
     [Bugly startWithAppId:@"02841f4dd3"];
+
     
     [self.window makeKeyAndVisible];
     return YES;
@@ -89,7 +90,7 @@
 {
     // 登录 viewController
     UIStoryboard *sportStoryBoard =  [UIStoryboard storyboardWithName:@"LoginStoryboard" bundle:nil];
-    UIViewController *controller = [sportStoryBoard instantiateViewControllerWithIdentifier:@"LoginStoryboard"];
+    UIViewController *controller = [sportStoryBoard instantiateViewControllerWithIdentifier:@"LoginViewController"];
     
     self.window.rootViewController = controller;
 }

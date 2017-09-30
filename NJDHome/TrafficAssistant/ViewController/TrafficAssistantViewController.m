@@ -17,6 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(100, 100, 100, 100)];
+    label.text = @"TrafficAssic";
+    [self.view addSubview:label];
 }
 
 - (void)didReceiveMemoryWarning {
