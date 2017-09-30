@@ -1,5 +1,5 @@
 //
-//  TrafficAssistantViewController.h
+//  WindowClerkViewController.h
 //  NJDHome
 //
 //  Created by yuan yunlong on 2017/9/30.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TrafficAssistantViewController : UIViewController
+@interface WindowClerkViewController : UIViewController
 
 @end

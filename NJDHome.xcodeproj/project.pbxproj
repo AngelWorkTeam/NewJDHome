@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		1976ECBA1F7F26BC00A15BE4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECB91F7F26BC00A15BE4 /* LoginViewController.m */; };
 		1976ECBC1F7F26E100A15BE4 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1976ECBB1F7F26E100A15BE4 /* LoginStoryboard.storyboard */; };
-		1976ECC01F7F2B4A00A15BE4 /* NJDNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECBF1F7F2B4A00A15BE4 /* NJDNavigationViewController.m */; };
-		1976ECC51F7F2C3C00A15BE4 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECC41F7F2C3C00A15BE4 /* UserInfo.m */; };
-		1976ECC81F7F2CE500A15BE4 /* RoleInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECC71F7F2CE500A15BE4 /* RoleInfo.m */; };
-		1976ECCE1F7F2D5100A15BE4 /* PersonInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECCD1F7F2D5100A15BE4 /* PersonInfo.m */; };
 		1976ECD71F7F3F7500A15BE4 /* TrafficAssistantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECD61F7F3F7500A15BE4 /* TrafficAssistantViewController.m */; };
 		1976ECE01F7F49C200A15BE4 /* PersonInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECDA1F7F49C200A15BE4 /* PersonInfo.m */; };
 		1976ECE11F7F49C200A15BE4 /* RoleInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECDC1F7F49C200A15BE4 /* RoleInfo.m */; };
 		1976ECE21F7F49C200A15BE4 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECDE1F7F49C200A15BE4 /* UserInfo.m */; };
+		1976ECEE1F7F76FA00A15BE4 /* RenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECED1F7F76FA00A15BE4 /* RenterViewController.m */; };
+		1976ECF11F7F770900A15BE4 /* LandlordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECF01F7F770900A15BE4 /* LandlordViewController.m */; };
+		1976ECF41F7F77ED00A15BE4 /* WindowClerkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECF31F7F77ED00A15BE4 /* WindowClerkViewController.m */; };
+		1976ECF51F7F78B700A15BE4 /* NetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA842691F7F463400D4221B /* NetworkingManager.m */; };
+		1976ECF61F7F78BB00A15BE4 /* GlobleMacro.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA842661F7F463400D4221B /* GlobleMacro.m */; };
 		19B707E81F7E2E2E0086C565 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B707E71F7E2E2E0086C565 /* ViewController.m */; };
 		19B707EB1F7E2E2E0086C565 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B707E91F7E2E2E0086C565 /* Main.storyboard */; };
 		19B707ED1F7E2E2E0086C565 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19B707EC1F7E2E2E0086C565 /* Assets.xcassets */; };
 		19B707F01F7E2E2E0086C565 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B707EE1F7E2E2E0086C565 /* LaunchScreen.storyboard */; };
 		19B707F31F7E2E2E0086C565 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B707F21F7E2E2E0086C565 /* main.m */; };
 		19B707FD1F7E35FC0086C565 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B707FC1F7E35FC0086C565 /* AppDelegate.m */; };
-		1BA8425C1F7E935100D4221B /* NetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA8425B1F7E935100D4221B /* NetworkingManager.m */; };
 		A8B2F21DC4E992B93081E18F /* libPods-NJDHome.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E7618F081DACC69B781771 /* libPods-NJDHome.a */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +45,12 @@
 		1976ECDC1F7F49C200A15BE4 /* RoleInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoleInfo.m; sourceTree = "<group>"; };
 		1976ECDD1F7F49C200A15BE4 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
 		1976ECDE1F7F49C200A15BE4 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
+		1976ECEC1F7F76FA00A15BE4 /* RenterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RenterViewController.h; sourceTree = "<group>"; };
+		1976ECED1F7F76FA00A15BE4 /* RenterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RenterViewController.m; sourceTree = "<group>"; };
+		1976ECEF1F7F770900A15BE4 /* LandlordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LandlordViewController.h; sourceTree = "<group>"; };
+		1976ECF01F7F770900A15BE4 /* LandlordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LandlordViewController.m; sourceTree = "<group>"; };
+		1976ECF21F7F77ED00A15BE4 /* WindowClerkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowClerkViewController.h; sourceTree = "<group>"; };
+		1976ECF31F7F77ED00A15BE4 /* WindowClerkViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WindowClerkViewController.m; sourceTree = "<group>"; };
 		19B707E01F7E2E2E0086C565 /* NJDHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NJDHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B707E61F7E2E2E0086C565 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		19B707E71F7E2E2E0086C565 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
@@ -119,6 +125,75 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		1976ECE31F7F76B000A15BE4 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		1976ECE41F7F76B000A15BE4 /* viewController */ = {
+			isa = PBXGroup;
+			children = (
+				1976ECF21F7F77ED00A15BE4 /* WindowClerkViewController.h */,
+				1976ECF31F7F77ED00A15BE4 /* WindowClerkViewController.m */,
+			);
+			path = viewController;
+			sourceTree = "<group>";
+		};
+		1976ECE51F7F76B000A15BE4 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		1976ECE61F7F76D900A15BE4 /* viewController */ = {
+			isa = PBXGroup;
+			children = (
+				1976ECEC1F7F76FA00A15BE4 /* RenterViewController.h */,
+				1976ECED1F7F76FA00A15BE4 /* RenterViewController.m */,
+			);
+			path = viewController;
+			sourceTree = "<group>";
+		};
+		1976ECE71F7F76D900A15BE4 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		1976ECE81F7F76D900A15BE4 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		1976ECE91F7F76DF00A15BE4 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		1976ECEA1F7F76DF00A15BE4 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		1976ECEB1F7F76DF00A15BE4 /* viewController */ = {
+			isa = PBXGroup;
+			children = (
+				1976ECEF1F7F770900A15BE4 /* LandlordViewController.h */,
+				1976ECF01F7F770900A15BE4 /* LandlordViewController.m */,
+			);
+			path = viewController;
+			sourceTree = "<group>";
+		};
 		19B707D71F7E2E2E0086C565 = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +248,9 @@
 		19B707FE1F7E36270086C565 /* Landlord */ = {
 			isa = PBXGroup;
 			children = (
+				1976ECE91F7F76DF00A15BE4 /* model */,
+				1976ECEA1F7F76DF00A15BE4 /* view */,
+				1976ECEB1F7F76DF00A15BE4 /* viewController */,
 			);
 			path = Landlord;
 			sourceTree = "<group>";
@@ -180,6 +258,9 @@
 		19B707FF1F7E3B2D0086C565 /* Renter */ = {
 			isa = PBXGroup;
 			children = (
+				1976ECE81F7F76D900A15BE4 /* model */,
+				1976ECE71F7F76D900A15BE4 /* view */,
+				1976ECE61F7F76D900A15BE4 /* viewController */,
 			);
 			path = Renter;
 			sourceTree = "<group>";
@@ -197,6 +278,9 @@
 		19B708011F7E3B3A0086C565 /* WindowClerk */ = {
 			isa = PBXGroup;
 			children = (
+				1976ECE31F7F76B000A15BE4 /* model */,
+				1976ECE51F7F76B000A15BE4 /* view */,
+				1976ECE41F7F76B000A15BE4 /* viewController */,
 			);
 			path = WindowClerk;
 			sourceTree = "<group>";
@@ -394,19 +478,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1976ECF61F7F78BB00A15BE4 /* GlobleMacro.m in Sources */,
+				1976ECF51F7F78B700A15BE4 /* NetworkingManager.m in Sources */,
 				1976ECE21F7F49C200A15BE4 /* UserInfo.m in Sources */,
 				1976ECBA1F7F26BC00A15BE4 /* LoginViewController.m in Sources */,
-				1976ECC81F7F2CE500A15BE4 /* RoleInfo.m in Sources */,
-				1976ECCE1F7F2D5100A15BE4 /* PersonInfo.m in Sources */,
-				1976ECC01F7F2B4A00A15BE4 /* NJDNavigationViewController.m in Sources */,
 				19B707FD1F7E35FC0086C565 /* AppDelegate.m in Sources */,
-				1BA8425C1F7E935100D4221B /* NetworkingManager.m in Sources */,
 				19B707E81F7E2E2E0086C565 /* ViewController.m in Sources */,
 				1976ECE11F7F49C200A15BE4 /* RoleInfo.m in Sources */,
 				1976ECE01F7F49C200A15BE4 /* PersonInfo.m in Sources */,
 				1976ECD71F7F3F7500A15BE4 /* TrafficAssistantViewController.m in Sources */,
-				1976ECC51F7F2C3C00A15BE4 /* UserInfo.m in Sources */,
+				1976ECEE1F7F76FA00A15BE4 /* RenterViewController.m in Sources */,
 				19B707F31F7E2E2E0086C565 /* main.m in Sources */,
+				1976ECF41F7F77ED00A15BE4 /* WindowClerkViewController.m in Sources */,
+				1976ECF11F7F770900A15BE4 /* LandlordViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,8 +633,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yy.NJDHome;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "36a6ac01-fcd5-4651-ae2e-360e27d00ac0";
-				PROVISIONING_PROFILE_SPECIFIER = developAll;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;

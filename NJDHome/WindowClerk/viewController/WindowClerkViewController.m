@@ -1,19 +1,18 @@
 //
-//  LoginViewController.m
+//  WindowClerkViewController.m
 //  NJDHome
 //
 //  Created by yuan yunlong on 2017/9/30.
 //  Copyright © 2017年 yuan yunlong. All rights reserved.
 //
 
-#import "LoginViewController.h"
-#import "AppDelegate.h"
-@interface LoginViewController ()
+#import "WindowClerkViewController.h"
 
+@interface WindowClerkViewController ()
 
 @end
 
-@implementation LoginViewController
+@implementation WindowClerkViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -23,10 +22,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-- (IBAction)loginAction:(id)sender {
-    
-    [[AppDelegate sharedApplicationDelegate]loginSuccessWithUserType:Role_TrafficAssistant];
 }
 
 /*

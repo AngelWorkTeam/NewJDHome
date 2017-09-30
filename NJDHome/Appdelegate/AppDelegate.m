@@ -9,9 +9,14 @@
 #import "AppDelegate.h"
 #import <Bugly/Bugly.h>
 #import "TrafficAssistantViewController.h"
+#import "LandlordViewController.h"
+#import "RenterViewController.h"
+#import "WindowClerkViewController.h"
+
+#define kToken @"token"
 
 @interface AppDelegate ()
-
+@property (nonatomic, copy) NSString *token;
 @end
 
 @implementation AppDelegate
@@ -24,9 +29,20 @@
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     
-     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.token = [defaults objectForKey:kToken];//token关键字对应的对象
+    if(self.token!=nil)//不为空时执行
+    {
+        // 拿到缓存的用户类型，跳转想要的用户类型
+        
+        [self loginSuccessWithUserType:Role_TrafficAssistant];
+    }
+    else//为空时登录
+    {
+        [self toSignin];
+    }
     
-    [_window makeKeyAndVisible];
+   
     
     // 4.添加bugly检测
     //    AppID：
@@ -35,7 +51,7 @@
     //    fe6785a7-0265-4954-a066-9f238ef1c839
     [Bugly startWithAppId:@"02841f4dd3"];
     
-    
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
@@ -53,16 +69,16 @@
 //    Role_TrafficAssistant = 3,//协管员
     switch (role) {
         case Role_LandLord:
-            
+            [self toLandLord];
             break;
         case Role_Renter:
-            
+            [self toRenter];
             break;
         case Role_WindowClerk:
-            
+            [self toWindowClerk];
             break;
         case Role_TrafficAssistant:
-            
+            [self toTrafficAssistant];
             break;
     }
     
