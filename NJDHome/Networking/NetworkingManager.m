@@ -39,7 +39,7 @@ NSString * const kLoginPath = @"login";
     return manager;
 }
 
-+(AFHTTPSessionManager *)loginWithUsername:(NSString *)username
++(AFHTTPSessionManager *)loginWithUsername:(nonnull NSString *)username
                                   password:(NSString *)password
                                    success:(NJDHttpSuccessBlockDictionary)success
                                    failure:(NJDHttpFailureBlock)fail{
@@ -62,5 +62,19 @@ NSString * const kLoginPath = @"login";
     return manager;
 }
 
++(AFHTTPSessionManager *)registerName:(NSString * _Nonnull)name
+                                  pwd:(NSString * _Nonnull)pwd
+                         identityCard:(NSString * _Nonnull)idcard
+                      telephoneNumber:(NSString * _Nonnull)phone
+                                 flag:(NSString * _Nonnull)flag
+                                  sex:(NSInteger)sex
+                               nation:(NSString *)nation
+                           oldAddress:(NSString *)oldAddress
+                      identityImgFile:(UIImage *)identityImg
+                              success:(NJDHttpSuccessBlockDictionary)success
+                              failure:(NJDHttpFailureBlock)faile{
+//    AFHTTPSessionManager *manager = [AFHTTPSessionManager ]
+    return nil;
+}
 
 @end

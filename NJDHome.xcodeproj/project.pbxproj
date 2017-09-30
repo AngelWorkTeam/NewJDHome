@@ -17,14 +17,15 @@
 		1976ECF11F7F770900A15BE4 /* LandlordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECF01F7F770900A15BE4 /* LandlordViewController.m */; };
 		1976ECF41F7F77ED00A15BE4 /* WindowClerkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECF31F7F77ED00A15BE4 /* WindowClerkViewController.m */; };
 		1976ECF51F7F78B700A15BE4 /* NetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA842691F7F463400D4221B /* NetworkingManager.m */; };
-		1976ECF61F7F78BB00A15BE4 /* GlobleMacro.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA842661F7F463400D4221B /* GlobleMacro.m */; };
 		19B707E81F7E2E2E0086C565 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B707E71F7E2E2E0086C565 /* ViewController.m */; };
 		19B707EB1F7E2E2E0086C565 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B707E91F7E2E2E0086C565 /* Main.storyboard */; };
 		19B707ED1F7E2E2E0086C565 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19B707EC1F7E2E2E0086C565 /* Assets.xcassets */; };
 		19B707F01F7E2E2E0086C565 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B707EE1F7E2E2E0086C565 /* LaunchScreen.storyboard */; };
 		19B707F31F7E2E2E0086C565 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B707F21F7E2E2E0086C565 /* main.m */; };
 		19B707FD1F7E35FC0086C565 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B707FC1F7E35FC0086C565 /* AppDelegate.m */; };
-		1BA8426B1F7F734100D4221B /* GlobleMacro.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA842661F7F463400D4221B /* GlobleMacro.m */; };
+		1BD459F11F7FC06D00A5B031 /* NJDBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD459F01F7FC06A00A5B031 /* NJDBaseController.m */; };
+		1BD459F21F7FC07000A5B031 /* GlobleMacro.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD459EA1F7FC02500A5B031 /* GlobleMacro.m */; };
+		1BD459F61F7FC3B800A5B031 /* NJDNavgationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD459F51F7FC3B800A5B031 /* NJDNavgationController.m */; };
 		A8B2F21DC4E992B93081E18F /* libPods-NJDHome.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E7618F081DACC69B781771 /* libPods-NJDHome.a */; };
 /* End PBXBuildFile section */
 
@@ -58,11 +59,15 @@
 		19B707F21F7E2E2E0086C565 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		19B707FB1F7E35FC0086C565 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		19B707FC1F7E35FC0086C565 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1BA842641F7F463400D4221B /* DJDHome.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJDHome.pch; sourceTree = "<group>"; };
-		1BA842651F7F463400D4221B /* GlobleMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobleMacro.h; sourceTree = "<group>"; };
-		1BA842661F7F463400D4221B /* GlobleMacro.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobleMacro.m; sourceTree = "<group>"; };
 		1BA842681F7F463400D4221B /* NetworkingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingManager.h; sourceTree = "<group>"; };
 		1BA842691F7F463400D4221B /* NetworkingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkingManager.m; sourceTree = "<group>"; };
+		1BD459E81F7FC02500A5B031 /* DJDHome.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJDHome.pch; sourceTree = "<group>"; };
+		1BD459E91F7FC02500A5B031 /* GlobleMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobleMacro.h; sourceTree = "<group>"; };
+		1BD459EA1F7FC02500A5B031 /* GlobleMacro.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobleMacro.m; sourceTree = "<group>"; };
+		1BD459EF1F7FC06A00A5B031 /* NJDBaseController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NJDBaseController.h; sourceTree = "<group>"; };
+		1BD459F01F7FC06A00A5B031 /* NJDBaseController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NJDBaseController.m; sourceTree = "<group>"; };
+		1BD459F41F7FC3B800A5B031 /* NJDNavgationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NJDNavgationController.h; sourceTree = "<group>"; };
+		1BD459F51F7FC3B800A5B031 /* NJDNavgationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NJDNavgationController.m; sourceTree = "<group>"; };
 		BB196FD89180E5F2CC770622 /* Pods-NJDHome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NJDHome.release.xcconfig"; path = "Pods/Target Support Files/Pods-NJDHome/Pods-NJDHome.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -212,7 +217,7 @@
 		19B707E21F7E2E2E0086C565 /* NJDHome */ = {
 			isa = PBXGroup;
 			children = (
-				1BA842631F7F463400D4221B /* Globle */,
+				1BD459E61F7FBFF300A5B031 /* Helper */,
 				1BA842671F7F463400D4221B /* Networking */,
 				19B708051F7E3D3E0086C565 /* Login */,
 				19B708031F7E3D150086C565 /* UserInfo */,
@@ -307,16 +312,6 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
-		1BA842631F7F463400D4221B /* Globle */ = {
-			isa = PBXGroup;
-			children = (
-				1BA842641F7F463400D4221B /* DJDHome.pch */,
-				1BA842651F7F463400D4221B /* GlobleMacro.h */,
-				1BA842661F7F463400D4221B /* GlobleMacro.m */,
-			);
-			path = Globle;
-			sourceTree = "<group>";
-		};
 		1BA842671F7F463400D4221B /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -324,6 +319,44 @@
 				1BA842691F7F463400D4221B /* NetworkingManager.m */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		1BD459E61F7FBFF300A5B031 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				1BD459F31F7FC39200A5B031 /* NJDNavgationController */,
+				1BD459EE1F7FC06A00A5B031 /* NJDBaseController */,
+				1BD459E71F7FC02500A5B031 /* Globle */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		1BD459E71F7FC02500A5B031 /* Globle */ = {
+			isa = PBXGroup;
+			children = (
+				1BD459E81F7FC02500A5B031 /* DJDHome.pch */,
+				1BD459E91F7FC02500A5B031 /* GlobleMacro.h */,
+				1BD459EA1F7FC02500A5B031 /* GlobleMacro.m */,
+			);
+			path = Globle;
+			sourceTree = "<group>";
+		};
+		1BD459EE1F7FC06A00A5B031 /* NJDBaseController */ = {
+			isa = PBXGroup;
+			children = (
+				1BD459EF1F7FC06A00A5B031 /* NJDBaseController.h */,
+				1BD459F01F7FC06A00A5B031 /* NJDBaseController.m */,
+			);
+			path = NJDBaseController;
+			sourceTree = "<group>";
+		};
+		1BD459F31F7FC39200A5B031 /* NJDNavgationController */ = {
+			isa = PBXGroup;
+			children = (
+				1BD459F41F7FC3B800A5B031 /* NJDNavgationController.h */,
+				1BD459F51F7FC3B800A5B031 /* NJDNavgationController.m */,
+			);
+			path = NJDNavgationController;
 			sourceTree = "<group>";
 		};
 		ADEE84AD8324FA01FC3A4522 /* Pods */ = {
@@ -377,7 +410,7 @@
 				TargetAttributes = {
 					19B707DF1F7E2E2E0086C565 = {
 						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -429,7 +462,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		477E205565694053916ABC6A /* [CP] Copy Pods Resources */ = {
@@ -438,9 +471,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-NJDHome/Pods-NJDHome-resources.sh",
+				"${PODS_ROOT}/SAMCategories/SAMCategories/SAMCategories.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -469,16 +505,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1976ECF61F7F78BB00A15BE4 /* GlobleMacro.m in Sources */,
 				1976ECF51F7F78B700A15BE4 /* NetworkingManager.m in Sources */,
 				1976ECE21F7F49C200A15BE4 /* UserInfo.m in Sources */,
 				1976ECBA1F7F26BC00A15BE4 /* LoginViewController.m in Sources */,
+				1BD459F61F7FC3B800A5B031 /* NJDNavgationController.m in Sources */,
 				19B707FD1F7E35FC0086C565 /* AppDelegate.m in Sources */,
 				19B707E81F7E2E2E0086C565 /* ViewController.m in Sources */,
-				1BA8426B1F7F734100D4221B /* GlobleMacro.m in Sources */,
 				1976ECE11F7F49C200A15BE4 /* RoleInfo.m in Sources */,
+				1BD459F11F7FC06D00A5B031 /* NJDBaseController.m in Sources */,
 				1976ECE01F7F49C200A15BE4 /* PersonInfo.m in Sources */,
 				1976ECD71F7F3F7500A15BE4 /* TrafficAssistantViewController.m in Sources */,
+				1BD459F21F7FC07000A5B031 /* GlobleMacro.m in Sources */,
 				1976ECEE1F7F76FA00A15BE4 /* RenterViewController.m in Sources */,
 				19B707F31F7E2E2E0086C565 /* main.m in Sources */,
 				1976ECF41F7F77ED00A15BE4 /* WindowClerkViewController.m in Sources */,
@@ -618,16 +655,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 93B3E338LV;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/NJDHome/Globle/DJDHome.pch";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = WU2WFZ2B66;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/NJDHome/Helper/Globle/DJDHome.pch";
 				INFOPLIST_FILE = NJDHome/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yy.NJDHome;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "36a6ac01-fcd5-4651-ae2e-360e27d00ac0";
+				PROVISIONING_PROFILE_SPECIFIER = developAll;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -638,9 +675,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 93B3E338LV;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/NJDHome/Globle/DJDHome.pch";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/NJDHome/Helper/Globle/DJDHome.pch";
 				INFOPLIST_FILE = NJDHome/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

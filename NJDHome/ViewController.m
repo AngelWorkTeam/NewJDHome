@@ -27,7 +27,8 @@
 
 - (IBAction)loginHandle:(id)sender {
 
-    //[NetworkingManager loginWithUsername:@"143" password:@"111111"];
+    [NetworkingManager loginWithUsername:nil password:@"111111"
+     success:nil failure:nil];
 
 }
 

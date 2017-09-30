@@ -14,4 +14,5 @@
 #import <BNRSDKLib/BNRSDKLib.h>
 #import "GlobleMacro.h"
 #import "NetworkingManager.h"
+#import "NJDBaseController.h"
 #endif /* DJDHome_pch */

@@ -22,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self createNoBackWithOpaue:NO];
     self.userPasswordTextfeild.placeholder = @"密码";
     [self.userPasswordTextfeild setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
     [self.userPasswordTextfeild setValue:[UIFont boldSystemFontOfSize:15] forKeyPath:@"_placeholderLabel.font"];
@@ -53,14 +54,31 @@
     [[AppDelegate sharedApplicationDelegate]loginSuccessWithUserType:Role_TrafficAssistant];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)registerHandle:(id)sender {
+    UIAlertController *alert = [UIAlertController
+                                alertControllerWithTitle:@"请选择"
+                                message:nil
+                                preferredStyle:UIAlertControllerStyleActionSheet];
+    __weak UIAlertController *weakAlert = alert;
+   [alert addAction:[UIAlertAction
+                     actionWithTitle:@"我是房东"
+                     style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+   }]];
+    [alert addAction:[UIAlertAction
+                      actionWithTitle:@"我是租客"
+                      style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                          
+                      }]];
+    [alert addAction:[UIAlertAction
+                      actionWithTitle:@"取消"
+                      style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                          [weakAlert dismissViewControllerAnimated:YES completion:nil];
+                      }]];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+    
 }
-*/
+
 
 @end

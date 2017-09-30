@@ -10,20 +10,20 @@
 #import <AFNetworking/AFNetworking.h>
 
 typedef void (^NJDHttpSuccessBlockEmpty)(void);
-typedef void (^NJDHttpSuccessBlockId)(id response);
-typedef void(^NJDHttpSuccessBlockString)(NSString *stringValue);
-typedef void(^NJDHttpSuccessBlockNumber)(NSNumber *numberValue);
-typedef void(^NJDHttpSuccessBlockDictionary)(NSDictionary *dictValue);
-typedef void(^NJDHttpSuccessBlockArray)(NSArray *arrayValue);
-typedef void(^NJDHttpSuccessBlockImage)(UIImage *image);
-typedef void (^NJDHttpFailureBlock)(NSError *error);
+typedef void (^NJDHttpSuccessBlockId)(id _Nullable response);
+typedef void(^NJDHttpSuccessBlockString)(NSString * _Nullable stringValue);
+typedef void(^NJDHttpSuccessBlockNumber)(NSNumber * _Nullable numberValue);
+typedef void(^NJDHttpSuccessBlockDictionary)(NSDictionary * _Nullable dictValue);
+typedef void(^NJDHttpSuccessBlockArray)(NSArray * _Nullable arrayValue);
+typedef void(^NJDHttpSuccessBlockImage)(UIImage * _Nullable image);
+typedef void (^NJDHttpFailureBlock)(NSError * _Nullable error);
 
 @interface NetworkingManager : NSObject
 
-+(AFHTTPSessionManager *)loginWithUsername:(NSString *)username
-                                  password:(NSString *)password
-                                   success:(NJDHttpSuccessBlockDictionary)success
-                                   failure:(NJDHttpFailureBlock)fail
++(AFHTTPSessionManager *_Nullable)loginWithUsername:(NSString *_Nonnull)username
+                                           password:(NSString *_Nonnull)password
+                                            success:(NJDHttpSuccessBlockDictionary _Nullable )success
+                                            failure:(NJDHttpFailureBlock _Nullable )fail
 ;
 
 //+(AFHTTPSessionManager *)register

@@ -11,6 +11,7 @@ pod 'Masonry'
 pod 'SDWebImage', '3.7.5'
 pod 'AFNetworking', '~> 3.0'
 pod 'BNRSDKLib'
+pod 'SAMCategories'
 end
 
 post_install do |installer|

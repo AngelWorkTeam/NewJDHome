@@ -12,7 +12,7 @@
 #import "LandlordViewController.h"
 #import "RenterViewController.h"
 #import "WindowClerkViewController.h"
-
+#import "NJDNavgationController.h"
 #define kToken @"token"
 
 @interface AppDelegate ()
@@ -29,20 +29,22 @@
 
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
+    self.window.rootViewController = [self creatRootVC];
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    self.token = [defaults objectForKey:kToken];//token关键字对应的对象
-    if(self.token!=nil)//不为空时执行
-    {
-        // 拿到缓存的用户类型，跳转想要的用户类型
-        
-        [self loginSuccessWithUserType:Role_TrafficAssistant];
-    }
-    else//为空时登录
-    {
-        [self toSignin];
-    }
-    
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    self.token = [defaults objectForKey:kToken];//token关键字对应的对象
+//
+//    if(self.token!=nil)//不为空时执行
+//    {
+//        // 拿到缓存的用户类型，跳转想要的用户类型
+//
+//        [self loginSuccessWithUserType:Role_TrafficAssistant];
+//    }
+//    else//为空时登录
+//    {
+//        [self toSignin];
+//    }
+    [self.window makeKeyAndVisible];
    
     // 4.添加bugly检测
     //    AppID：
@@ -52,7 +54,7 @@
     [Bugly startWithAppId:@"02841f4dd3"];
 
     
-    [self.window makeKeyAndVisible];
+   
     return YES;
 }
 
@@ -93,6 +95,15 @@
     UIViewController *controller = [sportStoryBoard instantiateViewControllerWithIdentifier:@"LoginViewController"];
     
     self.window.rootViewController = controller;
+}
+
+-(NJDNavgationController *)creatRootVC
+{
+    UIStoryboard *sportStoryBoard =  [UIStoryboard storyboardWithName:@"LoginStoryboard" bundle:nil];
+    UIViewController *controller = [sportStoryBoard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    
+    NJDNavgationController *nav = [[NJDNavgationController alloc] initWithRootViewController:controller];
+    return nav;
 }
 
 // 窗口人员

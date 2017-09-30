@@ -150,15 +150,34 @@
                                             <constraint firstItem="O5d-dz-01p" firstAttribute="leading" secondItem="hJ3-32-mzv" secondAttribute="leading" id="ukU-b7-7um"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1i-D9-gex">
+                                        <rect key="frame" x="156" y="398" width="62" height="30"/>
+                                        <state key="normal" title="注册账号">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="registerHandle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wo2-G6-Wuh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IUF-51-dIa">
+                                        <rect key="frame" x="153" y="440" width="69" height="30"/>
+                                        <state key="normal" title="忘记密码?">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="IUF-51-dIa" firstAttribute="centerX" secondItem="fbv-FR-2FZ" secondAttribute="centerX" id="2LW-Uz-3oV"/>
                                     <constraint firstItem="hJ3-32-mzv" firstAttribute="leading" secondItem="fbv-FR-2FZ" secondAttribute="leading" constant="20" id="3pC-ea-Z0Q"/>
                                     <constraint firstItem="I7m-CV-LQL" firstAttribute="top" secondItem="fbv-FR-2FZ" secondAttribute="top" constant="53" id="580-jb-NDy"/>
+                                    <constraint firstItem="IUF-51-dIa" firstAttribute="top" secondItem="n1i-D9-gex" secondAttribute="bottom" constant="12" id="5fL-1R-M8n"/>
                                     <constraint firstItem="VvB-bX-dj5" firstAttribute="leading" secondItem="fbv-FR-2FZ" secondAttribute="leading" constant="20" id="5gB-Dt-VAW"/>
+                                    <constraint firstItem="n1i-D9-gex" firstAttribute="centerX" secondItem="fbv-FR-2FZ" secondAttribute="centerX" id="Ljx-zY-7pm"/>
                                     <constraint firstItem="VvB-bX-dj5" firstAttribute="centerX" secondItem="fbv-FR-2FZ" secondAttribute="centerX" id="UmJ-6o-ft0"/>
                                     <constraint firstAttribute="trailing" secondItem="hJ3-32-mzv" secondAttribute="trailing" constant="17" id="YNb-7y-N11"/>
                                     <constraint firstItem="VvB-bX-dj5" firstAttribute="top" secondItem="o9b-Dk-2rt" secondAttribute="bottom" constant="16.5" id="fhK-YN-yjB"/>
+                                    <constraint firstItem="n1i-D9-gex" firstAttribute="top" secondItem="VvB-bX-dj5" secondAttribute="bottom" constant="12" id="g9I-cw-3wK"/>
                                     <constraint firstItem="hJ3-32-mzv" firstAttribute="top" secondItem="I7m-CV-LQL" secondAttribute="bottom" constant="33" id="h2x-fl-hGi"/>
                                     <constraint firstItem="VvB-bX-dj5" firstAttribute="centerY" secondItem="fbv-FR-2FZ" secondAttribute="centerY" constant="30" id="hFT-p2-FJc"/>
                                     <constraint firstItem="I7m-CV-LQL" firstAttribute="centerX" secondItem="fbv-FR-2FZ" secondAttribute="centerX" id="pgw-1e-Fgw"/>
