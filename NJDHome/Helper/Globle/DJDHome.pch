@@ -15,4 +15,5 @@
 #import "GlobleMacro.h"
 #import "NetworkingManager.h"
 #import "NJDBaseController.h"
+#import "UserInfo.h"
 #endif /* DJDHome_pch */

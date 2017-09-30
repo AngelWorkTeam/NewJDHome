@@ -65,7 +65,7 @@
 // 统一 Back 按钮的处理
 - (void)createBackButton{
     
-    UIImage *backImage = [UIImage imageNamed:@"HETSleepCoreNavBack"];
+    UIImage *backImage = [UIImage imageNamed:@"navBack"];
     CGRect frame = CGRectMake(0, 0, 44, 44);
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
     backButton.frame = frame;

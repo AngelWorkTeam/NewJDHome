@@ -26,6 +26,7 @@
 		1BD459F11F7FC06D00A5B031 /* NJDBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD459F01F7FC06A00A5B031 /* NJDBaseController.m */; };
 		1BD459F21F7FC07000A5B031 /* GlobleMacro.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD459EA1F7FC02500A5B031 /* GlobleMacro.m */; };
 		1BD459F61F7FC3B800A5B031 /* NJDNavgationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD459F51F7FC3B800A5B031 /* NJDNavgationController.m */; };
+		1BD459FB1F7FF94400A5B031 /* RegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD459FA1F7FF94400A5B031 /* RegisterVC.m */; };
 		A8B2F21DC4E992B93081E18F /* libPods-NJDHome.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E7618F081DACC69B781771 /* libPods-NJDHome.a */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,8 @@
 		1BD459F01F7FC06A00A5B031 /* NJDBaseController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NJDBaseController.m; sourceTree = "<group>"; };
 		1BD459F41F7FC3B800A5B031 /* NJDNavgationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NJDNavgationController.h; sourceTree = "<group>"; };
 		1BD459F51F7FC3B800A5B031 /* NJDNavgationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NJDNavgationController.m; sourceTree = "<group>"; };
+		1BD459F91F7FF94400A5B031 /* RegisterVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterVC.h; sourceTree = "<group>"; };
+		1BD459FA1F7FF94400A5B031 /* RegisterVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterVC.m; sourceTree = "<group>"; };
 		BB196FD89180E5F2CC770622 /* Pods-NJDHome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NJDHome.release.xcconfig"; path = "Pods/Target Support Files/Pods-NJDHome/Pods-NJDHome.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -296,6 +299,7 @@
 		19B708051F7E3D3E0086C565 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				1BD459F81F7FF92700A5B031 /* Register */,
 				1976ECD81F7F49C200A15BE4 /* model */,
 				1976ECDF1F7F49C200A15BE4 /* view */,
 				1976ECB81F7F26BC00A15BE4 /* LoginViewController.h */,
@@ -357,6 +361,15 @@
 				1BD459F51F7FC3B800A5B031 /* NJDNavgationController.m */,
 			);
 			path = NJDNavgationController;
+			sourceTree = "<group>";
+		};
+		1BD459F81F7FF92700A5B031 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				1BD459F91F7FF94400A5B031 /* RegisterVC.h */,
+				1BD459FA1F7FF94400A5B031 /* RegisterVC.m */,
+			);
+			path = Register;
 			sourceTree = "<group>";
 		};
 		ADEE84AD8324FA01FC3A4522 /* Pods */ = {
@@ -510,6 +523,7 @@
 				1976ECBA1F7F26BC00A15BE4 /* LoginViewController.m in Sources */,
 				1BD459F61F7FC3B800A5B031 /* NJDNavgationController.m in Sources */,
 				19B707FD1F7E35FC0086C565 /* AppDelegate.m in Sources */,
+				1BD459FB1F7FF94400A5B031 /* RegisterVC.m in Sources */,
 				19B707E81F7E2E2E0086C565 /* ViewController.m in Sources */,
 				1976ECE11F7F49C200A15BE4 /* RoleInfo.m in Sources */,
 				1BD459F11F7FC06D00A5B031 /* NJDBaseController.m in Sources */,

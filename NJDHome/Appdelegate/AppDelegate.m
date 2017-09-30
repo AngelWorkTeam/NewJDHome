@@ -25,35 +25,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    
+//    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+//    self.window.backgroundColor = [UIColor whiteColor];
+//    self.window.rootViewController = [self creatRootVC];
+//    
+//    [self.window makeKeyAndVisible];
+//   
+//    [Bugly startWithAppId:@"02841f4dd3"];
 
-    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = [self creatRootVC];
-    
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    self.token = [defaults objectForKey:kToken];//token关键字对应的对象
-//
-//    if(self.token!=nil)//不为空时执行
-//    {
-//        // 拿到缓存的用户类型，跳转想要的用户类型
-//
-//        [self loginSuccessWithUserType:Role_TrafficAssistant];
-//    }
-//    else//为空时登录
-//    {
-//        [self toSignin];
-//    }
-    [self.window makeKeyAndVisible];
-   
-    // 4.添加bugly检测
-    //    AppID：
-    //    02841f4dd3
-    //    AppKey：
-    //    fe6785a7-0265-4954-a066-9f238ef1c839
-    [Bugly startWithAppId:@"02841f4dd3"];
-
-    
    
     return YES;
 }
