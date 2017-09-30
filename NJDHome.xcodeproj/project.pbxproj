@@ -67,7 +67,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-<<<<<<< HEAD
+
 		1976ECBD1F7F2B1400A15BE4 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,8 +120,7 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-=======
->>>>>>> 07dca84fb2e3572a708e84ef9dff08550127467e
+
 		19B707D71F7E2E2E0086C565 = {
 			isa = PBXGroup;
 			children = (
