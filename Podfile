@@ -13,7 +13,9 @@ pod 'SDWebImage', '3.7.5'
 pod 'AFNetworking', '~> 3.0'
 pod 'BNRSDKLib'
 pod 'SAMCategories'
-pod 'ReactiveCocoa'
+pod 'ReactiveCocoa',    '~> 2.0'
+pod 'MBProgressHUD'
+pod 'MJRefresh'
 end
 
 post_install do |installer|

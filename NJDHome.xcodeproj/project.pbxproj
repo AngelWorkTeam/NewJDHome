@@ -23,6 +23,11 @@
 		19B707F01F7E2E2E0086C565 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B707EE1F7E2E2E0086C565 /* LaunchScreen.storyboard */; };
 		19B707F31F7E2E2E0086C565 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B707F21F7E2E2E0086C565 /* main.m */; };
 		19B707FD1F7E35FC0086C565 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B707FC1F7E35FC0086C565 /* AppDelegate.m */; };
+		1BAE264A1F80AA21004D3F22 /* NJDPopLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE26451F80A43B004D3F22 /* NJDPopLoading.m */; };
+		1BAE264B1F80AA26004D3F22 /* NJDRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE26471F80A43B004D3F22 /* NJDRefreshHeader.m */; };
+		1BAE264E1F80AA90004D3F22 /* HETSleepActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE264C1F80AA90004D3F22 /* HETSleepActivityIndicatorView.m */; };
+		1BAE26511F80AC0A004D3F22 /* MBProgressHUD+NJDProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE26501F80AC0A004D3F22 /* MBProgressHUD+NJDProgressHUD.m */; };
+		1BAE26551F80C090004D3F22 /* IDCardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE26541F80C090004D3F22 /* IDCardVC.m */; };
 		1BD459F11F7FC06D00A5B031 /* NJDBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD459F01F7FC06A00A5B031 /* NJDBaseController.m */; };
 		1BD459F21F7FC07000A5B031 /* GlobleMacro.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD459EA1F7FC02500A5B031 /* GlobleMacro.m */; };
 		1BD459F61F7FC3B800A5B031 /* NJDNavgationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD459F51F7FC3B800A5B031 /* NJDNavgationController.m */; };
@@ -61,6 +66,16 @@
 		19B707FC1F7E35FC0086C565 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1BA842681F7F463400D4221B /* NetworkingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingManager.h; sourceTree = "<group>"; };
 		1BA842691F7F463400D4221B /* NetworkingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkingManager.m; sourceTree = "<group>"; };
+		1BAE26441F80A43B004D3F22 /* NJDPopLoading.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NJDPopLoading.h; sourceTree = "<group>"; };
+		1BAE26451F80A43B004D3F22 /* NJDPopLoading.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NJDPopLoading.m; sourceTree = "<group>"; };
+		1BAE26461F80A43B004D3F22 /* NJDRefreshHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NJDRefreshHeader.h; sourceTree = "<group>"; };
+		1BAE26471F80A43B004D3F22 /* NJDRefreshHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NJDRefreshHeader.m; sourceTree = "<group>"; };
+		1BAE264C1F80AA90004D3F22 /* HETSleepActivityIndicatorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HETSleepActivityIndicatorView.m; sourceTree = "<group>"; };
+		1BAE264D1F80AA90004D3F22 /* HETSleepActivityIndicatorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HETSleepActivityIndicatorView.h; sourceTree = "<group>"; };
+		1BAE264F1F80AC0A004D3F22 /* MBProgressHUD+NJDProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+NJDProgressHUD.h"; sourceTree = "<group>"; };
+		1BAE26501F80AC0A004D3F22 /* MBProgressHUD+NJDProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+NJDProgressHUD.m"; sourceTree = "<group>"; };
+		1BAE26531F80C090004D3F22 /* IDCardVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDCardVC.h; sourceTree = "<group>"; };
+		1BAE26541F80C090004D3F22 /* IDCardVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IDCardVC.m; sourceTree = "<group>"; };
 		1BD459E81F7FC02500A5B031 /* DJDHome.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJDHome.pch; sourceTree = "<group>"; };
 		1BD459E91F7FC02500A5B031 /* GlobleMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobleMacro.h; sourceTree = "<group>"; };
 		1BD459EA1F7FC02500A5B031 /* GlobleMacro.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobleMacro.m; sourceTree = "<group>"; };
@@ -220,6 +235,7 @@
 		19B707E21F7E2E2E0086C565 /* NJDHome */ = {
 			isa = PBXGroup;
 			children = (
+				1BAE26521F80BC4A004D3F22 /* IDCard */,
 				1BD459E61F7FBFF300A5B031 /* Helper */,
 				1BA842671F7F463400D4221B /* Networking */,
 				19B708051F7E3D3E0086C565 /* Login */,
@@ -325,12 +341,37 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		1BAE26431F80A43B004D3F22 /* NJDLoading */ = {
+			isa = PBXGroup;
+			children = (
+				1BAE264F1F80AC0A004D3F22 /* MBProgressHUD+NJDProgressHUD.h */,
+				1BAE26501F80AC0A004D3F22 /* MBProgressHUD+NJDProgressHUD.m */,
+				1BAE26441F80A43B004D3F22 /* NJDPopLoading.h */,
+				1BAE26451F80A43B004D3F22 /* NJDPopLoading.m */,
+				1BAE26461F80A43B004D3F22 /* NJDRefreshHeader.h */,
+				1BAE26471F80A43B004D3F22 /* NJDRefreshHeader.m */,
+				1BAE264D1F80AA90004D3F22 /* HETSleepActivityIndicatorView.h */,
+				1BAE264C1F80AA90004D3F22 /* HETSleepActivityIndicatorView.m */,
+			);
+			path = NJDLoading;
+			sourceTree = "<group>";
+		};
+		1BAE26521F80BC4A004D3F22 /* IDCard */ = {
+			isa = PBXGroup;
+			children = (
+				1BAE26531F80C090004D3F22 /* IDCardVC.h */,
+				1BAE26541F80C090004D3F22 /* IDCardVC.m */,
+			);
+			path = IDCard;
+			sourceTree = "<group>";
+		};
 		1BD459E61F7FBFF300A5B031 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
 				1BD459F31F7FC39200A5B031 /* NJDNavgationController */,
 				1BD459EE1F7FC06A00A5B031 /* NJDBaseController */,
 				1BD459E71F7FC02500A5B031 /* Globle */,
+				1BAE26431F80A43B004D3F22 /* NJDLoading */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -506,10 +547,10 @@
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/BNRSDKLib/BNRSDKLib.framework",
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SAMCategories/SAMCategories.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/YTKKeyValueStore/YTKKeyValueStore.framework",
@@ -520,10 +561,10 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BNRSDKLib.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SAMCategories.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YTKKeyValueStore.framework",
@@ -546,6 +587,7 @@
 				1976ECBA1F7F26BC00A15BE4 /* LoginViewController.m in Sources */,
 				1BD459F61F7FC3B800A5B031 /* NJDNavgationController.m in Sources */,
 				19B707FD1F7E35FC0086C565 /* AppDelegate.m in Sources */,
+				1BAE264A1F80AA21004D3F22 /* NJDPopLoading.m in Sources */,
 				1BD459FB1F7FF94400A5B031 /* RegisterVC.m in Sources */,
 				19B707E81F7E2E2E0086C565 /* ViewController.m in Sources */,
 				1976ECE11F7F49C200A15BE4 /* RoleInfo.m in Sources */,
@@ -554,8 +596,12 @@
 				1976ECD71F7F3F7500A15BE4 /* TrafficAssistantViewController.m in Sources */,
 				1BD459F21F7FC07000A5B031 /* GlobleMacro.m in Sources */,
 				1976ECEE1F7F76FA00A15BE4 /* RenterViewController.m in Sources */,
+				1BAE264E1F80AA90004D3F22 /* HETSleepActivityIndicatorView.m in Sources */,
 				19B707F31F7E2E2E0086C565 /* main.m in Sources */,
 				1976ECF41F7F77ED00A15BE4 /* WindowClerkViewController.m in Sources */,
+				1BAE264B1F80AA26004D3F22 /* NJDRefreshHeader.m in Sources */,
+				1BAE26551F80C090004D3F22 /* IDCardVC.m in Sources */,
+				1BAE26511F80AC0A004D3F22 /* MBProgressHUD+NJDProgressHUD.m in Sources */,
 				1976ECF11F7F770900A15BE4 /* LandlordViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
