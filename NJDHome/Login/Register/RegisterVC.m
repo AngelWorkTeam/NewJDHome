@@ -120,12 +120,21 @@
 #pragma mark - action handle
 
 - (IBAction)registerHandle:(id)sender {
-    if([self inputValid] == NO){
-        return;
-    }
+//    if([self inputValid] == NO){
+//        return;
+//    }
     self.registerDic[@"name"] = self.nameTextFeild.text;
+    self.registerDic[@"pwd"] = self.pwdTextField.text;
     self.registerDic[@"identityCard"] = self.idCardTextField.text;
-//    self.registerDic[@"pwd"] = 
+    self.registerDic[@"telephoneNumber"] = self.phoneTextField.text;
+    self.registerDic[@"flag"] = self.role == Role_LandLord?@"FD":@"RY";
+    
+    [NetworkingManager registerWithParams:self.registerDic.copy
+                                  success:^(NSDictionary * _Nullable dictValue) {
+                                      
+                                  } failure:^(NSError * _Nullable error) {
+                                      
+                                  }];
 }
 - (IBAction)pushToIDCardVC:(id)sender {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

@@ -32,20 +32,54 @@
                                 <rect key="frame" x="156" y="380" width="62" height="30"/>
                                 <state key="normal" title="找回密码"/>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="账号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FMI-tT-bOr">
+                                <rect key="frame" x="32" y="144" width="311" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yZI-8E-aJs">
+                                <rect key="frame" x="32" y="182" width="311" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q2d-RC-JO6">
+                                <rect key="frame" x="284" y="220" width="44" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="DbU-3m-xMr"/>
+                                </constraints>
+                                <state key="normal" title="登录"/>
+                                <connections>
+                                    <action selector="loginHandle:" destination="qZJ-BB-n1w" eventType="touchUpInside" id="A9Z-iF-hCr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="yZI-8E-aJs" secondAttribute="trailing" constant="32" id="1iF-6v-rr5"/>
+                            <constraint firstItem="yZI-8E-aJs" firstAttribute="leading" secondItem="MPD-Wx-Oci" secondAttribute="leading" constant="32" id="2gv-me-jq4"/>
                             <constraint firstItem="oHD-iY-U3A" firstAttribute="top" secondItem="R1k-H3-CBi" secondAttribute="bottom" constant="31.5" id="5Gf-je-N0V"/>
+                            <constraint firstAttribute="trailing" secondItem="FMI-tT-bOr" secondAttribute="trailing" constant="32" id="6kQ-uQ-2Pv"/>
+                            <constraint firstItem="q2d-RC-JO6" firstAttribute="top" secondItem="yZI-8E-aJs" secondAttribute="bottom" constant="8" id="BJC-eC-rvb"/>
+                            <constraint firstItem="FMI-tT-bOr" firstAttribute="leading" secondItem="MPD-Wx-Oci" secondAttribute="leading" constant="32" id="Ed2-Xq-WzG"/>
+                            <constraint firstItem="yZI-8E-aJs" firstAttribute="top" secondItem="FMI-tT-bOr" secondAttribute="bottom" constant="8" id="Vd0-Wr-7WN"/>
+                            <constraint firstAttribute="trailing" secondItem="q2d-RC-JO6" secondAttribute="trailing" constant="47" id="X3v-Di-GPG"/>
+                            <constraint firstItem="FMI-tT-bOr" firstAttribute="top" secondItem="bX6-9C-jwB" secondAttribute="bottom" constant="80" id="Z4T-xF-wyB"/>
                             <constraint firstItem="oHD-iY-U3A" firstAttribute="centerX" secondItem="MPD-Wx-Oci" secondAttribute="centerX" id="hhF-DQ-gMg"/>
                             <constraint firstItem="R1k-H3-CBi" firstAttribute="centerY" secondItem="MPD-Wx-Oci" secondAttribute="centerY" id="hng-be-Slb"/>
                             <constraint firstItem="R1k-H3-CBi" firstAttribute="centerX" secondItem="MPD-Wx-Oci" secondAttribute="centerX" id="l6c-pa-6pc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="LlP-lf-Nvi"/>
+                    <connections>
+                        <outlet property="account" destination="FMI-tT-bOr" id="oFa-Rm-B9j"/>
+                        <outlet property="passwordText" destination="yZI-8E-aJs" id="Ik9-mc-SkG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2f8-m3-IHJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="428" y="-36"/>
+            <point key="canvasLocation" x="428" y="-36.431784107946029"/>
         </scene>
         <!--RegisterVC-->
         <scene sceneID="161-yC-AlB">

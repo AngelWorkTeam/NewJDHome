@@ -33,6 +33,14 @@
 		1BD459F61F7FC3B800A5B031 /* NJDNavgationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD459F51F7FC3B800A5B031 /* NJDNavgationController.m */; };
 		1BD459FB1F7FF94400A5B031 /* RegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD459FA1F7FF94400A5B031 /* RegisterVC.m */; };
 		1BD82C321F810624006D6ADC /* NSString+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82C311F810621006D6ADC /* NSString+Utils.m */; };
+		1BD82C371F81354B006D6ADC /* NSManagedObject+EntityBugFix.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82C361F813549006D6ADC /* NSManagedObject+EntityBugFix.m */; };
+		1BD82C3A1F8135EC006D6ADC /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82C381F8135EC006D6ADC /* Model.xcdatamodeld */; };
+		1BD82C6B1F81437E006D6ADC /* NJDPersonInfoMO+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82C671F814373006D6ADC /* NJDPersonInfoMO+CoreDataClass.m */; };
+		1BD82C6C1F814382006D6ADC /* NJDPersonInfoMO+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82C601F814372006D6ADC /* NJDPersonInfoMO+CoreDataProperties.m */; };
+		1BD82C6D1F814388006D6ADC /* NJDRoleInfoMO+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82C611F814372006D6ADC /* NJDRoleInfoMO+CoreDataClass.m */; };
+		1BD82C6E1F81438D006D6ADC /* NJDRoleInfoMO+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82C651F814373006D6ADC /* NJDRoleInfoMO+CoreDataProperties.m */; };
+		1BD82C6F1F814391006D6ADC /* NJDUserInfoMO+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82C6A1F814373006D6ADC /* NJDUserInfoMO+CoreDataClass.m */; };
+		1BD82C701F814394006D6ADC /* NJDUserInfoMO+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82C631F814373006D6ADC /* NJDUserInfoMO+CoreDataProperties.m */; };
 		8D7658C8360962FDEAAB488E /* Pods_NJDHome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB789807F15EBDB3FC91BFEE /* Pods_NJDHome.framework */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +96,21 @@
 		1BD459FA1F7FF94400A5B031 /* RegisterVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterVC.m; sourceTree = "<group>"; };
 		1BD82C301F810621006D6ADC /* NSString+Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Utils.h"; sourceTree = "<group>"; };
 		1BD82C311F810621006D6ADC /* NSString+Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utils.m"; sourceTree = "<group>"; };
+		1BD82C351F813549006D6ADC /* NSManagedObject+EntityBugFix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+EntityBugFix.h"; sourceTree = "<group>"; };
+		1BD82C361F813549006D6ADC /* NSManagedObject+EntityBugFix.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+EntityBugFix.m"; sourceTree = "<group>"; };
+		1BD82C391F8135EC006D6ADC /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		1BD82C5F1F814372006D6ADC /* NJDPersonInfoMO+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NJDPersonInfoMO+CoreDataClass.h"; sourceTree = "<group>"; };
+		1BD82C601F814372006D6ADC /* NJDPersonInfoMO+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NJDPersonInfoMO+CoreDataProperties.m"; sourceTree = "<group>"; };
+		1BD82C611F814372006D6ADC /* NJDRoleInfoMO+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NJDRoleInfoMO+CoreDataClass.m"; sourceTree = "<group>"; };
+		1BD82C621F814372006D6ADC /* NJDUserInfoMO+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NJDUserInfoMO+CoreDataProperties.h"; sourceTree = "<group>"; };
+		1BD82C631F814373006D6ADC /* NJDUserInfoMO+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NJDUserInfoMO+CoreDataProperties.m"; sourceTree = "<group>"; };
+		1BD82C641F814373006D6ADC /* NJDRoleInfoMO+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NJDRoleInfoMO+CoreDataClass.h"; sourceTree = "<group>"; };
+		1BD82C651F814373006D6ADC /* NJDRoleInfoMO+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NJDRoleInfoMO+CoreDataProperties.m"; sourceTree = "<group>"; };
+		1BD82C661F814373006D6ADC /* NJDPersonInfoMO+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NJDPersonInfoMO+CoreDataProperties.h"; sourceTree = "<group>"; };
+		1BD82C671F814373006D6ADC /* NJDPersonInfoMO+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NJDPersonInfoMO+CoreDataClass.m"; sourceTree = "<group>"; };
+		1BD82C681F814373006D6ADC /* NJDRoleInfoMO+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NJDRoleInfoMO+CoreDataProperties.h"; sourceTree = "<group>"; };
+		1BD82C691F814373006D6ADC /* NJDUserInfoMO+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NJDUserInfoMO+CoreDataClass.h"; sourceTree = "<group>"; };
+		1BD82C6A1F814373006D6ADC /* NJDUserInfoMO+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NJDUserInfoMO+CoreDataClass.m"; sourceTree = "<group>"; };
 		BB196FD89180E5F2CC770622 /* Pods-NJDHome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NJDHome.release.xcconfig"; path = "Pods/Target Support Files/Pods-NJDHome/Pods-NJDHome.release.xcconfig"; sourceTree = "<group>"; };
 		CB789807F15EBDB3FC91BFEE /* Pods_NJDHome.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NJDHome.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -238,6 +261,7 @@
 		19B707E21F7E2E2E0086C565 /* NJDHome */ = {
 			isa = PBXGroup;
 			children = (
+				1BD82C331F81348A006D6ADC /* Model */,
 				1BAE26521F80BC4A004D3F22 /* IDCard */,
 				1BD459E61F7FBFF300A5B031 /* Helper */,
 				1BA842671F7F463400D4221B /* Networking */,
@@ -371,6 +395,7 @@
 		1BD459E61F7FBFF300A5B031 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				1BD82C341F813530006D6ADC /* MagicalRecord */,
 				1BD82C2F1F8105F0006D6ADC /* Util */,
 				1BD459F31F7FC39200A5B031 /* NJDNavgationController */,
 				1BD459EE1F7FC06A00A5B031 /* NJDBaseController */,
@@ -424,6 +449,35 @@
 				1BD82C311F810621006D6ADC /* NSString+Utils.m */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		1BD82C331F81348A006D6ADC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1BD82C381F8135EC006D6ADC /* Model.xcdatamodeld */,
+				1BD82C5F1F814372006D6ADC /* NJDPersonInfoMO+CoreDataClass.h */,
+				1BD82C671F814373006D6ADC /* NJDPersonInfoMO+CoreDataClass.m */,
+				1BD82C661F814373006D6ADC /* NJDPersonInfoMO+CoreDataProperties.h */,
+				1BD82C601F814372006D6ADC /* NJDPersonInfoMO+CoreDataProperties.m */,
+				1BD82C641F814373006D6ADC /* NJDRoleInfoMO+CoreDataClass.h */,
+				1BD82C611F814372006D6ADC /* NJDRoleInfoMO+CoreDataClass.m */,
+				1BD82C681F814373006D6ADC /* NJDRoleInfoMO+CoreDataProperties.h */,
+				1BD82C651F814373006D6ADC /* NJDRoleInfoMO+CoreDataProperties.m */,
+				1BD82C691F814373006D6ADC /* NJDUserInfoMO+CoreDataClass.h */,
+				1BD82C6A1F814373006D6ADC /* NJDUserInfoMO+CoreDataClass.m */,
+				1BD82C621F814372006D6ADC /* NJDUserInfoMO+CoreDataProperties.h */,
+				1BD82C631F814373006D6ADC /* NJDUserInfoMO+CoreDataProperties.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1BD82C341F813530006D6ADC /* MagicalRecord */ = {
+			isa = PBXGroup;
+			children = (
+				1BD82C351F813549006D6ADC /* NSManagedObject+EntityBugFix.h */,
+				1BD82C361F813549006D6ADC /* NSManagedObject+EntityBugFix.m */,
+			);
+			path = MagicalRecord;
 			sourceTree = "<group>";
 		};
 		ADEE84AD8324FA01FC3A4522 /* Pods */ = {
@@ -562,6 +616,7 @@
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/MagicalRecord/MagicalRecord.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/SAMCategories/SAMCategories.framework",
@@ -576,6 +631,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MagicalRecord.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SAMCategories.framework",
@@ -595,6 +651,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BD82C6B1F81437E006D6ADC /* NJDPersonInfoMO+CoreDataClass.m in Sources */,
 				1976ECF51F7F78B700A15BE4 /* NetworkingManager.m in Sources */,
 				1976ECE21F7F49C200A15BE4 /* UserInfo.m in Sources */,
 				1976ECBA1F7F26BC00A15BE4 /* LoginViewController.m in Sources */,
@@ -604,14 +661,21 @@
 				1BD459FB1F7FF94400A5B031 /* RegisterVC.m in Sources */,
 				19B707E81F7E2E2E0086C565 /* ViewController.m in Sources */,
 				1976ECE11F7F49C200A15BE4 /* RoleInfo.m in Sources */,
+				1BD82C371F81354B006D6ADC /* NSManagedObject+EntityBugFix.m in Sources */,
 				1BD459F11F7FC06D00A5B031 /* NJDBaseController.m in Sources */,
+				1BD82C3A1F8135EC006D6ADC /* Model.xcdatamodeld in Sources */,
 				1976ECE01F7F49C200A15BE4 /* PersonInfo.m in Sources */,
 				1976ECD71F7F3F7500A15BE4 /* TrafficAssistantViewController.m in Sources */,
 				1BD459F21F7FC07000A5B031 /* GlobleMacro.m in Sources */,
 				1976ECEE1F7F76FA00A15BE4 /* RenterViewController.m in Sources */,
+				1BD82C701F814394006D6ADC /* NJDUserInfoMO+CoreDataProperties.m in Sources */,
 				1BAE264E1F80AA90004D3F22 /* HETSleepActivityIndicatorView.m in Sources */,
+				1BD82C6E1F81438D006D6ADC /* NJDRoleInfoMO+CoreDataProperties.m in Sources */,
 				1BD82C321F810624006D6ADC /* NSString+Utils.m in Sources */,
+				1BD82C6C1F814382006D6ADC /* NJDPersonInfoMO+CoreDataProperties.m in Sources */,
 				19B707F31F7E2E2E0086C565 /* main.m in Sources */,
+				1BD82C6D1F814388006D6ADC /* NJDRoleInfoMO+CoreDataClass.m in Sources */,
+				1BD82C6F1F814391006D6ADC /* NJDUserInfoMO+CoreDataClass.m in Sources */,
 				1976ECF41F7F77ED00A15BE4 /* WindowClerkViewController.m in Sources */,
 				1BAE264B1F80AA26004D3F22 /* NJDRefreshHeader.m in Sources */,
 				1BAE26551F80C090004D3F22 /* IDCardVC.m in Sources */,
@@ -809,6 +873,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1BD82C381F8135EC006D6ADC /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1BD82C391F8135EC006D6ADC /* Model.xcdatamodel */,
+			);
+			currentVersion = 1BD82C391F8135EC006D6ADC /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 19B707D81F7E2E2E0086C565 /* Project object */;
 }

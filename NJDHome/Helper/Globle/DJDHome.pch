@@ -16,6 +16,8 @@
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <SAMCategories/SAMCategories.h>
 #import <Masonry/Masonry.h>
+#import <MagicalRecord/MagicalRecord.h>
+#import "NSManagedObject+EntityBugFix.h"
 #import "GlobleMacro.h"
 #import "NetworkingManager.h"
 #import "NJDBaseController.h"
@@ -23,6 +25,12 @@
 #import "NJDPopLoading.h"
 #import "NJDRefreshHeader.h"
 #import "NSString+Utils.h"
+
+//user info
+#import "NJDUserInfoMO+CoreDataProperties.h"
+#import "NJDRoleInfoMO+CoreDataProperties.h"
+#import "NJDPersonInfoMO+CoreDataProperties.h"
+
 #ifdef RACObserve
 #undef RACObserve
     #define RACObserve(TARGET, KEYPATH) \

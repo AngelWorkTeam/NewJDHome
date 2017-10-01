@@ -16,6 +16,7 @@ pod 'SAMCategories'
 pod 'ReactiveCocoa',    '~> 2.0'
 pod 'MBProgressHUD'
 pod 'MJRefresh'
+pod 'MagicalRecord'
 end
 
 post_install do |installer|

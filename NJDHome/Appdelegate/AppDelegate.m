@@ -33,7 +33,9 @@
 //   
 //    [Bugly startWithAppId:@"02841f4dd3"];
 
-   
+    //Setup MagivalRecord & CoreData
+    [MagicalRecord setupAutoMigratingCoreDataStack];
+    [MagicalRecord setLoggingLevel:MagicalRecordLoggingLevelWarn];
     return YES;
 }
 

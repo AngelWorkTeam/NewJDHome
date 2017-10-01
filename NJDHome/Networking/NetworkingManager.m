@@ -16,6 +16,7 @@ NSString * const kBaseUrl = @"http://218.75.95.243:8089/";
 
 NSString * const kUserDomain = @"ldrk/client/";
 NSString * const kLoginPath = @"login";
+NSString * const kRegister = @"regist";
 
 
 @implementation NetworkingManager
@@ -62,19 +63,30 @@ NSString * const kLoginPath = @"login";
     return manager;
 }
 
-+(AFHTTPSessionManager *)registerName:(NSString * _Nonnull)name
-                                  pwd:(NSString * _Nonnull)pwd
-                         identityCard:(NSString * _Nonnull)idcard
-                      telephoneNumber:(NSString * _Nonnull)phone
-                                 flag:(NSString * _Nonnull)flag
-                                  sex:(NSInteger)sex
-                               nation:(NSString *)nation
-                           oldAddress:(NSString *)oldAddress
-                      identityImgFile:(UIImage *)identityImg
++(void)registerWithParams:(NSDictionary *)params
                               success:(NJDHttpSuccessBlockDictionary)success
-                              failure:(NJDHttpFailureBlock)faile{
-//    AFHTTPSessionManager *manager = [AFHTTPSessionManager ]
-    return nil;
+                              failure:(NJDHttpFailureBlock)fail{
+    AFHTTPSessionManager *manager = [self manager];
+    NSMutableDictionary *dic = params.mutableCopy;
+    UIImage *img = params[@"identityImgFile"];
+    [dic removeObjectForKey:@"identityImgFile"];
+    void (^formDataBlock)(id formData) = ^(id<AFMultipartFormData>  _Nonnull formData) {
+         NSData *data = UIImageJPEGRepresentation(img, 0.75);
+        [formData appendPartWithFileData: data
+                                    name: @"identityImgFile"
+                                fileName: @"identityImgFile.png"
+                                mimeType: @"image/png"];
+    };
+    [manager POST:kURL(kUserDomain, kRegister)
+       parameters:dic.copy
+constructingBodyWithBlock:img?formDataBlock:nil
+         progress:nil
+          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+              
+          }
+          failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+              
+          }];
 }
 
 +(void)identifierIdWithImg:(UIImage *)img

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13240" systemVersion="16G29" minimumToolsVersion="Xcode 8.0" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="NJDPersonInfo" representedClassName="NJDPersonInfoMO" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identityCard" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sex" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="state" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="telephoneNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="belongUserInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NJDUserInfo" inverseName="personInfo" inverseEntity="NJDUserInfo" syncable="YES"/>
+    </entity>
+    <entity name="NJDRoleInfo" representedClassName="NJDRoleInfoMO" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isSystem" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="no" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="belongUserInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NJDUserInfo" inverseName="role" inverseEntity="NJDUserInfo" syncable="YES"/>
+    </entity>
+    <entity name="NJDUserInfo" representedClassName="NJDUserInfoMO" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isdeleted" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isLocked" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isLogin" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="realName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="token" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userPassword" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="personInfo" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="NJDPersonInfo" inverseName="belongUserInfo" inverseEntity="NJDPersonInfo" syncable="YES"/>
+        <relationship name="role" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="NJDRoleInfo" inverseName="belongUserInfo" inverseEntity="NJDRoleInfo" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="NJDUserInfo" positionX="-272" positionY="9" width="128" height="208"/>
+        <element name="NJDRoleInfo" positionX="-36" positionY="63" width="128" height="118"/>
+        <element name="NJDPersonInfo" positionX="-54" positionY="195" width="128" height="178"/>
+    </elements>
+</model>
