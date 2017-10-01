@@ -279,15 +279,38 @@
                                     <constraint firstItem="dGn-1X-A6U" firstAttribute="leading" secondItem="ZYb-Os-pip" secondAttribute="leading" id="zSE-ap-0Ef"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oc9-0a-Jvb">
+                                <rect key="frame" x="16" y="236" width="343" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="6gZ-Zw-bBJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="确定">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="oc9-0a-Jvb" secondAttribute="trailing" constant="16" id="2sB-MG-nGP"/>
                             <constraint firstAttribute="trailing" secondItem="ZYb-Os-pip" secondAttribute="trailing" id="LDP-e7-lvW"/>
                             <constraint firstItem="ZYb-Os-pip" firstAttribute="leading" secondItem="qOA-5m-I1U" secondAttribute="leading" id="LPH-13-5g7"/>
+                            <constraint firstItem="oc9-0a-Jvb" firstAttribute="leading" secondItem="qOA-5m-I1U" secondAttribute="leading" constant="16" id="cmC-TK-Uz3"/>
+                            <constraint firstItem="oc9-0a-Jvb" firstAttribute="top" secondItem="ZYb-Os-pip" secondAttribute="bottom" constant="16" id="rOq-8b-4Q6"/>
                             <constraint firstItem="ZYb-Os-pip" firstAttribute="top" secondItem="qOA-5m-I1U" secondAttribute="top" id="zDq-uH-2xy"/>
                         </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="scanIdBtn" destination="UIe-Aq-b9h" id="iPg-zl-5mG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NF0-YV-Uju" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

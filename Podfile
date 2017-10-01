@@ -2,6 +2,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/JustinYangJing/MySpecs.git'
 
 platform :ios, '8.0'
+use_frameworks!
 target 'NJDHome' do
 
 pod 'YTKKeyValueStore', '~> 0.1.2'
@@ -12,6 +13,7 @@ pod 'SDWebImage', '3.7.5'
 pod 'AFNetworking', '~> 3.0'
 pod 'BNRSDKLib'
 pod 'SAMCategories'
+pod 'ReactiveCocoa'
 end
 
 post_install do |installer|
