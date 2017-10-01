@@ -7,7 +7,7 @@
 //
 
 #import "RegisterVC.h"
-
+#import "IDCardVC.h"
 @interface RegisterVC ()
 @property (weak, nonatomic) IBOutlet UIButton *scanIdBtn;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextFeild;
@@ -19,6 +19,9 @@
 
 @property (nonatomic,copy) NSString *loadingMsg;
 @property (nonatomic,copy) NSString *errorMsg;
+@property (nonatomic,copy) UIImage *idImg;
+
+@property (nonatomic,strong) NSMutableDictionary *registerDic;
 @end
 
 @implementation RegisterVC
@@ -40,12 +43,14 @@
 
 #pragma mark - private method
 -(void)initViews{
+    self.title = self.role == Role_LandLord?@"房东注册":@"租客注册";
     self.view.backgroundColor = [UIColor lightGrayColor];
     self.scanIdBtn.layer.cornerRadius = 6.;
     self.scanIdBtn.layer.masksToBounds = YES;
     
 }
 -(void)configViewModel{
+    self.registerDic = [NSMutableDictionary dictionary];
     @weakify(self);
    RACSignal *enableSignal = RAC(self.registerBtn,enabled) = [RACSignal
                                      combineLatest:@[self.nameTextFeild.rac_textSignal,
@@ -67,9 +72,74 @@
         }
     }];
     
+    [[RACObserve(self, loadingMsg) skip:1] subscribeNext:^(NSString *x) {
+        x?[NJDPopLoading showMessageWithLoading:x]:[NJDPopLoading hideHud];
+    }];
+    
+    [[RACObserve(self, errorMsg) skip:1] subscribeNext:^(id x) {
+        if (x) {
+            [NJDPopLoading showAutoHideWithMessage:x];
+        }
+    }];
+}
+-(void)idtifierIdWithImg:(UIImage *)img{
+    self.loadingMsg = @"正在识别你的信息";
+    [NetworkingManager identifierIdWithImg:img
+                                   success:^(NSArray * _Nullable arrayValue) {
+                                       self.loadingMsg = nil;
+                                       NSDictionary *dic = [arrayValue firstObject];
+                                       self.nameTextFeild.text = SAFE_STRING(dic[@"name"]);
+                                       self.registerDic[@"sex"] = [SAFE_STRING(dic[@"gender"]) isEqualToString:@"女"]?@0:@1;
+                                       self.registerDic[@"nation"] = SAFE_STRING(dic[@"race"]);
+                                       self.idCardTextField.text = SAFE_STRING(dic[@"id_card_number"]);
+                                       self.registerDic[@"oldAddress"] = SAFE_STRING(dic[@"address"]);
+                                       self.registerDic[@"identityImgFile"] = img;
+                                   } failure:^(NSError * _Nullable error) {
+                                       self.errorMsg = error.userInfo[NSLocalizedDescriptionKey];
+                                   }];
+}
+-(BOOL)inputValid{
+    if (![self.pwdTextField.text isEqualToString:self.pwdAgainTextField.text]) {
+        self.errorMsg = @"密码输入不一致";
+        return NO;
+    }
+    if (self.pwdTextField.text.length < 6) {
+        self.errorMsg = @"密码必须大于等于6位";
+        return NO;
+    }
+    if (![NSString isValidateIdentityCard:self.idCardTextField.text]) {
+        self.errorMsg = @"身份证输入有误";
+        return NO;
+    }
+    if (![NSString isValidPassword:self.phoneTextField.text]) {
+        self.errorMsg = @"手机号输入有误";
+        return NO;
+    }
+    return YES;
 }
 #pragma mark - action handle
 
 - (IBAction)registerHandle:(id)sender {
+    if([self inputValid] == NO){
+        return;
+    }
+    self.registerDic[@"name"] = self.nameTextFeild.text;
+    self.registerDic[@"identityCard"] = self.idCardTextField.text;
+//    self.registerDic[@"pwd"] = 
+}
+- (IBAction)pushToIDCardVC:(id)sender {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    IDCardVC *vc = [sb instantiateViewControllerWithIdentifier:@"IDCardVC"];
+    @weakify(self);
+    vc.idCardImg = ^(UIImage *img){
+         @strongify(self);
+        [self idtifierIdWithImg:img];
+    };
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+-(void)setErrorMsg:(NSString *)errorMsg{
+    self.loadingMsg = nil;
+    _errorMsg = errorMsg;
 }
 @end

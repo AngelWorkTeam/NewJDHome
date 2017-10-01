@@ -32,6 +32,7 @@
 		1BD459F21F7FC07000A5B031 /* GlobleMacro.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD459EA1F7FC02500A5B031 /* GlobleMacro.m */; };
 		1BD459F61F7FC3B800A5B031 /* NJDNavgationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD459F51F7FC3B800A5B031 /* NJDNavgationController.m */; };
 		1BD459FB1F7FF94400A5B031 /* RegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD459FA1F7FF94400A5B031 /* RegisterVC.m */; };
+		1BD82C321F810624006D6ADC /* NSString+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82C311F810621006D6ADC /* NSString+Utils.m */; };
 		8D7658C8360962FDEAAB488E /* Pods_NJDHome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB789807F15EBDB3FC91BFEE /* Pods_NJDHome.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +86,8 @@
 		1BD459F51F7FC3B800A5B031 /* NJDNavgationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NJDNavgationController.m; sourceTree = "<group>"; };
 		1BD459F91F7FF94400A5B031 /* RegisterVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterVC.h; sourceTree = "<group>"; };
 		1BD459FA1F7FF94400A5B031 /* RegisterVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterVC.m; sourceTree = "<group>"; };
+		1BD82C301F810621006D6ADC /* NSString+Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Utils.h"; sourceTree = "<group>"; };
+		1BD82C311F810621006D6ADC /* NSString+Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utils.m"; sourceTree = "<group>"; };
 		BB196FD89180E5F2CC770622 /* Pods-NJDHome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NJDHome.release.xcconfig"; path = "Pods/Target Support Files/Pods-NJDHome/Pods-NJDHome.release.xcconfig"; sourceTree = "<group>"; };
 		CB789807F15EBDB3FC91BFEE /* Pods_NJDHome.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NJDHome.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -368,6 +371,7 @@
 		1BD459E61F7FBFF300A5B031 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				1BD82C2F1F8105F0006D6ADC /* Util */,
 				1BD459F31F7FC39200A5B031 /* NJDNavgationController */,
 				1BD459EE1F7FC06A00A5B031 /* NJDBaseController */,
 				1BD459E71F7FC02500A5B031 /* Globle */,
@@ -411,6 +415,15 @@
 				1BD459FA1F7FF94400A5B031 /* RegisterVC.m */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		1BD82C2F1F8105F0006D6ADC /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				1BD82C301F810621006D6ADC /* NSString+Utils.h */,
+				1BD82C311F810621006D6ADC /* NSString+Utils.m */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		ADEE84AD8324FA01FC3A4522 /* Pods */ = {
@@ -597,6 +610,7 @@
 				1BD459F21F7FC07000A5B031 /* GlobleMacro.m in Sources */,
 				1976ECEE1F7F76FA00A15BE4 /* RenterViewController.m in Sources */,
 				1BAE264E1F80AA90004D3F22 /* HETSleepActivityIndicatorView.m in Sources */,
+				1BD82C321F810624006D6ADC /* NSString+Utils.m in Sources */,
 				19B707F31F7E2E2E0086C565 /* main.m in Sources */,
 				1976ECF41F7F77ED00A15BE4 /* WindowClerkViewController.m in Sources */,
 				1BAE264B1F80AA26004D3F22 /* NJDRefreshHeader.m in Sources */,

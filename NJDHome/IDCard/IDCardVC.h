@@ -10,4 +10,5 @@
 
 @interface IDCardVC : NJDBaseController
 
+@property (nonatomic,copy) void (^idCardImg)(UIImage *img);
 @end

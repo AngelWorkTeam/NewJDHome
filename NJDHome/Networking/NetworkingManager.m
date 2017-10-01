@@ -25,7 +25,7 @@ NSString * const kLoginPath = @"login";
 +(NSError *)responseTypeError{
     NSError *err = [NSError errorWithDomain:@"response type error"
                                        code:1001
-                                   userInfo:@{@"NSLocalizedDescription":@"response type error from server"}];
+                                   userInfo:@{NSLocalizedDescriptionKey:@"服务器返回了错误的数据"}];
     return err;
 }
 +(AFHTTPSessionManager *)manager{
@@ -77,4 +77,41 @@ NSString * const kLoginPath = @"login";
     return nil;
 }
 
++(void)identifierIdWithImg:(UIImage *)img
+                   success:(NJDHttpSuccessBlockArray)success
+                   failure:(NJDHttpFailureBlock)fail{
+    AFHTTPSessionManager *manager = [self manager];
+    [manager POST:@"https://api-cn.faceplusplus.com/cardpp/v1/ocridcard"
+       parameters:@{@"api_key":kFacePlusAPIKey,
+                    @"api_secret":kFacePlusAPISecret
+                    }
+constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    NSData *data = UIImageJPEGRepresentation(img, 0.75);
+    [formData appendPartWithFileData: data
+                                name: @"image_file"
+                            fileName: @"idcard.png"
+                            mimeType: @"image/png"];
+        }
+         progress:nil
+          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+              if([responseObject isKindOfClass:[NSDictionary class]]){
+                  NSDictionary *dic = responseObject;
+                  NSArray *cards = dic[@"cards"];
+                  if ([cards isKindOfClass:[NSArray class]]
+                      &&cards.count >0) {
+                      !success?:success(cards);
+                  }else{
+                    !fail?:fail([NSError errorWithDomain:@"identifier fail"
+                                                    code:1002
+                                                userInfo:@{NSLocalizedDescriptionKey:@"解析失败了"}]);
+                  }
+                  
+              }else{
+                  !fail?:fail([self responseTypeError]);
+              }
+          }
+          failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+              !fail?:fail(error);
+          }];
+}
 @end

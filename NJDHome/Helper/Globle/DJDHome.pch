@@ -22,4 +22,13 @@
 #import "UserInfo.h"
 #import "NJDPopLoading.h"
 #import "NJDRefreshHeader.h"
+#import "NSString+Utils.h"
+#ifdef RACObserve
+#undef RACObserve
+    #define RACObserve(TARGET, KEYPATH) \
+    ({ \
+    __weak id target_ = (TARGET); \
+    [target_ rac_valuesForKeyPath:@keypath(TARGET, KEYPATH) observer:self]; \
+    })
+#endif
 #endif /* DJDHome_pch */

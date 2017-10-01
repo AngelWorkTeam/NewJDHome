@@ -11,3 +11,6 @@
 #define SAFE_STRING2(str) (![str isKindOfClass: [NSString class]] ? @"--" : str)
 
 #define SAFE_NUMBER(value) (![value isKindOfClass: [NSNumber class]] ? @(-1) : value)
+
+extern NSString * const kFacePlusAPIKey;
+extern NSString * const kFacePlusAPISecret;

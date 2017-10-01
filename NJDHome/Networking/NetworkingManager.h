@@ -27,4 +27,7 @@ typedef void (^NJDHttpFailureBlock)(NSError * _Nullable error);
 ;
 
 //+(AFHTTPSessionManager *)register
++(void)identifierIdWithImg:(UIImage *_Nonnull)img
+                   success:(NJDHttpSuccessBlockArray _Nullable)success
+                   failure:(NJDHttpFailureBlock _Nullable)fail;
 @end

@@ -21,7 +21,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     // 导航栏背景色
-    [self.navigationBar setBarTintColor:[UIColor purpleColor]];
+    [self.navigationBar setBarTintColor:[UIColor redColor]];
     
     // 导航栏控件着色
     [self.navigationBar setTintColor: [UIColor whiteColor]];
