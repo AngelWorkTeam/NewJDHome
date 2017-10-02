@@ -45,7 +45,7 @@
     [super viewWillAppear:animated];
 }
 -(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
-    if (self.viewControllers.count > 1) {
+    if (self.viewControllers.count > 2) {
         return YES;
     }else{
         return NO;

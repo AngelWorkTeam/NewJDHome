@@ -17,7 +17,7 @@
 		1976ECF11F7F770900A15BE4 /* LandlordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECF01F7F770900A15BE4 /* LandlordViewController.m */; };
 		1976ECF41F7F77ED00A15BE4 /* WindowClerkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECF31F7F77ED00A15BE4 /* WindowClerkViewController.m */; };
 		1976ECF51F7F78B700A15BE4 /* NetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA842691F7F463400D4221B /* NetworkingManager.m */; };
-		19B707E81F7E2E2E0086C565 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B707E71F7E2E2E0086C565 /* ViewController.m */; };
+		19B707E81F7E2E2E0086C565 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B707E71F7E2E2E0086C565 /* LoginVC.m */; };
 		19B707EB1F7E2E2E0086C565 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B707E91F7E2E2E0086C565 /* Main.storyboard */; };
 		19B707ED1F7E2E2E0086C565 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19B707EC1F7E2E2E0086C565 /* Assets.xcassets */; };
 		19B707F01F7E2E2E0086C565 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B707EE1F7E2E2E0086C565 /* LaunchScreen.storyboard */; };
@@ -64,8 +64,8 @@
 		1976ECF21F7F77ED00A15BE4 /* WindowClerkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowClerkViewController.h; sourceTree = "<group>"; };
 		1976ECF31F7F77ED00A15BE4 /* WindowClerkViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WindowClerkViewController.m; sourceTree = "<group>"; };
 		19B707E01F7E2E2E0086C565 /* NJDHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NJDHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		19B707E61F7E2E2E0086C565 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		19B707E71F7E2E2E0086C565 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		19B707E61F7E2E2E0086C565 /* LoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
+		19B707E71F7E2E2E0086C565 /* LoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 		19B707EA1F7E2E2E0086C565 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		19B707EC1F7E2E2E0086C565 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19B707EF1F7E2E2E0086C565 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -272,8 +272,6 @@
 				19B707FF1F7E3B2D0086C565 /* Renter */,
 				19B707FE1F7E36270086C565 /* Landlord */,
 				19B707FA1F7E35FC0086C565 /* Appdelegate */,
-				19B707E61F7E2E2E0086C565 /* ViewController.h */,
-				19B707E71F7E2E2E0086C565 /* ViewController.m */,
 				19B707E91F7E2E2E0086C565 /* Main.storyboard */,
 				19B707EC1F7E2E2E0086C565 /* Assets.xcassets */,
 				19B707EE1F7E2E2E0086C565 /* LaunchScreen.storyboard */,
@@ -348,6 +346,8 @@
 				1976ECB81F7F26BC00A15BE4 /* LoginViewController.h */,
 				1976ECB91F7F26BC00A15BE4 /* LoginViewController.m */,
 				1976ECBB1F7F26E100A15BE4 /* LoginStoryboard.storyboard */,
+				19B707E61F7E2E2E0086C565 /* LoginVC.h */,
+				19B707E71F7E2E2E0086C565 /* LoginVC.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -659,7 +659,7 @@
 				19B707FD1F7E35FC0086C565 /* AppDelegate.m in Sources */,
 				1BAE264A1F80AA21004D3F22 /* NJDPopLoading.m in Sources */,
 				1BD459FB1F7FF94400A5B031 /* RegisterVC.m in Sources */,
-				19B707E81F7E2E2E0086C565 /* ViewController.m in Sources */,
+				19B707E81F7E2E2E0086C565 /* LoginVC.m in Sources */,
 				1976ECE11F7F49C200A15BE4 /* RoleInfo.m in Sources */,
 				1BD82C371F81354B006D6ADC /* NSManagedObject+EntityBugFix.m in Sources */,
 				1BD459F11F7FC06D00A5B031 /* NJDBaseController.m in Sources */,

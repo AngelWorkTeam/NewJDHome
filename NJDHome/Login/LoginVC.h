@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : NJDBaseController
+@interface LoginVC : NJDBaseController
 
 
 @end

@@ -24,18 +24,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
-//    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-//    self.window.backgroundColor = [UIColor whiteColor];
-//    self.window.rootViewController = [self creatRootVC];
-//    
-//    [self.window makeKeyAndVisible];
-//   
-//    [Bugly startWithAppId:@"02841f4dd3"];
-
     //Setup MagivalRecord & CoreData
     [MagicalRecord setupAutoMigratingCoreDataStack];
     [MagicalRecord setLoggingLevel:MagicalRecordLoggingLevelWarn];
+    
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.rootViewController = [self creatRootVC];
+
+    [self.window makeKeyAndVisible];
+//
+//    [Bugly startWithAppId:@"02841f4dd3"];
+
+    
     return YES;
 }
 
@@ -80,10 +81,22 @@
 
 -(NJDNavgationController *)creatRootVC
 {
-    UIStoryboard *sportStoryBoard =  [UIStoryboard storyboardWithName:@"LoginStoryboard" bundle:nil];
-    UIViewController *controller = [sportStoryBoard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    UIStoryboard *sb =  [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *login = [sb instantiateViewControllerWithIdentifier:@"LoginVC"];
+    NJDNavgationController *nav = [[NJDNavgationController alloc] initWithRootViewController:login];
+    NJDUserInfoMO *userInfo = [NJDUserInfoMO userInfo];
+    if (userInfo.isLogin&&
+        userInfo.role.no) {//可以根据角色设置推入哪两个VC了(登入界面总在nav中)
+        if ([userInfo.role.no isEqualToString:@"PTYH"]||
+            [userInfo.role.no isEqualToString:@"FD"]) {
+            UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"FDOrPTYHVC"];
+            [nav setViewControllers:@[login,vc]];
+        }else if([userInfo.role.no isEqualToString:@"XGY"] //协管员
+                 ||[userInfo.role.no isEqualToString:@"CKRY"]){ //窗口管理员
+            
+        }
+    }
     
-    NJDNavgationController *nav = [[NJDNavgationController alloc] initWithRootViewController:controller];
     return nav;
 }
 

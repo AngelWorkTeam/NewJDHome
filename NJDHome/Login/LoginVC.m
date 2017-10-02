@@ -6,22 +6,25 @@
 //  Copyright © 2017年 yuan yunlong. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "LoginVC.h"
 #import "RegisterVC.h"
-@interface ViewController ()
+@interface LoginVC ()
 @property (weak, nonatomic) IBOutlet UITextField *account;
 @property (weak, nonatomic) IBOutlet UITextField *passwordText;
 
 @end
 
-@implementation ViewController
+@implementation LoginVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     [self createNoBackWithOpaue:NO];
 }
-
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self createNoBackWithOpaue:NO];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -45,6 +48,18 @@
                                              info.isLocked = [[dic valueForKeyPath:@"appLoginedInfo.user.isLocked"] intValue];
                                              info.userPassword = self.passwordText.text;
                                              info.id = [dic valueForKeyPath:@"appLoginedInfo.user.id"];
+                                             
+                                             NSDictionary *role = [dic valueForKeyPath:@"appLoginedInfo.user.role"];
+                                             if (role) {
+                                                 info.role = [NJDRoleInfoMO MR_createEntity];
+                                                 info.role.id = role[@"id"];
+                                                 info.role.isSystem = [role[@"isSystem"] boolValue];
+                                                 info.role.name = role[@"name"];
+                                                 info.role.no = role[@"no"];
+                                             }else{
+                                                 info.isLogin = NO;
+                                             }
+                                 
                                              [NJDUserInfoMO save];
                                          }
    

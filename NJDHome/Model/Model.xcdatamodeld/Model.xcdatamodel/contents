@@ -13,7 +13,7 @@
     </entity>
     <entity name="NJDRoleInfo" representedClassName="NJDRoleInfoMO" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="isSystem" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isSystem" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="no" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="belongUserInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NJDUserInfo" inverseName="role" inverseEntity="NJDUserInfo" syncable="YES"/>
@@ -32,8 +32,8 @@
         <relationship name="role" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="NJDRoleInfo" inverseName="belongUserInfo" inverseEntity="NJDRoleInfo" syncable="YES"/>
     </entity>
     <elements>
-        <element name="NJDUserInfo" positionX="-272" positionY="9" width="128" height="208"/>
-        <element name="NJDRoleInfo" positionX="-36" positionY="63" width="128" height="118"/>
         <element name="NJDPersonInfo" positionX="-54" positionY="195" width="128" height="178"/>
+        <element name="NJDRoleInfo" positionX="-36" positionY="63" width="128" height="120"/>
+        <element name="NJDUserInfo" positionX="-272" positionY="9" width="128" height="208"/>
     </elements>
 </model>

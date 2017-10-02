@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<NJDRoleInfoMO *> *)fetchRequest;
 
-@property (nullable, nonatomic, copy) NSString *isSystem;
+@property (nonatomic) BOOL isSystem;
 @property (nullable, nonatomic, copy) NSString *name;
 @property (nullable, nonatomic, copy) NSString *no;
 @property (nullable, nonatomic, copy) NSString *id;

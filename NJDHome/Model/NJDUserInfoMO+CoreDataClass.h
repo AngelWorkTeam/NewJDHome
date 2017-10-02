@@ -14,6 +14,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NJDUserInfoMO : NSManagedObject
+/**
+ *在处登入界面之外的地方访问它，程序中总只保持一个userinfo的实体
+ */
 +(NJDUserInfoMO *)userInfo;
 +(void)save;
 +(void)deleteAll;
