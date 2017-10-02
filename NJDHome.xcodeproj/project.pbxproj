@@ -24,6 +24,8 @@
 		19B707F31F7E2E2E0086C565 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B707F21F7E2E2E0086C565 /* main.m */; };
 		19B707FD1F7E35FC0086C565 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B707FC1F7E35FC0086C565 /* AppDelegate.m */; };
 		1B0260AE1F81E4F8000A4411 /* FDOrPTYHVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0260AD1F81E4F8000A4411 /* FDOrPTYHVC.m */; };
+		1B0260B11F81FE13000A4411 /* SettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0260B01F81FE13000A4411 /* SettingVC.m */; };
+		1B0260B41F820A79000A4411 /* ModifyPswVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0260B31F820A79000A4411 /* ModifyPswVC.m */; };
 		1BAE264A1F80AA21004D3F22 /* NJDPopLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE26451F80A43B004D3F22 /* NJDPopLoading.m */; };
 		1BAE264B1F80AA26004D3F22 /* NJDRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE26471F80A43B004D3F22 /* NJDRefreshHeader.m */; };
 		1BAE264E1F80AA90004D3F22 /* HETSleepActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE264C1F80AA90004D3F22 /* HETSleepActivityIndicatorView.m */; };
@@ -76,6 +78,10 @@
 		19B707FC1F7E35FC0086C565 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1B0260AC1F81E4F8000A4411 /* FDOrPTYHVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDOrPTYHVC.h; sourceTree = "<group>"; };
 		1B0260AD1F81E4F8000A4411 /* FDOrPTYHVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDOrPTYHVC.m; sourceTree = "<group>"; };
+		1B0260AF1F81FE13000A4411 /* SettingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingVC.h; sourceTree = "<group>"; };
+		1B0260B01F81FE13000A4411 /* SettingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingVC.m; sourceTree = "<group>"; };
+		1B0260B21F820A79000A4411 /* ModifyPswVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModifyPswVC.h; sourceTree = "<group>"; };
+		1B0260B31F820A79000A4411 /* ModifyPswVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModifyPswVC.m; sourceTree = "<group>"; };
 		1BA842681F7F463400D4221B /* NetworkingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingManager.h; sourceTree = "<group>"; };
 		1BA842691F7F463400D4221B /* NetworkingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkingManager.m; sourceTree = "<group>"; };
 		1BAE26441F80A43B004D3F22 /* NJDPopLoading.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NJDPopLoading.h; sourceTree = "<group>"; };
@@ -369,6 +375,10 @@
 			children = (
 				1B0260AC1F81E4F8000A4411 /* FDOrPTYHVC.h */,
 				1B0260AD1F81E4F8000A4411 /* FDOrPTYHVC.m */,
+				1B0260AF1F81FE13000A4411 /* SettingVC.h */,
+				1B0260B01F81FE13000A4411 /* SettingVC.m */,
+				1B0260B21F820A79000A4411 /* ModifyPswVC.h */,
+				1B0260B31F820A79000A4411 /* ModifyPswVC.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -672,6 +682,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B0260B41F820A79000A4411 /* ModifyPswVC.m in Sources */,
 				1BD82C6B1F81437E006D6ADC /* NJDPersonInfoMO+CoreDataClass.m in Sources */,
 				1976ECF51F7F78B700A15BE4 /* NetworkingManager.m in Sources */,
 				1B0260AE1F81E4F8000A4411 /* FDOrPTYHVC.m in Sources */,
@@ -701,6 +712,7 @@
 				1976ECF41F7F77ED00A15BE4 /* WindowClerkViewController.m in Sources */,
 				1BAE264B1F80AA26004D3F22 /* NJDRefreshHeader.m in Sources */,
 				1BAE26551F80C090004D3F22 /* IDCardVC.m in Sources */,
+				1B0260B11F81FE13000A4411 /* SettingVC.m in Sources */,
 				1BAE26511F80AC0A004D3F22 /* MBProgressHUD+NJDProgressHUD.m in Sources */,
 				1976ECF11F7F770900A15BE4 /* LandlordViewController.m in Sources */,
 			);

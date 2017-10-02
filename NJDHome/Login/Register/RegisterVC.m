@@ -61,7 +61,7 @@
                                      reduce:^id(NSString *name,NSString *pwd,
                                                 NSString *pwdAgian, NSString *idCard,
                                                 NSString *phone){
-                                         return @((pwd.length>0&&pwd.length>0&&pwdAgian.length>0&&idCard.length>0&&phone.length>0));
+                                         return @((name.length>0&&pwd.length>0&&pwdAgian.length>0&&idCard.length>0&&phone.length>0));
                                      }];
     [enableSignal subscribeNext:^(NSNumber *x) {
         @strongify(self);

@@ -7,7 +7,7 @@
 //
 
 #import "FDOrPTYHVC.h"
-
+#import "SettingVC.h"
 @interface FDOrPTYHVC ()
 
 @end
@@ -39,7 +39,9 @@
 
 #pragma mark - action handle
 -(void)settingHandle:(UIBarButtonItem *)item{
-    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    SettingVC *vc =[sb instantiateViewControllerWithIdentifier:@"settingVC"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 - (IBAction)tapApplyView:(UITapGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateEnded) {
