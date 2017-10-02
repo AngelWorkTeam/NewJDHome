@@ -23,6 +23,7 @@
 		19B707F01F7E2E2E0086C565 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B707EE1F7E2E2E0086C565 /* LaunchScreen.storyboard */; };
 		19B707F31F7E2E2E0086C565 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B707F21F7E2E2E0086C565 /* main.m */; };
 		19B707FD1F7E35FC0086C565 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B707FC1F7E35FC0086C565 /* AppDelegate.m */; };
+		1B0260AE1F81E4F8000A4411 /* FDOrPTYHVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0260AD1F81E4F8000A4411 /* FDOrPTYHVC.m */; };
 		1BAE264A1F80AA21004D3F22 /* NJDPopLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE26451F80A43B004D3F22 /* NJDPopLoading.m */; };
 		1BAE264B1F80AA26004D3F22 /* NJDRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE26471F80A43B004D3F22 /* NJDRefreshHeader.m */; };
 		1BAE264E1F80AA90004D3F22 /* HETSleepActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE264C1F80AA90004D3F22 /* HETSleepActivityIndicatorView.m */; };
@@ -73,6 +74,8 @@
 		19B707F21F7E2E2E0086C565 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		19B707FB1F7E35FC0086C565 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		19B707FC1F7E35FC0086C565 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1B0260AC1F81E4F8000A4411 /* FDOrPTYHVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDOrPTYHVC.h; sourceTree = "<group>"; };
+		1B0260AD1F81E4F8000A4411 /* FDOrPTYHVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDOrPTYHVC.m; sourceTree = "<group>"; };
 		1BA842681F7F463400D4221B /* NetworkingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingManager.h; sourceTree = "<group>"; };
 		1BA842691F7F463400D4221B /* NetworkingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkingManager.m; sourceTree = "<group>"; };
 		1BAE26441F80A43B004D3F22 /* NJDPopLoading.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NJDPopLoading.h; sourceTree = "<group>"; };
@@ -261,6 +264,7 @@
 		19B707E21F7E2E2E0086C565 /* NJDHome */ = {
 			isa = PBXGroup;
 			children = (
+				1B0260AA1F81E4A1000A4411 /* FDOrPTYH */,
 				1BD82C331F81348A006D6ADC /* Model */,
 				1BAE26521F80BC4A004D3F22 /* IDCard */,
 				1BD459E61F7FBFF300A5B031 /* Helper */,
@@ -350,6 +354,23 @@
 				19B707E71F7E2E2E0086C565 /* LoginVC.m */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		1B0260AA1F81E4A1000A4411 /* FDOrPTYH */ = {
+			isa = PBXGroup;
+			children = (
+				1B0260AB1F81E4DC000A4411 /* VC */,
+			);
+			path = FDOrPTYH;
+			sourceTree = "<group>";
+		};
+		1B0260AB1F81E4DC000A4411 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				1B0260AC1F81E4F8000A4411 /* FDOrPTYHVC.h */,
+				1B0260AD1F81E4F8000A4411 /* FDOrPTYHVC.m */,
+			);
+			path = VC;
 			sourceTree = "<group>";
 		};
 		1BA842621F7F43D500D4221B /* Recovered References */ = {
@@ -653,6 +674,7 @@
 			files = (
 				1BD82C6B1F81437E006D6ADC /* NJDPersonInfoMO+CoreDataClass.m in Sources */,
 				1976ECF51F7F78B700A15BE4 /* NetworkingManager.m in Sources */,
+				1B0260AE1F81E4F8000A4411 /* FDOrPTYHVC.m in Sources */,
 				1976ECE21F7F49C200A15BE4 /* UserInfo.m in Sources */,
 				1976ECBA1F7F26BC00A15BE4 /* LoginViewController.m in Sources */,
 				1BD459F61F7FC3B800A5B031 /* NJDNavgationController.m in Sources */,

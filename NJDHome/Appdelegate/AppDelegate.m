@@ -35,7 +35,6 @@
     [self.window makeKeyAndVisible];
 //
 //    [Bugly startWithAppId:@"02841f4dd3"];
-
     
     return YES;
 }

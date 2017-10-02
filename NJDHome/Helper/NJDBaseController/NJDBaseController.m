@@ -55,6 +55,7 @@
 }
 -(void)createNoBackWithOpaue:(BOOL)opaque{
     self.navigationItem.leftBarButtonItem = nil;
+    [self.navigationItem setHidesBackButton:YES];
     if (opaque) {
         [self opaqueNavigationBar];
     }else{

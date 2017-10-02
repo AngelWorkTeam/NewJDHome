@@ -9,5 +9,5 @@
 #import "NJDBaseController.h"
 
 @interface RegisterVC : NJDBaseController
-@property (nonatomic) RoleType role;
+@property (nonatomic,copy) NSString  *role;
 @end

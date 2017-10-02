@@ -43,7 +43,7 @@
 
 #pragma mark - private method
 -(void)initViews{
-    self.title = self.role == Role_LandLord?@"房东注册":@"租客注册";
+    self.title = [self.role isEqualToString:@"FD"]?@"房东注册":@"租客注册";
     self.view.backgroundColor = [UIColor lightGrayColor];
     self.scanIdBtn.layer.cornerRadius = 6.;
     self.scanIdBtn.layer.masksToBounds = YES;
@@ -127,7 +127,7 @@
     self.registerDic[@"pwd"] = self.pwdTextField.text;
     self.registerDic[@"identityCard"] = self.idCardTextField.text;
     self.registerDic[@"telephoneNumber"] = self.phoneTextField.text;
-    self.registerDic[@"flag"] = self.role == Role_LandLord?@"FD":@"RY";
+    self.registerDic[@"flag"] = [self.role isEqualToString:@"FD"]?@"FD":@"RY";
     
     [NetworkingManager registerWithParams:self.registerDic.copy
                                   success:^(NSDictionary * _Nullable dictValue) {

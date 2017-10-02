@@ -8,9 +8,13 @@
 
 #import "LoginVC.h"
 #import "RegisterVC.h"
+#import "LoginVC.h"
+NSString *const kRemeberPasswordKey = @"remeberPassword";
 @interface LoginVC ()
 @property (weak, nonatomic) IBOutlet UITextField *account;
 @property (weak, nonatomic) IBOutlet UITextField *passwordText;
+@property (weak, nonatomic) IBOutlet UIButton *remeberPwdBtn;
+@property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 
 @end
 
@@ -19,7 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    [self createNoBackWithOpaue:NO];
+    [self initViews];
+    [self configViewModel];
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -30,12 +35,51 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)initViews{
+    [self createNoBackWithOpaue:NO];
+    NJDUserInfoMO *info = [NJDUserInfoMO userInfo];
+    if (info) {
+        self.account.text = info.username;
+        NSNumber *flag = [[NSUserDefaults standardUserDefaults] objectForKey:kRemeberPasswordKey];
+        if ([flag boolValue]) {
+            self.passwordText.text = info.userPassword;
+        }
+        self.remeberPwdBtn.selected = [flag boolValue]?YES:NO;
+    }else{
+        self.remeberPwdBtn.selected = YES;
+    }
+}
+-(void)configViewModel{
+    @weakify(self);
+    RACSignal *enableSignal =
+    RAC(self.loginBtn,enabled)
+    = [RACSignal
+       combineLatest:@[self.account.rac_textSignal,self.passwordText.rac_textSignal]
+       reduce:^id(NSString *account, NSString *password){
+           return @((account.length > 0 && password.length > 0));
+       }];
+    [enableSignal subscribeNext:^(id x) {
+        @strongify(self);
+        if ([x boolValue]) {
+            self.loginBtn.backgroundColor = [UIColor redColor];
+        }else{
+            self.loginBtn.backgroundColor = [UIColor colorFromHexRGB:@"ff0000" alpha:0.5];
+        }
+    }];
+}
+- (IBAction)remberPwdHandle:(UIButton *)sender {
+    sender.selected = !sender.selected;
+}
 - (IBAction)loginHandle:(id)sender {
+    [[NSUserDefaults standardUserDefaults] setObject:@(self.remeberPwdBtn.selected) forKey:kRemeberPasswordKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [NJDPopLoading showMessageWithLoading:@"正在登录"];
     if (self.account.text.length > 0 &&
         self.passwordText.text.length > 0) {
         [NetworkingManager loginWithUsername:self.account.text
                                     password:self.passwordText.text
                                      success:^(NSDictionary * _Nullable dic) {
+                                         [NJDPopLoading hideHud];
                                          if ([[dic valueForKeyPath:@"result.success"] intValue] == 1) {
                                              [NJDUserInfoMO deleteAll];
                                              NJDUserInfoMO *info = [NJDUserInfoMO MR_createEntity];
@@ -61,13 +105,20 @@
                                              }
                                  
                                              [NJDUserInfoMO save];
+                                             
+                                             if (info.isLogin) {
+                                                 UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                                                 LoginVC *vc = [sb instantiateViewControllerWithIdentifier:@"FDOrPTYHVC"];
+                                                 [self.navigationController pushViewController:vc animated:YES];
+                                             }
                                          }
    
                                          
                                          
                                      }
                                      failure:^(NSError * _Nullable error) {
-                                         
+                                         [NJDPopLoading hideHud];
+                                         [NJDPopLoading showAutoHideWithMessage:@"登入失败"];
                                      }];
     }
 }
@@ -79,7 +130,7 @@
                                 preferredStyle:UIAlertControllerStyleActionSheet];
     __weak UIAlertController *weakAlert = alert;
     __weak typeof (self) weakSelf = self;
-    void (^pushToRegisterVC)(RoleType type) = ^(RoleType type){
+    void (^pushToRegisterVC)(NSString *type) = ^(NSString *type){
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         RegisterVC *vc = [sb instantiateViewControllerWithIdentifier:@"RegisterVC"];
         vc.role = type;
@@ -88,12 +139,12 @@
     [alert addAction:[UIAlertAction
                       actionWithTitle:@"我是房东"
                       style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                          pushToRegisterVC(Role_LandLord);
+                          pushToRegisterVC(@"FD");
                       }]];
     [alert addAction:[UIAlertAction
                       actionWithTitle:@"我是租客"
                       style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                          pushToRegisterVC(Role_Renter);
+                          pushToRegisterVC(@"PTYH");
                       }]];
     [alert addAction:[UIAlertAction
                       actionWithTitle:@"取消"
