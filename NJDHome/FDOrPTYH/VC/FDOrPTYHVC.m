@@ -31,6 +31,7 @@
 -(void)initViews{
     [self createNoBackWithOpaue:YES];
     self.title = @"新金东人之家";
+    self.view.backgroundColor = [UIColor sam_colorWithHex:@"efeff6"];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
                                               initWithTitle:@"设置" style:UIBarButtonItemStylePlain
                                                                          target:self

@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor sam_colorWithHex:@"efeff3"];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [[UIApplication sharedApplication] setStatusBarStyle:self.statusBarStyle];
 

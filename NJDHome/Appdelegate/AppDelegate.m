@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <Bugly/Bugly.h>
+#import "AppDelegate+Login.h"
 #import "TrafficAssistantViewController.h"
 #import "LandlordViewController.h"
 #import "RenterViewController.h"
@@ -36,6 +37,7 @@
 //
 //    [Bugly startWithAppId:@"02841f4dd3"];
     
+    [self stopObserveLoginOut];
     return YES;
 }
 
