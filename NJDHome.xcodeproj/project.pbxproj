@@ -136,20 +136,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1976ECD21F7F3F7500A15BE4 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		1976ECD31F7F3F7500A15BE4 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		1976ECD41F7F3F7500A15BE4 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,20 +195,6 @@
 				1976ECED1F7F76FA00A15BE4 /* RenterViewController.m */,
 			);
 			path = viewController;
-			sourceTree = "<group>";
-		};
-		1976ECE71F7F76D900A15BE4 /* view */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
-		1976ECE81F7F76D900A15BE4 /* model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = model;
 			sourceTree = "<group>";
 		};
 		1976ECE91F7F76DF00A15BE4 /* model */ = {
@@ -313,8 +285,6 @@
 		19B707FF1F7E3B2D0086C565 /* Renter */ = {
 			isa = PBXGroup;
 			children = (
-				1976ECE81F7F76D900A15BE4 /* model */,
-				1976ECE71F7F76D900A15BE4 /* view */,
 				1976ECE61F7F76D900A15BE4 /* viewController */,
 			);
 			path = Renter;
@@ -323,8 +293,6 @@
 		19B708001F7E3B350086C565 /* TrafficAssistant */ = {
 			isa = PBXGroup;
 			children = (
-				1976ECD31F7F3F7500A15BE4 /* Model */,
-				1976ECD21F7F3F7500A15BE4 /* View */,
 				1976ECD41F7F3F7500A15BE4 /* ViewController */,
 			);
 			path = TrafficAssistant;
