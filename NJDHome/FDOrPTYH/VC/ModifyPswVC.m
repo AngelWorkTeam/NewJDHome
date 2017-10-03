@@ -24,8 +24,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"修改密码";
-    [self createNoBackWithOpaue:YES];
-    self.view.backgroundColor = [UIColor grayColor];
+    [self createBackNavWithOpaque:YES];
+    self.view.backgroundColor = [UIColor sam_colorWithHex:@"efeff6"];
     self.userNameTextFeild.placeholder = [NJDUserInfoMO userInfo].username;
     self.userNameTextFeild.enabled = NO;
     
@@ -52,24 +52,47 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self createNoBackWithOpaue:YES];
+    [self createBackNavWithOpaque:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)comfirmHandle:(id)sender {
-    
+    if([self invilidPassword] == NO){
+        return;
+    }
+    [NJDPopLoading showMessageWithLoading:@"正在修改"];
+    [NetworkingManager changePasswordWithOld:self.oldPwdTextFeild.text
+                                         new:self.pwdNewTextField.text
+                                       phone:nil
+             success:^(NSDictionary * _Nullable dictValue) {
+                 [NJDPopLoading hideHud];
+                 [NJDPopLoading showAutoHideWithMessage:@"修改成功"];
+                 [self.navigationController
+                  popToRootViewControllerAnimated:YES];
+                 [NJDUserInfoMO userInfo].isLogin = NO;
+                                     }
+                 failure:^(NSError * _Nullable error) {
+                     [NJDPopLoading hideHud];
+                     [NJDPopLoading showAutoHideWithMessage:error.userInfo[NSLocalizedDescriptionKey]];
+                 }];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(BOOL)invilidPassword{
+    if ([self.pwdNewTextField.text length] < 6) {
+        [NJDPopLoading showAutoHideWithMessage:@"密码长度需要大于等于6个字符"];
+        return NO;
+    }
+    if (![self.pwdNewTextField.text isEqualToString:self.pwdNewTextField.text]) {
+        [NJDPopLoading showAutoHideWithMessage:@"两次输入新密码不一致"];
+        return NO;
+    }
+    if ([self.oldPwdTextFeild.text isEqualToString:self.pwdNewTextField.text]) {
+        [NJDPopLoading showAutoHideWithMessage:@"新旧密码不能一致"];
+        return NO;
+    }
+    return YES;
 }
-*/
 
 @end

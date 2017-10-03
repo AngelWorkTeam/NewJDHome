@@ -44,7 +44,7 @@
 #pragma mark - private method
 -(void)initViews{
     self.title = [self.role isEqualToString:@"FD"]?@"房东注册":@"租客注册";
-    self.view.backgroundColor = [UIColor lightGrayColor];
+    self.view.backgroundColor = [UIColor sam_colorWithHex:@"efeff6"];
     self.scanIdBtn.layer.cornerRadius = 6.;
     self.scanIdBtn.layer.masksToBounds = YES;
     

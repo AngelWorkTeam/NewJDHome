@@ -32,4 +32,18 @@ typedef void (^NJDHttpFailureBlock)(NSError * _Nullable error);
 +(void)identifierIdWithImg:(UIImage *_Nonnull)img
                    success:(NJDHttpSuccessBlockArray _Nullable)success
                    failure:(NJDHttpFailureBlock _Nullable)fail;
+
+/**
+ *修改密码或找回密码，当修改密码时，oldPassword和newPassword一定有值，phone为空
+ *当找回密码时，newPassword和phone一定有值，oldPassword为空
+ */
++(void)changePasswordWithOld:(NSString *_Nullable)oldPassword
+                         new:(NSString *_Nonnull)newPassword
+                       phone:(NSString *_Nullable)phone
+                     success:(NJDHttpSuccessBlockDictionary _Nullable )success
+                     failure:(NJDHttpFailureBlock _Nullable )fail;
+
++(void)getCodeWithPhone:(NSString *_Nonnull)phone
+                success:(NJDHttpSuccessBlockDictionary _Nullable )success
+                failure:(NJDHttpFailureBlock _Nonnull )fail;
 @end

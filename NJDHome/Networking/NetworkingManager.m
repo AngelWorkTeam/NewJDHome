@@ -17,12 +17,44 @@ NSString * const kBaseUrl = @"http://218.75.95.243:8089/";
 NSString * const kUserDomain = @"ldrk/client/";
 NSString * const kLoginPath = @"login";
 NSString * const kRegister = @"regist";
+NSString * const kModifyPasswork = @"updatePwd";
+NSString * const kGetCode       = @"takeCode";
 
 
 @implementation NetworkingManager
 +(void)printfUrl:(NSURL *)url{
     NSLog(@"req:%@",url.absoluteString);
 }
++(BOOL)dealWithResponse:(NSDictionary *)reslut
+                failure:(NJDHttpFailureBlock)fail{
+    if(![reslut isKindOfClass:[NSDictionary class]]){
+        !fail?:fail([self responseTypeError]);
+        return NO;
+    }
+    NSString *reslutStr = reslut[@"resultMsg"];
+    if ([reslutStr isEqualToString:@"操作令牌失效"]) { //直接登出
+        return NO;
+    }
+    if (reslutStr &&
+        [reslut[@"success"] boolValue] == NO) {
+        NSError *err = [NSError errorWithDomain:@"response error"
+                                           code:1003
+                                       userInfo:@{NSLocalizedDescriptionKey:reslutStr}];
+        !fail?:fail(err);
+        return NO;
+    }
+
+    if ([reslut valueForKeyPath:@"result.success"] &&
+        [[reslut valueForKeyPath:@"result.success"] boolValue] == NO) {
+        NSError *err = [NSError errorWithDomain:@"response error"
+                                           code:1004
+                                       userInfo:@{NSLocalizedDescriptionKey:SAFE_STRING([reslut valueForKeyPath:@"result.resultMsg"])}];
+        !fail?:fail(err);
+        return NO;
+    }
+    return YES;
+}
+
 +(NSError *)responseTypeError{
     NSError *err = [NSError errorWithDomain:@"response type error"
                                        code:1001
@@ -50,10 +82,12 @@ NSString * const kRegister = @"regist";
                                      @"password":SAFE_STRING(password)
                                      }
                         progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                            if ([self dealWithResponse:responseObject
+                                               failure:fail] == NO) {
+                                return ;
+                            }
                             if([responseObject isKindOfClass:[NSDictionary class]]){
                                !success?:success(responseObject);
-                            }else{
-                                !fail?:fail([self responseTypeError]);
                             }
                         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                             !fail?:fail(error);
@@ -127,5 +161,55 @@ constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
           }];
 }
 
++(void)changePasswordWithOld:(NSString *)oldPassword
+                         new:(NSString *)newPassword
+                       phone:(NSString *)phone
+                     success:(NJDHttpSuccessBlockDictionary)success
+                     failure:(NJDHttpFailureBlock)fail{
+    NSDictionary *params;
+    if (oldPassword) {
+        params = @{@"oldPWD":oldPassword,
+                   @"newPWD":newPassword,
+                   @"token":SAFE_STRING([NJDUserInfoMO userInfo].token)
+                   };
+    }else{
+        params = @{@"newPWD":newPassword,
+                   @"phoneNum":phone
+                   };
+    }
+    AFHTTPSessionManager *manager = [self manager];
+    NSURLSessionTask *task = [manager POST:kURL(kUserDomain, kModifyPasswork)
+       parameters:params
+         progress:nil
+          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+              if ([self dealWithResponse:responseObject
+                   failure:fail] == NO) {
+                  return ;
+              }
+              !success?:success(responseObject);
+          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+              !fail?:fail(error);
+          }];
+    [self printfUrl:task.currentRequest.URL];
+}
 
++(void)getCodeWithPhone:(NSString *)phone
+                success:(NJDHttpSuccessBlockDictionary)success
+                failure:(NJDHttpFailureBlock)fail{
+    AFHTTPSessionManager *m = [self manager];
+    NSURLSessionTask *task = [m POST:kURL(kUserDomain, kGetCode)
+                          parameters:@{@"phoneNum":phone}
+                            progress:nil
+                             success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                                 if ([self dealWithResponse:responseObject
+                                                    failure:fail] == NO) {
+                                     return ;
+                                 }
+                                 !success?:success(responseObject);
+                             }
+                             failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                 !fail?:fail(error);
+                             }];
+    [self printfUrl:task.currentRequest.URL];
+}
 @end

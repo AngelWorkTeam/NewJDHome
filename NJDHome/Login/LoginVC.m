@@ -118,7 +118,7 @@ NSString *const kRemeberPasswordKey = @"remeberPassword";
                                      }
                                      failure:^(NSError * _Nullable error) {
                                          [NJDPopLoading hideHud];
-                                         [NJDPopLoading showAutoHideWithMessage:@"登入失败"];
+                                         [NJDPopLoading showAutoHideWithMessage:error.userInfo[NSLocalizedDescriptionKey]];
                                      }];
     }
 }

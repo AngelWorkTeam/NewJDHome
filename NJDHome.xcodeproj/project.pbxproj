@@ -26,11 +26,16 @@
 		1B0260AE1F81E4F8000A4411 /* FDOrPTYHVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0260AD1F81E4F8000A4411 /* FDOrPTYHVC.m */; };
 		1B0260B11F81FE13000A4411 /* SettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0260B01F81FE13000A4411 /* SettingVC.m */; };
 		1B0260B41F820A79000A4411 /* ModifyPswVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0260B31F820A79000A4411 /* ModifyPswVC.m */; };
+		1B219C3D1F827FD4007FFEA5 /* HETForgetPasswordOneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC4B8F31F827C8500CFCD2B /* HETForgetPasswordOneController.m */; };
+		1B219C3E1F827FD7007FFEA5 /* HETForgetPasswordThreeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC4B8F51F827C8500CFCD2B /* HETForgetPasswordThreeController.m */; };
+		1B219C3F1F827FDA007FFEA5 /* HETForgetPasswordTwoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC4B8F71F827C8500CFCD2B /* HETForgetPasswordTwoController.m */; };
+		1B219C401F827FDD007FFEA5 /* HETForgetPasswordViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC4B8F91F827C8500CFCD2B /* HETForgetPasswordViewModel.m */; };
 		1BAE264A1F80AA21004D3F22 /* NJDPopLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE26451F80A43B004D3F22 /* NJDPopLoading.m */; };
 		1BAE264B1F80AA26004D3F22 /* NJDRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE26471F80A43B004D3F22 /* NJDRefreshHeader.m */; };
 		1BAE264E1F80AA90004D3F22 /* HETSleepActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE264C1F80AA90004D3F22 /* HETSleepActivityIndicatorView.m */; };
 		1BAE26511F80AC0A004D3F22 /* MBProgressHUD+NJDProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE26501F80AC0A004D3F22 /* MBProgressHUD+NJDProgressHUD.m */; };
 		1BAE26551F80C090004D3F22 /* IDCardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE26541F80C090004D3F22 /* IDCardVC.m */; };
+		1BC4B8EE1F824E4500CFCD2B /* AppDelegate+Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC4B8ED1F824E4500CFCD2B /* AppDelegate+Login.m */; };
 		1BD459F11F7FC06D00A5B031 /* NJDBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD459F01F7FC06A00A5B031 /* NJDBaseController.m */; };
 		1BD459F21F7FC07000A5B031 /* GlobleMacro.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD459EA1F7FC02500A5B031 /* GlobleMacro.m */; };
 		1BD459F61F7FC3B800A5B031 /* NJDNavgationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD459F51F7FC3B800A5B031 /* NJDNavgationController.m */; };
@@ -94,6 +99,16 @@
 		1BAE26501F80AC0A004D3F22 /* MBProgressHUD+NJDProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+NJDProgressHUD.m"; sourceTree = "<group>"; };
 		1BAE26531F80C090004D3F22 /* IDCardVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDCardVC.h; sourceTree = "<group>"; };
 		1BAE26541F80C090004D3F22 /* IDCardVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IDCardVC.m; sourceTree = "<group>"; };
+		1BC4B8EC1F824E4500CFCD2B /* AppDelegate+Login.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Login.h"; sourceTree = "<group>"; };
+		1BC4B8ED1F824E4500CFCD2B /* AppDelegate+Login.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Login.m"; sourceTree = "<group>"; };
+		1BC4B8F21F827C8500CFCD2B /* HETForgetPasswordOneController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HETForgetPasswordOneController.h; sourceTree = "<group>"; };
+		1BC4B8F31F827C8500CFCD2B /* HETForgetPasswordOneController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HETForgetPasswordOneController.m; sourceTree = "<group>"; };
+		1BC4B8F41F827C8500CFCD2B /* HETForgetPasswordThreeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HETForgetPasswordThreeController.h; sourceTree = "<group>"; };
+		1BC4B8F51F827C8500CFCD2B /* HETForgetPasswordThreeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HETForgetPasswordThreeController.m; sourceTree = "<group>"; };
+		1BC4B8F61F827C8500CFCD2B /* HETForgetPasswordTwoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HETForgetPasswordTwoController.h; sourceTree = "<group>"; };
+		1BC4B8F71F827C8500CFCD2B /* HETForgetPasswordTwoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HETForgetPasswordTwoController.m; sourceTree = "<group>"; };
+		1BC4B8F81F827C8500CFCD2B /* HETForgetPasswordViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HETForgetPasswordViewModel.h; sourceTree = "<group>"; };
+		1BC4B8F91F827C8500CFCD2B /* HETForgetPasswordViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HETForgetPasswordViewModel.m; sourceTree = "<group>"; };
 		1BD459E81F7FC02500A5B031 /* DJDHome.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJDHome.pch; sourceTree = "<group>"; };
 		1BD459E91F7FC02500A5B031 /* GlobleMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobleMacro.h; sourceTree = "<group>"; };
 		1BD459EA1F7FC02500A5B031 /* GlobleMacro.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobleMacro.m; sourceTree = "<group>"; };
@@ -268,6 +283,8 @@
 			children = (
 				19B707FB1F7E35FC0086C565 /* AppDelegate.h */,
 				19B707FC1F7E35FC0086C565 /* AppDelegate.m */,
+				1BC4B8EC1F824E4500CFCD2B /* AppDelegate+Login.h */,
+				1BC4B8ED1F824E4500CFCD2B /* AppDelegate+Login.m */,
 			);
 			path = Appdelegate;
 			sourceTree = "<group>";
@@ -318,6 +335,7 @@
 		19B708051F7E3D3E0086C565 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				1BC4B8EF1F827C8500CFCD2B /* ForgetPassword */,
 				1BD459F81F7FF92700A5B031 /* Register */,
 				1976ECD81F7F49C200A15BE4 /* model */,
 				1976ECDF1F7F49C200A15BE4 /* view */,
@@ -389,6 +407,21 @@
 				1BAE26541F80C090004D3F22 /* IDCardVC.m */,
 			);
 			path = IDCard;
+			sourceTree = "<group>";
+		};
+		1BC4B8EF1F827C8500CFCD2B /* ForgetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				1BC4B8F21F827C8500CFCD2B /* HETForgetPasswordOneController.h */,
+				1BC4B8F31F827C8500CFCD2B /* HETForgetPasswordOneController.m */,
+				1BC4B8F41F827C8500CFCD2B /* HETForgetPasswordThreeController.h */,
+				1BC4B8F51F827C8500CFCD2B /* HETForgetPasswordThreeController.m */,
+				1BC4B8F61F827C8500CFCD2B /* HETForgetPasswordTwoController.h */,
+				1BC4B8F71F827C8500CFCD2B /* HETForgetPasswordTwoController.m */,
+				1BC4B8F81F827C8500CFCD2B /* HETForgetPasswordViewModel.h */,
+				1BC4B8F91F827C8500CFCD2B /* HETForgetPasswordViewModel.m */,
+			);
+			path = ForgetPassword;
 			sourceTree = "<group>";
 		};
 		1BD459E61F7FBFF300A5B031 /* Helper */ = {
@@ -650,6 +683,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B219C3D1F827FD4007FFEA5 /* HETForgetPasswordOneController.m in Sources */,
 				1B0260B41F820A79000A4411 /* ModifyPswVC.m in Sources */,
 				1BD82C6B1F81437E006D6ADC /* NJDPersonInfoMO+CoreDataClass.m in Sources */,
 				1976ECF51F7F78B700A15BE4 /* NetworkingManager.m in Sources */,
@@ -661,6 +695,7 @@
 				1BAE264A1F80AA21004D3F22 /* NJDPopLoading.m in Sources */,
 				1BD459FB1F7FF94400A5B031 /* RegisterVC.m in Sources */,
 				19B707E81F7E2E2E0086C565 /* LoginVC.m in Sources */,
+				1B219C3E1F827FD7007FFEA5 /* HETForgetPasswordThreeController.m in Sources */,
 				1976ECE11F7F49C200A15BE4 /* RoleInfo.m in Sources */,
 				1BD82C371F81354B006D6ADC /* NSManagedObject+EntityBugFix.m in Sources */,
 				1BD459F11F7FC06D00A5B031 /* NJDBaseController.m in Sources */,
@@ -670,14 +705,17 @@
 				1BD459F21F7FC07000A5B031 /* GlobleMacro.m in Sources */,
 				1976ECEE1F7F76FA00A15BE4 /* RenterViewController.m in Sources */,
 				1BD82C701F814394006D6ADC /* NJDUserInfoMO+CoreDataProperties.m in Sources */,
+				1BC4B8EE1F824E4500CFCD2B /* AppDelegate+Login.m in Sources */,
 				1BAE264E1F80AA90004D3F22 /* HETSleepActivityIndicatorView.m in Sources */,
 				1BD82C6E1F81438D006D6ADC /* NJDRoleInfoMO+CoreDataProperties.m in Sources */,
 				1BD82C321F810624006D6ADC /* NSString+Utils.m in Sources */,
 				1BD82C6C1F814382006D6ADC /* NJDPersonInfoMO+CoreDataProperties.m in Sources */,
+				1B219C401F827FDD007FFEA5 /* HETForgetPasswordViewModel.m in Sources */,
 				19B707F31F7E2E2E0086C565 /* main.m in Sources */,
 				1BD82C6D1F814388006D6ADC /* NJDRoleInfoMO+CoreDataClass.m in Sources */,
 				1BD82C6F1F814391006D6ADC /* NJDUserInfoMO+CoreDataClass.m in Sources */,
 				1976ECF41F7F77ED00A15BE4 /* WindowClerkViewController.m in Sources */,
+				1B219C3F1F827FDA007FFEA5 /* HETForgetPasswordTwoController.m in Sources */,
 				1BAE264B1F80AA26004D3F22 /* NJDRefreshHeader.m in Sources */,
 				1BAE26551F80C090004D3F22 /* IDCardVC.m in Sources */,
 				1B0260B11F81FE13000A4411 /* SettingVC.m in Sources */,

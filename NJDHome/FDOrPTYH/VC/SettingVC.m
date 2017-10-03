@@ -19,7 +19,7 @@
     // Do any additional setup after loading the view.
     self.title = @"设置";
     [self createBackNavWithOpaque:YES];
-    self.view.backgroundColor = [UIColor grayColor];
+    self.view.backgroundColor = [UIColor sam_colorWithHex:@"efeff6"];
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];

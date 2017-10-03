@@ -17,6 +17,7 @@ pod 'ReactiveCocoa',    '~> 2.0'
 pod 'MBProgressHUD'
 pod 'MJRefresh'
 pod 'MagicalRecord'
+#pod 'Objection'
 end
 
 post_install do |installer|

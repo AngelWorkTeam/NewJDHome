@@ -14,3 +14,6 @@
 
 extern NSString * const kFacePlusAPIKey;
 extern NSString * const kFacePlusAPISecret;
+
+//手动这个通知，就应该pop回登入界面了
+extern NSString * const kTokenError;
