@@ -15,10 +15,21 @@ const NSInteger kTimeout    = 30;
 NSString * const kBaseUrl = @"http://218.75.95.243:8089/";
 
 NSString * const kUserDomain = @"ldrk/client/";
+NSString * const kLandDomain = @"ldrk/landlordAddress/";
+
 NSString * const kLoginPath = @"login";
 NSString * const kRegister = @"regist";
 NSString * const kModifyPasswork = @"updatePwd";
 NSString * const kGetCode       = @"takeCode";
+
+NSString * const kGetCitys = @"region/loadCitys";
+NSString * const kGetRegions = @"region/loadDistricts";
+NSString * const kGetDistrict = @"region/loadVillagesORTownsOrStreets";
+NSString * const kGetTowns = @"region/loadBurgs";
+
+NSString * const kGetHouseAdd = @"getLandlordAddressList";
+NSString * const kSaveAddr    = @"saveLandlordAddress";
+NSString * const kDeleteAddr = @"deleteLandlordAddress";
 
 
 @implementation NetworkingManager
@@ -33,7 +44,16 @@ NSString * const kGetCode       = @"takeCode";
     }
     NSString *reslutStr = reslut[@"resultMsg"];
     if ([reslutStr isEqualToString:@"操作令牌失效"]) { //直接登出
+        [[NSNotificationCenter defaultCenter] postNotificationName:kTokenError object:nil];
         return NO;
+    }
+    if ([reslut valueForKeyPath:@"checkResult.success"]&&
+        [reslut valueForKeyPath:@"checkResult.resultMsg"]&&
+        [[reslut valueForKeyPath:@"checkResult.success"] boolValue] == NO){
+        if ([[reslut valueForKeyPath:@"checkResult.resultMsg"] isEqualToString:@"操作令牌不存在或已过期,请重新登录"]) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:kTokenError object:nil];
+            return NO;
+        }
     }
     if (reslutStr &&
         [reslut[@"success"] boolValue] == NO) {
@@ -52,6 +72,14 @@ NSString * const kGetCode       = @"takeCode";
         !fail?:fail(err);
         return NO;
     }
+    if (reslut[@"checkResult"] &&
+        [[reslut valueForKeyPath:@"checkResult.success"] boolValue] == NO) {
+        NSError *err = [NSError errorWithDomain:@"response error"
+                                           code:1005
+                                       userInfo:@{NSLocalizedDescriptionKey:SAFE_STRING([reslut valueForKeyPath:@"checkResult.resultMsg"])}];
+        !fail?:fail(err);
+        return NO;
+    }
     return YES;
 }
 
@@ -62,13 +90,18 @@ NSString * const kGetCode       = @"takeCode";
     return err;
 }
 +(AFHTTPSessionManager *)manager{
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-    manager.requestSerializer.timeoutInterval = kTimeout;
+    static AFHTTPSessionManager *manager;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        manager = [AFHTTPSessionManager manager];
+        manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+        manager.requestSerializer.timeoutInterval = kTimeout;
+        
+        manager.responseSerializer = [AFJSONResponseSerializer serializer];
+        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html",@"text/json", @"text/javascript", nil];
 
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html",@"text/json", @"text/javascript", nil];
-
+    });
+    
     return manager;
 }
 
@@ -210,6 +243,151 @@ constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
                              failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                                  !fail?:fail(error);
                              }];
+    [self printfUrl:task.currentRequest.URL];
+}
+
++(void)getLandLordAddressSuccess:(NJDHttpSuccessBlockArray)success
+                         failure:(NJDHttpFailureBlock)fail{
+    AFHTTPSessionManager *m = [self manager];
+    NSURLSessionTask *task = [m GET:kURL(kLandDomain, kGetHouseAdd)
+                          parameters:@{@"userId":SAFE_STRING([NJDUserInfoMO userInfo].userId),
+                                       @"token":SAFE_STRING([NJDUserInfoMO userInfo].token)}
+                            progress:nil
+                             success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                                 if ([self dealWithResponse:responseObject
+                                                    failure:fail] == NO) {
+                                     return ;
+                                 }
+                                 NSArray *arr = responseObject[@"landlordAddresses"];
+                                 !success?:success(arr);
+                             }
+                             failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                 !fail?:fail(error);
+                             }];
+    [self printfUrl:task.currentRequest.URL];
+}
+
++(void)getCitys:(NJDHttpSuccessBlockArray)success
+                 failure:(NJDHttpFailureBlock)fail{
+    AFHTTPSessionManager *m = [self manager];
+    NSURLSessionTask *task = [m GET:kURL(kUserDomain, kGetCitys)
+                         parameters:nil
+                           progress:nil
+                            success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                                if (![responseObject isKindOfClass:[NSArray class]]) {
+                                    !fail?:fail([self responseTypeError]);
+                                    return ;
+                                }
+                                !success?:success(responseObject);
+                            }
+                            failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                !fail?:fail(error);
+                            }];
+    [self printfUrl:task.currentRequest.URL];
+}
+
++(void)getRegions:(NSString *)regionId
+             success:(NJDHttpSuccessBlockArray)success
+        failure:(NJDHttpFailureBlock)fail{
+    AFHTTPSessionManager *m = [self manager];
+    NSURLSessionTask *task = [m GET:kURL(kUserDomain, kGetRegions)
+                         parameters:@{@"cityRegionId":regionId}
+                           progress:nil
+                            success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                                if (![responseObject isKindOfClass:[NSArray class]]) {
+                                    !fail?:fail([self responseTypeError]);
+                                    return ;
+                                }
+                                !success?:success(responseObject);
+                            }
+                            failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                !fail?:fail(error);
+                            }];
+    [self printfUrl:task.currentRequest.URL];
+}
+
++(void)getGetDistrics:(NSString *)districtRegionId
+          success:(NJDHttpSuccessBlockArray)success
+          failure:(NJDHttpFailureBlock)fail{
+    AFHTTPSessionManager *m = [self manager];
+    NSURLSessionTask *task = [m GET:kURL(kUserDomain, kGetDistrict)
+                         parameters:@{@"districtRegionId":districtRegionId}
+                           progress:nil
+                            success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                                if (![responseObject isKindOfClass:[NSArray class]]) {
+                                    !fail?:fail([self responseTypeError]);
+                                    return ;
+                                }
+                                !success?:success(responseObject);
+                            }
+                            failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                !fail?:fail(error);
+                            }];
+    [self printfUrl:task.currentRequest.URL];
+}
+
++(void)getGetTowns:(NSString *)townId
+              success:(NJDHttpSuccessBlockArray)success
+              failure:(NJDHttpFailureBlock)fail{
+    AFHTTPSessionManager *m = [self manager];
+    NSURLSessionTask *task = [m GET:kURL(kUserDomain, kGetTowns)
+                         parameters:@{@"townId":townId}
+                           progress:nil
+                            success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                                if (![responseObject isKindOfClass:[NSArray class]]) {
+                                    !fail?:fail([self responseTypeError]);
+                                    return ;
+                                }
+                                !success?:success(responseObject);
+                            }
+                            failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                !fail?:fail(error);
+                            }];
+    [self printfUrl:task.currentRequest.URL];
+}
+
++(void)landLordAddAddress:(NSString *)regionId
+            address:(NSString *)address
+           success:(NJDHttpSuccessBlockDictionary)success
+           failure:(NJDHttpFailureBlock)fail{
+           AFHTTPSessionManager *m = [self manager];
+       
+    NSURLSessionTask *task = [m GET:kURL(kLandDomain, kSaveAddr)
+                         parameters:@{@"regionId":regionId,
+                                      @"userId":SAFE_STRING([NJDUserInfoMO userInfo].userId),
+                                      @"token":SAFE_STRING([NJDUserInfoMO userInfo].token),
+                                      @"address":address
+                                      }
+                           progress:nil
+                            success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                                if([self dealWithResponse:responseObject failure:fail] == NO){
+                                    return ;
+                                }
+                                !success?:success(responseObject);
+                            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                !fail?:fail(error);
+                            }];
+    [self printfUrl:task.currentRequest.URL];
+}
+
++(void)landLordDeleteAddress:(NSString *)regionId
+                  success:(NJDHttpSuccessBlockDictionary)success
+                  failure:(NJDHttpFailureBlock)fail{
+    AFHTTPSessionManager *m = [self manager];
+    
+    NSURLSessionTask *task = [m GET:kURL(kLandDomain, kDeleteAddr)
+                         parameters:@{@"id":regionId,
+                                      @"token":SAFE_STRING([NJDUserInfoMO userInfo].token)
+                                      }
+                           progress:nil
+                            success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                                if([self dealWithResponse:responseObject failure:fail] == NO){
+                                    return ;
+                                }
+                                !success?:success(responseObject);
+                            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                !fail?:fail(error);
+                            }];
     [self printfUrl:task.currentRequest.URL];
 }
 @end

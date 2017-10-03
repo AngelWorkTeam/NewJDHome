@@ -19,16 +19,18 @@ typedef void(^NJDHttpSuccessBlockImage)(UIImage * _Nullable image);
 typedef void (^NJDHttpFailureBlock)(NSError * _Nullable error);
 
 @interface NetworkingManager : NSObject
-
+//login interface
 +(AFHTTPSessionManager *_Nullable)loginWithUsername:(NSString *_Nonnull)username
                                            password:(NSString *_Nonnull)password
                                             success:(NJDHttpSuccessBlockDictionary _Nullable )success
                                             failure:(NJDHttpFailureBlock _Nullable )fail
 ;
 
+//regist interface
 +(void)registerWithParams:(NSDictionary *_Nonnull)params
                   success:(NJDHttpSuccessBlockDictionary _Nullable)success
                   failure:(NJDHttpFailureBlock _Nullable)fail;
+//identify id card by face++ interface
 +(void)identifierIdWithImg:(UIImage *_Nonnull)img
                    success:(NJDHttpSuccessBlockArray _Nullable)success
                    failure:(NJDHttpFailureBlock _Nullable)fail;
@@ -43,7 +45,38 @@ typedef void (^NJDHttpFailureBlock)(NSError * _Nullable error);
                      success:(NJDHttpSuccessBlockDictionary _Nullable )success
                      failure:(NJDHttpFailureBlock _Nullable )fail;
 
+//get verify code
 +(void)getCodeWithPhone:(NSString *_Nonnull)phone
                 success:(NJDHttpSuccessBlockDictionary _Nullable )success
                 failure:(NJDHttpFailureBlock _Nonnull )fail;
+
+//房东得到自己的房屋地址
++(void)getLandLordAddressSuccess:(NJDHttpSuccessBlockArray _Nullable)success
+                         failure:(NJDHttpFailureBlock _Nullable)fail;
+//新增地址
++(void)landLordAddAddress:(NSString *_Nonnull)regionId
+                  address:(NSString *_Nonnull)address
+                  success:(NJDHttpSuccessBlockDictionary _Nullable )success
+                  failure:(NJDHttpFailureBlock _Nullable )fail;
+//删除地址
++(void)landLordDeleteAddress:(NSString *_Nonnull)regionId
+                     success:(NJDHttpSuccessBlockDictionary _Nullable )success
+                     failure:(NJDHttpFailureBlock _Nullable )fail;
+
++(void)getCitys:(NJDHttpSuccessBlockArray _Nullable )success
+        failure:(NJDHttpFailureBlock _Nullable)fail;
+
++(void)getRegions:(NSString *_Nonnull)regionId
+          success:(NJDHttpSuccessBlockArray _Nullable)success
+          failure:(NJDHttpFailureBlock _Nullable)fail;
+
++(void)getGetDistrics:(NSString * _Nonnull)districtRegionId
+              success:(NJDHttpSuccessBlockArray _Nullable)success
+              failure:(NJDHttpFailureBlock _Nullable)fail;
+
++(void)getGetTowns:(NSString *_Nonnull)townId
+           success:(NJDHttpSuccessBlockArray _Nullable)success
+           failure:(NJDHttpFailureBlock _Nullable)fail;
+
+
 @end

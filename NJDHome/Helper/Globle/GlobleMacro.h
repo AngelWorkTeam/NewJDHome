@@ -12,6 +12,15 @@
 
 #define SAFE_NUMBER(value) (![value isKindOfClass: [NSNumber class]] ? @(-1) : value)
 
+#ifdef RACObserve
+#undef RACObserve
+#define RACObserve(TARGET, KEYPATH) \
+({ \
+__weak id target_ = (TARGET); \
+[target_ rac_valuesForKeyPath:@keypath(TARGET, KEYPATH) observer:self]; \
+})
+#endif
+
 extern NSString * const kFacePlusAPIKey;
 extern NSString * const kFacePlusAPISecret;
 

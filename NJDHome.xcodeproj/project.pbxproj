@@ -49,6 +49,11 @@
 		1BD82C6E1F81438D006D6ADC /* NJDRoleInfoMO+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82C651F814373006D6ADC /* NJDRoleInfoMO+CoreDataProperties.m */; };
 		1BD82C6F1F814391006D6ADC /* NJDUserInfoMO+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82C6A1F814373006D6ADC /* NJDUserInfoMO+CoreDataClass.m */; };
 		1BD82C701F814394006D6ADC /* NJDUserInfoMO+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82C631F814373006D6ADC /* NJDUserInfoMO+CoreDataProperties.m */; };
+		1BF3C2671F8334AA009F07CC /* HouseManagerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF3C2661F8334AA009F07CC /* HouseManagerVC.m */; };
+		1BF3C26B1F834AA5009F07CC /* AddressSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF3C26A1F834AA5009F07CC /* AddressSelectView.m */; };
+		1BF3C26D1F834AB8009F07CC /* Views.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BF3C26C1F834AB8009F07CC /* Views.xib */; };
+		1BF3C2701F835930009F07CC /* AddAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF3C26F1F835930009F07CC /* AddAddressView.m */; };
+		1BF3C2731F83ACF0009F07CC /* PickView1.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF3C2721F83ACF0009F07CC /* PickView1.m */; };
 		8D7658C8360962FDEAAB488E /* Pods_NJDHome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB789807F15EBDB3FC91BFEE /* Pods_NJDHome.framework */; };
 /* End PBXBuildFile section */
 
@@ -135,6 +140,15 @@
 		1BD82C681F814373006D6ADC /* NJDRoleInfoMO+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NJDRoleInfoMO+CoreDataProperties.h"; sourceTree = "<group>"; };
 		1BD82C691F814373006D6ADC /* NJDUserInfoMO+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NJDUserInfoMO+CoreDataClass.h"; sourceTree = "<group>"; };
 		1BD82C6A1F814373006D6ADC /* NJDUserInfoMO+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NJDUserInfoMO+CoreDataClass.m"; sourceTree = "<group>"; };
+		1BF3C2651F8334AA009F07CC /* HouseManagerVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HouseManagerVC.h; sourceTree = "<group>"; };
+		1BF3C2661F8334AA009F07CC /* HouseManagerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HouseManagerVC.m; sourceTree = "<group>"; };
+		1BF3C2691F834AA5009F07CC /* AddressSelectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddressSelectView.h; sourceTree = "<group>"; };
+		1BF3C26A1F834AA5009F07CC /* AddressSelectView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressSelectView.m; sourceTree = "<group>"; };
+		1BF3C26C1F834AB8009F07CC /* Views.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Views.xib; sourceTree = "<group>"; };
+		1BF3C26E1F835930009F07CC /* AddAddressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddAddressView.h; sourceTree = "<group>"; };
+		1BF3C26F1F835930009F07CC /* AddAddressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddAddressView.m; sourceTree = "<group>"; };
+		1BF3C2711F83ACF0009F07CC /* PickView1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PickView1.h; sourceTree = "<group>"; };
+		1BF3C2721F83ACF0009F07CC /* PickView1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PickView1.m; sourceTree = "<group>"; };
 		BB196FD89180E5F2CC770622 /* Pods-NJDHome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NJDHome.release.xcconfig"; path = "Pods/Target Support Files/Pods-NJDHome/Pods-NJDHome.release.xcconfig"; sourceTree = "<group>"; };
 		CB789807F15EBDB3FC91BFEE /* Pods_NJDHome.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NJDHome.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -383,6 +397,7 @@
 		1B0260AA1F81E4A1000A4411 /* FDOrPTYH */ = {
 			isa = PBXGroup;
 			children = (
+				1BF3C2681F834955009F07CC /* Views */,
 				1B0260AB1F81E4DC000A4411 /* VC */,
 			);
 			path = FDOrPTYH;
@@ -397,6 +412,8 @@
 				1B0260B01F81FE13000A4411 /* SettingVC.m */,
 				1B0260B21F820A79000A4411 /* ModifyPswVC.h */,
 				1B0260B31F820A79000A4411 /* ModifyPswVC.m */,
+				1BF3C2651F8334AA009F07CC /* HouseManagerVC.h */,
+				1BF3C2661F8334AA009F07CC /* HouseManagerVC.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -544,6 +561,20 @@
 			path = MagicalRecord;
 			sourceTree = "<group>";
 		};
+		1BF3C2681F834955009F07CC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1BF3C2711F83ACF0009F07CC /* PickView1.h */,
+				1BF3C2721F83ACF0009F07CC /* PickView1.m */,
+				1BF3C2691F834AA5009F07CC /* AddressSelectView.h */,
+				1BF3C26A1F834AA5009F07CC /* AddressSelectView.m */,
+				1BF3C26C1F834AB8009F07CC /* Views.xib */,
+				1BF3C26E1F835930009F07CC /* AddAddressView.h */,
+				1BF3C26F1F835930009F07CC /* AddAddressView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		ADEE84AD8324FA01FC3A4522 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -625,6 +656,7 @@
 				19B707F01F7E2E2E0086C565 /* LaunchScreen.storyboard in Resources */,
 				19B707ED1F7E2E2E0086C565 /* Assets.xcassets in Resources */,
 				19B707EB1F7E2E2E0086C565 /* Main.storyboard in Resources */,
+				1BF3C26D1F834AB8009F07CC /* Views.xib in Resources */,
 				1976ECBC1F7F26E100A15BE4 /* LoginStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -717,6 +749,7 @@
 			files = (
 				1B219C3D1F827FD4007FFEA5 /* HETForgetPasswordOneController.m in Sources */,
 				1B0260B41F820A79000A4411 /* ModifyPswVC.m in Sources */,
+				1BF3C2701F835930009F07CC /* AddAddressView.m in Sources */,
 				1BD82C6B1F81437E006D6ADC /* NJDPersonInfoMO+CoreDataClass.m in Sources */,
 				1976ECF51F7F78B700A15BE4 /* NetworkingManager.m in Sources */,
 				1B0260AE1F81E4F8000A4411 /* FDOrPTYHVC.m in Sources */,
@@ -733,11 +766,13 @@
 				1BD459F11F7FC06D00A5B031 /* NJDBaseController.m in Sources */,
 				1BD82C3A1F8135EC006D6ADC /* Model.xcdatamodeld in Sources */,
 				1976ECE01F7F49C200A15BE4 /* PersonInfo.m in Sources */,
+				1BF3C2671F8334AA009F07CC /* HouseManagerVC.m in Sources */,
 				1976ECD71F7F3F7500A15BE4 /* TrafficAssistantViewController.m in Sources */,
 				1BD459F21F7FC07000A5B031 /* GlobleMacro.m in Sources */,
 				1976ECEE1F7F76FA00A15BE4 /* RenterViewController.m in Sources */,
 				1BD82C701F814394006D6ADC /* NJDUserInfoMO+CoreDataProperties.m in Sources */,
 				1BC4B8EE1F824E4500CFCD2B /* AppDelegate+Login.m in Sources */,
+				1BF3C2731F83ACF0009F07CC /* PickView1.m in Sources */,
 				1BAE264E1F80AA90004D3F22 /* HETSleepActivityIndicatorView.m in Sources */,
 				1BD82C6E1F81438D006D6ADC /* NJDRoleInfoMO+CoreDataProperties.m in Sources */,
 				1BD82C321F810624006D6ADC /* NSString+Utils.m in Sources */,
@@ -753,6 +788,7 @@
 				1B0260B11F81FE13000A4411 /* SettingVC.m in Sources */,
 				1BAE26511F80AC0A004D3F22 /* MBProgressHUD+NJDProgressHUD.m in Sources */,
 				1976ECF11F7F770900A15BE4 /* LandlordViewController.m in Sources */,
+				1BF3C26B1F834AA5009F07CC /* AddressSelectView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -911,14 +947,15 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = WU2WFZ2B66;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/NJDHome/Helper/Globle/DJDHome.pch";
 				INFOPLIST_FILE = NJDHome/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yy.NJDHome;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "36a6ac01-fcd5-4651-ae2e-360e27d00ac0";
+				PROVISIONING_PROFILE_SPECIFIER = developAll;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
