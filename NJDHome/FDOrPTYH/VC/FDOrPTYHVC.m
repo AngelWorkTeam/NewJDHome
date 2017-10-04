@@ -8,6 +8,7 @@
 
 #import "FDOrPTYHVC.h"
 #import "SettingVC.h"
+#import "SubmitVC.h"
 @interface FDOrPTYHVC ()
 //房屋地址，只有当登入用户是房东时，才有此属性
 @property (nonatomic,copy) NSArray *addresses;
@@ -63,10 +64,16 @@
 - (IBAction)tapApplyView:(UITapGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateEnded) {
         if (sender.view.tag == 1000) {
-            
+            SubmitVC *vc = [SubmitVC new];
+            vc.type = [NJDUserInfoMO roleType] == BNRRoleTypeLandlord?SubmitTypeRenter:SubmitTypeOwn;
+            [self.navigationController pushViewController:vc animated:YES];
         }else if(sender.view.tag == 1002){
             if ([NJDUserInfoMO roleType] == BNRRoleTypeLandlord) {
                 [self.navigationController pushViewController:[self getVCFromSB:@"Main" identifier:@"houseManagerVC"] animated:YES];
+            }else{
+                SubmitVC *vc = [SubmitVC new];
+                vc.type = SubmitTypeOther;
+                [self.navigationController pushViewController:vc animated:YES];
             }
         }
     }
