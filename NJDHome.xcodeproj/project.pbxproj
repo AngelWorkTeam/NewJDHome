@@ -45,6 +45,9 @@
 		1BB776971F8530CD0029A861 /* imgsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB776951F8530CD0029A861 /* imgsCell.m */; };
 		1BB776981F8530CD0029A861 /* imgsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BB776961F8530CD0029A861 /* imgsCell.xib */; };
 		1BC4B8EE1F824E4500CFCD2B /* AppDelegate+Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC4B8ED1F824E4500CFCD2B /* AppDelegate+Login.m */; };
+		1BC5FFD81F86051E0088EBFD /* TermVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC5FFD61F86051E0088EBFD /* TermVC.m */; };
+		1BC5FFD91F86051E0088EBFD /* TermVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BC5FFD71F86051E0088EBFD /* TermVC.xib */; };
+		1BC5FFDA1F860CC10088EBFD /* description.html in Resources */ = {isa = PBXBuildFile; fileRef = 1BC5FFD41F8604AF0088EBFD /* description.html */; };
 		1BD459F11F7FC06D00A5B031 /* NJDBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD459F01F7FC06A00A5B031 /* NJDBaseController.m */; };
 		1BD459F21F7FC07000A5B031 /* GlobleMacro.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD459EA1F7FC02500A5B031 /* GlobleMacro.m */; };
 		1BD459F61F7FC3B800A5B031 /* NJDNavgationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD459F51F7FC3B800A5B031 /* NJDNavgationController.m */; };
@@ -72,7 +75,7 @@
 		1BF3C26D1F834AB8009F07CC /* Views.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BF3C26C1F834AB8009F07CC /* Views.xib */; };
 		1BF3C2701F835930009F07CC /* AddAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF3C26F1F835930009F07CC /* AddAddressView.m */; };
 		1BF3C2731F83ACF0009F07CC /* PickView1.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF3C2721F83ACF0009F07CC /* PickView1.m */; };
-		8D7658C8360962FDEAAB488E /* Pods_NJDHome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB789807F15EBDB3FC91BFEE /* Pods_NJDHome.framework */; };
+		8C977858DB967F530B9E8316 /* libPods-NJDHome.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DF3A83F0A5854B841FD67C7 /* libPods-NJDHome.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -147,6 +150,10 @@
 		1BC4B8F71F827C8500CFCD2B /* HETForgetPasswordTwoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HETForgetPasswordTwoController.m; sourceTree = "<group>"; };
 		1BC4B8F81F827C8500CFCD2B /* HETForgetPasswordViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HETForgetPasswordViewModel.h; sourceTree = "<group>"; };
 		1BC4B8F91F827C8500CFCD2B /* HETForgetPasswordViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HETForgetPasswordViewModel.m; sourceTree = "<group>"; };
+		1BC5FFD41F8604AF0088EBFD /* description.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = description.html; sourceTree = "<group>"; };
+		1BC5FFD51F86051E0088EBFD /* TermVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TermVC.h; sourceTree = "<group>"; };
+		1BC5FFD61F86051E0088EBFD /* TermVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TermVC.m; sourceTree = "<group>"; };
+		1BC5FFD71F86051E0088EBFD /* TermVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TermVC.xib; sourceTree = "<group>"; };
 		1BD459E81F7FC02500A5B031 /* DJDHome.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJDHome.pch; sourceTree = "<group>"; };
 		1BD459E91F7FC02500A5B031 /* GlobleMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobleMacro.h; sourceTree = "<group>"; };
 		1BD459EA1F7FC02500A5B031 /* GlobleMacro.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobleMacro.m; sourceTree = "<group>"; };
@@ -196,8 +203,8 @@
 		1BF3C26F1F835930009F07CC /* AddAddressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddAddressView.m; sourceTree = "<group>"; };
 		1BF3C2711F83ACF0009F07CC /* PickView1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PickView1.h; sourceTree = "<group>"; };
 		1BF3C2721F83ACF0009F07CC /* PickView1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PickView1.m; sourceTree = "<group>"; };
+		9DF3A83F0A5854B841FD67C7 /* libPods-NJDHome.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NJDHome.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB196FD89180E5F2CC770622 /* Pods-NJDHome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NJDHome.release.xcconfig"; path = "Pods/Target Support Files/Pods-NJDHome/Pods-NJDHome.release.xcconfig"; sourceTree = "<group>"; };
-		CB789807F15EBDB3FC91BFEE /* Pods_NJDHome.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NJDHome.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,7 +212,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D7658C8360962FDEAAB488E /* Pods_NJDHome.framework in Frameworks */,
+				8C977858DB967F530B9E8316 /* libPods-NJDHome.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +451,7 @@
 		1B0260AA1F81E4A1000A4411 /* FDOrPTYH */ = {
 			isa = PBXGroup;
 			children = (
+				1BC5FFD31F86049A0088EBFD /* Resource */,
 				1BF3C2681F834955009F07CC /* Views */,
 				1B0260AB1F81E4DC000A4411 /* VC */,
 			);
@@ -464,6 +472,9 @@
 				1BDFB5331F83EA82006012F7 /* SubmitVC.h */,
 				1BDFB5341F83EA82006012F7 /* SubmitVC.m */,
 				1BDFB5351F83EA82006012F7 /* SubmitVC.xib */,
+				1BC5FFD51F86051E0088EBFD /* TermVC.h */,
+				1BC5FFD61F86051E0088EBFD /* TermVC.m */,
+				1BC5FFD71F86051E0088EBFD /* TermVC.xib */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -521,6 +532,14 @@
 				1BC4B8F91F827C8500CFCD2B /* HETForgetPasswordViewModel.m */,
 			);
 			path = ForgetPassword;
+			sourceTree = "<group>";
+		};
+		1BC5FFD31F86049A0088EBFD /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				1BC5FFD41F8604AF0088EBFD /* description.html */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		1BD459E61F7FBFF300A5B031 /* Helper */ = {
@@ -671,7 +690,7 @@
 		B319F066908678E9E25C3404 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CB789807F15EBDB3FC91BFEE /* Pods_NJDHome.framework */,
+				9DF3A83F0A5854B841FD67C7 /* libPods-NJDHome.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -740,6 +759,7 @@
 				19B707F01F7E2E2E0086C565 /* LaunchScreen.storyboard in Resources */,
 				19B707ED1F7E2E2E0086C565 /* Assets.xcassets in Resources */,
 				1BDFB5371F83EA82006012F7 /* SubmitVC.xib in Resources */,
+				1BC5FFDA1F860CC10088EBFD /* description.html in Resources */,
 				19B707EB1F7E2E2E0086C565 /* Main.storyboard in Resources */,
 				1BDEABFF1F847CE500B61640 /* SubmitCell3.xib in Resources */,
 				1BB776931F851FC10029A861 /* SubmitCell5.xib in Resources */,
@@ -749,6 +769,7 @@
 				1BB776981F8530CD0029A861 /* imgsCell.xib in Resources */,
 				1BDEABF61F847A1A00B61640 /* SubmitCell2.xib in Resources */,
 				1BDEABF11F84758600B61640 /* SubmitCell1.xib in Resources */,
+				1BC5FFD91F86051E0088EBFD /* TermVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -780,6 +801,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-NJDHome/Pods-NJDHome-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/SAMCategories/SAMCategories/SAMCategories.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -886,6 +908,7 @@
 				1B219C3F1F827FDA007FFEA5 /* HETForgetPasswordTwoController.m in Sources */,
 				1BAE264B1F80AA26004D3F22 /* NJDRefreshHeader.m in Sources */,
 				1BAE26551F80C090004D3F22 /* IDCardVC.m in Sources */,
+				1BC5FFD81F86051E0088EBFD /* TermVC.m in Sources */,
 				1B0260B11F81FE13000A4411 /* SettingVC.m in Sources */,
 				1BB7768A1F84F8100029A861 /* SubmitCell4.m in Sources */,
 				1BAE26511F80AC0A004D3F22 /* MBProgressHUD+NJDProgressHUD.m in Sources */,
@@ -1026,6 +1049,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = WU2WFZ2B66;
@@ -1047,6 +1071,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = WU2WFZ2B66;

@@ -9,6 +9,7 @@
 #import "FDOrPTYHVC.h"
 #import "SettingVC.h"
 #import "SubmitVC.h"
+#import "TermVC.h"
 @interface FDOrPTYHVC ()
 //房屋地址，只有当登入用户是房东时，才有此属性
 @property (nonatomic,copy) NSArray *addresses;
@@ -67,7 +68,15 @@
             SubmitVC *vc = [SubmitVC new];
             vc.type = [NJDUserInfoMO roleType] == BNRRoleTypeLandlord?SubmitTypeRenter:SubmitTypeOwn;
             [self.navigationController pushViewController:vc animated:YES];
-        }else if(sender.view.tag == 1002){
+        }else if(sender.view.tag == 1001){
+            if ([NJDUserInfoMO roleType] == BNRRoleTypeLandlord) {
+                
+            }else{
+                TermVC *vc = [TermVC new];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+        }
+        else if(sender.view.tag == 1002){
             if ([NJDUserInfoMO roleType] == BNRRoleTypeLandlord) {
                 [self.navigationController pushViewController:[self getVCFromSB:@"Main" identifier:@"houseManagerVC"] animated:YES];
             }else{

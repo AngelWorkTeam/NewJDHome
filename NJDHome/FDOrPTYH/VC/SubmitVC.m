@@ -308,7 +308,60 @@
     }
 }
 -(void)comfirmHandle:(UIButton *)btn{
-    
+    [self.table endEditing:YES];
+    //验证参数
+    BOOL (^vildateParam)(NSArray *arr) = ^(NSArray *arr){
+        for (NSDictionary *dic in arr) {
+            if ([dic[@"need"] boolValue] == YES && [dic[@"value"] isEqualToString:@""]) {
+                [NJDPopLoading showAutoHideWithMessage:dic[@"tips"]];
+                return NO;
+            }
+        }
+        return YES;
+    };
+    if (vildateParam(self.dataSource[0]) == NO ||
+        vildateParam(self.dataSource[1]) == NO) {
+        return;
+    }
+   
+    if (self.idCardImg == nil) {
+        [NJDPopLoading showAutoHideWithMessage:@"必须上传身份证照片"];
+        return;
+    }
+    if (self.renterImgs.count == 0) {
+        [NJDPopLoading showAutoHideWithMessage:@"必须上传租客照片"];
+        return;
+    }
+    if (self.childInfos.count > 0) {
+        NSMutableDictionary *childDic = self.dataSource[2][0];
+        NSString *json = [self.childInfos modelToJSONString];
+        if (json) {
+            childDic[@"value"] = json;
+        }
+    }
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    for (NSArray *arr in self.dataSource) {
+        for (NSDictionary *dic in arr) {
+            if (![dic[@"value"] isEqualToString:@""]) {
+                params[dic[@"key"]] = dic[@"value"];
+            }
+        }
+    }
+    [NJDPopLoading showMessageWithLoading:@"正在提交"];
+    [NetworkingManager submitWithInfo:params.copy
+                            idCardImg:self.idCardImg
+                           renterImgs:self.renterImgs
+                              success:^(NSDictionary * _Nullable dictValue) {
+                                  [NJDPopLoading hideHud];
+                                  if ([dictValue[@"success"] boolValue] == YES) {
+                                      [NJDPopLoading showAutoHideWithMessage:dictValue[@"resultMsg"]];
+                                      [self.navigationController popViewControllerAnimated:YES];
+                                  }
+                              }
+                              failure:^(NSError * _Nullable error) {
+                                  [NJDPopLoading hideHud];
+                                  [NJDPopLoading showAutoHideWithMessage:error.userInfo[NSLocalizedDescriptionKey]];
+                              }];
 }
 #pragma mark - noti
 -(void)keyboardShow:(NSNotification *)noti{

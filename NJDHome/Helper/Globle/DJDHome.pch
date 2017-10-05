@@ -17,6 +17,7 @@
 #import <SAMCategories/SAMCategories.h>
 #import <Masonry/Masonry.h>
 #import <MagicalRecord/MagicalRecord.h>
+#import <YYKit/YYKit.h>
 #import "NSManagedObject+EntityBugFix.h"
 #import "GlobleMacro.h"
 #import "NetworkingManager.h"

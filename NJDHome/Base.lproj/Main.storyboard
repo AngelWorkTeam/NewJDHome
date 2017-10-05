@@ -681,13 +681,21 @@
                         <action selector="tapApplyView:" destination="Ic5-c8-Fz4" id="fTV-qt-dei"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="wNE-Pc-bHd"/>
+                <tapGestureRecognizer id="wNE-Pc-bHd">
+                    <connections>
+                        <action selector="tapApplyView:" destination="Ic5-c8-Fz4" id="3G1-cI-Gda"/>
+                    </connections>
+                </tapGestureRecognizer>
                 <tapGestureRecognizer id="ewG-sC-HoS">
                     <connections>
                         <action selector="tapApplyView:" destination="Ic5-c8-Fz4" id="aZT-KF-d9a"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="1pt-B2-fYq"/>
+                <tapGestureRecognizer id="1pt-B2-fYq">
+                    <connections>
+                        <action selector="tapApplyView:" destination="Ic5-c8-Fz4" id="y4L-yJ-pC8"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2472.8000000000002" y="-88.605697151424295"/>
         </scene>

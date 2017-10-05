@@ -78,5 +78,10 @@ typedef void (^NJDHttpFailureBlock)(NSError * _Nullable error);
            success:(NJDHttpSuccessBlockArray _Nullable)success
            failure:(NJDHttpFailureBlock _Nullable)fail;
 
-
+//本人申报，他人申报，房东为租客申报
++(void)submitWithInfo:(NSDictionary *_Nonnull)params
+            idCardImg:(UIImage *_Nonnull)idCardImg
+           renterImgs:(NSArray *_Nonnull)imgs
+              success:(NJDHttpSuccessBlockDictionary _Nullable )success
+              failure:(NJDHttpFailureBlock _Nullable )fail;
 @end

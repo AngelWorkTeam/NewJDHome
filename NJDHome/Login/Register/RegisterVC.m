@@ -53,10 +53,15 @@
     self.registerDic = [NSMutableDictionary dictionary];
     @weakify(self);
    RACSignal *enableSignal = RAC(self.registerBtn,enabled) = [RACSignal
-                                     combineLatest:@[self.nameTextFeild.rac_textSignal,
+                                     combineLatest:@[
+                                                     [RACSignal
+                                                      merge:@[self.nameTextFeild.rac_textSignal,
+                                                             RACObserve(self.nameTextFeild, text)]],
                                                      self.pwdTextField.rac_textSignal,
                                                      self.pwdAgainTextField.rac_textSignal,
-                                                     self.idCardTextField.rac_textSignal,
+                                                     [RACSignal
+                                                      merge:@[self.idCardTextField.rac_textSignal,
+                                                              RACObserve(self.idCardTextField, text)]],
                                                      self.phoneTextField.rac_textSignal]
                                      reduce:^id(NSString *name,NSString *pwd,
                                                 NSString *pwdAgian, NSString *idCard,
@@ -72,14 +77,14 @@
         }
     }];
     
-    [[RACObserve(self, loadingMsg) skip:1] subscribeNext:^(NSString *x) {
-        x?[NJDPopLoading showMessageWithLoading:x]:[NJDPopLoading hideHud];
+    [[RACObserve(self, errorMsg) filter:^BOOL(id value) {
+        return value?YES:NO;
+    }] subscribeNext:^(NSString *errorMsg) {
+        [NJDPopLoading showAutoHideWithMessage:errorMsg];
     }];
     
-    [[RACObserve(self, errorMsg) skip:1] subscribeNext:^(id x) {
-        if (x) {
-            [NJDPopLoading showAutoHideWithMessage:x];
-        }
+    [RACObserve(self, loadingMsg) subscribeNext:^(NSString *loadingMsg) {
+        loadingMsg?[NJDPopLoading showMessageWithLoading:loadingMsg]:[NJDPopLoading hideHud];
     }];
 }
 -(void)idtifierIdWithImg:(UIImage *)img{
@@ -128,12 +133,44 @@
     self.registerDic[@"identityCard"] = self.idCardTextField.text;
     self.registerDic[@"telephoneNumber"] = self.phoneTextField.text;
     self.registerDic[@"flag"] = [self.role isEqualToString:@"FD"]?@"FD":@"RY";
-    
+    self.loadingMsg = @"正在注册";
     [NetworkingManager registerWithParams:self.registerDic.copy
                                   success:^(NSDictionary * _Nullable dictValue) {
-                                      
+                                      self.errorMsg = [dictValue valueForKeyPath:@"accessResult.resultMsg"];
+                                      if ([[dictValue valueForKeyPath:@"result.success"] boolValue] == YES) {
+                                          //同时也登入成功了
+                                          [NJDUserInfoMO deleteAll];
+                                          NJDUserInfoMO *info = [NJDUserInfoMO MR_createEntity];
+                                          info.isLogin = YES;
+                                          info.token = [dictValue valueForKeyPath:@"appLoginedInfo.token"];
+                                          info.userId = [dictValue valueForKeyPath:@"appLoginedInfo.userId"];
+                                          info.username = [dictValue valueForKeyPath:@"appLoginedInfo.user.username"];
+                                          info.realName = [dictValue valueForKeyPath:@"appLoginedInfo.user.realName"];
+                                          info.isdeleted = [[dictValue valueForKeyPath:@"appLoginedInfo.user.isDeleted"] intValue];
+                                          info.isLocked = [[dictValue valueForKeyPath:@"appLoginedInfo.user.isLocked"] intValue];
+                                          info.id = [dictValue valueForKeyPath:@"appLoginedInfo.user.id"];
+                                          
+                                          NSDictionary *role = [dictValue valueForKeyPath:@"appLoginedInfo.user.role"];
+                                          if (role) {
+                                              info.role = [NJDRoleInfoMO MR_createEntity];
+                                              info.role.id = role[@"id"];
+                                              info.role.isSystem = [role[@"isSystem"] boolValue];
+                                              info.role.name = role[@"name"];
+                                              info.role.no = role[@"no"];
+                                          }else{
+                                              info.isLogin = NO;
+                                          }
+                                          [NJDUserInfoMO save];
+                                          UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                                          UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"FDOrPTYHVC"];
+                                          NSArray *vcs = @[self.navigationController.viewControllers[0],vc];
+                                          [self.navigationController setViewControllers:vcs animated:YES];
+                                      }else if([[dictValue valueForKeyPath:@"result.success"] boolValue] == YES){ //只是注册成功
+                                          [self.navigationController popToRootViewControllerAnimated:YES];
+                                          
+                                      }
                                   } failure:^(NSError * _Nullable error) {
-                                      
+                                      self.errorMsg = error.userInfo[NSLocalizedDescriptionKey];
                                   }];
 }
 - (IBAction)pushToIDCardVC:(id)sender {

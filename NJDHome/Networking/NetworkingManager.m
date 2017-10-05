@@ -31,6 +31,8 @@ NSString * const kGetHouseAdd = @"getLandlordAddressList";
 NSString * const kSaveAddr    = @"saveLandlordAddress";
 NSString * const kDeleteAddr = @"deleteLandlordAddress";
 
+NSString *const kSubmitInfo = @"saveCheckInRecord";
+
 
 @implementation NetworkingManager
 +(void)printfUrl:(NSURL *)url{
@@ -77,6 +79,14 @@ NSString * const kDeleteAddr = @"deleteLandlordAddress";
         NSError *err = [NSError errorWithDomain:@"response error"
                                            code:1005
                                        userInfo:@{NSLocalizedDescriptionKey:SAFE_STRING([reslut valueForKeyPath:@"checkResult.resultMsg"])}];
+        !fail?:fail(err);
+        return NO;
+    }
+    if ([reslut valueForKeyPath:@"accessResult.success"] &&
+        [[reslut valueForKeyPath:@"accessResult.success"] boolValue] == NO) {
+        NSError *err = [NSError errorWithDomain:@"response error"
+                                           code:1006
+                                       userInfo:@{NSLocalizedDescriptionKey:SAFE_STRING([reslut valueForKeyPath:@"accessResult.resultMsg"])}];
         !fail?:fail(err);
         return NO;
     }
@@ -149,10 +159,13 @@ NSString * const kDeleteAddr = @"deleteLandlordAddress";
 constructingBodyWithBlock:img?formDataBlock:nil
          progress:nil
           success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-              
+              if ([self dealWithResponse:responseObject failure:fail] == NO) {
+                  return ;
+              }
+              !success?:success(responseObject);
           }
           failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-              
+              !fail?:fail(error);
           }];
 }
 
@@ -389,5 +402,42 @@ constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
                                 !fail?:fail(error);
                             }];
     [self printfUrl:task.currentRequest.URL];
+}
+
++(void)submitWithInfo:(NSDictionary *)params
+            idCardImg:(UIImage *)idCardImg
+           renterImgs:(NSArray *)imgs
+              success:(NJDHttpSuccessBlockDictionary)success
+              failure:(NJDHttpFailureBlock)fail{
+    AFHTTPSessionManager *manager = [self manager];
+    manager.requestSerializer.timeoutInterval = 60;
+    [manager POST:kURL(kUserDomain, kSubmitInfo)
+       parameters:params
+constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+         NSData *data = UIImageJPEGRepresentation(idCardImg, 0.75);
+         [formData appendPartWithFileData: data
+                                     name: @"identityImgFile"
+                                 fileName: @"identityImgFile.png"
+                                 mimeType: @"image/png"];
+        for (UIImage *img in imgs) {
+            NSData *data = UIImageJPEGRepresentation(img, 0.75);
+            NSString *fileName = [NSString stringWithFormat:@"%@.png",@(arc4random())];
+            [formData appendPartWithFileData: data
+                                        name: @"photoImgFiles"
+                                    fileName: fileName
+                                    mimeType: @"image/png"];
+        }
+     }
+         progress:nil
+          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+              if ([self dealWithResponse:responseObject failure:fail] == NO) {
+                  return ;
+              }
+              !success?:success(responseObject);
+          }
+          failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+              !fail?:fail(error);
+          }];
+    manager.requestSerializer.timeoutInterval = 30;
 }
 @end
