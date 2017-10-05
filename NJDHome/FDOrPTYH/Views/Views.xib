@@ -502,6 +502,26 @@
             </connections>
             <point key="canvasLocation" x="-711" y="615"/>
         </view>
+        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bYm-Zb-UQZ">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="收货地址:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lhT-Dh-JVj">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="lhT-Dh-JVj" secondAttribute="trailing" id="9xp-xE-UbQ"/>
+                <constraint firstItem="lhT-Dh-JVj" firstAttribute="leading" secondItem="bYm-Zb-UQZ" secondAttribute="leading" id="CrI-0Z-I9D"/>
+                <constraint firstItem="lhT-Dh-JVj" firstAttribute="top" secondItem="bYm-Zb-UQZ" secondAttribute="top" id="ZcL-av-rKj"/>
+                <constraint firstAttribute="bottom" secondItem="lhT-Dh-JVj" secondAttribute="bottom" id="ymW-2D-s6A"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="408" y="238"/>
+        </view>
     </objects>
     <resources>
         <image name="downMore" width="7" height="7"/>

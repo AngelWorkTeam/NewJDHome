@@ -8,6 +8,7 @@
 
 #import "TermVC.h"
 #import <WebKit/WebKit.h>
+#import "ApplyCardVC.h"
 #define kBtnRemainHeight 65
 @interface TermVC ()<WKNavigationDelegate>
 @property (nonatomic,strong)UIScrollView *scrollView;
@@ -59,7 +60,9 @@
     
 }
 -(void)nextStep:(UIButton *)btn{
-    
+    ApplyCardVC *vc = [ApplyCardVC new];
+    [self.navigationController pushViewController:vc
+                                         animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

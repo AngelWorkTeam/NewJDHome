@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="ApplyCardCell2">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lRf-So-avC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="取证方式" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZlO-1H-fEx">
+                                <rect key="frame" x="16" y="12" width="70" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pp2-KY-tN4">
+                                <rect key="frame" x="102" y="6" width="90" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <inset key="imageEdgeInsets" minX="-5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="上门自取" image="unSelect">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <state key="selected" image="select"/>
+                                <connections>
+                                    <action selector="btn1Handle:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="hev-G1-y3g"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Emu-rT-a2G">
+                                <rect key="frame" x="208" y="6" width="90" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <inset key="imageEdgeInsets" minX="-5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="邮寄到付" image="unSelect">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <state key="selected" title="邮寄到付" image="select">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btn2Handle:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="cL5-JM-hko"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZlO-1H-fEx" firstAttribute="centerY" secondItem="lRf-So-avC" secondAttribute="centerY" id="4LF-fP-BO5"/>
+                            <constraint firstAttribute="height" constant="44" id="9IW-iC-O93"/>
+                            <constraint firstItem="Emu-rT-a2G" firstAttribute="centerY" secondItem="lRf-So-avC" secondAttribute="centerY" id="Iiu-N7-5Qj"/>
+                            <constraint firstItem="Emu-rT-a2G" firstAttribute="leading" secondItem="pp2-KY-tN4" secondAttribute="trailing" constant="16" id="Oj0-18-tkZ"/>
+                            <constraint firstItem="ZlO-1H-fEx" firstAttribute="leading" secondItem="lRf-So-avC" secondAttribute="leading" constant="16" id="OyO-e2-zfx"/>
+                            <constraint firstItem="pp2-KY-tN4" firstAttribute="leading" secondItem="ZlO-1H-fEx" secondAttribute="trailing" constant="16" id="cMc-I8-NV4"/>
+                            <constraint firstItem="pp2-KY-tN4" firstAttribute="centerY" secondItem="lRf-So-avC" secondAttribute="centerY" id="yDx-70-k6T"/>
+                        </constraints>
+                    </view>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="收货地址:" translatesAutoresizingMaskIntoConstraints="NO" id="p2l-xs-44x">
+                        <rect key="frame" x="8" y="46" width="304" height="45.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="lRf-So-avC" secondAttribute="trailing" id="73L-yz-hUd"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="p2l-xs-44x" secondAttribute="bottom" id="Ehq-WY-JBO"/>
+                    <constraint firstItem="lRf-So-avC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Low-hP-PBj"/>
+                    <constraint firstItem="p2l-xs-44x" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="NXj-6a-COU"/>
+                    <constraint firstItem="p2l-xs-44x" firstAttribute="top" secondItem="lRf-So-avC" secondAttribute="bottom" constant="2" id="iH4-cj-taP"/>
+                    <constraint firstItem="lRf-So-avC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="jJm-nY-478"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="p2l-xs-44x" secondAttribute="trailing" id="sbg-pW-5Nr"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="btn1" destination="pp2-KY-tN4" id="oSV-bF-DsE"/>
+                <outlet property="btn2" destination="Emu-rT-a2G" id="d4T-eE-esT"/>
+                <outlet property="textView" destination="p2l-xs-44x" id="yE3-8n-n7p"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="select" width="32" height="32"/>
+        <image name="unSelect" width="32" height="32"/>
+    </resources>
+</document>

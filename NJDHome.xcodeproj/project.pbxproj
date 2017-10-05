@@ -48,6 +48,11 @@
 		1BC5FFD81F86051E0088EBFD /* TermVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC5FFD61F86051E0088EBFD /* TermVC.m */; };
 		1BC5FFD91F86051E0088EBFD /* TermVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BC5FFD71F86051E0088EBFD /* TermVC.xib */; };
 		1BC5FFDA1F860CC10088EBFD /* description.html in Resources */ = {isa = PBXBuildFile; fileRef = 1BC5FFD41F8604AF0088EBFD /* description.html */; };
+		1BC5FFDE1F862D600088EBFD /* ApplyCardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC5FFDC1F862D600088EBFD /* ApplyCardVC.m */; };
+		1BC5FFDF1F862D600088EBFD /* ApplyCardVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BC5FFDD1F862D600088EBFD /* ApplyCardVC.xib */; };
+		1BC5FFE21F862EFF0088EBFD /* ApplyCardCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC5FFE11F862EFF0088EBFD /* ApplyCardCell1.m */; };
+		1BC5FFE61F8631070088EBFD /* ApplyCardCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC5FFE41F8631070088EBFD /* ApplyCardCell2.m */; };
+		1BC5FFE71F8631070088EBFD /* ApplyCardCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BC5FFE51F8631070088EBFD /* ApplyCardCell2.xib */; };
 		1BD459F11F7FC06D00A5B031 /* NJDBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD459F01F7FC06A00A5B031 /* NJDBaseController.m */; };
 		1BD459F21F7FC07000A5B031 /* GlobleMacro.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD459EA1F7FC02500A5B031 /* GlobleMacro.m */; };
 		1BD459F61F7FC3B800A5B031 /* NJDNavgationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD459F51F7FC3B800A5B031 /* NJDNavgationController.m */; };
@@ -154,6 +159,14 @@
 		1BC5FFD51F86051E0088EBFD /* TermVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TermVC.h; sourceTree = "<group>"; };
 		1BC5FFD61F86051E0088EBFD /* TermVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TermVC.m; sourceTree = "<group>"; };
 		1BC5FFD71F86051E0088EBFD /* TermVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TermVC.xib; sourceTree = "<group>"; };
+		1BC5FFDB1F862D600088EBFD /* ApplyCardVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplyCardVC.h; sourceTree = "<group>"; };
+		1BC5FFDC1F862D600088EBFD /* ApplyCardVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplyCardVC.m; sourceTree = "<group>"; };
+		1BC5FFDD1F862D600088EBFD /* ApplyCardVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApplyCardVC.xib; sourceTree = "<group>"; };
+		1BC5FFE01F862EFF0088EBFD /* ApplyCardCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplyCardCell1.h; sourceTree = "<group>"; };
+		1BC5FFE11F862EFF0088EBFD /* ApplyCardCell1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplyCardCell1.m; sourceTree = "<group>"; };
+		1BC5FFE31F8631070088EBFD /* ApplyCardCell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplyCardCell2.h; sourceTree = "<group>"; };
+		1BC5FFE41F8631070088EBFD /* ApplyCardCell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplyCardCell2.m; sourceTree = "<group>"; };
+		1BC5FFE51F8631070088EBFD /* ApplyCardCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApplyCardCell2.xib; sourceTree = "<group>"; };
 		1BD459E81F7FC02500A5B031 /* DJDHome.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJDHome.pch; sourceTree = "<group>"; };
 		1BD459E91F7FC02500A5B031 /* GlobleMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobleMacro.h; sourceTree = "<group>"; };
 		1BD459EA1F7FC02500A5B031 /* GlobleMacro.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobleMacro.m; sourceTree = "<group>"; };
@@ -475,6 +488,9 @@
 				1BC5FFD51F86051E0088EBFD /* TermVC.h */,
 				1BC5FFD61F86051E0088EBFD /* TermVC.m */,
 				1BC5FFD71F86051E0088EBFD /* TermVC.xib */,
+				1BC5FFDB1F862D600088EBFD /* ApplyCardVC.h */,
+				1BC5FFDC1F862D600088EBFD /* ApplyCardVC.m */,
+				1BC5FFDD1F862D600088EBFD /* ApplyCardVC.xib */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -674,6 +690,11 @@
 				1BB776941F8530CD0029A861 /* imgsCell.h */,
 				1BB776951F8530CD0029A861 /* imgsCell.m */,
 				1BB776961F8530CD0029A861 /* imgsCell.xib */,
+				1BC5FFE01F862EFF0088EBFD /* ApplyCardCell1.h */,
+				1BC5FFE11F862EFF0088EBFD /* ApplyCardCell1.m */,
+				1BC5FFE31F8631070088EBFD /* ApplyCardCell2.h */,
+				1BC5FFE41F8631070088EBFD /* ApplyCardCell2.m */,
+				1BC5FFE51F8631070088EBFD /* ApplyCardCell2.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -757,6 +778,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				19B707F01F7E2E2E0086C565 /* LaunchScreen.storyboard in Resources */,
+				1BC5FFE71F8631070088EBFD /* ApplyCardCell2.xib in Resources */,
 				19B707ED1F7E2E2E0086C565 /* Assets.xcassets in Resources */,
 				1BDFB5371F83EA82006012F7 /* SubmitVC.xib in Resources */,
 				1BC5FFDA1F860CC10088EBFD /* description.html in Resources */,
@@ -770,6 +792,7 @@
 				1BDEABF61F847A1A00B61640 /* SubmitCell2.xib in Resources */,
 				1BDEABF11F84758600B61640 /* SubmitCell1.xib in Resources */,
 				1BC5FFD91F86051E0088EBFD /* TermVC.xib in Resources */,
+				1BC5FFDF1F862D600088EBFD /* ApplyCardVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -866,9 +889,11 @@
 				1BF3C2701F835930009F07CC /* AddAddressView.m in Sources */,
 				1BD82C6B1F81437E006D6ADC /* NJDPersonInfoMO+CoreDataClass.m in Sources */,
 				1BB776921F851FC10029A861 /* SubmitCell5.m in Sources */,
+				1BC5FFDE1F862D600088EBFD /* ApplyCardVC.m in Sources */,
 				1976ECF51F7F78B700A15BE4 /* NetworkingManager.m in Sources */,
 				1B0260AE1F81E4F8000A4411 /* FDOrPTYHVC.m in Sources */,
 				1976ECE21F7F49C200A15BE4 /* UserInfo.m in Sources */,
+				1BC5FFE61F8631070088EBFD /* ApplyCardCell2.m in Sources */,
 				1976ECBA1F7F26BC00A15BE4 /* LoginViewController.m in Sources */,
 				1BD459F61F7FC3B800A5B031 /* NJDNavgationController.m in Sources */,
 				19B707FD1F7E35FC0086C565 /* AppDelegate.m in Sources */,
@@ -879,6 +904,7 @@
 				1BB7768E1F84FE360029A861 /* ChilderSubmitView.m in Sources */,
 				1976ECE11F7F49C200A15BE4 /* RoleInfo.m in Sources */,
 				1BD82C371F81354B006D6ADC /* NSManagedObject+EntityBugFix.m in Sources */,
+				1BC5FFE21F862EFF0088EBFD /* ApplyCardCell1.m in Sources */,
 				1BD459F11F7FC06D00A5B031 /* NJDBaseController.m in Sources */,
 				1BD82C3A1F8135EC006D6ADC /* Model.xcdatamodeld in Sources */,
 				1976ECE01F7F49C200A15BE4 /* PersonInfo.m in Sources */,
