@@ -199,10 +199,11 @@ NSString * const kPostFeeTips  = @"邮费由收件人支付，采用到付方式
         @weakify(self);
         void (^reloadSection2)(void) = ^{
             @strongify(self);
-            NSIndexPath *path = [NSIndexPath indexPathForRow:1 inSection:2];
-            [self.table reloadRowsAtIndexPaths:@[path]
+            NSArray *paths = @[[NSIndexPath indexPathForRow:0 inSection:2],
+                               [NSIndexPath indexPathForRow:1 inSection:2]];
+            [self.table reloadRowsAtIndexPaths:paths
                               withRowAnimation:UITableViewRowAnimationNone];
-            [self.table scrollToRowAtIndexPath:path
+            [self.table scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:2]
                               atScrollPosition:UITableViewScrollPositionBottom
                                       animated:NO];
         };
