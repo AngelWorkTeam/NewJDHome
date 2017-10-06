@@ -94,7 +94,8 @@
             [nav setViewControllers:@[login,vc]];
         }else if([userInfo.role.no isEqualToString:@"XGY"] //协管员
                  ||[userInfo.role.no isEqualToString:@"CKRY"]){ //窗口管理员
-            
+            UIViewController *xgyviewController = [[TrafficAssistantViewController alloc]init];
+            [nav setViewControllers:@[login, xgyviewController]];
         }
     }
     

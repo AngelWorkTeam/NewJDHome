@@ -26,6 +26,7 @@
 #import "NJDPopLoading.h"
 #import "NJDRefreshHeader.h"
 #import "NSString+Utils.h"
+#import "YYKit.h"
 
 //user info
 #import "NJDUserInfoMO+CoreDataProperties.h"

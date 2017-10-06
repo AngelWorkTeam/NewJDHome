@@ -10,4 +10,9 @@
 
 @implementation PersonInfo
 
++ (NSDictionary *)modelCustomPropertyMapper {
+    return @{@"newingAddress"  : @"newAddress",
+             };
+}
+
 @end

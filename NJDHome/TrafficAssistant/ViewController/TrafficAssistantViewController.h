@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TrafficAssistantViewController : UIViewController
+@interface TrafficAssistantViewController : NJDBaseController
 
 @end

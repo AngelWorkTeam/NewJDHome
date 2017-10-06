@@ -15,6 +15,9 @@
 
 @property (nonatomic, copy) NSString *name;
 
+@property (nonatomic, copy) NSString *identityCard;  //否    用户身份证号
+
+
 @property (nonatomic, copy) NSString *sex;    //否    用户性别1是男0是女
 
 @property (nonatomic, copy) NSString *state;
@@ -27,5 +30,9 @@
 
 @property (nonatomic, copy) NSString * nation;   //否    用户民族
 
-@property (nonatomic, copy) NSString *identityCard;  //否    用户身份证号
+@property (nonatomic, copy) NSString *newingAddress;     //否    用户地址（身份证地址）
+
+@property (nonatomic, copy) NSString *oldAddress;     //否    用户地址（身份证地址）
+
+@property (nonatomic, copy) NSString * regionId; 
 @end

@@ -8,19 +8,17 @@
 
 #import "NetworkingManager.h"
 
-#define kURL(domain,path) [[kBaseUrl stringByAppendingString:domain]\
-                            stringByAppendingString:path]
-const NSInteger kTimeout    = 30;
+#import "NetworkingConstant.h"
 
-NSString * const kBaseUrl = @"http://218.75.95.243:8089/";
-
-NSString * const kUserDomain = @"ldrk/client/";
 NSString * const kLandDomain = @"ldrk/landlordAddress/";
 
 NSString * const kLoginPath = @"login";
 NSString * const kRegister = @"regist";
 NSString * const kModifyPasswork = @"updatePwd";
 NSString * const kGetCode       = @"takeCode";
+
+
+
 
 NSString * const kGetCitys = @"region/loadCitys";
 NSString * const kGetRegions = @"region/loadDistricts";
@@ -259,12 +257,18 @@ constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
     [self printfUrl:task.currentRequest.URL];
 }
 
+
+
+
+
+
 +(void)getLandLordAddressSuccess:(NJDHttpSuccessBlockArray)success
                          failure:(NJDHttpFailureBlock)fail{
     AFHTTPSessionManager *m = [self manager];
     NSURLSessionTask *task = [m GET:kURL(kLandDomain, kGetHouseAdd)
                           parameters:@{@"userId":SAFE_STRING([NJDUserInfoMO userInfo].userId),
                                        @"token":SAFE_STRING([NJDUserInfoMO userInfo].token)}
+
                             progress:nil
                              success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                                  if ([self dealWithResponse:responseObject
@@ -273,12 +277,14 @@ constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
                                  }
                                  NSArray *arr = responseObject[@"landlordAddresses"];
                                  !success?:success(arr);
+
                              }
                              failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                                  !fail?:fail(error);
                              }];
     [self printfUrl:task.currentRequest.URL];
 }
+
 
 +(void)getCitys:(NJDHttpSuccessBlockArray)success
                  failure:(NJDHttpFailureBlock)fail{
@@ -440,4 +446,5 @@ constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
           }];
     manager.requestSerializer.timeoutInterval = 30;
 }
+
 @end

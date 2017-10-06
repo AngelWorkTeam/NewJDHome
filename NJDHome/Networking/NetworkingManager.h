@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <AFNetworking/AFNetworking.h>
 
+
+
+
 typedef void (^NJDHttpSuccessBlockEmpty)(void);
 typedef void (^NJDHttpSuccessBlockId)(id _Nullable response);
 typedef void(^NJDHttpSuccessBlockString)(NSString * _Nullable stringValue);
@@ -50,6 +53,7 @@ typedef void (^NJDHttpFailureBlock)(NSError * _Nullable error);
                 success:(NJDHttpSuccessBlockDictionary _Nullable )success
                 failure:(NJDHttpFailureBlock _Nonnull )fail;
 
+
 //房东得到自己的房屋地址
 +(void)getLandLordAddressSuccess:(NJDHttpSuccessBlockArray _Nullable)success
                          failure:(NJDHttpFailureBlock _Nullable)fail;
@@ -84,4 +88,16 @@ typedef void (^NJDHttpFailureBlock)(NSError * _Nullable error);
            renterImgs:(NSArray *_Nonnull)imgs
               success:(NJDHttpSuccessBlockDictionary _Nullable )success
               failure:(NJDHttpFailureBlock _Nullable )fail;
+
+
+
+
+/////// for yy code
+
++(void)printfUrl:(NSURL *)url;
++(BOOL)dealWithResponse:(NSDictionary *)reslut
+                failure:(NJDHttpFailureBlock)fail;
++(NSError *)responseTypeError;
++(AFHTTPSessionManager *)manager;
+
 @end

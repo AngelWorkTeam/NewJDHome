@@ -23,6 +23,7 @@
 
 #define SAFE_NUMBER(value) (![value isKindOfClass: [NSNumber class]] ? @(-1) : value)
 
+
 #ifdef RACObserve
 #undef RACObserve
 #define RACObserve(TARGET, KEYPATH) \
@@ -32,8 +33,17 @@ __weak id target_ = (TARGET); \
 })
 #endif
 
+
 extern NSString * const kFacePlusAPIKey;
 extern NSString * const kFacePlusAPISecret;
 
 //手动这个通知，就应该pop回登入界面了
 extern NSString * const kTokenError;
+
+
+
+
+
+#define njdScreenHeight [UIScreen mainScreen].bounds.size.height
+#define njdScreenWidth [UIScreen mainScreen].bounds.size.width
+#define userinfocellHeight  20

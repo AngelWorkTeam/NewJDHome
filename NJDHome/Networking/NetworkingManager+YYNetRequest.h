@@ -1,0 +1,50 @@
+//
+//  NetworkingManager+YYNetRequest.h
+//  NJDHome
+//
+//  Created by 袁云龙 on 17/10/6.
+//  Copyright © 2017年 yuan yunlong. All rights reserved.
+//
+
+#import "NetworkingManager.h"
+@interface NetworkingManager (YYNetRequest)
+
+
+/**
+ *协管人员获取任务数据
+ */
+
++(void)getTrafficsDataWithUserId:(NSString *_Nullable)userId
+                            page:(NSInteger)page
+                     isNewRecord:(BOOL)isNew
+                         success:(NJDHttpSuccessBlockDictionary _Nullable)success
+                         failure:(NJDHttpFailureBlock _Nullable)fail;
+/**
+ *协管人员受理
+ */
++(void)trafficAcceptTheRecordWithRecordId:(NSString *_Nullable)recordId
+                                  success:(NJDHttpSuccessBlockDictionary _Nullable)success
+                                  failure:(NJDHttpFailureBlock _Nullable)fail;
+
+// 协管员—申报登记（注销登记，变更登记）
++(void)trafficRegisterRecordTheRecordWithRecordId:(NSString *_Nullable)recordId
+                                   personTypeName:(NSString *_Nullable)personTypeName
+                                          success:(NJDHttpSuccessBlockDictionary _Nullable)success
+                                          failure:(NJDHttpFailureBlock _Nullable)fail;
+
+/**
+ *协管人员 转交
+ */
++(void)trafficCareOfRecordTheRecordWithRecordId:(NSString *_Nullable)recordId
+                                   changeUserId:(NSString *_Nullable)changeUserId
+                                        success:(NJDHttpSuccessBlockDictionary _Nullable)success
+                                        failure:(NJDHttpFailureBlock _Nullable)fail;
+
+/**
+ *协管人员 退回
+ */
++(void)trafficSendBackRecordTheRecordWithRecordId:(NSString *_Nullable)recordId
+                                   sendBckContext:(NSString *_Nullable)sendBckContext
+                                          success:(NJDHttpSuccessBlockDictionary _Nullable)success
+                                          failure:(NJDHttpFailureBlock _Nullable)fail;
+@end
