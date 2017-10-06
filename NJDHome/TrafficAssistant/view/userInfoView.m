@@ -215,13 +215,10 @@
                 _shenbaoshijian = contentLabel;
                 break;
                 case 1:
-                _zhenzhimianmao = contentLabel;
-                break;
-                case 2:
                 _zhuangtai = contentLabel;
                 _zhuangtai.textColor = [UIColor redColor];
                 break;
-                case 3:
+                case 2:
                 _shengbaoleixing = contentLabel;
                 _shengbaoleixing.textColor = [UIColor redColor];
                 break;
@@ -259,7 +256,41 @@
     _model = model;
     
     
-    _shenbaoshijian.text = model.submitDateTime;
+    _shenbaoshijian.text = model.inTime;
+    _usernamelabel.text = model.person.name;
+    _hujidizhiLabel.text = model.person ? model.person.oldAddress : @"";
+    _zanzhudizhilabel.text =  model.temporaryAddress ;
+    _fangjianbianhaolabel.text = model.roomNumber;
+    _lianxidianhualabel.text = model.telephoneNumber;
+    _shengfenzhenhao.text = model.person ? model.person.identityCard : @"";
+    _wenhuachengdu.text = model.education;
+    _zongjiaoxinyang.text = model.faith;
+    _zhenzhimianmao.text = model.politicsState ;
+    _zhiye.text = model.profession;
+    _zhichengjishudengji.text = model.jobTitleGrade;
+    
+
+    NSString *type = model.type;
+    if ([type isEqualToString:@"1"]) {
+        _shengbaoleixing.text = @"申报";
+    }else if ([type isEqualToString:@"2"]){
+        _shengbaoleixing.text = @"变更";
+    }else{
+        _shengbaoleixing.text = @"注销";
+    }
+
+    NSString *state = model.state;
+    if ([state isEqualToString:@"-1"]) {
+        _zhuangtai.text = @"退回";
+    }else if ([state isEqualToString:@"0"]){
+        _zhuangtai.text = @"待派工";
+    }else if ([state isEqualToString:@"1"]){
+        _zhuangtai.text = @"已派工待受理";
+    }else if ([state isEqualToString:@"2"]){
+        _zhuangtai.text = @"已受理待登记";
+    }else if ([state isEqualToString:@"3"]){
+        _zhuangtai.text = @"已完成登记";
+    }
 }
 
 

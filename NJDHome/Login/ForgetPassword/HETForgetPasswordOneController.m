@@ -9,8 +9,6 @@
 #import "HETForgetPasswordOneController.h"
 #import "HETForgetPasswordViewModel.h"
 #import "HETForgetPasswordTwoController.h"
-//#import "HETLoginCustomConfig+Private.h"
-//#import "HETPublicButton.h"
 @interface HETForgetPasswordOneController ()
 @property (weak, nonatomic) IBOutlet UILabel *beforeAccountLabel;//输入框前的文字
 @property (weak, nonatomic) IBOutlet UITextField *accountTextField;//忘记手机号码或者邮箱输入框

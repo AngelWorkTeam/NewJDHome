@@ -8,8 +8,11 @@
 
 #import "FDOrPTYHVC.h"
 #import "SettingVC.h"
+#import "SubmitVC.h"
+#import "TermVC.h"
 @interface FDOrPTYHVC ()
-
+//房屋地址，只有当登入用户是房东时，才有此属性
+@property (nonatomic,copy) NSArray *addresses;
 @end
 
 @implementation FDOrPTYHVC
@@ -18,6 +21,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self initViews];
+    [self initData];
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -36,8 +40,22 @@
                                               initWithTitle:@"设置" style:UIBarButtonItemStylePlain
                                                                          target:self
                                                                              action:@selector(settingHandle:)];
+    //根据类型初始化UI
 }
-
+-(void)initData{
+    if ([NJDUserInfoMO roleType] == BNRRoleTypeLandlord) {
+        [NetworkingManager getLandLordAddressSuccess:^(NSArray * _Nullable arrayValue) {
+            self.addresses = arrayValue;
+        } failure:^(NSError * _Nullable error) {
+            
+        }];
+    }
+}
+-(UIViewController *)getVCFromSB:(NSString *)sbName identifier:(NSString *)id{
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:sbName bundle:nil];
+    UIViewController *vc = [sb instantiateViewControllerWithIdentifier:id];
+    return vc;
+}
 #pragma mark - action handle
 -(void)settingHandle:(UIBarButtonItem *)item{
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -47,9 +65,25 @@
 - (IBAction)tapApplyView:(UITapGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateEnded) {
         if (sender.view.tag == 1000) {
-            
-        }else if(sender.view.tag == 1002){
-            
+            SubmitVC *vc = [SubmitVC new];
+            vc.type = [NJDUserInfoMO roleType] == BNRRoleTypeLandlord?SubmitTypeRenter:SubmitTypeOwn;
+            [self.navigationController pushViewController:vc animated:YES];
+        }else if(sender.view.tag == 1001){
+            if ([NJDUserInfoMO roleType] == BNRRoleTypeLandlord) {
+                
+            }else{
+                TermVC *vc = [TermVC new];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+        }
+        else if(sender.view.tag == 1002){
+            if ([NJDUserInfoMO roleType] == BNRRoleTypeLandlord) {
+                [self.navigationController pushViewController:[self getVCFromSB:@"Main" identifier:@"houseManagerVC"] animated:YES];
+            }else{
+                SubmitVC *vc = [SubmitVC new];
+                vc.type = SubmitTypeOther;
+                [self.navigationController pushViewController:vc animated:YES];
+            }
         }
     }
 }

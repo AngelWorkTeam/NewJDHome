@@ -8,6 +8,12 @@
 
 #import "TrafficsHistoryTableViewCell.h"
 #import "userInfoView.h"
+@interface TrafficsHistoryTableViewCell ()
+
+
+@property (nonatomic, strong) userInfoView  *contentUserInfo;
+@end
+
 @implementation TrafficsHistoryTableViewCell
 
 - (void)awakeFromNib {
@@ -35,6 +41,7 @@
 {
     userInfoView  *contentUserInfo = [[userInfoView alloc]initWithFrame:CGRectZero];
     [self.contentView addSubview:contentUserInfo];
+    _contentUserInfo = contentUserInfo;
     
     [contentUserInfo mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.contentView.mas_top);
@@ -47,5 +54,12 @@
     
 }
 
+
+- (void)setModel:(TrafficAssistantTaskModel *)model
+{
+    _model = model;
+    
+    _contentUserInfo.model = model;
+}
 
 @end

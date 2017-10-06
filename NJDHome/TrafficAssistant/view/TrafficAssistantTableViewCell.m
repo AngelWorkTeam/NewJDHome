@@ -123,6 +123,10 @@
     if (self.trafficAction) {
         self.trafficAction(index,_buttonTitleArray[tag]);
     }
+    
+    if(self.cellDelgate && [self.cellDelgate respondsToSelector:@selector(trafficActionButtonAction:withModel:)]){
+        [self.cellDelgate trafficActionButtonAction:index withModel:_model];
+    }
 }
 
 @end

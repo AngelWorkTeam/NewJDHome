@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <AFNetworking/AFNetworking.h>
 
+
+
+
 typedef void (^NJDHttpSuccessBlockEmpty)(void);
 typedef void (^NJDHttpSuccessBlockId)(id _Nullable response);
 typedef void(^NJDHttpSuccessBlockString)(NSString * _Nullable stringValue);
@@ -19,16 +22,18 @@ typedef void(^NJDHttpSuccessBlockImage)(UIImage * _Nullable image);
 typedef void (^NJDHttpFailureBlock)(NSError * _Nullable error);
 
 @interface NetworkingManager : NSObject
-
+//login interface
 +(AFHTTPSessionManager *_Nullable)loginWithUsername:(NSString *_Nonnull)username
                                            password:(NSString *_Nonnull)password
                                             success:(NJDHttpSuccessBlockDictionary _Nullable )success
                                             failure:(NJDHttpFailureBlock _Nullable )fail
 ;
 
+//regist interface
 +(void)registerWithParams:(NSDictionary *_Nonnull)params
                   success:(NJDHttpSuccessBlockDictionary _Nullable)success
                   failure:(NJDHttpFailureBlock _Nullable)fail;
+//identify id card by face++ interface
 +(void)identifierIdWithImg:(UIImage *_Nonnull)img
                    success:(NJDHttpSuccessBlockArray _Nullable)success
                    failure:(NJDHttpFailureBlock _Nullable)fail;
@@ -43,18 +48,56 @@ typedef void (^NJDHttpFailureBlock)(NSError * _Nullable error);
                      success:(NJDHttpSuccessBlockDictionary _Nullable )success
                      failure:(NJDHttpFailureBlock _Nullable )fail;
 
+//get verify code
 +(void)getCodeWithPhone:(NSString *_Nonnull)phone
                 success:(NJDHttpSuccessBlockDictionary _Nullable )success
                 failure:(NJDHttpFailureBlock _Nonnull )fail;
 
 
-/**
- *协管人员获取任务数据
- */
-
-+(void)getTrafficsDataWithUserId:(NSString *_Nullable)userId
-                            page:(NSInteger)page
-                     isNewRecord:(BOOL)isNew
-                         success:(NJDHttpSuccessBlockDictionary _Nullable)success
+//房东得到自己的房屋地址
++(void)getLandLordAddressSuccess:(NJDHttpSuccessBlockArray _Nullable)success
                          failure:(NJDHttpFailureBlock _Nullable)fail;
+//新增地址
++(void)landLordAddAddress:(NSString *_Nonnull)regionId
+                  address:(NSString *_Nonnull)address
+                  success:(NJDHttpSuccessBlockDictionary _Nullable )success
+                  failure:(NJDHttpFailureBlock _Nullable )fail;
+//删除地址
++(void)landLordDeleteAddress:(NSString *_Nonnull)regionId
+                     success:(NJDHttpSuccessBlockDictionary _Nullable )success
+                     failure:(NJDHttpFailureBlock _Nullable )fail;
+
++(void)getCitys:(NJDHttpSuccessBlockArray _Nullable )success
+        failure:(NJDHttpFailureBlock _Nullable)fail;
+
++(void)getRegions:(NSString *_Nonnull)regionId
+          success:(NJDHttpSuccessBlockArray _Nullable)success
+          failure:(NJDHttpFailureBlock _Nullable)fail;
+
++(void)getGetDistrics:(NSString * _Nonnull)districtRegionId
+              success:(NJDHttpSuccessBlockArray _Nullable)success
+              failure:(NJDHttpFailureBlock _Nullable)fail;
+
++(void)getGetTowns:(NSString *_Nonnull)townId
+           success:(NJDHttpSuccessBlockArray _Nullable)success
+           failure:(NJDHttpFailureBlock _Nullable)fail;
+
+//本人申报，他人申报，房东为租客申报
++(void)submitWithInfo:(NSDictionary *_Nonnull)params
+            idCardImg:(UIImage *_Nonnull)idCardImg
+           renterImgs:(NSArray *_Nonnull)imgs
+              success:(NJDHttpSuccessBlockDictionary _Nullable )success
+              failure:(NJDHttpFailureBlock _Nullable )fail;
+
+
+
+
+/////// for yy code
+
++(void)printfUrl:(NSURL *)url;
++(BOOL)dealWithResponse:(NSDictionary *)reslut
+                failure:(NJDHttpFailureBlock)fail;
++(NSError *)responseTypeError;
++(AFHTTPSessionManager *)manager;
+
 @end

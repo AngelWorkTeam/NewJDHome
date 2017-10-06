@@ -9,6 +9,7 @@
 #import "LoginVC.h"
 #import "RegisterVC.h"
 #import "LoginVC.h"
+#import "TrafficAssistantViewController.h"
 NSString *const kRemeberPasswordKey = @"remeberPassword";
 @interface LoginVC ()
 @property (weak, nonatomic) IBOutlet UITextField *account;
@@ -107,9 +108,21 @@ NSString *const kRemeberPasswordKey = @"remeberPassword";
                                              [NJDUserInfoMO save];
                                              
                                              if (info.isLogin) {
-                                                 UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                                                 LoginVC *vc = [sb instantiateViewControllerWithIdentifier:@"FDOrPTYHVC"];
-                                                 [self.navigationController pushViewController:vc animated:YES];
+                                                 
+                                                 if ([info.role.no isEqualToString:@"PTYH"]||
+                                                     [info.role.no isEqualToString:@"FD"]) {
+                                                     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                                                     LoginVC *vc = [sb instantiateViewControllerWithIdentifier:@"FDOrPTYHVC"];
+                                                     [self.navigationController pushViewController:vc animated:YES];
+                                                 }else if([info.role.no isEqualToString:@"XGY"] //协管员
+                                                          ||[info.role.no isEqualToString:@"CKRY"]){ //窗口管理员
+                                                     UIViewController *xgyviewController = [[TrafficAssistantViewController alloc]init];
+                                    
+                                                     [self.navigationController pushViewController:xgyviewController animated:YES];
+                                                     
+                                                 }
+
+                                               
                                              }
                                          }
    

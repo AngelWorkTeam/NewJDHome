@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Nng-xu-gih">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -681,13 +681,21 @@
                         <action selector="tapApplyView:" destination="Ic5-c8-Fz4" id="fTV-qt-dei"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="wNE-Pc-bHd"/>
+                <tapGestureRecognizer id="wNE-Pc-bHd">
+                    <connections>
+                        <action selector="tapApplyView:" destination="Ic5-c8-Fz4" id="3G1-cI-Gda"/>
+                    </connections>
+                </tapGestureRecognizer>
                 <tapGestureRecognizer id="ewG-sC-HoS">
                     <connections>
                         <action selector="tapApplyView:" destination="Ic5-c8-Fz4" id="aZT-KF-d9a"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="1pt-B2-fYq"/>
+                <tapGestureRecognizer id="1pt-B2-fYq">
+                    <connections>
+                        <action selector="tapApplyView:" destination="Ic5-c8-Fz4" id="y4L-yJ-pC8"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2472.8000000000002" y="-88.605697151424295"/>
         </scene>
@@ -1002,19 +1010,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nkj-Ll-eti" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3913" y="-101"/>
-        </scene>
-        <!--Navgation Controller-->
-        <scene sceneID="xKN-oU-xnS">
-            <objects>
-                <navigationController id="Nng-xu-gih" customClass="NJDNavgationController" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ivx-Iq-TJ3">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5cb-uS-TQe" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-395" y="-36"/>
         </scene>
         <!--忘记密码流程1-->
         <scene sceneID="5PZ-XJ-afw">
@@ -1358,6 +1353,72 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4GR-Eo-Kwc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1905" y="654"/>
+        </scene>
+        <!--House ManagerVC-->
+        <scene sceneID="aKF-OQ-9Gs">
+            <objects>
+                <viewController storyboardIdentifier="houseManagerVC" id="rTr-PN-KDq" customClass="HouseManagerVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UrP-r0-dSx"/>
+                        <viewControllerLayoutGuide type="bottom" id="mod-QQ-1US"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8MS-5O-z5S">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFE-bE-DAU">
+                                <rect key="frame" x="0.0" y="623" width="187.5" height="44"/>
+                                <color key="backgroundColor" red="1" green="0.62745098040000002" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="E5L-NU-sJe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="新增">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addAddressHandle:" destination="rTr-PN-KDq" eventType="touchUpInside" id="mP1-x1-YqW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xD-pc-hP9">
+                                <rect key="frame" x="187.5" y="623" width="187.5" height="44"/>
+                                <color key="backgroundColor" red="1" green="0.62745098040000002" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="QJU-x0-hH8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="删除">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteAddressHandle:" destination="rTr-PN-KDq" eventType="touchUpInside" id="h7c-tJ-rDP"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F0v-0Q-UB1">
+                                <rect key="frame" x="187.5" y="623" width="0.5" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="gf8-zZ-e6X"/>
+                                    <constraint firstAttribute="width" constant="0.5" id="lnV-iR-P1E"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mod-QQ-1US" firstAttribute="top" secondItem="4xD-pc-hP9" secondAttribute="bottom" id="09I-BL-0EF"/>
+                            <constraint firstItem="4xD-pc-hP9" firstAttribute="leading" secondItem="8MS-5O-z5S" secondAttribute="centerX" id="8bW-tf-2gW"/>
+                            <constraint firstAttribute="centerX" secondItem="lFE-bE-DAU" secondAttribute="trailing" id="XpQ-R0-hjw"/>
+                            <constraint firstAttribute="trailing" secondItem="4xD-pc-hP9" secondAttribute="trailing" id="bmD-Jv-nvD"/>
+                            <constraint firstItem="lFE-bE-DAU" firstAttribute="leading" secondItem="8MS-5O-z5S" secondAttribute="leading" id="cs3-Bo-zxG"/>
+                            <constraint firstItem="mod-QQ-1US" firstAttribute="top" secondItem="lFE-bE-DAU" secondAttribute="bottom" id="jPC-sj-17l"/>
+                            <constraint firstAttribute="bottom" secondItem="F0v-0Q-UB1" secondAttribute="bottom" id="jxY-8d-9jq"/>
+                            <constraint firstItem="F0v-0Q-UB1" firstAttribute="centerX" secondItem="8MS-5O-z5S" secondAttribute="centerX" id="pp6-Fi-XiH"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t84-dc-pP2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2650" y="711"/>
         </scene>
     </scenes>
     <resources>

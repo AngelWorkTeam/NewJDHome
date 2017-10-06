@@ -7,8 +7,7 @@
 //
 
 
-@protocol  HETForgetPasswordProtocol <NSObject>
-@end
-@interface HETForgetPasswordOneController : NJDBaseController<HETForgetPasswordProtocol>
+
+@interface HETForgetPasswordOneController : NJDBaseController
 
 @end

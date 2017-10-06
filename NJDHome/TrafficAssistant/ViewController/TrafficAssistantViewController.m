@@ -11,7 +11,10 @@
 #import "TrafficAssistantTableViewCell.h"
 #import "TrafficsHistoryTableViewCell.h"
 #import "TrafficAssistantTaskModel.h"
-@interface TrafficAssistantViewController ()<UITableViewDelegate, UITableViewDataSource>
+#import "NetworkingManager+YYNetRequest.h"
+#import <MJRefresh.h>
+#import "NJDRefreshHeader.h"
+@interface TrafficAssistantViewController ()<UITableViewDelegate, UITableViewDataSource, TrafficAssistantTableViewCellDelegate>
 
 @property (nonatomic, strong) UIView   *tabbarView;
 
@@ -24,6 +27,10 @@
 @property (nonatomic, strong) NSMutableArray *datasoureArray;
 
 @property (nonatomic, assign) BOOL isNewTask;
+
+
+@property (nonatomic, assign) NSInteger page;
+@property (nonatomic, assign) BOOL  isLast;
 @end
 
 #define tabarHeight 49
@@ -36,19 +43,51 @@
     
     _datasoureArray = [NSMutableArray new];
     _isNewTask = true;
+    self.automaticallyAdjustsScrollViewInsets = false;
     [self initViews];
     
+    
     [self.view addSubview:self.table];
-    [self.table mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.view.mas_top);
-        make.left.mas_equalTo(self.view.mas_left);
-        make.right.mas_equalTo(self.view.mas_right);
-        make.bottom.mas_equalTo(self.view.mas_bottom).offset(-tabarHeight);
+
+    [self.view addSubview:self.tabbarView];
+    
+    _page = 0;
+    _isLast = false;
+    MJRefreshNormalHeader *header =[MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        _page = 0;
+        _isLast = false;
+        [self reloadTrafficData];
     }];
+
+//    [self.table mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.mas_equalTo(self.view.mas_top).offset(-header.height);
+//        make.left.mas_equalTo(self.view.mas_left);
+//        make.right.mas_equalTo(self.view.mas_right);
+//        make.bottom.mas_equalTo(self.view.mas_bottom).offset(-tabarHeight);
+//    }];
+    self.table.mj_header =  header;   // 马上进入刷新状态
+    [header setTitle:@"下拉刷新" forState:MJRefreshStateIdle];
+    [header setTitle:@"下拉刷新" forState:MJRefreshStatePulling];
+    [header setTitle:@"加载中" forState:MJRefreshStateRefreshing];
+    header.lastUpdatedTimeLabel.hidden = true;
     
-     [self.view addSubview:self.tabbarView];
+    [self.table.mj_header beginRefreshing];
+    self.table.mj_header.automaticallyChangeAlpha = YES;
     
-    [self reloadTrafficData ];
+    MJRefreshBackNormalFooter *footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        if (!_isLast) {
+            _page += 1;
+            [self reloadTrafficData ];
+        }
+        
+    }];
+
+    self.table.mj_footer = footer;
+    [footer setTitle:@"上拉加载" forState:MJRefreshStatePulling];
+    [footer setTitle:@"上拉加载" forState:MJRefreshStateIdle];
+    [footer setTitle:@"加载中" forState:MJRefreshStateRefreshing];
+    [footer setTitle:@"没有更多数据了" forState:MJRefreshStateNoMoreData];
+    
 }
 
 #pragma mark - privte metod
@@ -98,13 +137,14 @@
             cell = [[TrafficAssistantTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"xgyNewReuseCell"];
         }
         cell.model = _datasoureArray[indexPath.row];
+        cell.cellDelgate = self;
         return cell;
     }else{
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"xgyHistoryReuseCell"];
+        TrafficsHistoryTableViewCell *cell = (TrafficsHistoryTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"xgyHistoryReuseCell"];
         if (cell == nil) {
             cell = [[TrafficsHistoryTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"xgyHistoryReuseCell"];
         }
-        
+        cell.model = _datasoureArray[indexPath.row];
         return cell;
     }
 }
@@ -125,7 +165,7 @@
     _isNewTask = true;
     _NewTaskQueryButton.selected = true;
     _HistoryTaskQueryButton.selected = false;
-    [self.table reloadData];
+    [self.table.mj_header beginRefreshing];
 }
 
 - (void)HistoryTaskButtonAction:(UIButton *)sender
@@ -133,7 +173,7 @@
     _isNewTask = false;
     _NewTaskQueryButton.selected = false;
     _HistoryTaskQueryButton.selected = true;
-     [self.table reloadData];
+     [self.table.mj_header beginRefreshing];
 }
 
 - (UIView *)tabbarView
@@ -147,7 +187,7 @@
         [_tabbarView addSubview:self.NewTaskQueryButton];
         
         UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, njdScreenWidth, 1)];
-        lineView.backgroundColor = [UIColor blackColor];
+        lineView.backgroundColor = [UIColor grayColor];
         [_tabbarView addSubview:lineView];
 
         
@@ -186,10 +226,9 @@
 - (UITableView *)table
 {
     if (_table == nil) {
-        _table = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
+        _table = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, njdScreenWidth, njdScreenHeight - 64 -49) style:UITableViewStylePlain];
         _table.delegate  = self;
         _table.dataSource = self;
-        
     }
     return _table;
 }
@@ -197,25 +236,78 @@
 
 - (void)reloadTrafficData
 {
-      NJDUserInfoMO *userInfo = [NJDUserInfoMO userInfo];
+    NJDUserInfoMO *userInfo = [NJDUserInfoMO userInfo];
     NSString *userId = userInfo.userId;
     
-   [ NetworkingManager getTrafficsDataWithUserId:userId page:0 isNewRecord:true success:^(NSDictionary * _Nullable dictValue) {
+    @weakify(self)
+    [NetworkingManager getTrafficsDataWithUserId:userId page:_page isNewRecord:_isNewTask success:^(NSDictionary * _Nullable dictValue) {
+       @strongify(self)
        NSLog(@"traffic Data %@", dictValue);
        NSArray *dicArray = [dictValue objectForKey:@"residenceList"];
+       NSDictionary *checkResult = [dictValue objectForKey:@"checkResult"];
+       NSNumber *isSuccess = checkResult[@"success"];
+       if( isSuccess.boolValue ){
+           _isLast = false;
+           [self.table.mj_footer resetNoMoreData];
+           if(_page == 0) {
+               _datasoureArray = [NSMutableArray new];
+           }
+       }else{
+           NSString *faildStr = [checkResult objectForKey:@"resultMsg"];
+           [NJDPopLoading showMessage:faildStr atView:self.view];
+           [self loadFaled];
+       }
+       
        if (dicArray && dicArray.count > 0) {
            for (int i = 0; i < dicArray.count; i++) {
                NSDictionary *recordList = dicArray[i];
                TrafficAssistantTaskModel *model = [TrafficAssistantTaskModel modelWithDictionary:recordList];
                [_datasoureArray addObject:model];
            }
-           
-           [self.table reloadData];
+           [self headerEndfresshViewWithSuccess];
+       }else{
+           [self loadFaled];
        }
        
     } failure:^(NSError * _Nullable error) {
-        
+        if(_page == 0){
+            [self headerEndfresshViewWithSuccess];
+        }else{
+            [self endRefreshViewNoMoreDara];
+        }
+        [NJDPopLoading showAutoHideWithMessage:error.userInfo[NSLocalizedDescriptionKey]];
     }];
+}
+
+- (void)loadFaled
+{
+    if(_page == 0){
+        [self headerEndfresshViewWithSuccess];
+    }else{
+        [self endRefreshViewNoMoreDara];
+    }
+
+}
+
+- (void)endRefreshViewNoMoreDara
+{
+    _isLast = true;
+    [self.table.mj_footer endRefreshingWithNoMoreData];
+    [self.table reloadData];
+}
+
+- (void)headerEndfresshViewWithSuccess
+{
+    [self.table.mj_header endRefreshing];
+    [self.table reloadData];
+}
+
+#pragma mark - Navigation
+- (void)trafficActionButtonAction:(NSInteger)index withModel:(TrafficAssistantTaskModel *)model
+{
+    NSInteger indexNum = index;
+    NSString *recordId = model.recordId;
+    
 }
 /*
 #pragma mark - Navigation
@@ -226,5 +318,7 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
 
 @end

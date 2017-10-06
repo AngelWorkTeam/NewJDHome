@@ -10,5 +10,14 @@
 
 @implementation TrafficAssistantTaskModel
 
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{@"person" : [PersonInfo class]};
+}
+
+
++ (NSDictionary *)modelCustomPropertyMapper {
+    return @{@"recordId"  : @"id",
+             };
+}
 
 @end

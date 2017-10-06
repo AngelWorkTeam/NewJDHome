@@ -9,10 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "userInfoView.h"
 #import "TrafficAssistantTaskModel.h"
+
+@protocol TrafficAssistantTableViewCellDelegate <NSObject>
+
+- (void)trafficActionButtonAction:(NSInteger)index withModel:(TrafficAssistantTaskModel *)model;
+
+@end
+
 typedef void (^buttonAction) (NSInteger index, NSString *title);
 @interface TrafficAssistantTableViewCell : UITableViewCell
 
 @property (nonatomic, copy) buttonAction trafficAction;
-
+@property (nonatomic, weak) id<TrafficAssistantTableViewCellDelegate> cellDelgate;
 @property (nonatomic, strong) TrafficAssistantTaskModel *model;
 @end

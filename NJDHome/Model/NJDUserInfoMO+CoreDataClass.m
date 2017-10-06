@@ -22,4 +22,24 @@
 +(void)save{
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }
+
++(BNRRoleType)roleType{
+    NJDUserInfoMO *m = [self userInfo];
+    if (m) {
+        if ([m.role.no isEqualToString:@"PTYH"]){
+            return BNRRoleTypeRenter;
+        }
+        if ([m.role.no isEqualToString:@"FD"]) {
+            return BNRRoleTypeLandlord;
+        }
+        if ([m.role.no isEqualToString:@"XGY"]) {
+            return BNRRoleTypeTrafficAssistant;
+        }
+        if ([m.role.no isEqualToString:@"CKRY"]) {
+            return BNRRoleTypeWindowClerk;
+        }
+        return BNRRoleTypeUnknow;
+    }
+    return BNRRoleTypeUnknow;
+}
 @end

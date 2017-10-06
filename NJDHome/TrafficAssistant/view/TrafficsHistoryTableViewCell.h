@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "userInfoView.h"
+#import "TrafficAssistantTaskModel.h"
 @interface TrafficsHistoryTableViewCell : UITableViewCell
+
+@property (nonatomic, strong) TrafficAssistantTaskModel *model;
 
 @end

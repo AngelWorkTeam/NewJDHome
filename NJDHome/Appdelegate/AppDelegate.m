@@ -37,7 +37,7 @@
 //
 //    [Bugly startWithAppId:@"02841f4dd3"];
     
-    [self stopObserveLoginOut];
+    [self startObserveLoginOut];
     return YES;
 }
 

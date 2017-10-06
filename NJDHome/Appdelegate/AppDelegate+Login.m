@@ -22,6 +22,7 @@
 }
 
 -(void)logintOutHandle:(NSNotification *)noti{
+    [NJDPopLoading hideHud];
     UINavigationController *nav = (UINavigationController *)self.window.rootViewController;
     if ([nav isKindOfClass:[UINavigationController class]]) {
         if(nav.viewControllers.count > 1){

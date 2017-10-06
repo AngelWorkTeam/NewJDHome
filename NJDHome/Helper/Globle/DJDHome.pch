@@ -17,6 +17,7 @@
 #import <SAMCategories/SAMCategories.h>
 #import <Masonry/Masonry.h>
 #import <MagicalRecord/MagicalRecord.h>
+#import <YYKit/YYKit.h>
 #import "NSManagedObject+EntityBugFix.h"
 #import "GlobleMacro.h"
 #import "NetworkingManager.h"
@@ -32,12 +33,5 @@
 #import "NJDRoleInfoMO+CoreDataProperties.h"
 #import "NJDPersonInfoMO+CoreDataProperties.h"
 
-#ifdef RACObserve
-#undef RACObserve
-    #define RACObserve(TARGET, KEYPATH) \
-    ({ \
-    __weak id target_ = (TARGET); \
-    [target_ rac_valuesForKeyPath:@keypath(TARGET, KEYPATH) observer:self]; \
-    })
-#endif
+
 #endif /* DJDHome_pch */
