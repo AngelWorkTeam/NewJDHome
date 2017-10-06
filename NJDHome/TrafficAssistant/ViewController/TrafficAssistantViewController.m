@@ -7,7 +7,10 @@
 //
 
 #import "TrafficAssistantViewController.h"
-
+#import "SettingVC.h"
+#import "TrafficAssistantTableViewCell.h"
+#import "TrafficsHistoryTableViewCell.h"
+#import "TrafficAssistantTaskModel.h"
 @interface TrafficAssistantViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UIView   *tabbarView;
@@ -19,9 +22,12 @@
 @property (nonatomic, strong) UITableView *table;
 
 @property (nonatomic, strong) NSMutableArray *datasoureArray;
+
+@property (nonatomic, assign) BOOL isNewTask;
 @end
 
 #define tabarHeight 49
+
 
 @implementation TrafficAssistantViewController
 
@@ -29,11 +35,10 @@
     [super viewDidLoad];
     
     _datasoureArray = [NSMutableArray new];
-    [self createNoBackWithOpaue:YES];
+    _isNewTask = true;
+    [self initViews];
     
     [self.view addSubview:self.table];
-    [self.view addSubview:self.tabbarView];
-    
     [self.table mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.view.mas_top);
         make.left.mas_equalTo(self.view.mas_left);
@@ -41,8 +46,28 @@
         make.bottom.mas_equalTo(self.view.mas_bottom).offset(-tabarHeight);
     }];
     
+     [self.view addSubview:self.tabbarView];
+    
+    [self reloadTrafficData ];
 }
 
+#pragma mark - privte metod
+-(void)initViews{
+    [self createNoBackWithOpaue:YES];
+    self.title = @"新金东人之家";
+    self.view.backgroundColor = [UIColor sam_colorWithHex:@"efeff6"];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
+                                              initWithTitle:@"设置" style:UIBarButtonItemStylePlain
+                                              target:self
+                                              action:@selector(settingHandle:)];
+}
+
+#pragma mark - action handle
+-(void)settingHandle:(UIBarButtonItem *)item{
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    SettingVC *vc =[sb instantiateViewControllerWithIdentifier:@"settingVC"];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -56,48 +81,75 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+#pragma -mark UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _datasoureArray.count;
+    //return 1;
+   return _datasoureArray.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"xgyReuseCell"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"xgyReuseCell"];
+    if (_isNewTask) {
+        TrafficAssistantTableViewCell *cell = (TrafficAssistantTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"xgyNewReuseCell"];
+        if (cell == nil) {
+            cell = [[TrafficAssistantTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"xgyNewReuseCell"];
+        }
+        cell.model = _datasoureArray[indexPath.row];
+        return cell;
+    }else{
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"xgyHistoryReuseCell"];
+        if (cell == nil) {
+            cell = [[TrafficsHistoryTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"xgyHistoryReuseCell"];
+        }
         
+        return cell;
     }
-    
-    return cell;
-    
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(_isNewTask){
+        return userinfocellHeight*12 + 30;
+    }else{
+        return userinfocellHeight*12 ;
+    }
+   
 }
 
 - (void)NewTaskButtonAction:(UIButton *)sender
 {
-
+    _isNewTask = true;
+    _NewTaskQueryButton.selected = true;
+    _HistoryTaskQueryButton.selected = false;
+    [self.table reloadData];
 }
 
 - (void)HistoryTaskButtonAction:(UIButton *)sender
 {
-
+    _isNewTask = false;
+    _NewTaskQueryButton.selected = false;
+    _HistoryTaskQueryButton.selected = true;
+     [self.table reloadData];
 }
 
 - (UIView *)tabbarView
 {
     if (_tabbarView == nil) {
-        _tabbarView = [[UIView alloc]initWithFrame:CGRectMake(0, kScreenHeight - tabarHeight, kScreenWidth, tabarHeight)];
-        _tabbarView.backgroundColor = [UIColor redColor];
+        _tabbarView = [[UIView alloc]initWithFrame:CGRectMake(0, njdScreenHeight - tabarHeight- 64, njdScreenWidth, tabarHeight)];
+        _tabbarView.backgroundColor = [UIColor whiteColor];
         
-        UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 1)];
-        lineView.backgroundColor = [UIColor whiteColor];
-        [_tabbarView addSubview:lineView];
         
         [_tabbarView addSubview:self.HistoryTaskQueryButton];
         [_tabbarView addSubview:self.NewTaskQueryButton];
+        
+        UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, njdScreenWidth, 1)];
+        lineView.backgroundColor = [UIColor blackColor];
+        [_tabbarView addSubview:lineView];
+
         
     }
     return _tabbarView;
@@ -106,24 +158,26 @@
 - (UIButton *)HistoryTaskQueryButton
 {
     if (_HistoryTaskQueryButton == nil) {
-        _HistoryTaskQueryButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth/2, tabarHeight)];
-        [_HistoryTaskQueryButton setTitleColor:[UIColor colorWithHexString:@"666666"] forState:UIControlStateNormal];
+        _HistoryTaskQueryButton = [[UIButton alloc]initWithFrame:CGRectMake(njdScreenWidth/2, 0, njdScreenWidth/2, tabarHeight)];
+        [_HistoryTaskQueryButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [_HistoryTaskQueryButton setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
         [_HistoryTaskQueryButton setTitle:@"历史任务查询" forState:UIControlStateNormal];
         [_HistoryTaskQueryButton addTarget:self action:@selector(HistoryTaskButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        _HistoryTaskQueryButton.selected = !_isNewTask;
     }
     
-    return _NewTaskQueryButton;
+    return _HistoryTaskQueryButton;
 }
 
 - (UIButton *)NewTaskQueryButton
 {
     if (_NewTaskQueryButton == nil) {
-        _NewTaskQueryButton = [[UIButton alloc]initWithFrame:CGRectMake(kScreenWidth/2, 0, kScreenWidth/2, tabarHeight)];
-        [_NewTaskQueryButton setTitleColor:[UIColor colorWithHexString:@"666666"] forState:UIControlStateNormal];
+        _NewTaskQueryButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, njdScreenWidth/2, tabarHeight )];
+        [_NewTaskQueryButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [_NewTaskQueryButton setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
         [_NewTaskQueryButton setTitle:@"新任务查询" forState:UIControlStateNormal];
         [_NewTaskQueryButton addTarget:self action:@selector(NewTaskButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        _NewTaskQueryButton.selected = _isNewTask;
     }
     
     return _NewTaskQueryButton;
@@ -138,6 +192,30 @@
         
     }
     return _table;
+}
+
+
+- (void)reloadTrafficData
+{
+      NJDUserInfoMO *userInfo = [NJDUserInfoMO userInfo];
+    NSString *userId = userInfo.userId;
+    
+   [ NetworkingManager getTrafficsDataWithUserId:userId page:0 isNewRecord:true success:^(NSDictionary * _Nullable dictValue) {
+       NSLog(@"traffic Data %@", dictValue);
+       NSArray *dicArray = [dictValue objectForKey:@"residenceList"];
+       if (dicArray && dicArray.count > 0) {
+           for (int i = 0; i < dicArray.count; i++) {
+               NSDictionary *recordList = dicArray[i];
+               TrafficAssistantTaskModel *model = [TrafficAssistantTaskModel modelWithDictionary:recordList];
+               [_datasoureArray addObject:model];
+           }
+           
+           [self.table reloadData];
+       }
+       
+    } failure:^(NSError * _Nullable error) {
+        
+    }];
 }
 /*
 #pragma mark - Navigation

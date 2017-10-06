@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1960378A1F832B2600117ECE /* TrafficAssistantTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 196037891F832B2600117ECE /* TrafficAssistantTableViewCell.m */; };
+		1960378E1F832B8300117ECE /* userInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1960378D1F832B8300117ECE /* userInfoView.m */; };
+		196037911F836DDD00117ECE /* TrafficsHistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 196037901F836DDD00117ECE /* TrafficsHistoryTableViewCell.m */; };
+		196037941F83779800117ECE /* TrafficAssistantTaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 196037931F83779800117ECE /* TrafficAssistantTaskModel.m */; };
 		1976ECBA1F7F26BC00A15BE4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECB91F7F26BC00A15BE4 /* LoginViewController.m */; };
 		1976ECBC1F7F26E100A15BE4 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1976ECBB1F7F26E100A15BE4 /* LoginStoryboard.storyboard */; };
 		1976ECD71F7F3F7500A15BE4 /* TrafficAssistantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECD61F7F3F7500A15BE4 /* TrafficAssistantViewController.m */; };
@@ -54,6 +58,14 @@
 
 /* Begin PBXFileReference section */
 		09D79BB739306A2B5A9B0F0A /* Pods-NJDHome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NJDHome.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NJDHome/Pods-NJDHome.debug.xcconfig"; sourceTree = "<group>"; };
+		196037881F832B2600117ECE /* TrafficAssistantTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrafficAssistantTableViewCell.h; path = view/TrafficAssistantTableViewCell.h; sourceTree = "<group>"; };
+		196037891F832B2600117ECE /* TrafficAssistantTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrafficAssistantTableViewCell.m; path = view/TrafficAssistantTableViewCell.m; sourceTree = "<group>"; };
+		1960378C1F832B8300117ECE /* userInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = userInfoView.h; path = view/userInfoView.h; sourceTree = "<group>"; };
+		1960378D1F832B8300117ECE /* userInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = userInfoView.m; path = view/userInfoView.m; sourceTree = "<group>"; };
+		1960378F1F836DDD00117ECE /* TrafficsHistoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrafficsHistoryTableViewCell.h; path = view/TrafficsHistoryTableViewCell.h; sourceTree = "<group>"; };
+		196037901F836DDD00117ECE /* TrafficsHistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrafficsHistoryTableViewCell.m; path = view/TrafficsHistoryTableViewCell.m; sourceTree = "<group>"; };
+		196037921F83779800117ECE /* TrafficAssistantTaskModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrafficAssistantTaskModel.h; path = model/TrafficAssistantTaskModel.h; sourceTree = "<group>"; };
+		196037931F83779800117ECE /* TrafficAssistantTaskModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrafficAssistantTaskModel.m; path = model/TrafficAssistantTaskModel.m; sourceTree = "<group>"; };
 		1976ECB81F7F26BC00A15BE4 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		1976ECB91F7F26BC00A15BE4 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		1976ECBB1F7F26E100A15BE4 /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
@@ -151,6 +163,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		196037871F832B0D00117ECE /* view */ = {
+			isa = PBXGroup;
+			children = (
+				196037881F832B2600117ECE /* TrafficAssistantTableViewCell.h */,
+				196037891F832B2600117ECE /* TrafficAssistantTableViewCell.m */,
+				1960378C1F832B8300117ECE /* userInfoView.h */,
+				1960378D1F832B8300117ECE /* userInfoView.m */,
+				1960378F1F836DDD00117ECE /* TrafficsHistoryTableViewCell.h */,
+				196037901F836DDD00117ECE /* TrafficsHistoryTableViewCell.m */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		1960378B1F832B3100117ECE /* model */ = {
+			isa = PBXGroup;
+			children = (
+				196037921F83779800117ECE /* TrafficAssistantTaskModel.h */,
+				196037931F83779800117ECE /* TrafficAssistantTaskModel.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
 		1976ECD41F7F3F7500A15BE4 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -310,6 +344,8 @@
 		19B708001F7E3B350086C565 /* TrafficAssistant */ = {
 			isa = PBXGroup;
 			children = (
+				1960378B1F832B3100117ECE /* model */,
+				196037871F832B0D00117ECE /* view */,
 				1976ECD41F7F3F7500A15BE4 /* ViewController */,
 			);
 			path = TrafficAssistant;
@@ -700,21 +736,25 @@
 				1BD82C371F81354B006D6ADC /* NSManagedObject+EntityBugFix.m in Sources */,
 				1BD459F11F7FC06D00A5B031 /* NJDBaseController.m in Sources */,
 				1BD82C3A1F8135EC006D6ADC /* Model.xcdatamodeld in Sources */,
+				196037941F83779800117ECE /* TrafficAssistantTaskModel.m in Sources */,
 				1976ECE01F7F49C200A15BE4 /* PersonInfo.m in Sources */,
 				1976ECD71F7F3F7500A15BE4 /* TrafficAssistantViewController.m in Sources */,
 				1BD459F21F7FC07000A5B031 /* GlobleMacro.m in Sources */,
 				1976ECEE1F7F76FA00A15BE4 /* RenterViewController.m in Sources */,
 				1BD82C701F814394006D6ADC /* NJDUserInfoMO+CoreDataProperties.m in Sources */,
 				1BC4B8EE1F824E4500CFCD2B /* AppDelegate+Login.m in Sources */,
+				1960378E1F832B8300117ECE /* userInfoView.m in Sources */,
 				1BAE264E1F80AA90004D3F22 /* HETSleepActivityIndicatorView.m in Sources */,
 				1BD82C6E1F81438D006D6ADC /* NJDRoleInfoMO+CoreDataProperties.m in Sources */,
 				1BD82C321F810624006D6ADC /* NSString+Utils.m in Sources */,
 				1BD82C6C1F814382006D6ADC /* NJDPersonInfoMO+CoreDataProperties.m in Sources */,
+				196037911F836DDD00117ECE /* TrafficsHistoryTableViewCell.m in Sources */,
 				1B219C401F827FDD007FFEA5 /* HETForgetPasswordViewModel.m in Sources */,
 				19B707F31F7E2E2E0086C565 /* main.m in Sources */,
 				1BD82C6D1F814388006D6ADC /* NJDRoleInfoMO+CoreDataClass.m in Sources */,
 				1BD82C6F1F814391006D6ADC /* NJDUserInfoMO+CoreDataClass.m in Sources */,
 				1976ECF41F7F77ED00A15BE4 /* WindowClerkViewController.m in Sources */,
+				1960378A1F832B2600117ECE /* TrafficAssistantTableViewCell.m in Sources */,
 				1B219C3F1F827FDA007FFEA5 /* HETForgetPasswordTwoController.m in Sources */,
 				1BAE264B1F80AA26004D3F22 /* NJDRefreshHeader.m in Sources */,
 				1BAE26551F80C090004D3F22 /* IDCardVC.m in Sources */,

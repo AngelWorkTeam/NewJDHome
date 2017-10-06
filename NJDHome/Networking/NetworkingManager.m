@@ -20,6 +20,7 @@ NSString * const kRegister = @"regist";
 NSString * const kModifyPasswork = @"updatePwd";
 NSString * const kGetCode       = @"takeCode";
 
+NSString * const kGetRecordToXGY       = @"getRecordListToXGY";
 
 @implementation NetworkingManager
 +(void)printfUrl:(NSURL *)url{
@@ -199,6 +200,48 @@ constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
     AFHTTPSessionManager *m = [self manager];
     NSURLSessionTask *task = [m POST:kURL(kUserDomain, kGetCode)
                           parameters:@{@"phoneNum":phone}
+                            progress:nil
+                             success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                                 if ([self dealWithResponse:responseObject
+                                                    failure:fail] == NO) {
+                                     return ;
+                                 }
+                                 !success?:success(responseObject);
+                             }
+                             failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                 !fail?:fail(error);
+                             }];
+    [self printfUrl:task.currentRequest.URL];
+}
+
+
+
+// yy add code
++(void)getTrafficsDataWithUserId:(NSString *)userId
+                           page:(NSInteger)page
+                    isNewRecord:(BOOL)isNew
+                success:(NJDHttpSuccessBlockDictionary)success
+                failure:(NJDHttpFailureBlock)fail{
+    AFHTTPSessionManager *m = [self manager];
+    
+    NSDictionary *parms;
+    if (isNew) {
+       parms  = @{@"userId":userId
+            ,@"page":@(page)
+            ,@"token":SAFE_STRING([NJDUserInfoMO userInfo].token)
+            ,@"recordFlag":@"done"
+            };
+    }else{
+        parms  = @{@"userId":userId
+                   ,@"page":@(page)
+                   ,@"token":SAFE_STRING([NJDUserInfoMO userInfo].token)
+                   ,@"recordFlag":@"wait"
+                   };
+    }
+  
+    
+    NSURLSessionTask *task = [m POST:kURL(kUserDomain, kGetRecordToXGY)
+                          parameters:parms
                             progress:nil
                              success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                                  if ([self dealWithResponse:responseObject

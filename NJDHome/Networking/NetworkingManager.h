@@ -46,4 +46,15 @@ typedef void (^NJDHttpFailureBlock)(NSError * _Nullable error);
 +(void)getCodeWithPhone:(NSString *_Nonnull)phone
                 success:(NJDHttpSuccessBlockDictionary _Nullable )success
                 failure:(NJDHttpFailureBlock _Nonnull )fail;
+
+
+/**
+ *协管人员获取任务数据
+ */
+
++(void)getTrafficsDataWithUserId:(NSString *_Nullable)userId
+                            page:(NSInteger)page
+                     isNewRecord:(BOOL)isNew
+                         success:(NJDHttpSuccessBlockDictionary _Nullable)success
+                         failure:(NJDHttpFailureBlock _Nullable)fail;
 @end
