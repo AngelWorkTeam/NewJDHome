@@ -10,5 +10,6 @@
 #import "SubmitCell.h"
 @interface ApplyCardCell2 : SubmitCell
 @property (nonatomic,copy) void (^shuldShowTextView)(BOOL);
+@property(nonatomic) BOOL showTextView;
 @end
 

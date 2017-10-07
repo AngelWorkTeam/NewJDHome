@@ -90,14 +90,24 @@ typedef void (^NJDHttpFailureBlock)(NSError * _Nullable error);
               failure:(NJDHttpFailureBlock _Nullable )fail;
 
 
+//申请居住证接口
++(void)applyCard:(NSDictionary *_Nonnull)params
+       idCardImg:(UIImage *_Nonnull)idCardImg
+        dataImgs:(NSArray *_Nonnull)imgs
+         faceImg:(UIImage *_Nonnull)faceImg
+         success:(NJDHttpSuccessBlockDictionary _Nullable )success
+         failure:(NJDHttpFailureBlock _Nullable )fail;
 
-
++(void)unRegisterRender:(NSDictionary *_Nonnull)params
+              idCardImg:(UIImage *_Nonnull)idCardImg
+                success:(NJDHttpSuccessBlockDictionary _Nullable)success
+                failure:(NJDHttpFailureBlock _Nullable )fail;
 /////// for yy code
 
-+(void)printfUrl:(NSURL *)url;
-+(BOOL)dealWithResponse:(NSDictionary *)reslut
-                failure:(NJDHttpFailureBlock)fail;
-+(NSError *)responseTypeError;
-+(AFHTTPSessionManager *)manager;
++(void)printfUrl:(NSURL *_Nonnull)url;
++(BOOL)dealWithResponse:(NSDictionary *_Nonnull)reslut
+                failure:(NJDHttpFailureBlock _Nullable )fail;
++(NSError *_Nullable)responseTypeError;
++(AFHTTPSessionManager *_Nonnull)manager;
 
 @end

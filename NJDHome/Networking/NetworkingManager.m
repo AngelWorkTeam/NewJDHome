@@ -30,7 +30,8 @@ NSString * const kSaveAddr    = @"saveLandlordAddress";
 NSString * const kDeleteAddr = @"deleteLandlordAddress";
 
 NSString *const kSubmitInfo = @"saveCheckInRecord";
-
+NSString *const kApplyCard = @"saveBidInfo";
+NSString *const kUnregisterRenter = @"logOutRecord";
 
 @implementation NetworkingManager
 +(void)printfUrl:(NSURL *)url{
@@ -415,10 +416,12 @@ constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
            renterImgs:(NSArray *)imgs
               success:(NJDHttpSuccessBlockDictionary)success
               failure:(NJDHttpFailureBlock)fail{
+    NSMutableDictionary *dic = params.mutableCopy;
+    dic[@"token"] = SAFE_STRING([NJDUserInfoMO userInfo].token);
     AFHTTPSessionManager *manager = [self manager];
     manager.requestSerializer.timeoutInterval = 60;
     [manager POST:kURL(kUserDomain, kSubmitInfo)
-       parameters:params
+       parameters:dic.copy
 constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
          NSData *data = UIImageJPEGRepresentation(idCardImg, 0.75);
          [formData appendPartWithFileData: data
@@ -447,4 +450,78 @@ constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
     manager.requestSerializer.timeoutInterval = 30;
 }
 
++(void)applyCard:(NSDictionary *)params
+            idCardImg:(UIImage *)idCardImg
+           dataImgs:(NSArray *)imgs
+         faceImg:(UIImage *)faceImg
+              success:(NJDHttpSuccessBlockDictionary)success
+              failure:(NJDHttpFailureBlock)fail{
+    NSMutableDictionary *dic = params.mutableCopy;
+    dic[@"token"] = SAFE_STRING([NJDUserInfoMO userInfo].token);
+    AFHTTPSessionManager *manager = [self manager];
+    manager.requestSerializer.timeoutInterval = 60;
+    [manager POST:kURL(kUserDomain, kApplyCard)
+       parameters:dic.copy
+constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    NSData *data = UIImageJPEGRepresentation(idCardImg, 0.75);
+    [formData appendPartWithFileData: data
+                                name: @"identityImgFile"
+                            fileName: @"identityImgFile.png"
+                            mimeType: @"image/png"];
+    data = UIImageJPEGRepresentation(faceImg, 0.75);
+    [formData appendPartWithFileData: data
+                                name: @"faceImgFiles"
+                            fileName: @"faceImgFiles.png"
+                            mimeType: @"image/png"];
+    for (UIImage *img in imgs) {
+        NSData *data = UIImageJPEGRepresentation(img, 0.75);
+        NSString *fileName = [NSString stringWithFormat:@"%@.png",@(arc4random())];
+        [formData appendPartWithFileData: data
+                                    name: @"photoImgFiles"
+                                fileName: fileName
+                                mimeType: @"image/png"];
+    }
+}
+         progress:nil
+          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+              if ([self dealWithResponse:responseObject failure:fail] == NO) {
+                  return ;
+              }
+              !success?:success(responseObject);
+          }
+          failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+              !fail?:fail(error);
+          }];
+    manager.requestSerializer.timeoutInterval = 30;
+}
+
++(void)unRegisterRender:(NSDictionary *)params
+              idCardImg:(UIImage *)idCardImg
+                success:(NJDHttpSuccessBlockDictionary)success
+                failure:(NJDHttpFailureBlock)fail{
+    NSMutableDictionary *dic = params.mutableCopy;
+    dic[@"token"] = SAFE_STRING([NJDUserInfoMO userInfo].token);
+    AFHTTPSessionManager *manager = [self manager];
+    manager.requestSerializer.timeoutInterval = 60;
+    [manager POST:kURL(kUserDomain, kUnregisterRenter)
+       parameters:dic.copy
+    constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    NSData *data = UIImageJPEGRepresentation(idCardImg, 0.75);
+    [formData appendPartWithFileData: data
+                                name: @"identityImgFile"
+                            fileName: @"identityImgFile.png"
+                            mimeType: @"image/png"];
+    }
+         progress:nil
+          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+              if ([self dealWithResponse:responseObject failure:fail] == NO) {
+                  return ;
+              }
+              !success?:success(responseObject);
+          }
+          failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+              !fail?:fail(error);
+          }];
+    manager.requestSerializer.timeoutInterval = 30;
+}
 @end
