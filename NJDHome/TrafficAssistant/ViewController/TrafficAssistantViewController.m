@@ -165,9 +165,8 @@
     if(_isNewTask){
         return userinfocellHeight*12 + 30;
     }else{
-        return userinfocellHeight*12 ;
+        return userinfocellHeight*12 + 30;
     }
-   
 }
 
 - (void)NewTaskButtonAction:(UIButton *)sender
