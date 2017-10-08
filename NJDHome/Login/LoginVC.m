@@ -10,6 +10,7 @@
 #import "RegisterVC.h"
 #import "LoginVC.h"
 #import "TrafficAssistantViewController.h"
+#import "WindowClerkViewController.h"
 NSString *const kRemeberPasswordKey = @"remeberPassword";
 @interface LoginVC ()
 @property (weak, nonatomic) IBOutlet UITextField *account;
@@ -115,11 +116,14 @@ NSString *const kRemeberPasswordKey = @"remeberPassword";
                                                      LoginVC *vc = [sb instantiateViewControllerWithIdentifier:@"FDOrPTYHVC"];
                                                      [self.navigationController pushViewController:vc animated:YES];
                                                  }else if([info.role.no isEqualToString:@"XGY"] //协管员
-                                                          ||[info.role.no isEqualToString:@"CKRY"]){ //窗口管理员
+                                                          ){ //窗口管理员
                                                      UIViewController *xgyviewController = [[TrafficAssistantViewController alloc]init];
                                     
                                                      [self.navigationController pushViewController:xgyviewController animated:YES];
                                                      
+                                                 }else if ([info.role.no isEqualToString:@"CKRY"]){
+                                                     UIViewController *ckryvc = [[WindowClerkViewController alloc]init];
+                                                     [self.navigationController pushViewController:ckryvc animated:YES];
                                                  }
 
                                                

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface WindowClerkViewController : UIViewController
+#import "NJDBaseController.h"
+@interface WindowClerkViewController : NJDBaseController
 
 @end

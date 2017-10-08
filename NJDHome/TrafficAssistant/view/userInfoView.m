@@ -38,6 +38,7 @@
 
 @property (nonatomic, strong) UILabel *shengbaoleixing;
 
+@property (nonatomic, strong) UILabel *shengbaoleixingtitle;
 
 @property (nonatomic, strong) NSArray *titleArray;
 @property (nonatomic, strong) NSArray *titleArray1;
@@ -81,10 +82,10 @@
             
         }else{
             [cellView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.mas_equalTo(lastview.mas_bottom);
+                make.top.mas_equalTo(lastview.mas_bottom).offset(2);
                 make.left.mas_equalTo(contentView.mas_left);
                 make.right.mas_equalTo(contentView.mas_right);
-                make.height.mas_equalTo(userinfocellHeight);
+                //make.height.mas_equalTo(userinfocellHeight);
             }];
         }
         lastview = cellView;
@@ -126,15 +127,20 @@
         }];
         
         lastview = cellView;
+        
+        
     }
 }
 
 - (UIView *)createCellViewWithTitle:(NSString *)title
 {
     UIView *cellview = [[UIView alloc]initWithFrame:CGRectZero];
+   
     
     UILabel *titleLabel = [self createTitleLableWithTitle:title];
+    
     [cellview addSubview:titleLabel];
+    titleLabel.numberOfLines = 0;
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(cellview.mas_top);
         make.left.mas_equalTo(cellview.mas_left);
@@ -144,11 +150,16 @@
     
     UILabel *contentLabel = [self createContentLableWithTitle:@""];
     [cellview addSubview:contentLabel];
+    contentLabel.preferredMaxLayoutWidth = (njdScreenWidth - 10.0 * 2 - 60);
+    [contentLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+    contentLabel.numberOfLines = 0;
+    
     [contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(cellview.mas_top);
         make.left.mas_equalTo(titleLabel.mas_right);
         make.right.mas_equalTo(cellview.mas_right);
-        make.height.mas_equalTo(userinfocellHeight);
+        make.bottom.mas_equalTo(cellview.mas_bottom);
+       // make.height.mas_equalTo(userinfocellHeight);
     }];
 
     if ([_titleArray containsObject:title]) {
@@ -188,9 +199,15 @@
         switch (index) {
                 case 0:
                 _zongjiaoxinyang = contentLabel;
+                [titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+                    make.width.mas_equalTo(60);
+                }];
                 break;
                 case 1:
                 _zhenzhimianmao = contentLabel;
+                [titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+                    make.width.mas_equalTo(60);
+                }];
                 break;
                 case 2:
                 _zhiye= contentLabel;
@@ -221,6 +238,7 @@
                 case 2:
                 _shengbaoleixing = contentLabel;
                 _shengbaoleixing.textColor = [UIColor redColor];
+                _shengbaoleixingtitle = titleLabel;
                 break;
             default:
                 break;
@@ -293,5 +311,11 @@
     }
 }
 
+- (void)setNeedHidhenShenbaoLeixing:(BOOL)needHidhenShenbaoLeixing
+{
+    _needHidhenShenbaoLeixing = needHidhenShenbaoLeixing;
+    _shengbaoleixing.hidden = _needHidhenShenbaoLeixing;
+    _shengbaoleixingtitle.hidden = _needHidhenShenbaoLeixing;
+}
 
 @end

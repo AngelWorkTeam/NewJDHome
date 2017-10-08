@@ -10,6 +10,7 @@
 #import "SettingVC.h"
 #import "SubmitVC.h"
 #import "TermVC.h"
+#import "RequestHistoryViewController.h"
 @interface FDOrPTYHVC ()
 //房屋地址，只有当登入用户是房东时，才有此属性
 @property (nonatomic,copy) NSArray *addresses;
@@ -83,6 +84,16 @@
                 SubmitVC *vc = [SubmitVC new];
                 vc.type = SubmitTypeOther;
                 [self.navigationController pushViewController:vc animated:YES];
+            }
+        }else if(sender.view.tag == 1003){
+            
+            RequestHistoryViewController *vc = [RequestHistoryViewController new];
+            [self.navigationController pushViewController:vc animated:YES];
+
+            if ([NJDUserInfoMO roleType] == BNRRoleTypeLandlord) {
+                
+            }else{
+                
             }
         }
     }

@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		190B3A931F899F6200FA753C /* WindowClerkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 190B3A921F899F6200FA753C /* WindowClerkTableViewCell.m */; };
+		190B3A961F899F9700FA753C /* WindowclerkBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 190B3A951F899F9700FA753C /* WindowclerkBaseView.m */; };
+		190B3A991F89B9B400FA753C /* WindowClerkCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 190B3A981F89B9B400FA753C /* WindowClerkCellModel.m */; };
+		190B3A9C1F89C27800FA753C /* WindowClerkHistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 190B3A9B1F89C27800FA753C /* WindowClerkHistoryTableViewCell.m */; };
+		190B3A9F1F8A55EF00FA753C /* TrafficZhuanjiaoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 190B3A9E1F8A55EF00FA753C /* TrafficZhuanjiaoView.m */; };
+		190B3AA21F8A7A0400FA753C /* RequestHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 190B3AA11F8A7A0400FA753C /* RequestHistoryViewController.m */; };
+		190B3AA51F8A7ACC00FA753C /* ShenBaoProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 190B3AA41F8A7ACC00FA753C /* ShenBaoProgressViewController.m */; };
+		193E99581F87755A00C2CA16 /* TrafficRejectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 193E99561F87755A00C2CA16 /* TrafficRejectView.m */; };
+		195498101F886137005B3229 /* THDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1954980F1F886137005B3229 /* THDatePickerView.m */; };
 		1960378A1F832B2600117ECE /* TrafficAssistantTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 196037891F832B2600117ECE /* TrafficAssistantTableViewCell.m */; };
 		1960378E1F832B8300117ECE /* userInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1960378D1F832B8300117ECE /* userInfoView.m */; };
 		196037911F836DDD00117ECE /* TrafficsHistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 196037901F836DDD00117ECE /* TrafficsHistoryTableViewCell.m */; };
@@ -14,6 +23,7 @@
 		196037971F87139000117ECE /* NetworkingManager+YYNetRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 196037961F87139000117ECE /* NetworkingManager+YYNetRequest.m */; };
 		1960379B1F87187C00117ECE /* NetworkingConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1960379A1F87187C00117ECE /* NetworkingConstant.m */; };
 		1960379E1F87627400117ECE /* TrafficAcceptView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1960379D1F87627400117ECE /* TrafficAcceptView.m */; };
+		196037A21F87660800117ECE /* TrafficAccept.xib in Resources */ = {isa = PBXBuildFile; fileRef = 196037A11F87660800117ECE /* TrafficAccept.xib */; };
 		1976ECBA1F7F26BC00A15BE4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECB91F7F26BC00A15BE4 /* LoginViewController.m */; };
 		1976ECBC1F7F26E100A15BE4 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1976ECBB1F7F26E100A15BE4 /* LoginStoryboard.storyboard */; };
 		1976ECD71F7F3F7500A15BE4 /* TrafficAssistantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECD61F7F3F7500A15BE4 /* TrafficAssistantViewController.m */; };
@@ -92,6 +102,24 @@
 
 /* Begin PBXFileReference section */
 		09D79BB739306A2B5A9B0F0A /* Pods-NJDHome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NJDHome.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NJDHome/Pods-NJDHome.debug.xcconfig"; sourceTree = "<group>"; };
+		190B3A911F899F6200FA753C /* WindowClerkTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowClerkTableViewCell.h; sourceTree = "<group>"; };
+		190B3A921F899F6200FA753C /* WindowClerkTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WindowClerkTableViewCell.m; sourceTree = "<group>"; };
+		190B3A941F899F9700FA753C /* WindowclerkBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowclerkBaseView.h; sourceTree = "<group>"; };
+		190B3A951F899F9700FA753C /* WindowclerkBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WindowclerkBaseView.m; sourceTree = "<group>"; };
+		190B3A971F89B9B400FA753C /* WindowClerkCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowClerkCellModel.h; sourceTree = "<group>"; };
+		190B3A981F89B9B400FA753C /* WindowClerkCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WindowClerkCellModel.m; sourceTree = "<group>"; };
+		190B3A9A1F89C27800FA753C /* WindowClerkHistoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowClerkHistoryTableViewCell.h; sourceTree = "<group>"; };
+		190B3A9B1F89C27800FA753C /* WindowClerkHistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WindowClerkHistoryTableViewCell.m; sourceTree = "<group>"; };
+		190B3A9D1F8A55EF00FA753C /* TrafficZhuanjiaoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrafficZhuanjiaoView.h; path = view/TrafficZhuanjiaoView.h; sourceTree = "<group>"; };
+		190B3A9E1F8A55EF00FA753C /* TrafficZhuanjiaoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrafficZhuanjiaoView.m; path = view/TrafficZhuanjiaoView.m; sourceTree = "<group>"; };
+		190B3AA01F8A7A0400FA753C /* RequestHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestHistoryViewController.h; sourceTree = "<group>"; };
+		190B3AA11F8A7A0400FA753C /* RequestHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestHistoryViewController.m; sourceTree = "<group>"; };
+		190B3AA31F8A7ACC00FA753C /* ShenBaoProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShenBaoProgressViewController.h; sourceTree = "<group>"; };
+		190B3AA41F8A7ACC00FA753C /* ShenBaoProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShenBaoProgressViewController.m; sourceTree = "<group>"; };
+		193E99551F87755A00C2CA16 /* TrafficRejectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrafficRejectView.h; path = view/TrafficRejectView.h; sourceTree = "<group>"; };
+		193E99561F87755A00C2CA16 /* TrafficRejectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrafficRejectView.m; path = view/TrafficRejectView.m; sourceTree = "<group>"; };
+		1954980E1F886137005B3229 /* THDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = THDatePickerView.h; path = view/THDatePickerView.h; sourceTree = "<group>"; };
+		1954980F1F886137005B3229 /* THDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = THDatePickerView.m; path = view/THDatePickerView.m; sourceTree = "<group>"; };
 		196037881F832B2600117ECE /* TrafficAssistantTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrafficAssistantTableViewCell.h; path = view/TrafficAssistantTableViewCell.h; sourceTree = "<group>"; };
 		196037891F832B2600117ECE /* TrafficAssistantTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrafficAssistantTableViewCell.m; path = view/TrafficAssistantTableViewCell.m; sourceTree = "<group>"; };
 		1960378C1F832B8300117ECE /* userInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = userInfoView.h; path = view/userInfoView.h; sourceTree = "<group>"; };
@@ -106,6 +134,7 @@
 		1960379A1F87187C00117ECE /* NetworkingConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkingConstant.m; sourceTree = "<group>"; };
 		1960379C1F87627400117ECE /* TrafficAcceptView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrafficAcceptView.h; path = view/TrafficAcceptView.h; sourceTree = "<group>"; };
 		1960379D1F87627400117ECE /* TrafficAcceptView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrafficAcceptView.m; path = view/TrafficAcceptView.m; sourceTree = "<group>"; };
+		196037A11F87660800117ECE /* TrafficAccept.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TrafficAccept.xib; path = view/TrafficAccept.xib; sourceTree = "<group>"; };
 		1976ECB81F7F26BC00A15BE4 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		1976ECB91F7F26BC00A15BE4 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		1976ECBB1F7F26E100A15BE4 /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
@@ -256,6 +285,10 @@
 		196037871F832B0D00117ECE /* view */ = {
 			isa = PBXGroup;
 			children = (
+				1954980E1F886137005B3229 /* THDatePickerView.h */,
+				1954980F1F886137005B3229 /* THDatePickerView.m */,
+				193E99551F87755A00C2CA16 /* TrafficRejectView.h */,
+				193E99561F87755A00C2CA16 /* TrafficRejectView.m */,
 				196037881F832B2600117ECE /* TrafficAssistantTableViewCell.h */,
 				196037891F832B2600117ECE /* TrafficAssistantTableViewCell.m */,
 				1960378C1F832B8300117ECE /* userInfoView.h */,
@@ -264,6 +297,9 @@
 				196037901F836DDD00117ECE /* TrafficsHistoryTableViewCell.m */,
 				1960379C1F87627400117ECE /* TrafficAcceptView.h */,
 				1960379D1F87627400117ECE /* TrafficAcceptView.m */,
+				196037A11F87660800117ECE /* TrafficAccept.xib */,
+				190B3A9D1F8A55EF00FA753C /* TrafficZhuanjiaoView.h */,
+				190B3A9E1F8A55EF00FA753C /* TrafficZhuanjiaoView.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -309,6 +345,8 @@
 		1976ECE31F7F76B000A15BE4 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				190B3A971F89B9B400FA753C /* WindowClerkCellModel.h */,
+				190B3A981F89B9B400FA753C /* WindowClerkCellModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -325,6 +363,12 @@
 		1976ECE51F7F76B000A15BE4 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				190B3A911F899F6200FA753C /* WindowClerkTableViewCell.h */,
+				190B3A921F899F6200FA753C /* WindowClerkTableViewCell.m */,
+				190B3A941F899F9700FA753C /* WindowclerkBaseView.h */,
+				190B3A951F899F9700FA753C /* WindowclerkBaseView.m */,
+				190B3A9A1F89C27800FA753C /* WindowClerkHistoryTableViewCell.h */,
+				190B3A9B1F89C27800FA753C /* WindowClerkHistoryTableViewCell.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -506,6 +550,10 @@
 				1BC5FFDB1F862D600088EBFD /* ApplyCardVC.h */,
 				1BC5FFDC1F862D600088EBFD /* ApplyCardVC.m */,
 				1BC5FFDD1F862D600088EBFD /* ApplyCardVC.xib */,
+				190B3AA01F8A7A0400FA753C /* RequestHistoryViewController.h */,
+				190B3AA11F8A7A0400FA753C /* RequestHistoryViewController.m */,
+				190B3AA31F8A7ACC00FA753C /* ShenBaoProgressViewController.h */,
+				190B3AA41F8A7ACC00FA753C /* ShenBaoProgressViewController.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -803,6 +851,7 @@
 				1BC5FFDA1F860CC10088EBFD /* description.html in Resources */,
 				19B707EB1F7E2E2E0086C565 /* Main.storyboard in Resources */,
 				1BDEABFF1F847CE500B61640 /* SubmitCell3.xib in Resources */,
+				196037A21F87660800117ECE /* TrafficAccept.xib in Resources */,
 				1BB776931F851FC10029A861 /* SubmitCell5.xib in Resources */,
 				1BF3C26D1F834AB8009F07CC /* Views.xib in Resources */,
 				1BB7768B1F84F8100029A861 /* SubmitCell4.xib in Resources */,
@@ -917,9 +966,11 @@
 				1976ECBA1F7F26BC00A15BE4 /* LoginViewController.m in Sources */,
 				1BD459F61F7FC3B800A5B031 /* NJDNavgationController.m in Sources */,
 				19B707FD1F7E35FC0086C565 /* AppDelegate.m in Sources */,
+				190B3AA51F8A7ACC00FA753C /* ShenBaoProgressViewController.m in Sources */,
 				1BAE264A1F80AA21004D3F22 /* NJDPopLoading.m in Sources */,
 				1BD459FB1F7FF94400A5B031 /* RegisterVC.m in Sources */,
 				19B707E81F7E2E2E0086C565 /* LoginVC.m in Sources */,
+				195498101F886137005B3229 /* THDatePickerView.m in Sources */,
 				1B219C3E1F827FD7007FFEA5 /* HETForgetPasswordThreeController.m in Sources */,
 				1BB7768E1F84FE360029A861 /* ChilderSubmitView.m in Sources */,
 				1976ECE11F7F49C200A15BE4 /* RoleInfo.m in Sources */,
@@ -927,15 +978,18 @@
 				1BC5FFE21F862EFF0088EBFD /* ApplyCardCell1.m in Sources */,
 				1BD459F11F7FC06D00A5B031 /* NJDBaseController.m in Sources */,
 				1960379E1F87627400117ECE /* TrafficAcceptView.m in Sources */,
+				190B3A9C1F89C27800FA753C /* WindowClerkHistoryTableViewCell.m in Sources */,
 				1BD82C3A1F8135EC006D6ADC /* Model.xcdatamodeld in Sources */,
 				196037941F83779800117ECE /* TrafficAssistantTaskModel.m in Sources */,
 				1976ECE01F7F49C200A15BE4 /* PersonInfo.m in Sources */,
 				1BB776971F8530CD0029A861 /* imgsCell.m in Sources */,
 				1BF3C2671F8334AA009F07CC /* HouseManagerVC.m in Sources */,
+				190B3A931F899F6200FA753C /* WindowClerkTableViewCell.m in Sources */,
 				1BDFB5361F83EA82006012F7 /* SubmitVC.m in Sources */,
 				1BDEABF01F84758600B61640 /* SubmitCell1.m in Sources */,
 				1976ECD71F7F3F7500A15BE4 /* TrafficAssistantViewController.m in Sources */,
 				1BD459F21F7FC07000A5B031 /* GlobleMacro.m in Sources */,
+				190B3A991F89B9B400FA753C /* WindowClerkCellModel.m in Sources */,
 				1976ECEE1F7F76FA00A15BE4 /* RenterViewController.m in Sources */,
 				1BD82C701F814394006D6ADC /* NJDUserInfoMO+CoreDataProperties.m in Sources */,
 				1BC4B8EE1F824E4500CFCD2B /* AppDelegate+Login.m in Sources */,
@@ -943,7 +997,9 @@
 				1BB776831F847E130029A861 /* SubmitCell.m in Sources */,
 				1BDEABF51F847A1A00B61640 /* SubmitCell2.m in Sources */,
 				1BF3C2731F83ACF0009F07CC /* PickView1.m in Sources */,
+				190B3A961F899F9700FA753C /* WindowclerkBaseView.m in Sources */,
 				1BAE264E1F80AA90004D3F22 /* HETSleepActivityIndicatorView.m in Sources */,
+				190B3A9F1F8A55EF00FA753C /* TrafficZhuanjiaoView.m in Sources */,
 				1BD82C6E1F81438D006D6ADC /* NJDRoleInfoMO+CoreDataProperties.m in Sources */,
 				1BD82C321F810624006D6ADC /* NSString+Utils.m in Sources */,
 				1BD82C6C1F814382006D6ADC /* NJDPersonInfoMO+CoreDataProperties.m in Sources */,
@@ -953,7 +1009,9 @@
 				19B707F31F7E2E2E0086C565 /* main.m in Sources */,
 				1BD82C6D1F814388006D6ADC /* NJDRoleInfoMO+CoreDataClass.m in Sources */,
 				1BDEABFE1F847CE500B61640 /* SubmitCell3.m in Sources */,
+				193E99581F87755A00C2CA16 /* TrafficRejectView.m in Sources */,
 				1BD82C6F1F814391006D6ADC /* NJDUserInfoMO+CoreDataClass.m in Sources */,
+				190B3AA21F8A7A0400FA753C /* RequestHistoryViewController.m in Sources */,
 				1976ECF41F7F77ED00A15BE4 /* WindowClerkViewController.m in Sources */,
 				1960378A1F832B2600117ECE /* TrafficAssistantTableViewCell.m in Sources */,
 				1B219C3F1F827FDA007FFEA5 /* HETForgetPasswordTwoController.m in Sources */,

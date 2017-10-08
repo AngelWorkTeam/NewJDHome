@@ -14,6 +14,7 @@
 #import "RenterViewController.h"
 #import "WindowClerkViewController.h"
 #import "NJDNavgationController.h"
+#import "WindowClerkViewController.h"
 #define kToken @"token"
 
 @interface AppDelegate ()
@@ -33,6 +34,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [self creatRootVC];
 
+    
     [self.window makeKeyAndVisible];
 //
 //    [Bugly startWithAppId:@"02841f4dd3"];
@@ -93,8 +95,11 @@
             UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"FDOrPTYHVC"];
             [nav setViewControllers:@[login,vc]];
         }else if([userInfo.role.no isEqualToString:@"XGY"] //协管员
-                 ||[userInfo.role.no isEqualToString:@"CKRY"]){ //窗口管理员
+        ){ //窗口管理员
             UIViewController *xgyviewController = [[TrafficAssistantViewController alloc]init];
+            [nav setViewControllers:@[login, xgyviewController]];
+        }else if ([userInfo.role.no isEqualToString:@"CKRY"]){
+            UIViewController *xgyviewController = [[WindowClerkViewController alloc]init];
             [nav setViewControllers:@[login, xgyviewController]];
         }
     }
@@ -106,10 +111,13 @@
 - (void)toWindowClerk
 {
     // 登录 viewController
-    UIStoryboard *sportStoryBoard =  [UIStoryboard storyboardWithName:@"LoginStoryboard" bundle:nil];
-    UIViewController *controller = [sportStoryBoard instantiateViewControllerWithIdentifier:@"LoginStoryboard"];
     
-    self.window.rootViewController = controller;
+    
+    WindowClerkViewController *vc = [WindowClerkViewController new];
+    
+    UINavigationController *nav =  [[UINavigationController alloc]initWithRootViewController:vc];
+    
+    self.window.rootViewController = nav;
 }
 
 // 协管员

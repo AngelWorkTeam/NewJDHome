@@ -47,4 +47,34 @@
                                    sendBckContext:(NSString *_Nullable)sendBckContext
                                           success:(NJDHttpSuccessBlockDictionary _Nullable)success
                                           failure:(NJDHttpFailureBlock _Nullable)fail;
+
+
+/**
+*窗口人员 获取列表数据
+*/
++(void)getWindowsClerkDataWithUserId:(NSString *_Nullable)userId
+                                page:(NSInteger)page
+                         isNewRecord:(BOOL)isNew
+                             success:(NJDHttpSuccessBlockDictionary _Nullable)success
+                             failure:(NJDHttpFailureBlock _Nullable)fail;
+/**
+ *窗口人员 受理 退回
+ */
++(void)windowAcceptAndRejectWithRecordId:(NSString *_Nullable)recordId
+                                   state:(NSString *_Nullable)state
+                                  reason:(NSString *_Nullable)reason
+                                 success:(NJDHttpSuccessBlockDictionary _Nullable)success
+                                 failure:(NJDHttpFailureBlock _Nullable)fail;
+
+
+// ic card
++(void)renderGetShenbaoRecordListByPage:(NSInteger)page
+                                success:(NJDHttpSuccessBlockDictionary _Nullable)success
+                                failure:(NJDHttpFailureBlock _Nullable)fail;
+
+
+// 申请记录
++(void)renderGetICCardRecordListByPage:(NSInteger)page
+                               success:(NJDHttpSuccessBlockDictionary _Nullable)success
+                               failure:(NJDHttpFailureBlock _Nullable)fail;
 @end
