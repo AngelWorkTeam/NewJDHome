@@ -77,7 +77,7 @@
     [webView evaluateJavaScript:@"document.body.offsetHeight"
               completionHandler:^(id _Nullable value, NSError * _Nullable error) {
                   CGFloat height = [value floatValue];
-                  self.webHeight = height;
+                  self.webHeight = height+30;
                   
               }];
 }

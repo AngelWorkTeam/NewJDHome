@@ -20,11 +20,12 @@ NSString * const kPostFeeTips  = @"邮费由收件人支付，采用到付方式
 
 @property (nonatomic,copy) NSArray *dataSource;
 
-@property (nonatomic,copy) NSString *cardReceiveAddr;
-
 @property (nonatomic,strong) NSMutableArray *dataImgs;
 @property (nonatomic,strong) NSMutableArray *faceImgs;
 @property (nonatomic,strong) UIImage *idCardImg;
+
+//上传给后台的地址信息，包括regionId , townId,到村的地址
+@property (nonatomic,copy)  NSDictionary *addrDic;
 @end
 
 @implementation ApplyCardVC
@@ -41,6 +42,7 @@ NSString * const kPostFeeTips  = @"邮费由收件人支付，采用到付方式
     [self createBackNavWithOpaque:YES];
 }
 -(void)initViews{
+    self.title = @"居住证申办";
     [self createBackNavWithOpaque:YES];
     [self.view addSubview:self.table];
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -64,7 +66,7 @@ NSString * const kPostFeeTips  = @"邮费由收件人支付，采用到付方式
 -(UITableView *)table{
     if (!_table) {
         _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-64) style:UITableViewStyleGrouped];
-        _table.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 170/2)];
+        _table.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 75)];
         UIButton *comfirm = [UIButton buttonWithType:UIButtonTypeCustom];
         [comfirm setTitle:@"确定" forState:UIControlStateNormal];
         comfirm.titleLabel.textColor = [UIColor whiteColor];
@@ -102,7 +104,9 @@ NSString * const kPostFeeTips  = @"邮费由收件人支付，采用到付方式
         && self.faceImgs.count > 0) {
         return 44 + 108;
     }
-    if (indexPath.section == 3 && self.cardReceiveAddr) {
+    NSString *receiveAddr = [self.dataSource[3][0] objectForKey:@"value"];
+    if (indexPath.section == 3 &&
+        ![receiveAddr isEqualToString:@""]) {
         return 100;
     }
     return 44.;
@@ -111,7 +115,8 @@ NSString * const kPostFeeTips  = @"邮费由收件人支付，采用到付方式
     return 10;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    if (section == 4 && self.cardReceiveAddr) {
+    NSString *receiveAddr = [self.dataSource[3][0] objectForKey:@"value"];
+    if (section == 3 && ![receiveAddr isEqualToString:@""]) {
         CGRect rect = [kPostFeeTips boundingRectWithSize:CGSizeMake(kScreenWidth-32, 300)
                                                  options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading
                                               attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:10]}
@@ -125,7 +130,8 @@ NSString * const kPostFeeTips  = @"邮费由收件人支付，采用到付方式
     return view;
 }
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    if (section == 4 && self.cardReceiveAddr) {
+    NSString *receiveAddr = [self.dataSource[3][0] objectForKey:@"value"];
+    if (section == 3 && ![receiveAddr isEqualToString:@""]) {
         UILabel *label = [UILabel new];
         label.text = kPostFeeTips;
         label.numberOfLines = 0;
@@ -190,8 +196,13 @@ NSString * const kPostFeeTips  = @"邮费由收件人支付，采用到付方式
     }
     else if(indexPath.section==1 && indexPath.row ==0){
         cell = [tableView dequeueReusableCellWithIdentifier:@"applyCardCell1" forIndexPath:indexPath];
+        @weakify(self);
         ((ApplyCardCell1 *)cell).changeAddr = ^(NSString *townId, NSString *regionId, NSString *addr) {
-            
+             @strongify(self);
+            self.addrDic = @{@"townId":SAFE_STRING(townId),
+                             @"regionId":SAFE_STRING(regionId),
+                             @"address":SAFE_STRING(addr)
+                             };
         };
     }
     else if(indexPath.section == 2){
@@ -199,10 +210,11 @@ NSString * const kPostFeeTips  = @"邮费由收件人支付，采用到付方式
         @weakify(self);
         void (^reloadSection2)(void) = ^{
             @strongify(self);
-            NSIndexPath *path = [NSIndexPath indexPathForRow:1 inSection:2];
-            [self.table reloadRowsAtIndexPaths:@[path]
+            NSArray *paths = @[[NSIndexPath indexPathForRow:0 inSection:2],
+                               [NSIndexPath indexPathForRow:1 inSection:2]];
+            [self.table reloadRowsAtIndexPaths:paths
                               withRowAnimation:UITableViewRowAnimationNone];
-            [self.table scrollToRowAtIndexPath:path
+            [self.table scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:2]
                               atScrollPosition:UITableViewScrollPositionBottom
                                       animated:NO];
         };
@@ -226,7 +238,24 @@ NSString * const kPostFeeTips  = @"邮费由收件人支付，采用到付方式
             reloadSection2();
         };
     }else if(indexPath.section == 3 && indexPath.row == 0){
+         @weakify(self);
         cell = [tableView dequeueReusableCellWithIdentifier:@"applyCardCell2" forIndexPath:indexPath];
+        ((ApplyCardCell2 *)cell).shuldShowTextView = ^(BOOL show){
+             @strongify(self);
+            NSIndexPath *path = [NSIndexPath indexPathForRow:0 inSection:3];
+            [self.table reloadRowsAtIndexPaths:@[path]
+                              withRowAnimation:UITableViewRowAnimationNone];
+            [self.table reloadData];
+            [self.table scrollToRowAtIndexPath:path
+                              atScrollPosition:UITableViewScrollPositionBottom
+                                      animated:NO];
+        };
+        NSString *receiveAddr = [self.dataSource[3][0] objectForKey:@"value"];
+        if ([receiveAddr isEqualToString:@""]) {
+            ((ApplyCardCell2 *)cell).showTextView = NO;
+        }else{
+            ((ApplyCardCell2 *)cell).showTextView = YES;
+        }
     }
     else{
         cell = [tableView dequeueReusableCellWithIdentifier:@"submitCell3" forIndexPath:indexPath];
@@ -259,6 +288,69 @@ NSString * const kPostFeeTips  = @"邮费由收件人支付，采用到付方式
                                        [NJDPopLoading showAutoHideWithMessage:@"无法识别，请重试"];
                                    }];
 }
+
+-(void)comfirmHandle:(UIButton *)btn{
+    [self.table endEditing:YES];
+    //验证参数
+    BOOL (^vildateParam)(NSArray *arr) = ^(NSArray *arr){
+        for (NSDictionary *dic in arr) {
+            if ([dic[@"need"] boolValue] == YES && [dic[@"value"] isEqualToString:@""]) {
+                [NJDPopLoading showAutoHideWithMessage:dic[@"tips"]];
+                return NO;
+            }
+        }
+        return YES;
+    };
+    if (vildateParam(self.dataSource[0]) == NO) {
+        return;
+    }
+    if (self.addrDic == nil) {
+        [NJDPopLoading showAutoHideWithMessage:@"无法从服务器获取地址,请退出后重试"];
+        return;
+    }
+    
+    if (self.idCardImg == nil) {
+        [NJDPopLoading showAutoHideWithMessage:@"必须上传身份证照片"];
+        return;
+    }
+    if (self.dataImgs.count == 0) {
+        [NJDPopLoading showAutoHideWithMessage:@"必须上传资料照片"];
+        return;
+    }
+    if (self.faceImgs.count == 0) {
+       [NJDPopLoading showAutoHideWithMessage:@"必须上传免冠正面照"];
+    }
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    for (NSDictionary *dic in self.dataSource[0]) {
+        params[dic[@"key"]] = dic[@"value"];
+    }
+    [params addEntriesFromDictionary:self.addrDic];
+    NSString *detailAddr = [self.dataSource[1][1] objectForKey:@"value"];
+    params[@"address"] = [params[@"address"] stringByAppendingString:detailAddr];
+    NSString *receiveAddr = [self.dataSource[3][0] objectForKey:@"value"];
+    if ([receiveAddr isEqualToString:@""]) {
+        params[@"takeType"] = @0;
+    }else{
+        params[@"takeType"] = @1;
+        params[@"consigneeAddress"] = receiveAddr;
+    }
+    [NJDPopLoading showMessageWithLoading:@"正在提交"];
+    
+    [NetworkingManager applyCard:params.copy
+                       idCardImg:self.idCardImg
+                        dataImgs:self.dataImgs.copy
+                         faceImg:self.faceImgs[0]
+                         success:^(NSDictionary * _Nullable dictValue) {
+                             [NJDPopLoading hideHud];
+                             if ([dictValue[@"success"] boolValue] == YES) {
+                                 [NJDPopLoading showAutoHideWithMessage:dictValue[@"resultMsg"]];
+                                 [self.navigationController popViewControllerAnimated:YES];
+                             }
+                         } failure:^(NSError * _Nullable error) {
+                             [NJDPopLoading hideHud];
+                             [NJDPopLoading showAutoHideWithMessage:error.userInfo[NSLocalizedDescriptionKey]];
+                         }];
+}
 #pragma mark - noti
 -(void)keyboardShow:(NSNotification *)noti{
     NSValue *value = [noti.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
@@ -281,7 +373,7 @@ NSString * const kPostFeeTips  = @"邮费由收件人支付，采用到付方式
                       @{@"title":@"身份证号",@"key":@"personIDCard",
                         @"value":@"",@"tips":@"必须填写身份证号",@"need":@1
                         }.mutableCopy,
-                      @{@"title":@"电       话",@"key":@"personPhone",
+                      @{@"title":@"电       话",@"key":@"telephoneNumber",
                         @"value":@"",@"tips":@"必须填手机号码",@"need":@1
                         }.mutableCopy,
                       @{@"title":@"户籍地址",@"key":@"personAddress",
@@ -289,20 +381,20 @@ NSString * const kPostFeeTips  = @"邮费由收件人支付，采用到付方式
                         }.mutableCopy,
                       ];
     
-    NSArray *arr2 = @[@{@"title":@"所在地区",@"key":@"temporaryAddress",
+    NSArray *arr2 = @[@{@"title":@"所在地区",@"key":@"address",
                         @"value":@"",@"tips":@"必须选择房屋地址",@"need":@1
                         }.mutableCopy,
-                      @{@"title":@"详细地址",@"key":@"politicsState",
-                        @"value":@"如:**路+**号/栋/单元+室",@"tips":@"必须填写详细地址",@"need":@1
+                      @{@"title":@"详细地址",@"key":@"address",
+                        @"value":@"",@"tips":@"必须填写详细地址",@"need":@1
                         }.mutableCopy,
                       ];
     NSArray *arr3 = @[@{@"title":@"资料拍照(必须拍照)",@"key":@"photoImgFiles",
                         @"value":@"",@"need":@1
                         }.mutableCopy,
-                      @{@"title":@"人脸拍照(免冠正面照)",@"key":@"photoImgFiles",
+                      @{@"title":@"人脸拍照(免冠正面照)",@"key":@"faceImgFiles",
                         @"value":@"",@"need":@1
                         }.mutableCopy];
-    NSArray *arr4 = @[@{@"title":@"取证方式",@"key":@"photoImgFiles",
+    NSArray *arr4 = @[@{@"title":@"取证方式",@"key":@"takeType",
                         @"value":@"",@"need":@1
                         }.mutableCopy,
                       ];

@@ -47,6 +47,9 @@
 		1B219C3E1F827FD7007FFEA5 /* HETForgetPasswordThreeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC4B8F51F827C8500CFCD2B /* HETForgetPasswordThreeController.m */; };
 		1B219C3F1F827FDA007FFEA5 /* HETForgetPasswordTwoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC4B8F71F827C8500CFCD2B /* HETForgetPasswordTwoController.m */; };
 		1B219C401F827FDD007FFEA5 /* HETForgetPasswordViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC4B8F91F827C8500CFCD2B /* HETForgetPasswordViewModel.m */; };
+		1BA97CD81F88C6D700675097 /* RenderUnRegisterRecordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA97CD61F88C6D700675097 /* RenderUnRegisterRecordVC.m */; };
+		1BA97CD91F88C6D700675097 /* RenderUnRegisterRecordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BA97CD71F88C6D700675097 /* RenderUnRegisterRecordVC.xib */; };
+		1BA97CDC1F88C89100675097 /* UnregisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA97CDB1F88C89100675097 /* UnregisterVC.m */; };
 		1BAE264A1F80AA21004D3F22 /* NJDPopLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE26451F80A43B004D3F22 /* NJDPopLoading.m */; };
 		1BAE264B1F80AA26004D3F22 /* NJDRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE26471F80A43B004D3F22 /* NJDRefreshHeader.m */; };
 		1BAE264E1F80AA90004D3F22 /* HETSleepActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE264C1F80AA90004D3F22 /* HETSleepActivityIndicatorView.m */; };
@@ -170,6 +173,11 @@
 		1B0260B31F820A79000A4411 /* ModifyPswVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModifyPswVC.m; sourceTree = "<group>"; };
 		1BA842681F7F463400D4221B /* NetworkingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingManager.h; sourceTree = "<group>"; };
 		1BA842691F7F463400D4221B /* NetworkingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkingManager.m; sourceTree = "<group>"; };
+		1BA97CD51F88C6D700675097 /* RenderUnRegisterRecordVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RenderUnRegisterRecordVC.h; sourceTree = "<group>"; };
+		1BA97CD61F88C6D700675097 /* RenderUnRegisterRecordVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RenderUnRegisterRecordVC.m; sourceTree = "<group>"; };
+		1BA97CD71F88C6D700675097 /* RenderUnRegisterRecordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RenderUnRegisterRecordVC.xib; sourceTree = "<group>"; };
+		1BA97CDA1F88C89000675097 /* UnregisterVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnregisterVC.h; sourceTree = "<group>"; };
+		1BA97CDB1F88C89100675097 /* UnregisterVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnregisterVC.m; sourceTree = "<group>"; };
 		1BAE26441F80A43B004D3F22 /* NJDPopLoading.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NJDPopLoading.h; sourceTree = "<group>"; };
 		1BAE26451F80A43B004D3F22 /* NJDPopLoading.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NJDPopLoading.m; sourceTree = "<group>"; };
 		1BAE26461F80A43B004D3F22 /* NJDRefreshHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NJDRefreshHeader.h; sourceTree = "<group>"; };
@@ -550,10 +558,18 @@
 				1BC5FFDB1F862D600088EBFD /* ApplyCardVC.h */,
 				1BC5FFDC1F862D600088EBFD /* ApplyCardVC.m */,
 				1BC5FFDD1F862D600088EBFD /* ApplyCardVC.xib */,
+
 				190B3AA01F8A7A0400FA753C /* RequestHistoryViewController.h */,
 				190B3AA11F8A7A0400FA753C /* RequestHistoryViewController.m */,
 				190B3AA31F8A7ACC00FA753C /* ShenBaoProgressViewController.h */,
 				190B3AA41F8A7ACC00FA753C /* ShenBaoProgressViewController.m */,
+
+				1BA97CD51F88C6D700675097 /* RenderUnRegisterRecordVC.h */,
+				1BA97CD61F88C6D700675097 /* RenderUnRegisterRecordVC.m */,
+				1BA97CD71F88C6D700675097 /* RenderUnRegisterRecordVC.xib */,
+				1BA97CDA1F88C89000675097 /* UnregisterVC.h */,
+				1BA97CDB1F88C89100675097 /* UnregisterVC.m */,
+
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -859,6 +875,7 @@
 				1BB776981F8530CD0029A861 /* imgsCell.xib in Resources */,
 				1BDEABF61F847A1A00B61640 /* SubmitCell2.xib in Resources */,
 				1BDEABF11F84758600B61640 /* SubmitCell1.xib in Resources */,
+				1BA97CD91F88C6D700675097 /* RenderUnRegisterRecordVC.xib in Resources */,
 				1BC5FFD91F86051E0088EBFD /* TermVC.xib in Resources */,
 				1BC5FFDF1F862D600088EBFD /* ApplyCardVC.xib in Resources */,
 			);
@@ -953,6 +970,7 @@
 			files = (
 				196037971F87139000117ECE /* NetworkingManager+YYNetRequest.m in Sources */,
 				1B219C3D1F827FD4007FFEA5 /* HETForgetPasswordOneController.m in Sources */,
+				1BA97CDC1F88C89100675097 /* UnregisterVC.m in Sources */,
 				1BB776861F84C0BF0029A861 /* DayPicker.m in Sources */,
 				1B0260B41F820A79000A4411 /* ModifyPswVC.m in Sources */,
 				1BF3C2701F835930009F07CC /* AddAddressView.m in Sources */,
@@ -1001,6 +1019,7 @@
 				1BAE264E1F80AA90004D3F22 /* HETSleepActivityIndicatorView.m in Sources */,
 				190B3A9F1F8A55EF00FA753C /* TrafficZhuanjiaoView.m in Sources */,
 				1BD82C6E1F81438D006D6ADC /* NJDRoleInfoMO+CoreDataProperties.m in Sources */,
+				1BA97CD81F88C6D700675097 /* RenderUnRegisterRecordVC.m in Sources */,
 				1BD82C321F810624006D6ADC /* NSString+Utils.m in Sources */,
 				1BD82C6C1F814382006D6ADC /* NJDPersonInfoMO+CoreDataProperties.m in Sources */,
 				196037911F836DDD00117ECE /* TrafficsHistoryTableViewCell.m in Sources */,

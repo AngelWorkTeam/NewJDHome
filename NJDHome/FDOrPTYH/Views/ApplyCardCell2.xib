@@ -66,9 +66,9 @@
                             <constraint firstItem="pp2-KY-tN4" firstAttribute="centerY" secondItem="lRf-So-avC" secondAttribute="centerY" id="yDx-70-k6T"/>
                         </constraints>
                     </view>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="收货地址:" translatesAutoresizingMaskIntoConstraints="NO" id="p2l-xs-44x">
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="收件地址:" translatesAutoresizingMaskIntoConstraints="NO" id="p2l-xs-44x">
                         <rect key="frame" x="8" y="46" width="304" height="45.5"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
