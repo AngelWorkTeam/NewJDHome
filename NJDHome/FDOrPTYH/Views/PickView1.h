@@ -24,6 +24,9 @@
 //pickView的元素字体颜色
 @property (nonatomic,strong) UIColor       *pickItemColor;
 
+//pickview字体大小
+@property (nonatomic)       CGFloat        pickFontSize;
+
 @property (nonatomic,strong) NSArray *dataArr;
 @property (nonatomic,copy) void (^selectData)(id element,NSInteger index );
 

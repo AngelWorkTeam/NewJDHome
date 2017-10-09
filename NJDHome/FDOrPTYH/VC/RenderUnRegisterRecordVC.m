@@ -8,6 +8,7 @@
 
 #import "RenderUnRegisterRecordVC.h"
 #import "UnregisterVC.h"
+#import "TestTable.h"
 @interface RenderUnRegisterRecordVC ()
 
 @end
@@ -34,6 +35,7 @@
 
 -(void)pushToUnregisterVC:(UIBarButtonItem *)item{
     UnregisterVC *vc = [UnregisterVC new];
+//    TestTable *vc = [TestTable new];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

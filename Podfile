@@ -17,7 +17,8 @@ pod 'ReactiveCocoa',    '~> 2.0'
 pod 'MBProgressHUD'
 pod 'MJRefresh'
 pod 'MagicalRecord'
-pod 'MWPhotoBrowser'
+pod 'MWPhotoBrowser',   :path => "./MWPhotoBrowser-2.1.2"
+#pod 'MWPhotoBrowser',   :git => "https://github.com/AngelWorkTeam/NJDhome.git"
 
 #pod 'Objection'
 end

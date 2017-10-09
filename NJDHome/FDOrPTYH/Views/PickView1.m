@@ -86,8 +86,9 @@
 }
 -(NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component{
     NSString *str = [NSString stringWithFormat:@"%@",self.dataArr[row]];
+    CGFloat fontSize = self.pickFontSize < 10?10:self.pickFontSize;
     NSAttributedString *attrStr = [[NSAttributedString alloc] initWithString:str attributes:@{NSForegroundColorAttributeName:self.pickItemColor==nil?[UIColor blackColor]:self.pickItemColor,
-                                                                                              NSFontAttributeName:[UIFont systemFontOfSize:21]}];
+                                                                                              NSFontAttributeName:[UIFont systemFontOfSize:fontSize]}];
     return attrStr;
 }
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
