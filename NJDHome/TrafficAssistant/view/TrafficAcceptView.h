@@ -10,7 +10,7 @@
 
 #import "TrafficAssistantTaskModel.h"
 
-typedef void (^TraffiAction) (NSString *timeStr, NSString *userSuggest);
+typedef void (^TraffiAction) (NSString *checkDate,NSString *checkTime, NSString *userSuggest);
 
 @interface TrafficAcceptView : UIView
 

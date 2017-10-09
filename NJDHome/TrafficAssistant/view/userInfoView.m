@@ -85,7 +85,7 @@
                 make.top.mas_equalTo(lastview.mas_bottom).offset(2);
                 make.left.mas_equalTo(contentView.mas_left);
                 make.right.mas_equalTo(contentView.mas_right);
-                make.height.mas_equalTo(userinfocellHeight);
+                //make.height.mas_equalTo(userinfocellHeight);
                 //make.height.mas_lessThanOrEqualTo(userinfocellHeight);
             }];
         }
@@ -128,9 +128,10 @@
         }];
         
         lastview = cellView;
-        
-        
     }
+    [lastview mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.mas_equalTo(contentView.mas_bottom);
+    }];
 }
 
 - (UIView *)createCellViewWithTitle:(NSString *)title
@@ -160,8 +161,8 @@
         make.left.mas_equalTo(titleLabel.mas_right);
         make.right.mas_equalTo(cellview.mas_right);
         make.bottom.mas_equalTo(cellview.mas_bottom);
+        make.height.mas_greaterThanOrEqualTo(windowclekcellHeight);
        // make.height.mas_equalTo(userinfocellHeight);
-        make.height.mas_lessThanOrEqualTo(userinfocellHeight);
     }];
 
     if ([_titleArray containsObject:title]) {

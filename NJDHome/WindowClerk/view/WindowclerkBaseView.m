@@ -107,6 +107,7 @@
         make.left.mas_equalTo(cellview.mas_left);
         make.width.mas_equalTo(60);
         make.height.mas_equalTo(30);
+        make.bottom.mas_equalTo(cellview.mas_bottom);
     }];
     
     NSArray *buttonArray = @[@"资料照片",@"身份证照",@"人脸照片"];
@@ -154,7 +155,6 @@
         make.height.mas_greaterThanOrEqualTo(windowclekcellHeight);
     }];
     
-
     
     if ([_titleArray containsObject:title]) {
         NSInteger index = [_titleArray indexOfObject:title];
@@ -235,7 +235,6 @@
     if (self.windowAction) {
         self.windowAction(index,_buttonTitleArray[index]);
     }
-
 }
 
 
@@ -250,10 +249,10 @@
     _xianzhudizhiLabel.text = model.address;
     
     _quzhengfangshiLabel.text = @"";
-    if ([model.takeType isEqualToString:@"0"]) {
-        _quzhengfangshiLabel.text = @"其他自取";
-    }else if([model.takeType isEqualToString:@"1"]) {
+    if ([model.takeType isEqualToString:@"1"]) {
         _quzhengfangshiLabel.text = @"上门自取";
+    }else if([model.takeType isEqualToString:@"2"]) {
+        _quzhengfangshiLabel.text = @"邮寄到付";
     }
     
     _shengqingshijianLabel.text = model.submitDateTime;

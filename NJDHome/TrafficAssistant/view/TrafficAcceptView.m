@@ -8,11 +8,12 @@
 
 #import "TrafficAcceptView.h"
 #import "THDatePickerView.h"
-@interface TrafficAcceptView ()<UIGestureRecognizerDelegate,THDatePickerViewDelegate>
+@interface TrafficAcceptView ()<UIGestureRecognizerDelegate,THDatePickerViewDelegate,UITextViewDelegate>
 
 @property (nonatomic, strong) UIView *backView;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *userName;
 
 
 @property (weak, nonatomic) IBOutlet UILabel *telephoneNumlabel;
@@ -70,17 +71,37 @@
 {
     self.suggestInfo.layer.borderColor = [UIColor grayColor].CGColor;
     self.suggestInfo.layer.borderWidth = 1;
+    self.suggestInfo.delegate = self;
+ 
+    CGRect imageRect = _selectTimeButton.imageView.frame;
+    CGRect titleRect = _selectTimeButton.titleLabel.frame;
+    _selectTimeButton.imageEdgeInsets = UIEdgeInsetsMake(0, titleRect.size.width, 0,-titleRect.size.width);
+    _selectTimeButton.titleEdgeInsets = UIEdgeInsetsMake(0, -imageRect.size.width, 0, imageRect.size.width);
 }
 
 
 - (IBAction)acceptAction:(id)sender {
     [self removeFromSuperview];
     
-    NSString *timeStr = @"";
-    NSString *userSuggest = @"";
+    NSString *checkDate = nil;
+    NSString *checkTime = nil;
+    NSString *timeStr = _selectTimeButton.titleLabel.text;
+    if (![timeStr isEqualToString:@"选择日期"] ) {
+        NSLog(@"日期: %@", timeStr);
+        NSArray *timerArray = [timeStr componentsSeparatedByString:@" "];
+        if (timerArray.count == 2) {
+            checkDate = timerArray[0];
+            checkTime = timerArray[1];
+        }
+    }
+    
+    NSString *userSuggest = _suggestInfo.text;
+    if (!(userSuggest && userSuggest.length > 0)) {
+        userSuggest = @"";
+    }
     
     if (self.TraffiAcceptAction) {
-        self.TraffiAcceptAction(timeStr, userSuggest);
+        self.TraffiAcceptAction(checkDate,checkTime, userSuggest);
     }
 }
 - (IBAction)closeAction:(id)sender {
@@ -102,9 +123,10 @@
 {
     _model = model;
     
-    _titleLabel.text = model.person ? model.person.name : @"";
+    _userName.text = model.person ? model.person.name : @"";
     _tempAddress.text = model.temporaryAddress;
     _telephoneNumlabel.text = model.telephoneNumber;
+    
     
 }
 
@@ -122,6 +144,11 @@
  */
 - (void)datePickerViewSaveBtnClickDelegate:(NSString *)timer {
     NSLog(@"保存点击 %@", timer);
+    [_selectTimeButton setTitle:timer forState:UIControlStateNormal];
+    CGRect imageRect = _selectTimeButton.imageView.frame;
+    CGRect titleRect = _selectTimeButton.titleLabel.frame;
+    _selectTimeButton.imageEdgeInsets = UIEdgeInsetsMake(0, titleRect.size.width, 0,-titleRect.size.width);
+    _selectTimeButton.titleEdgeInsets = UIEdgeInsetsMake(0, -imageRect.size.width, 0, imageRect.size.width);
     
     [UIView animateWithDuration:0.3 animations:^{
         self.dateView.frame = CGRectMake(0, njdScreenHeight, njdScreenWidth, 300);
@@ -139,6 +166,16 @@
     }];
 }
 
+
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    
+    
+}
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    
+}
 
 
 @end

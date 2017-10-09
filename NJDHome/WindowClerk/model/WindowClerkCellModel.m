@@ -11,11 +11,10 @@
 @implementation WindowClerkCellModel
 
 + (NSDictionary *)modelContainerPropertyGenericClass {
-    return @{@"person" : [PersonInfo class],
-             @"didPigPaths" : [NSArray class],
-             @"facePigPaths" : [NSArray class],
-             @"idCardPigPaths" : [NSArray class],};
+    return @{@"person" : [PersonInfo class]
+ };
 }
+
 
 
 + (NSDictionary *)modelCustomPropertyMapper {

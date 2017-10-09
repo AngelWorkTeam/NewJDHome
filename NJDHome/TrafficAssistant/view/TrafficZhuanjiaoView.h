@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "TrafficAssistantTaskModel.h"
 
+typedef void (^TraffiZhuanjiaoAction) (NSString *name);
+
 @interface TrafficZhuanjiaoView : UIView
 
 @property (nonatomic, strong) TrafficAssistantTaskModel *model;
@@ -16,5 +18,7 @@
 @property (nonatomic, strong) NSString *title;
 
 @property (nonatomic, strong) NSMutableArray *xgyArray;
+
+@property (nonatomic, copy) TraffiZhuanjiaoAction  zhuanjiaoAction;
 
 @end

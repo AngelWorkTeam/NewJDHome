@@ -12,6 +12,8 @@
 @property (nonatomic, strong) WindowclerkBaseView *contentUserInfo;
 
 @property (nonatomic, strong) UIButton *caozuoDoneButton;
+
+
 @end
 
 @implementation WindowClerkTableViewCell
@@ -50,10 +52,10 @@
     [caozuoview addSubview:titleLabel];
     
     [caozuoview mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(contentUserInfo.mas_bottom);
+        make.top.mas_equalTo(contentUserInfo.mas_bottom).offset(0);
         make.left.mas_equalTo(self.contentView.mas_left).offset(10);
         make.right.mas_equalTo(self.contentView.mas_right);
-        make.bottom.mas_equalTo(self.contentView.mas_bottom);
+        make.bottom.mas_equalTo(self.contentView.mas_bottom).offset(2);;
     }];
     
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -90,6 +92,8 @@
 - (void)setModel:(WindowClerkCellModel *)model
 {
     _model = model;
+    
+    _contentUserInfo.model = model;
 }
 
 - (void)buttonAction:(UIButton *)sender

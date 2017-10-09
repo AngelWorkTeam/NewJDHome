@@ -54,7 +54,7 @@
 - (void)initContent
 {
     
-    CGFloat titleWidth = 60;
+    CGFloat titleWidth = 55;
     
     UIView *contentView = [UIView new];
     [self addSubview:contentView];
@@ -85,7 +85,7 @@
         make.height.mas_equalTo(40);
     }];
     
-    UILabel *titleLabel = [self createTitleLableWithTitle:@"11111"];
+    UILabel *titleLabel = [self createTitleLableWithTitle:@""];
     titleLabel.textColor = [UIColor whiteColor];
     [TitlContenteView addSubview:titleLabel];
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -104,7 +104,7 @@
         make.width.mas_equalTo(titleWidth);
     }];
     
-    UILabel *userName = [self createContentLableWithTitle:@"yy"];
+    UILabel *userName = [self createContentLableWithTitle:@""];
     [containerView addSubview:userName];
     [userName mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(TitlContenteView.mas_bottom);
@@ -123,7 +123,7 @@
         make.width.mas_equalTo(titleWidth);
     }];
     
-    UILabel *tempAddress = [self createContentLableWithTitle:@"abc"];
+    UILabel *tempAddress = [self createContentLableWithTitle:@""];
     [containerView addSubview:tempAddress];
     [tempAddress mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(userNameTitle.mas_bottom);
@@ -142,7 +142,7 @@
         make.width.mas_equalTo(titleWidth);
     }];
     
-    UILabel *telePhone = [self createContentLableWithTitle:@"123"];
+    UILabel *telePhone = [self createContentLableWithTitle:@""];
     [containerView addSubview:telePhone];
     [telePhone mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(zanzhudizhiTitle.mas_bottom);
@@ -158,21 +158,31 @@
     [tuihuiyuanyinTitle mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(shoujihaomaTitle.mas_bottom);
         make.left.mas_equalTo(containerView.mas_left).offset(10);
-        make.height.mas_equalTo(25);
+        make.height.mas_equalTo(30);
         make.width.mas_equalTo(titleWidth);
     }];
     
-    UIButton *getbackButton = [self createButtonWithTitle:@"本地户籍" withIndex:10];
+    UIButton *getbackButton = [self createButtonWithTitle:@"本地户口无需登记" withIndex:10];
     [containerView addSubview:getbackButton];
     _selectTypeButton = getbackButton;
     [getbackButton addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
     [getbackButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(shoujihaomaTitle.mas_bottom);
-        make.left.mas_equalTo(tuihuiyuanyinTitle.mas_right);
-        make.height.mas_equalTo(25);
+        make.left.mas_equalTo(tuihuiyuanyinTitle.mas_right).offset(-10);
+        make.height.mas_equalTo(30);
         make.right.mas_equalTo(containerView.mas_right);
     }];
     
+    UIImageView *arrowImage = [[UIImageView alloc]initWithFrame:CGRectZero];
+    [arrowImage setImage:[UIImage imageNamed:@"arrow_down"]];
+    [containerView addSubview:arrowImage];
+    [arrowImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(getbackButton.mas_right);
+        make.height.mas_equalTo(10);
+        make.width.mas_equalTo(10);
+        make.centerY.mas_equalTo(getbackButton.mas_centerY);
+    }];
+
     UILabel *qitayuanyinTitle = [self createTitleLableWithTitle:@"其他原因:"];
     [containerView addSubview:qitayuanyinTitle];
     [qitayuanyinTitle mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -286,9 +296,9 @@
 {
     _model = model;
     
-//    _titleLabel.text = model.person ? model.person.name : @"";
-//    _tempAddress.text = model.temporaryAddress;
-//    _telephoneNumlabel.text = model.telephoneNumber;
+    _username.text = model.person ? model.person.name : @"";
+    _tempAddress.text = model.temporaryAddress;
+    _telePhone.text = model.telephoneNumber;
     
 }
 
@@ -305,6 +315,12 @@
         [self popPickWithData:_rejectReasonArray selectRow:^(NSInteger index) {
             NSString *title = _rejectReasonArray[index];
             [_selectTypeButton setTitle:title forState:UIControlStateNormal];
+            
+            CGRect imageRect = _selectTypeButton.imageView.frame;
+            CGRect titleRect = _selectTypeButton.titleLabel.frame;
+            _selectTypeButton.imageEdgeInsets = UIEdgeInsetsMake(0, titleRect.size.width, 0,-titleRect.size.width);
+            _selectTypeButton.titleEdgeInsets = UIEdgeInsetsMake(0, -imageRect.size.width, 0, imageRect.size.width);
+            
         }];
     }
 }
@@ -312,12 +328,20 @@
 
 - (void)AcceptAction:(UIButton *)sender
 {
-
+    NSString *reason = _selectTypeButton.titleLabel.text;
+    NSString *otherSuggest = _userSuggest.text;
+    if (!otherSuggest) {
+        otherSuggest = @"";
+    }
+    
+    if (self.TrafficRejectAction) {
+        self.TrafficRejectAction(reason, otherSuggest);
+    }
 }
 
 - (void)RejectAction:(UIButton *)sender
 {
-    
+    [self removeFromSuperview];
 }
 
 - (void)tapGestureAction:(UITapGestureRecognizer *)ges
@@ -331,6 +355,11 @@
     if(_rejectReasonArray && _rejectReasonArray.count > 0){
         NSString *title = _rejectReasonArray[0];
         [_selectTypeButton setTitle:title forState:UIControlStateNormal];
+        
+        CGRect imageRect = _selectTypeButton.imageView.frame;
+        CGRect titleRect = _selectTypeButton.titleLabel.frame;
+        _selectTypeButton.imageEdgeInsets = UIEdgeInsetsMake(0, titleRect.size.width, 0,-titleRect.size.width);
+        _selectTypeButton.titleEdgeInsets = UIEdgeInsetsMake(0, -imageRect.size.width, 0, imageRect.size.width);
     }
 }
 

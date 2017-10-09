@@ -78,7 +78,7 @@
         make.height.mas_equalTo(40);
     }];
     
-    UILabel *titleLabel = [self createTitleLableWithTitle:@"11111"];
+    UILabel *titleLabel = [self createTitleLableWithTitle:@""];
     titleLabel.textColor = [UIColor whiteColor];
     [TitlContenteView addSubview:titleLabel];
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -97,7 +97,7 @@
         make.width.mas_equalTo(titleWidth);
     }];
     
-    UILabel *userName = [self createContentLableWithTitle:@"yy"];
+    UILabel *userName = [self createContentLableWithTitle:@""];
     [containerView addSubview:userName];
     [userName mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(TitlContenteView.mas_bottom);
@@ -128,7 +128,7 @@
     
   
     
-    UIButton *getbackButton = [self createButtonWithTitle:@"11111" withIndex:10];
+    UIButton *getbackButton = [self createButtonWithTitle:@"" withIndex:10];
     [yellowBackView addSubview:getbackButton];
     _selectXGYNameButton = getbackButton;
     [getbackButton addTarget:self action:@selector(selectionXGYName:) forControlEvents:UIControlEventTouchUpInside];
@@ -248,12 +248,18 @@
 
 - (void)AcceptAction:(UIButton *)sender
 {
-
+     if (_xgyArray && _xgyArray.count > 0) {
+        if (self.zhuanjiaoAction  ) {
+            NSString *name = _selectXGYNameButton.titleLabel.text;
+            
+            self.zhuanjiaoAction(name);
+        }
+     }
 }
 
 - (void)RejectAction:(UIButton *)sender
 {
-    
+     [self removeFromSuperview];
 }
 
 - (void)selectionXGYName:(UIButton *)sender

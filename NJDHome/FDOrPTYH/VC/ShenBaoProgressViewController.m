@@ -60,7 +60,7 @@
     
     [self.view addSubview:self.table];
     
-    [self.view addSubview:self.tabbarView];
+   // [self.view addSubview:self.tabbarView];
     
     _page = 0;
     _isLast = false;
@@ -70,12 +70,12 @@
         [self reloadTrafficData];
     }];
     
-    //    [self.table mas_makeConstraints:^(MASConstraintMaker *make) {
-    //        make.top.mas_equalTo(self.view.mas_top).offset(-header.height);
-    //        make.left.mas_equalTo(self.view.mas_left);
-    //        make.right.mas_equalTo(self.view.mas_right);
-    //        make.bottom.mas_equalTo(self.view.mas_bottom).offset(-tabarHeight);
-    //    }];
+    [self.table mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(self.view.mas_top);
+            make.left.mas_equalTo(self.view.mas_left);
+            make.right.mas_equalTo(self.view.mas_right);
+            make.bottom.mas_equalTo(self.view.mas_bottom).offset(-64);  // 母鸡 要-64
+    }];
     self.table.mj_header =  header;   // 马上进入刷新状态
     [header setTitle:@"下拉刷新" forState:MJRefreshStateIdle];
     [header setTitle:@"下拉刷新" forState:MJRefreshStatePulling];
@@ -134,8 +134,8 @@
 #pragma -mark UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
-    //return _datasoureArray.count;
+    //return 1;
+    return _datasoureArray.count;
 }
 
 
@@ -148,6 +148,7 @@
             cell = [[TrafficsHistoryTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"renderTrafficHistoryReuseCell"];
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.model = _datasoureArray[indexPath.row];
         return cell;
     }else{
         WindowClerkHistoryTableViewCell *cell = (WindowClerkHistoryTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"xgyHistoryReuseCell"];
@@ -156,21 +157,21 @@
         }
         cell.cellDelegate = self;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+          cell.model = _datasoureArray[indexPath.row];
         //_datasoureArray[indexPath.row];
         return cell;
     }
 }
 
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if(_isNewTask){
-        return userinfocellHeight*10 ;
-    }else{
-        return windowclekcellHeight*9 ;
-    }
-    
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    if(_isNewTask){
+//        return userinfocellHeight*10 ;
+//    }else{
+//        return windowclekcellHeight*9 ;
+//    }
+//}
 
 - (void)NewTaskButtonAction:(UIButton *)sender
 {
@@ -242,8 +243,6 @@
         _table.dataSource = self;
         _table.estimatedRowHeight = windowclekcellHeight*10;
         _table.rowHeight = UITableViewAutomaticDimension;
-        
-        
     }
     return _table;
 }

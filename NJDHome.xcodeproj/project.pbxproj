@@ -24,6 +24,7 @@
 		1960379B1F87187C00117ECE /* NetworkingConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1960379A1F87187C00117ECE /* NetworkingConstant.m */; };
 		1960379E1F87627400117ECE /* TrafficAcceptView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1960379D1F87627400117ECE /* TrafficAcceptView.m */; };
 		196037A21F87660800117ECE /* TrafficAccept.xib in Resources */ = {isa = PBXBuildFile; fileRef = 196037A11F87660800117ECE /* TrafficAccept.xib */; };
+		1971E60A1F8B3D0A00839DD1 /* ViewImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1971E6091F8B3D0A00839DD1 /* ViewImageModel.m */; };
 		1976ECBA1F7F26BC00A15BE4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECB91F7F26BC00A15BE4 /* LoginViewController.m */; };
 		1976ECBC1F7F26E100A15BE4 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1976ECBB1F7F26E100A15BE4 /* LoginStoryboard.storyboard */; };
 		1976ECD71F7F3F7500A15BE4 /* TrafficAssistantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECD61F7F3F7500A15BE4 /* TrafficAssistantViewController.m */; };
@@ -138,6 +139,8 @@
 		1960379C1F87627400117ECE /* TrafficAcceptView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrafficAcceptView.h; path = view/TrafficAcceptView.h; sourceTree = "<group>"; };
 		1960379D1F87627400117ECE /* TrafficAcceptView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrafficAcceptView.m; path = view/TrafficAcceptView.m; sourceTree = "<group>"; };
 		196037A11F87660800117ECE /* TrafficAccept.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TrafficAccept.xib; path = view/TrafficAccept.xib; sourceTree = "<group>"; };
+		1971E6081F8B3D0A00839DD1 /* ViewImageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewImageModel.h; sourceTree = "<group>"; };
+		1971E6091F8B3D0A00839DD1 /* ViewImageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewImageModel.m; sourceTree = "<group>"; };
 		1976ECB81F7F26BC00A15BE4 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		1976ECB91F7F26BC00A15BE4 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		1976ECBB1F7F26E100A15BE4 /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
@@ -377,6 +380,8 @@
 				190B3A951F899F9700FA753C /* WindowclerkBaseView.m */,
 				190B3A9A1F89C27800FA753C /* WindowClerkHistoryTableViewCell.h */,
 				190B3A9B1F89C27800FA753C /* WindowClerkHistoryTableViewCell.m */,
+				1971E6081F8B3D0A00839DD1 /* ViewImageModel.h */,
+				1971E6091F8B3D0A00839DD1 /* ViewImageModel.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -558,18 +563,15 @@
 				1BC5FFDB1F862D600088EBFD /* ApplyCardVC.h */,
 				1BC5FFDC1F862D600088EBFD /* ApplyCardVC.m */,
 				1BC5FFDD1F862D600088EBFD /* ApplyCardVC.xib */,
-
 				190B3AA01F8A7A0400FA753C /* RequestHistoryViewController.h */,
 				190B3AA11F8A7A0400FA753C /* RequestHistoryViewController.m */,
 				190B3AA31F8A7ACC00FA753C /* ShenBaoProgressViewController.h */,
 				190B3AA41F8A7ACC00FA753C /* ShenBaoProgressViewController.m */,
-
 				1BA97CD51F88C6D700675097 /* RenderUnRegisterRecordVC.h */,
 				1BA97CD61F88C6D700675097 /* RenderUnRegisterRecordVC.m */,
 				1BA97CD71F88C6D700675097 /* RenderUnRegisterRecordVC.xib */,
 				1BA97CDA1F88C89000675097 /* UnregisterVC.h */,
 				1BA97CDB1F88C89100675097 /* UnregisterVC.m */,
-
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -899,7 +901,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		477E205565694053916ABC6A /* [CP] Copy Pods Resources */ = {
@@ -974,6 +976,7 @@
 				1BB776861F84C0BF0029A861 /* DayPicker.m in Sources */,
 				1B0260B41F820A79000A4411 /* ModifyPswVC.m in Sources */,
 				1BF3C2701F835930009F07CC /* AddAddressView.m in Sources */,
+				1971E60A1F8B3D0A00839DD1 /* ViewImageModel.m in Sources */,
 				1BD82C6B1F81437E006D6ADC /* NJDPersonInfoMO+CoreDataClass.m in Sources */,
 				1BB776921F851FC10029A861 /* SubmitCell5.m in Sources */,
 				1BC5FFDE1F862D600088EBFD /* ApplyCardVC.m in Sources */,

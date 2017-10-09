@@ -49,21 +49,21 @@
     UIView *caozuoview = [[UIView alloc]initWithFrame:CGRectZero];
     [self.contentView addSubview:caozuoview];
     
-    UILabel *titleLabel = [self createTitleLableWithTitle:@"备注:"];
-    [caozuoview addSubview:titleLabel];
-    
     [caozuoview mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(contentUserInfo.mas_bottom);
         make.left.mas_equalTo(self.contentView.mas_left).offset(10);
         make.right.mas_equalTo(self.contentView.mas_right);
-        make.bottom.mas_equalTo(self.contentView.mas_bottom);
+        make.bottom.mas_equalTo(self.contentView.mas_bottom).offset(2);
     }];
     
+    UILabel *titleLabel = [self createTitleLableWithTitle:@"备注:"];
+    [caozuoview addSubview:titleLabel];
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(caozuoview.mas_top);
         make.left.mas_equalTo(caozuoview.mas_left);
         make.width.mas_equalTo(60);
-        make.bottom.mas_equalTo(caozuoview.mas_bottom);
+        make.height.mas_greaterThanOrEqualTo(windowclekcellHeight);
+        make.bottom.mas_equalTo(self.contentView.mas_bottom);
     }];
     
 }

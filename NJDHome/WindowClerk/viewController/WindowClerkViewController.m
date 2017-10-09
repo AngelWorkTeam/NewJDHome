@@ -18,8 +18,10 @@
 #import "WindowClerkTableViewCell.h"
 #import "WindowClerkHistoryTableViewCell.h"
 #import "WindowClerkCellModel.h"
+#import "ViewImageModel.h"
+#import "MWPhotoBrowser.h"
 
-@interface WindowClerkViewController ()<UITableViewDelegate, UITableViewDataSource,WindowClerkTableViewCellDelegate,WindowClerkHistoryTableViewCellDelegate>
+@interface WindowClerkViewController ()<UITableViewDelegate, UITableViewDataSource,WindowClerkTableViewCellDelegate,WindowClerkHistoryTableViewCellDelegate,MWPhotoBrowserDelegate>
 @property (nonatomic, strong) UIView   *tabbarView;
 
 @property (nonatomic, strong) UIButton *NewTaskQueryButton;
@@ -32,9 +34,12 @@
 
 @property (nonatomic, assign) BOOL isNewTask;
 
-
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, assign) BOOL  isLast;
+
+@property (nonatomic, strong) NSMutableArray *photoArray;
+@property (nonatomic, strong) NSString       *selectRecordId;
+@property (nonatomic, strong) NSString       *selectType;
 @end
 #define tabarHeight 49
 @implementation WindowClerkViewController
@@ -45,6 +50,7 @@
     
     
     _datasoureArray = [NSMutableArray new];
+    _photoArray = [NSMutableArray new];
     _isNewTask = true;
     self.automaticallyAdjustsScrollViewInsets = false;
     [self initViews];
@@ -126,8 +132,8 @@
 #pragma -mark UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
-    //return _datasoureArray.count;
+   // return 1;
+    return _datasoureArray.count;
 }
 
 
@@ -141,6 +147,7 @@
         }
         cell.cellDelegate = self;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.model = _datasoureArray[indexPath.row];
         return cell;
     }else{
         WindowClerkHistoryTableViewCell *cell = (WindowClerkHistoryTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"xgyHistoryReuseCell"];
@@ -149,21 +156,22 @@
         }
         cell.cellDelegate = self;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.model = _datasoureArray[indexPath.row];
         //_datasoureArray[indexPath.row];
         return cell;
     }
 }
 
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if(_isNewTask){
-        return windowclekcellHeight*9 + 30;
-    }else{
-        return windowclekcellHeight*9 + 30;
-    }
-    
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    if(_isNewTask){
+//        return windowclekcellHeight*9 + 30;
+//    }else{
+//        return windowclekcellHeight*9 + 30;
+//    }
+//
+//}
 
 - (void)NewTaskButtonAction:(UIButton *)sender
 {
@@ -234,10 +242,8 @@
         _table = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, njdScreenWidth, njdScreenHeight - 64 -49) style:UITableViewStylePlain];
         _table.delegate  = self;
         _table.dataSource = self;
-        _table.estimatedRowHeight = windowclekcellHeight*10;
+        _table.estimatedRowHeight = windowclekcellHeight*11;
         _table.rowHeight = UITableViewAutomaticDimension;
-
-        
     }
     return _table;
 }
@@ -314,16 +320,55 @@
 #pragma mark - WindowClerkTableViewCellDelegate
 - (void)windowClerkButtonAction:(NSInteger)index withModel:(WindowClerkCellModel *)model
 {
+   
+    NSArray *picArray = @[];
+    if(index == 0){  // 资料照片
+        picArray =  model.didPigPaths;
+    }else if(index == 1){  // 身份证照片
+        picArray = model.idCardPigPaths;
+    }else if(index == 2){  // 人脸照片
+        picArray = model.facePigPaths;
+    }
+    NSLog(@"index: %ld count:%d", (long)index, picArray.count);
+    NSString *recorid = model.recordId;
+    NSString *type = @"0";
+    if (index == 1) {
+        type = @"1";
+    }
+    _selectRecordId = recorid;
+    _selectType  = type;
+    _photoArray = [[NSMutableArray alloc]initWithArray:picArray];
+//    ViewImageModel *browser =  [[ViewImageModel alloc]initWithPhotoArray:picArray recordId:recorid type:type];
+//    [browser showImageBrowserWithNav:self.navigationController];
     
+    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+    browser.displayActionButton = false;
+    //设置当前要显示的图片
+    [browser setCurrentPhotoIndex:1];
+    [self.navigationController pushViewController:browser animated:true];
 }
 #pragma mark - WindowClerkHistoryTableViewCellDelegate
 
 
 - (void)windowClerkHistoryButtonAction:(NSInteger)index withModel:(WindowClerkCellModel *)model
 {
-    
+      NSLog(@"index: %ld", index);
 }
 
+
+- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser
+{
+    return _photoArray.count;
+    
+}
+- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index
+{
+    NSString *str =[_photoArray objectAtIndex:index];
+    NSString *pathStr = [NSString stringWithFormat:@"%@%@",windwonImageBasePath,str];
+ 
+    MWPhoto *photo = [MWPhoto photoWithURL:[NSURL URLWithString:pathStr]];
+    return photo;
+}
 /*
 #pragma mark - Navigation
 
