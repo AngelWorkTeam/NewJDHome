@@ -109,9 +109,19 @@
 
 #pragma mark - action handle
 -(void)settingHandle:(UIBarButtonItem *)item{
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    SettingVC *vc =[sb instantiateViewControllerWithIdentifier:@"settingVC"];
-    [self.navigationController pushViewController:vc animated:YES];
+//    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    SettingVC *vc =[sb instantiateViewControllerWithIdentifier:@"settingVC"];
+//    [self.navigationController pushViewController:vc animated:YES];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"确认退出？" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler: ^(UIAlertAction *action){
+        [NJDUserInfoMO userInfo].isLogin = NO;
+        [NJDUserInfoMO save];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }];
+    [alertController addAction:cancelAction];
+    [alertController addAction:okAction];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -357,7 +367,7 @@
 - (void)showTrafficRejectAction:(TrafficAssistantTaskModel *)model
 {
     TrafficRejectView *view = [TrafficRejectView new];
-    view.title = @"";
+    view.title = @"退回";
     view.model = model;
     view.rejectReasonArray  = [NSMutableArray arrayWithObjects:@"本地户口无需登记",@"信息不完整",@"无法联系到本人",@"已经登记且有效期1月以上无需重复登记", nil];
 
@@ -367,8 +377,10 @@
         make.edges.mas_equalTo(self.view);
     }];
     
-    view.TrafficRejectAction  = ^(NSString *timeStr, NSString *userSuggest){
-        
+    @weakify(self);
+    view.TrafficRejectAction  = ^(NSString *reason, NSString *userSuggest){
+        @strongify(self);
+        [self TrafficRejectActionWithReason:reason andsuggest:userSuggest model:model];
     };
 }
 
@@ -416,8 +428,15 @@
 //                                                              success = 1;
 //                                                          };
 //                                                      }
-                                                         NSString *successInfo = @"成功";
-                                                         [NJDPopLoading showAutoHideWithMessage:successInfo];
+                                                      NSDictionary *checkResult = [dictValue objectForKey:@"checkResult"];
+                                                      NSNumber *isSuccess = checkResult[@"success"];
+                                                      if( isSuccess.boolValue ){
+                                                          NSString *successInfo = @"成功";
+                                                          [NJDPopLoading showAutoHideWithMessage:successInfo];
+                                                      }else {
+                                                          NSString *successInfo = @"失败";
+                                                          [NJDPopLoading showAutoHideWithMessage:successInfo];
+                                                      }
                                                          
                                                          [self reloadTrafficData];
                                                      } failure:^(NSError * _Nullable error) {
@@ -431,8 +450,16 @@
     NSString *recordId = model.recordId;
     [NetworkingManager  trafficSendBackRecordTheRecordWithRecordId:recordId sendBckContext:reason qtContext:sugges success:^(NSDictionary * _Nullable dictValue) {
         
-        NSString *successInfo = @"成功";
-        [NJDPopLoading showAutoHideWithMessage:successInfo];
+        NSDictionary *checkResult = [dictValue objectForKey:@"checkResult"];
+        NSNumber *isSuccess = checkResult[@"success"];
+        if( isSuccess.boolValue ){
+            NSString *successInfo = @"成功";
+            [NJDPopLoading showAutoHideWithMessage:successInfo];
+        }else {
+            NSString *successInfo = @"失败";
+            [NJDPopLoading showAutoHideWithMessage:successInfo];
+        }
+        
     } failure:^(NSError * _Nullable error) {
         NSString *errorMsg = error.userInfo[NSLocalizedDescriptionKey];
         [NJDPopLoading showAutoHideWithMessage:errorMsg];
@@ -445,8 +472,16 @@
     NSString *changeidUserId = @"";
     [NetworkingManager trafficCareOfRecordTheRecordWithRecordId:recordId changeUserId:(NSString *)changeidUserId success:^(NSDictionary * _Nullable dictValue) {
         
-        NSString *successInfo = @"成功";
-         [NJDPopLoading showAutoHideWithMessage:successInfo];
+        NSDictionary *checkResult = [dictValue objectForKey:@"checkResult"];
+        NSNumber *isSuccess = checkResult[@"success"];
+        if( isSuccess.boolValue ){
+            NSString *successInfo = @"成功";
+            [NJDPopLoading showAutoHideWithMessage:successInfo];
+        }else {
+            NSString *successInfo = @"失败";
+            [NJDPopLoading showAutoHideWithMessage:successInfo];
+        }
+        
     } failure:^(NSError * _Nullable error) {
         NSString *errorMsg = error.userInfo[NSLocalizedDescriptionKey];
         [NJDPopLoading showAutoHideWithMessage:errorMsg];
@@ -461,7 +496,7 @@
         successblock(dictValue);
         
     } failure:^(NSError * _Nullable error) {
-        NSString *errorMsg = error.userInfo[NSLocalizedDescriptionKey];
+      
         [NJDPopLoading showAutoHideWithMessage:@"获取协管员名单失败"];
     }];
 }

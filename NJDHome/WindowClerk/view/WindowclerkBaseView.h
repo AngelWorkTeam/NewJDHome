@@ -16,6 +16,6 @@ typedef void (^windowbuttonAction) (NSInteger index, NSString *title);
 
 @property (nonatomic, strong) windowbuttonAction windowAction;
 
-@property (nonatomic, assign) BOOL hiddenIDCardImagePath;
+@property (nonatomic, assign) BOOL hiddenIDCardImageButton;
 
 @end

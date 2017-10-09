@@ -72,7 +72,7 @@
     // 让按钮标题颜色变成红色
     //    _selectButton.transform = CGAffineTransformIdentity;
     //    [_selectButton setTitleColor:[UIColor colorWithHexString:@"4d4d4d"] forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor colorWithHexString:@"01cbca"] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor colorWithHexString:@"FF0000"] forState:UIControlStateNormal];
     // 按钮居中显示:本质修改titleScrollView的contentOffsetX
     CGFloat offsetX = button.center.x - YYScreenW * 0.5;
     
@@ -89,7 +89,7 @@
         offsetX = maxOffsetX;
     }
     
-    [self.titleScrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
+    //[self.titleScrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
     
     // 设置标题缩放
     // button.transform = CGAffineTransformMakeScale(1.3, 1.3);
@@ -122,14 +122,14 @@
     //    rightButton.transform = CGAffineTransformMakeScale(scaleR  * 0.3 + 1, scaleR  * 0.3 + 1);
     
     // 做颜色渐变 黑色 变成 红色
-    UIColor *colorR = [UIColor colorWithHexString:@"66666"];
-    UIColor *colorL = [UIColor colorWithHexString:@"FF0000"];
-    
-    [leftButton setTitleColor:colorL forState:UIControlStateNormal];
-    [rightButton setTitleColor:colorR forState:UIControlStateNormal];
+//    UIColor *colorR = [UIColor colorWithHexString:@"66666"];
+//    UIColor *colorL = [UIColor colorWithHexString:@"FF0000"];
+//
+//    [leftButton setTitleColor:colorL forState:UIControlStateNormal];
+//    [rightButton setTitleColor:colorR forState:UIControlStateNormal];
     
     CGFloat width = rightButton.width;
-    self.bottomLine.centerX = leftButton.center.x + scaleL * width;
+    self.bottomLine.centerX = leftButton.center.x + scaleR * width;
 }
 
 // 滚动完成的时候调用
@@ -191,7 +191,7 @@
         titleButton.tag = i;
         UIViewController *vc = self.childViewControllers[i];
         [titleButton setTitle:vc.title forState:UIControlStateNormal];
-        [titleButton setTitleColor:[UIColor colorWithHexString:@"FF0000"] forState:UIControlStateNormal];
+        [titleButton setTitleColor:[UIColor colorWithHexString:@"4D4D4D"] forState:UIControlStateNormal];
         x  = i * w;
         titleButton.frame = CGRectMake(x, 0, w, h);
         
@@ -270,7 +270,7 @@
     CGFloat h = self.view.bounds.size.height - y;
     _contentScrollView = contentScrollView;
     contentScrollView.frame = CGRectMake(0, y, w, h);
-    contentScrollView.backgroundColor = [UIColor purpleColor];
+    contentScrollView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:contentScrollView];
 }
 

@@ -46,6 +46,7 @@
         make.right.mas_equalTo(self.contentView.mas_right);
     }];
     
+    
     UIView *caozuoview = [[UIView alloc]initWithFrame:CGRectZero];
     [self.contentView addSubview:caozuoview];
     
@@ -62,7 +63,6 @@
         make.top.mas_equalTo(caozuoview.mas_top);
         make.left.mas_equalTo(caozuoview.mas_left);
         make.width.mas_equalTo(60);
-        make.height.mas_greaterThanOrEqualTo(windowclekcellHeight);
         make.bottom.mas_equalTo(self.contentView.mas_bottom);
     }];
     
@@ -85,10 +85,13 @@
     
 }
 
-- (void)setHiddenIDCardImagePath:(BOOL)hiddenIDCardImagePath
+- (void)setHiddenIDCardImageButton:(BOOL)hiddenIDCardImageButton
 {
-    _hiddenIDCardImagePath = hiddenIDCardImagePath;
-    _contentUserInfo.hidden = hiddenIDCardImagePath;
+    _hiddenIDCardImageButton = hiddenIDCardImageButton;
+    _contentUserInfo.hiddenIDCardImageButton = hiddenIDCardImageButton;
+    
 }
+
+
 
 @end

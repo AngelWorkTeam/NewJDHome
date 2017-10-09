@@ -26,6 +26,7 @@
 
 @property (nonatomic, strong) UITapGestureRecognizer *tap;
 
+@property (nonatomic)  BOOL keyboardShow;
 @end
 
 @implementation TrafficRejectView
@@ -45,7 +46,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self initContent];
-        
+        [self initData];
     }
     return self;
 }
@@ -220,7 +221,7 @@
     }];
     
     
-    UIButton *acceptButton  = [self createButtonWithTitle:@"接受"];
+    UIButton *acceptButton  = [self createButtonWithTitle:@"提交"];
     [lastView addSubview:acceptButton];
     [acceptButton addTarget:self action:@selector(AcceptAction:) forControlEvents:UIControlEventTouchUpInside];
     [acceptButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -230,7 +231,7 @@
         make.height.mas_equalTo(25);
     }];
     
-    UIButton *rejectButton  = [self createButtonWithTitle:@"拒绝"];
+    UIButton *rejectButton  = [self createButtonWithTitle:@"关闭"];
     [lastView addSubview:rejectButton];
      [rejectButton addTarget:self action:@selector(RejectAction:) forControlEvents:UIControlEventTouchUpInside];
     [rejectButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -267,6 +268,7 @@
     [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     [button setTitle:title forState:UIControlStateNormal];
     button.tag = index;
+    button.layer.cornerRadius = 3;
     button.titleLabel.font = [UIFont systemFontOfSize:12];
 
     return button;
@@ -276,6 +278,7 @@
 {
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectZero];
     button.backgroundColor = [UIColor redColor];
+     button.layer.cornerRadius = 3;
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [button setTitle:title forState:UIControlStateNormal];
     button.titleLabel.font = [UIFont systemFontOfSize:15];
@@ -337,6 +340,7 @@
     if (self.TrafficRejectAction) {
         self.TrafficRejectAction(reason, otherSuggest);
     }
+    [self removeFromSuperview];
 }
 
 - (void)RejectAction:(UIButton *)sender
@@ -344,9 +348,17 @@
     [self removeFromSuperview];
 }
 
-- (void)tapGestureAction:(UITapGestureRecognizer *)ges
+- (void)tapGestureAction:(UITapGestureRecognizer *)sender
 {
-    [self removeFromSuperview];
+    if (sender.state == UIGestureRecognizerStateEnded&&
+        self.keyboardShow == NO) {
+        if (self.superview) {
+            [self removeFromSuperview];
+        }
+    }else if(sender.state == UIGestureRecognizerStateEnded&&
+             self.keyboardShow == YES){
+        [self endEditing:YES];
+    }
 }
 
 - (void)setRejectReasonArray:(NSMutableArray *)rejectReasonArray
@@ -379,5 +391,47 @@
     }];
 }
 
+-(void)initData{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardShow:)
+                                                 name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDismiss:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow)
+                                                 name:UIKeyboardDidShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide)
+                                                 name:UIKeyboardDidHideNotification object:nil];
+}
+-(void)keyboardShow:(NSNotification *)noti{
+    
+    // self.tooBar.frame = rect;
+    
+    
+    NSDictionary *userInfo = [noti userInfo];
+    CGRect rect= [[userInfo objectForKey:@"UIKeyboardFrameEndUserInfoKey"]CGRectValue];
+    // self.tooBar.frame = rect;
+    [UIView animateWithDuration:0.25 animations:^{
+        self.transform = CGAffineTransformMakeTranslation(0, -([UIScreen mainScreen].bounds.size.height-rect.origin.y - 50));
+    }];
+}
+-(void)keyboardDismiss:(NSNotification *)notification{
+    //self.center = CGPointMake(kScreenWidth/2., kScreenHeight/2.-64);
+    //获得通知中的info字典
+    [UIView animateWithDuration:0.25 animations:^{
+        //恢复原样
+        self.transform = CGAffineTransformIdentity;
+        //        commentView.hidden = YES;
+    }];
+}
+-(void)keyboardDidShow{
+    self.keyboardShow = YES;
+}
+-(void)keyboardDidHide{
+    self.keyboardShow = NO;
+}
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 @end

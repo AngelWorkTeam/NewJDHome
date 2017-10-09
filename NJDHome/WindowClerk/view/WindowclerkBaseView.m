@@ -280,11 +280,13 @@
     
 }
 
-- (void)setHiddenIDCardImagePath:(BOOL)hiddenIDCardImagePath
+- (void)setHiddenIDCardImageButton:(BOOL)hiddenIDCardImageButton
 {
-    _hiddenIDCardImagePath = hiddenIDCardImagePath;
-    _shengfengzhengButton.hidden = hiddenIDCardImagePath;
+    _hiddenIDCardImageButton = hiddenIDCardImageButton;
+    _shengfengzhengButton.hidden = hiddenIDCardImageButton;
 }
+
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

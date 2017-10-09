@@ -112,9 +112,19 @@
 
 #pragma mark - action handle
 -(void)settingHandle:(UIBarButtonItem *)item{
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    SettingVC *vc =[sb instantiateViewControllerWithIdentifier:@"settingVC"];
-    [self.navigationController pushViewController:vc animated:YES];
+//    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    SettingVC *vc =[sb instantiateViewControllerWithIdentifier:@"settingVC"];
+//    [self.navigationController pushViewController:vc animated:YES];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"确认退出？" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler: ^(UIAlertAction *action){
+        [NJDUserInfoMO userInfo].isLogin = NO;
+        [NJDUserInfoMO save];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }];
+    [alertController addAction:cancelAction];
+    [alertController addAction:okAction];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -406,7 +416,7 @@
     UIAlertController *alert = [UIAlertController
                                 alertControllerWithTitle:title
                                 message:nil
-                                preferredStyle:UIAlertControllerStyleActionSheet];
+                                preferredStyle:UIAlertControllerStyleAlert];
     __weak UIAlertController *weakAlert = alert;
     [alert addAction:[UIAlertAction
                       actionWithTitle:@"确认"

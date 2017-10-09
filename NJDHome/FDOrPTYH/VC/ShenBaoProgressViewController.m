@@ -156,14 +156,14 @@
         cell.model = _datasoureArray[indexPath.row];
         return cell;
     }else{
-        WindowClerkHistoryTableViewCell *cell = (WindowClerkHistoryTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"xgyHistoryReuseCell"];
+        WindowClerkHistoryTableViewCell *cell = (WindowClerkHistoryTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"FDOrPTYHistoryReuseCell"];
         if (cell == nil) {
-            cell = [[WindowClerkHistoryTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"xgyHistoryReuseCell"];
+            cell = [[WindowClerkHistoryTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FDOrPTYHistoryReuseCell"];
         }
         cell.cellDelegate = self;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.hiddenIDCardImagePath = true;
-          cell.model = _datasoureArray[indexPath.row];
+       cell.hiddenIDCardImageButton = true;
+        cell.model = _datasoureArray[indexPath.row];
         //_datasoureArray[indexPath.row];
         return cell;
     }
@@ -305,7 +305,7 @@
     }];
 }
 
-- (void)reloadICCardHistory
+- (void) reloadICCardHistory
 {
     @weakify(self)
     [NetworkingManager renderGetICCardRecordListByPage:_page  success:^(NSDictionary * _Nullable dictValue) {

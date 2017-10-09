@@ -59,18 +59,7 @@
     return self;
 }
 
--(void)initData{
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardShow:)
-                 name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDismiss:)
-                 name:UIKeyboardWillHideNotification object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow)
-                         name:UIKeyboardDidShowNotification object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide)
-                         name:UIKeyboardDidHideNotification object:nil];
-}
+
 - (void)createTimeSeleect
 {
     THDatePickerView *dateView = [[THDatePickerView alloc] initWithFrame:CGRectMake(0, njdScreenHeight, njdScreenWidth, 300)];
@@ -196,6 +185,19 @@
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
     
+}
+
+-(void)initData{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardShow:)
+                                                 name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDismiss:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow)
+                                                 name:UIKeyboardDidShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide)
+                                                 name:UIKeyboardDidHideNotification object:nil];
 }
 
 -(void)keyboardShow:(NSNotification *)noti{

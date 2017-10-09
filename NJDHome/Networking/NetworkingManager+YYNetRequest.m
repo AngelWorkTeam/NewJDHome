@@ -433,6 +433,7 @@ NSString * const kloadXGYList       = @"loadXGYList";  //26  高工提供的获�
 }
 
 //  27.   获取辖区内窗口管理人员
+//  loadXGYList
 //regionId     是   辖区id
 //token是    令牌
 

@@ -96,7 +96,7 @@
     
     _contentUserInfo.model = model;
     
-    if([_model.type isEqualToString:@"1"]){
+    if([_model.state isEqualToString:@"1"]){
         UIButton *firstButton = _buttonArray[0];
         UIButton *secondButton = _buttonArray[1];
         UIButton *thirdButton = _buttonArray[2];
@@ -104,7 +104,7 @@
         secondButton.hidden = false;
         thirdButton.hidden = false;
         
-    }else if ([_model.type isEqualToString:@"2"]){
+    }else if ([_model.state isEqualToString:@"2"]){
         if ([_model.type isEqualToString:@"0"]) {    // 注销
             UIButton *firstButton = _buttonArray[0];
             UIButton *secondButton = _buttonArray[1];
@@ -150,6 +150,7 @@
     [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     [button setTitle:title forState:UIControlStateNormal];
     button.tag = index;
+    button.layer.cornerRadius = 3;
     button.titleLabel.font = [UIFont systemFontOfSize:12];
     [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
     return button;

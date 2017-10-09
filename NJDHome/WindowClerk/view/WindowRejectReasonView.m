@@ -18,7 +18,7 @@
 
 @property (nonatomic, strong) UITapGestureRecognizer *tap;
 
-@property (nonatomic, assign) BOOL isEdit;
+@property (nonatomic)  BOOL keyboardShow;
 @end
 
 @implementation WindowRejectReasonView
@@ -36,48 +36,13 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self initContent];
-        _isEdit = false;
-        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyHiden:) name: UIKeyboardWillHideNotification object:nil];
-        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyWillAppear:) name:UIKeyboardWillChangeFrameNotification object:nil];
+        [self initData];
     }
     return self;
 }
 
-- (void)dealloc
-{
-    _isEdit = false;
-    
-    [[NSNotificationCenter defaultCenter]removeObserver:self name:UIKeyboardWillHideNotification object:nil];
-    [[NSNotificationCenter defaultCenter]removeObserver:self name:UIKeyboardWillChangeFrameNotification object:nil];
-}
 
 #pragma mark-键盘出现隐藏事件
--(void)keyHiden:(NSNotification *)notification
-{
-   
-    // self.tooBar.frame = rect;
-    [UIView animateWithDuration:0.25 animations:^{
-        //恢复原样
-        self.transform = CGAffineTransformIdentity;
-          _isEdit = FALSE;
-        //        commentView.hidden = YES;
-    }];
-    
-    
-}
--(void)keyWillAppear:(NSNotification *)notification
-{
-    _isEdit = TRUE;
-    //获得通知中的info字典
-    NSDictionary *userInfo = [notification userInfo];
-    CGRect rect= [[userInfo objectForKey:@"UIKeyboardFrameEndUserInfoKey"]CGRectValue];
-    // self.tooBar.frame = rect;
-    [UIView animateWithDuration:0.25 animations:^{
-        self.transform = CGAffineTransformMakeTranslation(0, -([UIScreen mainScreen].bounds.size.height-rect.origin.y - 50));
-    }];
-    
-    
-}
 
 - (void)initContent
 {
@@ -232,17 +197,16 @@
     return textView;
 }
 
-- (void)tapGestureAction:(UITapGestureRecognizer *)ges
+- (void)tapGestureAction:(UITapGestureRecognizer *)sender
 {
-    if (ges.state == UIGestureRecognizerStateEnded) {
-        NSLog(@"tapGestureAction 1");
-        if(_isEdit){
-            [_textView resignFirstResponder];
-              NSLog(@"tapGestureAction 1");
-        }else{
-            [self dissmissFromsuperView];
-              NSLog(@"tapGestureAction 1");
+    if (sender.state == UIGestureRecognizerStateEnded&&
+        self.keyboardShow == NO) {
+        if (self.superview) {
+            [self removeFromSuperview];
         }
+    }else if(sender.state == UIGestureRecognizerStateEnded&&
+             self.keyboardShow == YES){
+        [self endEditing:YES];
     }
 }
 
@@ -268,4 +232,48 @@
     }
     
 }
+
+-(void)initData{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardShow:)
+                                                 name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDismiss:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow)
+                                                 name:UIKeyboardDidShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide)
+                                                 name:UIKeyboardDidHideNotification object:nil];
+}
+-(void)keyboardShow:(NSNotification *)noti{
+    
+    // self.tooBar.frame = rect;
+    
+    
+    NSDictionary *userInfo = [noti userInfo];
+    CGRect rect= [[userInfo objectForKey:@"UIKeyboardFrameEndUserInfoKey"]CGRectValue];
+    // self.tooBar.frame = rect;
+    [UIView animateWithDuration:0.25 animations:^{
+        self.transform = CGAffineTransformMakeTranslation(0, -([UIScreen mainScreen].bounds.size.height-rect.origin.y - 50));
+    }];
+}
+-(void)keyboardDismiss:(NSNotification *)notification{
+    //self.center = CGPointMake(kScreenWidth/2., kScreenHeight/2.-64);
+    //获得通知中的info字典
+    [UIView animateWithDuration:0.25 animations:^{
+        //恢复原样
+        self.transform = CGAffineTransformIdentity;
+        //        commentView.hidden = YES;
+    }];
+}
+-(void)keyboardDidShow{
+    self.keyboardShow = YES;
+}
+-(void)keyboardDidHide{
+    self.keyboardShow = NO;
+}
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 @end

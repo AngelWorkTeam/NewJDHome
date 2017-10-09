@@ -139,6 +139,15 @@
         make.right.mas_equalTo(containerView.mas_right);
     }];
     
+    UIImageView *arrowImage = [[UIImageView alloc]initWithFrame:CGRectZero];
+    [arrowImage setImage:[UIImage imageNamed:@"downMore"]];
+    [containerView addSubview:arrowImage];
+    [arrowImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.mas_equalTo(getbackButton.mas_trailing).offset(-15);
+        make.height.mas_equalTo(10);
+        make.width.mas_equalTo(10);
+        make.centerY.mas_equalTo(getbackButton.mas_centerY);
+    }];
 
     
     UIView *lastView = [UIView new];
@@ -234,7 +243,7 @@
     [[UIApplication sharedApplication].keyWindow addSubview:pickView1];
     pickView1.frame =  CGRectMake(0, kScreenHeight, kScreenWidth, 218);
     
-    [UIView animateWithDuration:0.4 animations:^{
+    [UIView animateWithDuration:0.1 animations:^{
         pickView1.frame = CGRectMake(0, kScreenHeight-218, kScreenWidth, 218);
     }];
 }
@@ -275,9 +284,18 @@
 - (void)setXgyArray:(NSMutableArray *)xgyArray
 {
     _xgyArray = xgyArray;
-
+    if (xgyArray && xgyArray.count > 0) {
+        
+        NSString *name = xgyArray[0];
+        [_selectXGYNameButton setTitle:name forState:UIControlStateNormal];
+    }
 }
 
+- (void)setModel:(TrafficAssistantTaskModel *)model
+{
+    _model = model;
+    _username.text = [NJDUserInfoMO userInfo].username ;
+}
 
 - (void)tapGestureAction:(UITapGestureRecognizer *)tap
 {

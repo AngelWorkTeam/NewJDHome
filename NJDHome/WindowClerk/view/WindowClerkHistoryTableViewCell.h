@@ -23,6 +23,6 @@
 
 @property (nonatomic, weak) id<WindowClerkHistoryTableViewCellDelegate> cellDelegate;
 
-@property (nonatomic, assign) BOOL hiddenIDCardImagePath;
+@property (nonatomic, assign) BOOL hiddenIDCardImageButton;
 
 @end
