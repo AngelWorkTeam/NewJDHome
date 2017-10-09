@@ -95,28 +95,41 @@
     _model = model;
     
     _contentUserInfo.model = model;
-    if ([_model.type isEqualToString:@"0"]) {    // 注销
-        UIButton *firstButton = _buttonArray[0];
-        UIButton *secondButton = _buttonArray[1];
-        UIButton *thirdButton = _buttonArray[2];
-        [firstButton setTitle:@"[注销登记]" forState:UIControlStateNormal];
-        secondButton.hidden = true;
-         thirdButton.hidden = true;
-    }else if ([_model.type isEqualToString:@"2"]){   // 变更
+    
+    if([_model.type isEqualToString:@"1"]){
         UIButton *firstButton = _buttonArray[0];
         UIButton *secondButton = _buttonArray[1];
         UIButton *thirdButton = _buttonArray[2];
         [firstButton setTitle:@"[受理]" forState:UIControlStateNormal];
         secondButton.hidden = false;
         thirdButton.hidden = false;
-    }else if ([_model.type isEqualToString:@"1"]){  // 申报
-        UIButton *firstButton = _buttonArray[0];
-        UIButton *secondButton = _buttonArray[1];
-        UIButton *thirdButton = _buttonArray[2];
-        [firstButton setTitle:@"[申报登记]" forState:UIControlStateNormal];
-        secondButton.hidden = false;
-        thirdButton.hidden = false;
+        
+    }else if ([_model.type isEqualToString:@"2"]){
+        if ([_model.type isEqualToString:@"0"]) {    // 注销
+            UIButton *firstButton = _buttonArray[0];
+            UIButton *secondButton = _buttonArray[1];
+            UIButton *thirdButton = _buttonArray[2];
+            [firstButton setTitle:@"[注销登记]" forState:UIControlStateNormal];
+            secondButton.hidden = true;
+            thirdButton.hidden = true;
+        }else if ([_model.type isEqualToString:@"2"]){   // 变更
+            UIButton *firstButton = _buttonArray[0];
+            UIButton *secondButton = _buttonArray[1];
+            UIButton *thirdButton = _buttonArray[2];
+            [firstButton setTitle:@"[变更登记]" forState:UIControlStateNormal];
+            secondButton.hidden = true;
+            thirdButton.hidden = true;
+        }else if ([_model.type isEqualToString:@"1"]){  // 申报
+            UIButton *firstButton = _buttonArray[0];
+            UIButton *secondButton = _buttonArray[1];
+            UIButton *thirdButton = _buttonArray[2];
+            [firstButton setTitle:@"[申报登记]" forState:UIControlStateNormal];
+            secondButton.hidden = true;
+            thirdButton.hidden = true;
+        }
+        
     }
+    
 }
 
 

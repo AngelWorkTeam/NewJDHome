@@ -314,10 +314,7 @@
 #pragma mark - Navigation
 - (void)trafficActionButtonAction:(NSInteger)index withModel:(TrafficAssistantTaskModel *)model
 {
-    if([model.type isEqualToString:@"0"]){ // // 注销
-        
-        
-    }else if ([model.type isEqualToString:@"1"]){  //// 申报
+    if([model.state isEqualToString:@"1"]){
         if (index == 0) {
             [self showTrafficAcceptAction:model];
         }else if(index == 1){
@@ -325,10 +322,18 @@
         }else if(index == 2){
             [self showTrafficZhuanjiaoAction:model];
         }
-    }else if ([model.type isEqualToString:@"2"]){    // 变更
         
+    }else if([model.state isEqualToString:@"2"]){
+        if([model.type isEqualToString:@"0"]){ // // 注销登记
+            
+            
+        }else if ([model.type isEqualToString:@"1"]){  //// 申报登记
+            
+            
+        }else if ([model.type isEqualToString:@"2"]){    // 变更登记
+            
+        }
     }
-
 }
 
 - (void)showTrafficAcceptAction:(TrafficAssistantTaskModel *)model
