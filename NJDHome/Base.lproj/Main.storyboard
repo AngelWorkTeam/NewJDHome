@@ -601,7 +601,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_tupian" translatesAutoresizingMaskIntoConstraints="NO" id="9i7-bG-mkp">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landPoster" translatesAutoresizingMaskIntoConstraints="NO" id="9i7-bG-mkp">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="9i7-bG-mkp" secondAttribute="height" multiplier="15:8" id="0ck-gX-7Y5"/>
@@ -711,6 +711,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="banner" destination="9i7-bG-mkp" id="SvA-JP-yRE"/>
                         <outlet property="img1" destination="2bY-1Y-CY8" id="aLG-sn-MGP"/>
                         <outlet property="img2" destination="Yxy-bE-4OE" id="ToC-ni-HFN"/>
                         <outlet property="img3" destination="yba-pl-xlP" id="KPR-6y-EMC"/>
@@ -1464,7 +1465,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="home_tupian" width="375" height="200"/>
+        <image name="landPoster" width="375" height="200"/>
         <image name="loginLogImage" width="83" height="78"/>
         <image name="loginPasswordImage" width="20" height="23"/>
         <image name="loginRemberPassword" width="18" height="18"/>

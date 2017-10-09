@@ -27,9 +27,9 @@
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4c-Xj-8yR">
-                                <rect key="frame" x="274" y="7" width="30" height="30"/>
-                                <state key="normal" title="📷"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4c-Xj-8yR">
+                                <rect key="frame" x="281" y="11" width="23" height="22"/>
+                                <state key="normal" image="camera"/>
                                 <connections>
                                     <action selector="takePhoto:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="c4v-At-zOO"/>
                                 </connections>
@@ -61,4 +61,7 @@
             </tableViewCellContentView>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="camera" width="23" height="20"/>
+    </resources>
 </document>

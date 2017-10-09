@@ -27,16 +27,16 @@
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="13V-7d-YS5">
-                                <rect key="frame" x="274" y="7" width="30" height="30"/>
-                                <state key="normal" title="➕"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="13V-7d-YS5">
+                                <rect key="frame" x="284" y="11" width="20" height="22"/>
+                                <state key="normal" image="add"/>
                                 <connections>
                                     <action selector="addChildInfo:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="xSU-ni-OD4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUs-3Q-NEH">
-                                <rect key="frame" x="228" y="7" width="30" height="30"/>
-                                <state key="normal" title="➖"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUs-3Q-NEH">
+                                <rect key="frame" x="248" y="11" width="20" height="22"/>
+                                <state key="normal" image="jian"/>
                                 <connections>
                                     <action selector="minsChildInfo:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="HQQ-bS-eRy"/>
                                 </connections>
@@ -70,4 +70,8 @@
             </tableViewCellContentView>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="add" width="20" height="20"/>
+        <image name="jian" width="20" height="20"/>
+    </resources>
 </document>

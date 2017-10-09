@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *img2;
 @property (weak, nonatomic) IBOutlet UIImageView *img3;
 @property (weak, nonatomic) IBOutlet UIImageView *img4;
+@property (weak, nonatomic) IBOutlet UIImageView *banner;
 @end
 
 @implementation FDOrPTYHVC
@@ -44,20 +45,24 @@
     [self createNoBackWithOpaue:YES];
     self.title = @"新金东人之家";
     self.view.backgroundColor = [UIColor sam_colorWithHex:@"efeff6"];
+   
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
-                                              initWithTitle:@"设置" style:UIBarButtonItemStylePlain
+                                              initWithImage:[UIImage imageNamed:@"setting"] style:UIBarButtonItemStylePlain
                                                                          target:self
                                                                              action:@selector(settingHandle:)];
     //根据类型初始化UI
     if ([NJDUserInfoMO roleType] == BNRRoleTypeLandlord) {
-        self.img1.image = [UIImage imageNamed:@"home_register"];
-//        self.img2.image = [UIImage imageNamed:@""]
-        self.img4.image = [UIImage imageNamed:@"home_record"];
+        self.banner.image = [UIImage imageNamed:@"landPoster"];
+        self.img1.image = [UIImage imageNamed:@"landSubmit"];
+        self.img2.image = [UIImage imageNamed:@"landUnregister"];
+        self.img3.image = [UIImage imageNamed:@"landAddress"];
+        self.img4.image = [UIImage imageNamed:@"landRecord"];
     }else{
-        self.img1.image = [UIImage imageNamed:@"home_register"];
-        self.img2.image = [UIImage imageNamed:@"home_cancellation"];
-        self.img3.image = [UIImage imageNamed:@"home_address"];
-        self.img4.image = [UIImage imageNamed:@"home_record"];
+        self.banner.image = [UIImage imageNamed:@"renterPoster"];
+        self.img1.image = [UIImage imageNamed:@"renterSubmit"];
+        self.img2.image = [UIImage imageNamed:@"renterApply"];
+        self.img3.image = [UIImage imageNamed:@"renterSubmitOther"];
+        self.img4.image = [UIImage imageNamed:@"renterRecord"];
     }
 }
 -(void)initData{
