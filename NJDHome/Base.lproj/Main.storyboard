@@ -601,7 +601,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9i7-bG-mkp">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_tupian" translatesAutoresizingMaskIntoConstraints="NO" id="9i7-bG-mkp">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="9i7-bG-mkp" secondAttribute="height" multiplier="15:8" id="0ck-gX-7Y5"/>
@@ -609,10 +609,19 @@
                             </imageView>
                             <view tag="1000" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ebc-nh-wFe">
                                 <rect key="frame" x="32" y="212" width="139.5" height="100.5"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2bY-1Y-CY8">
+                                        <rect key="frame" x="0.0" y="0.0" width="139.5" height="100.5"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" red="0.16862745100000001" green="0.8862745098" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
+                                    <constraint firstItem="2bY-1Y-CY8" firstAttribute="leading" secondItem="Ebc-nh-wFe" secondAttribute="leading" id="Dug-T4-wVA"/>
+                                    <constraint firstAttribute="bottom" secondItem="2bY-1Y-CY8" secondAttribute="bottom" id="TVK-AX-RNg"/>
+                                    <constraint firstItem="2bY-1Y-CY8" firstAttribute="top" secondItem="Ebc-nh-wFe" secondAttribute="top" id="UnH-wd-cTx"/>
                                     <constraint firstAttribute="width" secondItem="Ebc-nh-wFe" secondAttribute="height" multiplier="330:238" id="hFj-fD-NLU"/>
+                                    <constraint firstAttribute="trailing" secondItem="2bY-1Y-CY8" secondAttribute="trailing" id="vgL-hu-zdR"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="VVv-L0-nr3" appends="YES" id="F3S-oQ-ZFv"/>
@@ -620,10 +629,19 @@
                             </view>
                             <view tag="1001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rBT-81-bNj">
                                 <rect key="frame" x="203.5" y="212" width="139.5" height="100.5"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yxy-bE-4OE">
+                                        <rect key="frame" x="0.0" y="0.0" width="139.5" height="100.5"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" red="0.16862745100000001" green="0.8862745098" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="rBT-81-bNj" secondAttribute="height" multiplier="330:238" id="6wl-gm-8hL"/>
+                                    <constraint firstAttribute="trailing" secondItem="Yxy-bE-4OE" secondAttribute="trailing" id="CQ9-9r-iij"/>
+                                    <constraint firstAttribute="bottom" secondItem="Yxy-bE-4OE" secondAttribute="bottom" id="Kbc-77-d6d"/>
+                                    <constraint firstItem="Yxy-bE-4OE" firstAttribute="leading" secondItem="rBT-81-bNj" secondAttribute="leading" id="pTf-sY-PME"/>
+                                    <constraint firstItem="Yxy-bE-4OE" firstAttribute="top" secondItem="rBT-81-bNj" secondAttribute="top" id="yB7-kB-i5R"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="wNE-Pc-bHd" appends="YES" id="8qf-I0-3Vd"/>
@@ -631,10 +649,19 @@
                             </view>
                             <view tag="1002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zcy-07-xyy">
                                 <rect key="frame" x="32" y="324.5" width="139.5" height="100.5"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yba-pl-xlP">
+                                        <rect key="frame" x="0.0" y="0.0" width="139.5" height="100.5"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" red="0.16862745100000001" green="0.8862745098" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
+                                    <constraint firstItem="yba-pl-xlP" firstAttribute="leading" secondItem="zcy-07-xyy" secondAttribute="leading" id="CTS-8b-oVA"/>
+                                    <constraint firstAttribute="trailing" secondItem="yba-pl-xlP" secondAttribute="trailing" id="Tcv-JM-rIq"/>
+                                    <constraint firstItem="yba-pl-xlP" firstAttribute="top" secondItem="zcy-07-xyy" secondAttribute="top" id="TsY-gY-3DE"/>
                                     <constraint firstAttribute="width" secondItem="zcy-07-xyy" secondAttribute="height" multiplier="330:238" id="WsN-0D-ctP"/>
+                                    <constraint firstAttribute="bottom" secondItem="yba-pl-xlP" secondAttribute="bottom" id="q38-8k-6qV"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="ewG-sC-HoS" appends="YES" id="MYx-Z6-U0V"/>
@@ -642,10 +669,19 @@
                             </view>
                             <view tag="1003" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OvQ-Uy-hEO">
                                 <rect key="frame" x="203.5" y="324.5" width="140" height="101"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5wr-f2-e8t">
+                                        <rect key="frame" x="0.0" y="0.0" width="140" height="101"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" red="0.16862745100000001" green="0.8862745098" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="OvQ-Uy-hEO" secondAttribute="height" multiplier="330:238" id="2ed-MR-gWN"/>
+                                    <constraint firstAttribute="bottom" secondItem="5wr-f2-e8t" secondAttribute="bottom" id="GWj-mn-Npk"/>
+                                    <constraint firstItem="5wr-f2-e8t" firstAttribute="top" secondItem="OvQ-Uy-hEO" secondAttribute="top" id="OX6-CZ-fiO"/>
+                                    <constraint firstAttribute="trailing" secondItem="5wr-f2-e8t" secondAttribute="trailing" id="Thg-JK-pt6"/>
+                                    <constraint firstItem="5wr-f2-e8t" firstAttribute="leading" secondItem="OvQ-Uy-hEO" secondAttribute="leading" id="Wei-Nd-dSn"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="1pt-B2-fYq" appends="YES" id="Mfw-0b-zAS"/>
@@ -674,6 +710,12 @@
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="img1" destination="2bY-1Y-CY8" id="aLG-sn-MGP"/>
+                        <outlet property="img2" destination="Yxy-bE-4OE" id="ToC-ni-HFN"/>
+                        <outlet property="img3" destination="yba-pl-xlP" id="KPR-6y-EMC"/>
+                        <outlet property="img4" destination="5wr-f2-e8t" id="Kof-gC-gZG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wd1-va-sHK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="VVv-L0-nr3">
@@ -1422,6 +1464,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="home_tupian" width="375" height="200"/>
         <image name="loginLogImage" width="83" height="78"/>
         <image name="loginPasswordImage" width="20" height="23"/>
         <image name="loginRemberPassword" width="18" height="18"/>

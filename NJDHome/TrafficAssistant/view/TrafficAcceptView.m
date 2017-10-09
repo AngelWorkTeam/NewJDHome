@@ -28,6 +28,7 @@
 
 @property (weak, nonatomic) THDatePickerView *dateView;
 
+@property (nonatomic)  BOOL keyboardShow;
 @end
 
 @implementation TrafficAcceptView
@@ -44,6 +45,7 @@
     self = [[NSBundle mainBundle] loadNibNamed:@"TrafficAccept" owner:self options:nil][0];
    [self initContentView];
     [self createTimeSeleect];
+    [self initData];
     return self;
 }
 
@@ -57,7 +59,18 @@
     return self;
 }
 
-
+-(void)initData{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardShow:)
+                 name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDismiss:)
+                 name:UIKeyboardWillHideNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow)
+                         name:UIKeyboardDidShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide)
+                         name:UIKeyboardDidHideNotification object:nil];
+}
 - (void)createTimeSeleect
 {
     THDatePickerView *dateView = [[THDatePickerView alloc] initWithFrame:CGRectMake(0, njdScreenHeight, njdScreenWidth, 300)];
@@ -108,8 +121,16 @@
     [self removeFromSuperview];
     
 }
-- (IBAction)tapAction:(id)sender {
-    [self removeFromSuperview];
+- (IBAction)tapAction:(UIGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateEnded&&
+        self.keyboardShow == NO) {
+        if (self.superview) {
+            [self removeFromSuperview];
+        }
+    }else if(sender.state == UIGestureRecognizerStateEnded&&
+             self.keyboardShow == YES){
+        [self endEditing:YES];
+    }
 }
 
 - (IBAction)selectTimeAction:(id)sender {
@@ -177,5 +198,34 @@
     
 }
 
+-(void)keyboardShow:(NSNotification *)noti{
+  
+    // self.tooBar.frame = rect;
 
+    
+    NSDictionary *userInfo = [noti userInfo];
+    CGRect rect= [[userInfo objectForKey:@"UIKeyboardFrameEndUserInfoKey"]CGRectValue];
+    // self.tooBar.frame = rect;
+    [UIView animateWithDuration:0.25 animations:^{
+        self.transform = CGAffineTransformMakeTranslation(0, -([UIScreen mainScreen].bounds.size.height-rect.origin.y - 50));
+    }];
+}
+-(void)keyboardDismiss:(NSNotification *)notification{
+    //self.center = CGPointMake(kScreenWidth/2., kScreenHeight/2.-64);
+    //获得通知中的info字典
+    [UIView animateWithDuration:0.25 animations:^{
+        //恢复原样
+        self.transform = CGAffineTransformIdentity;
+        //        commentView.hidden = YES;
+    }];
+}
+-(void)keyboardDidShow{
+    self.keyboardShow = YES;
+}
+-(void)keyboardDidHide{
+    self.keyboardShow = NO;
+}
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 @end

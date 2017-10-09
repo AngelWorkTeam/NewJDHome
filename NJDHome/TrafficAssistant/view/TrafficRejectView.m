@@ -174,10 +174,10 @@
     }];
     
     UIImageView *arrowImage = [[UIImageView alloc]initWithFrame:CGRectZero];
-    [arrowImage setImage:[UIImage imageNamed:@"arrow_down"]];
+    [arrowImage setImage:[UIImage imageNamed:@"downMore"]];
     [containerView addSubview:arrowImage];
     [arrowImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(getbackButton.mas_right);
+        make.leading.mas_equalTo(getbackButton.mas_trailing).offset(-15);
         make.height.mas_equalTo(10);
         make.width.mas_equalTo(10);
         make.centerY.mas_equalTo(getbackButton.mas_centerY);

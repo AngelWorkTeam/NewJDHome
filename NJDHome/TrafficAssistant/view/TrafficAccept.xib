@@ -103,7 +103,7 @@
                                                         <constraint firstAttribute="height" constant="30" id="pbQ-t1-vVA"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <state key="normal" title="选择日期" image="arrow_down">
+                                                    <state key="normal" title="选择日期" image="downMore">
                                                         <color key="titleColor" white="0.68213367459999996" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
@@ -298,6 +298,6 @@
         </tapGestureRecognizer>
     </objects>
     <resources>
-        <image name="arrow_down" width="22" height="12"/>
+        <image name="downMore" width="7" height="7"/>
     </resources>
 </document>

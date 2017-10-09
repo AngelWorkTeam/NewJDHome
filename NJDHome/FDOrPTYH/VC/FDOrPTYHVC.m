@@ -17,6 +17,10 @@
 @interface FDOrPTYHVC ()
 //房屋地址，只有当登入用户是房东时，才有此属性
 @property (nonatomic,copy) NSArray *addresses;
+@property (weak, nonatomic) IBOutlet UIImageView *img1;
+@property (weak, nonatomic) IBOutlet UIImageView *img2;
+@property (weak, nonatomic) IBOutlet UIImageView *img3;
+@property (weak, nonatomic) IBOutlet UIImageView *img4;
 @end
 
 @implementation FDOrPTYHVC
@@ -45,6 +49,16 @@
                                                                          target:self
                                                                              action:@selector(settingHandle:)];
     //根据类型初始化UI
+    if ([NJDUserInfoMO roleType] == BNRRoleTypeLandlord) {
+        self.img1.image = [UIImage imageNamed:@"home_register"];
+//        self.img2.image = [UIImage imageNamed:@""]
+        self.img4.image = [UIImage imageNamed:@"home_record"];
+    }else{
+        self.img1.image = [UIImage imageNamed:@"home_register"];
+        self.img2.image = [UIImage imageNamed:@"home_cancellation"];
+        self.img3.image = [UIImage imageNamed:@"home_address"];
+        self.img4.image = [UIImage imageNamed:@"home_record"];
+    }
 }
 -(void)initData{
     if ([NJDUserInfoMO roleType] == BNRRoleTypeLandlord) {
