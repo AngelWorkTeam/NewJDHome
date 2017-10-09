@@ -14,6 +14,12 @@
 #import "NetworkingManager+YYNetRequest.h"
 #import <MJRefresh.h>
 #import "NJDRefreshHeader.h"
+#import "TrafficAssistantViewController.h"
+
+#import "TrafficAcceptView.h"
+#import "TrafficRejectView.h"
+#import "TrafficZhuanjiaoView.h"
+
 @interface TrafficAssistantViewController ()<UITableViewDelegate, UITableViewDataSource, TrafficAssistantTableViewCellDelegate>
 
 @property (nonatomic, strong) UIView   *tabbarView;
@@ -87,7 +93,7 @@
     [footer setTitle:@"上拉加载" forState:MJRefreshStateIdle];
     [footer setTitle:@"加载中" forState:MJRefreshStateRefreshing];
     [footer setTitle:@"没有更多数据了" forState:MJRefreshStateNoMoreData];
-    
+ 
 }
 
 #pragma mark - privte metod
@@ -137,6 +143,7 @@
             cell = [[TrafficAssistantTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"xgyNewReuseCell"];
         }
         cell.model = _datasoureArray[indexPath.row];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.cellDelgate = self;
         return cell;
     }else{
@@ -145,20 +152,20 @@
             cell = [[TrafficsHistoryTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"xgyHistoryReuseCell"];
         }
         cell.model = _datasoureArray[indexPath.row];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
 }
 
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if(_isNewTask){
-        return userinfocellHeight*12 + 30;
-    }else{
-        return userinfocellHeight*12 ;
-    }
-   
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    if(_isNewTask){
+//        return userinfocellHeight*12 + 30;
+//    }else{
+//        return userinfocellHeight*12 + 30;
+//    }
+//}
 
 - (void)NewTaskButtonAction:(UIButton *)sender
 {
@@ -229,6 +236,8 @@
         _table = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, njdScreenWidth, njdScreenHeight - 64 -49) style:UITableViewStylePlain];
         _table.delegate  = self;
         _table.dataSource = self;
+        _table.estimatedRowHeight = userinfocellHeight*12;
+        _table.rowHeight = UITableViewAutomaticDimension;
     }
     return _table;
 }
@@ -305,10 +314,129 @@
 #pragma mark - Navigation
 - (void)trafficActionButtonAction:(NSInteger)index withModel:(TrafficAssistantTaskModel *)model
 {
-    NSInteger indexNum = index;
-    NSString *recordId = model.recordId;
+    if (index == 0) {
+        [self showTrafficAcceptAction:model];
+    }else if(index == 1){
+        [self showTrafficRejectAction:model];
+    }else if(index == 2){
+        [self showTrafficZhuanjiaoAction:model];
+    }
+}
+
+- (void)showTrafficAcceptAction:(TrafficAssistantTaskModel *)model
+{
+    TrafficAcceptView *view = [TrafficAcceptView new];
+    view.title = @"受理";
+    view.model = model;
+    [self.view addSubview:view];
+    
+    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(self.view);
+    }];
+    
+    @weakify(self)
+    view.TraffiAcceptAction = ^(NSString *checkdate, NSString *checkTime, NSString *userSuggest) {
+        @strongify(self)
+        [self TrafficAcceptActionTimer:checkdate time:checkTime andSuggest:userSuggest model:model] ;
+    };
+}
+
+- (void)showTrafficRejectAction:(TrafficAssistantTaskModel *)model
+{
+    TrafficRejectView *view = [TrafficRejectView new];
+    view.title = @"受理";
+    view.model = model;
+    view.rejectReasonArray  = [NSMutableArray arrayWithObjects:@"本地户口无需登记",@"信息不完整",@"无法联系到本人",@"已经登记且有效期1月以上无需重复登记", nil];
+
+    [self.view addSubview:view];
+    
+    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(self.view);
+    }];
+    
+    view.TrafficRejectAction  = ^(NSString *timeStr, NSString *userSuggest){
+        
+    };
     
 }
+
+- (void)showTrafficZhuanjiaoAction:(TrafficAssistantTaskModel *)model
+{
+    TrafficZhuanjiaoView *view = [TrafficZhuanjiaoView new];
+    view.title = @"转交";
+    view.model = model;
+    view.xgyArray = [NSMutableArray arrayWithObjects:@"1111",@"2222",@"3333",@"4444", nil];
+    [self.view addSubview:view];
+    
+    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(self.view);
+    }];
+    
+    view.zhuanjiaoAction = ^(NSString *name) {
+        
+    };
+}
+
+
+- (void)TrafficAcceptActionTimer:(NSString *)checkDate time:(NSString *)checkTime andSuggest:(NSString *)suggest model:(TrafficAssistantTaskModel *)model
+{
+    NSString *recordId = model.recordId;
+    
+    [NetworkingManager trafficAcceptTheRecordWithRecordId:recordId
+                                                checkDate:(NSString *)checkDate
+                                                checkTime:(NSString *)checkTime
+                                                     note:suggest
+                                                  success:^(NSDictionary * _Nullable dictValue) {
+                                                         NSLog(@"callback message %@", dictValue);
+//                                                      {
+//                                                          accessResult =     {
+//                                                              resultMsg = "\U53d7\U7406\U6210\U529f";
+//                                                              success = 1;
+//                                                          };
+//                                                          checkResult =     {
+//                                                              resultMsg = "\U64cd\U4f5c\U4ee4\U724c\U6b63\U786e";
+//                                                              success = 1;
+//                                                          };
+//                                                      }
+                                                         NSString *successInfo = @"成功";
+                                                         [NJDPopLoading showAutoHideWithMessage:successInfo];
+                                                         
+                                                         [self reloadTrafficData];
+                                                     } failure:^(NSError * _Nullable error) {
+                                                          NSString *errorMsg = error.userInfo[NSLocalizedDescriptionKey];
+                                                          [NJDPopLoading showAutoHideWithMessage:errorMsg];
+                                                     }];
+}
+
+- (void)TrafficRejectActionWithReason:(NSString *)reason andsuggest:(NSString *)sugges model:(TrafficAssistantTaskModel *)model
+{
+    NSString *recordId = model.recordId;
+    [NetworkingManager  trafficSendBackRecordTheRecordWithRecordId:recordId sendBckContext:reason qtContext:sugges success:^(NSDictionary * _Nullable dictValue) {
+        
+        NSString *successInfo = @"成功";
+        [NJDPopLoading showAutoHideWithMessage:successInfo];
+    } failure:^(NSError * _Nullable error) {
+        NSString *errorMsg = error.userInfo[NSLocalizedDescriptionKey];
+        [NJDPopLoading showAutoHideWithMessage:errorMsg];
+    }];
+}
+
+- (void)TrafficZhuanjiaoActionWithUserName:(NSString *)name model:(TrafficAssistantTaskModel *)model
+{
+    NSString *recordId = model.recordId;
+    NSString *changeidUserId = @"";
+    [NetworkingManager trafficCareOfRecordTheRecordWithRecordId:recordId changeUserId:(NSString *)changeidUserId success:^(NSDictionary * _Nullable dictValue) {
+        
+        NSString *successInfo = @"成功";
+         [NJDPopLoading showAutoHideWithMessage:successInfo];
+    } failure:^(NSError * _Nullable error) {
+        NSString *errorMsg = error.userInfo[NSLocalizedDescriptionKey];
+        [NJDPopLoading showAutoHideWithMessage:errorMsg];
+    }];
+    
+}
+
+
 /*
 #pragma mark - Navigation
 

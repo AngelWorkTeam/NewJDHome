@@ -10,14 +10,16 @@
 
 #import "TrafficAssistantTaskModel.h"
 
-typedef void (^TraffiAction) (NSString *checkDate,NSString *checkTime, NSString *userSuggest);
+typedef void (^TraffiRejectAction) (NSString *reason, NSString *userSuggest);
 
-@interface TrafficAcceptView : UIView
+@interface TrafficRejectView : UIView
 
 
 @property (nonatomic, strong) TrafficAssistantTaskModel *model;
 
 @property (nonatomic, strong) NSString *title;
 
-@property (nonatomic, copy) TraffiAction TraffiAcceptAction;
+@property (nonatomic, copy) TraffiRejectAction TrafficRejectAction;
+
+@property (nonatomic, strong) NSMutableArray *rejectReasonArray;
 @end

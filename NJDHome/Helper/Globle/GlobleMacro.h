@@ -47,3 +47,5 @@ extern NSString * const kTokenError;
 #define njdScreenHeight [UIScreen mainScreen].bounds.size.height
 #define njdScreenWidth [UIScreen mainScreen].bounds.size.width
 #define userinfocellHeight  20
+#define windowclekcellHeight  20
+#define windwonImageBasePath @"http://218.75.95.243:8089/ldrk/"

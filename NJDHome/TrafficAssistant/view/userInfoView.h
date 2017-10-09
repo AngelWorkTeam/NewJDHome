@@ -12,4 +12,6 @@
 
 
 @property (nonatomic, strong) TrafficAssistantTaskModel *model;
+
+@property (nonatomic, assign) BOOL needHidhenShenbaoLeixing;
 @end

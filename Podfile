@@ -17,6 +17,8 @@ pod 'ReactiveCocoa',    '~> 2.0'
 pod 'MBProgressHUD'
 pod 'MJRefresh'
 pod 'MagicalRecord'
+pod 'MWPhotoBrowser'
+
 #pod 'Objection'
 end
 
