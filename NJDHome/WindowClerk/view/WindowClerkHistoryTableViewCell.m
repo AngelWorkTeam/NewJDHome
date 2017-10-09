@@ -85,4 +85,10 @@
     
 }
 
+- (void)setHiddenIDCardImagePath:(BOOL)hiddenIDCardImagePath
+{
+    _hiddenIDCardImagePath = hiddenIDCardImagePath;
+    _contentUserInfo.hidden = hiddenIDCardImagePath;
+}
+
 @end

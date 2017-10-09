@@ -12,6 +12,9 @@
 
 - (void)windowClerkButtonAction:(NSInteger)index withModel:(WindowClerkCellModel *)model;
 
+@optional
+- (void)windowClerkOperationAction:(NSInteger)index withModel:(WindowClerkCellModel *)model;
+
 @end
 @interface WindowClerkTableViewCell : UITableViewCell
 

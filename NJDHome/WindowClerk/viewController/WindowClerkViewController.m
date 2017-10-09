@@ -20,7 +20,7 @@
 #import "WindowClerkCellModel.h"
 #import "ViewImageModel.h"
 #import "MWPhotoBrowser.h"
-
+#import "WindowRejectReasonView.h"
 @interface WindowClerkViewController ()<UITableViewDelegate, UITableViewDataSource,WindowClerkTableViewCellDelegate,WindowClerkHistoryTableViewCellDelegate,MWPhotoBrowserDelegate>
 @property (nonatomic, strong) UIView   *tabbarView;
 
@@ -321,6 +321,42 @@
 - (void)windowClerkButtonAction:(NSInteger)index withModel:(WindowClerkCellModel *)model
 {
    
+    [self showImageWithIndex:index model:model];
+}
+
+- (void)windowClerkOperationAction:(NSInteger)index withModel:(WindowClerkCellModel *)model
+{
+    NSString *modelState = model.state;
+    NSString *recordId = model.recordId;
+    NSLog(@"state %@ index %d", modelState, index);
+    if ([model.state isEqualToString:@"0"]) {
+        if (index == 0) { // 受理
+            [self showBanliwancActionWithTitle:@"确认要受理?" okAction:^(UIAlertAction *action) {
+                 [self windwonClerkAcceptWithRecordId:recordId state:@"1" reason:@""];
+            }];
+        }else if(index == 1){ // 退回
+            [self showReasonViewWintRecordId:recordId state:@"-1"];
+        }
+    }else if([model.state isEqualToString:@"1"]){
+       // 办理完成
+        [self showBanliwancActionWithTitle:@"确认办理完成?" okAction:^(UIAlertAction *action) {
+            [self windwonClerkAcceptWithRecordId:recordId state:@"1" reason:@""];
+        }];
+    }
+    
+}
+#pragma mark - WindowClerkHistoryTableViewCellDelegate
+
+
+- (void)windowClerkHistoryButtonAction:(NSInteger)index withModel:(WindowClerkCellModel *)model
+{
+    NSLog(@"index: %ld", (long)index);
+    [self showImageWithIndex:index model:model];
+}
+
+- (void)showImageWithIndex:(NSInteger )index model:(WindowClerkCellModel *)model
+{
+    
     NSArray *picArray = @[];
     if(index == 0){  // 资料照片
         picArray =  model.didPigPaths;
@@ -338,21 +374,16 @@
     _selectRecordId = recorid;
     _selectType  = type;
     _photoArray = [[NSMutableArray alloc]initWithArray:picArray];
-//    ViewImageModel *browser =  [[ViewImageModel alloc]initWithPhotoArray:picArray recordId:recorid type:type];
-//    [browser showImageBrowserWithNav:self.navigationController];
     
-    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
-    browser.displayActionButton = false;
-    //设置当前要显示的图片
-    [browser setCurrentPhotoIndex:1];
-    [self.navigationController pushViewController:browser animated:true];
-}
-#pragma mark - WindowClerkHistoryTableViewCellDelegate
+    if(picArray.count > 0){
+        
+        MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+        browser.displayActionButton = false;
+        //设置当前要显示的图片
+        [browser setCurrentPhotoIndex:1];
+        [self.navigationController pushViewController:browser animated:true];
+    }
 
-
-- (void)windowClerkHistoryButtonAction:(NSInteger)index withModel:(WindowClerkCellModel *)model
-{
-      NSLog(@"index: %ld", index);
 }
 
 
@@ -369,6 +400,57 @@
     MWPhoto *photo = [MWPhoto photoWithURL:[NSURL URLWithString:pathStr]];
     return photo;
 }
+
+- (void)showBanliwancActionWithTitle:(NSString *)title okAction:(void (^ __nullable)(UIAlertAction *action))okAction
+{
+    UIAlertController *alert = [UIAlertController
+                                alertControllerWithTitle:title
+                                message:nil
+                                preferredStyle:UIAlertControllerStyleActionSheet];
+    __weak UIAlertController *weakAlert = alert;
+    [alert addAction:[UIAlertAction
+                      actionWithTitle:@"确认"
+                      style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                          okAction(action);
+                      }]];
+    [alert addAction:[UIAlertAction
+                      actionWithTitle:@"取消"
+                      style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                           [weakAlert dismissViewControllerAnimated:YES completion:nil];
+                      }]];
+     [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)showReasonViewWintRecordId:(NSString *)recordId state:(NSString *)state
+{
+    WindowRejectReasonView *reasonView =  [[WindowRejectReasonView alloc]initWithFrame:CGRectZero];
+    [self.view addSubview:reasonView];
+    [reasonView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(self.view);
+    }];
+    reasonView.windrejectReasonAction = ^(NSString *reason) {
+        NSString *reasonStr = reason;
+        NSLog(@"reason %@", reasonStr);
+        [self windwonClerkAcceptWithRecordId:recordId state:state reason:reasonStr];
+    };
+}
+
+- (void)windwonClerkAcceptWithRecordId:(NSString *)recordId state:(NSString *)state reason:(NSString *)reason
+{
+    [NetworkingManager windowAcceptAndRejectWithRecordId:recordId state:state reason:reason success:^(NSDictionary * _Nullable dictValue) {
+        NSDictionary *checkResult = [dictValue objectForKey:@"checkResult"];
+        NSNumber *isSuccess = checkResult[@"success"];
+        if( isSuccess.boolValue ){
+            [NJDPopLoading showAutoHideWithMessage:@"成功"];
+        }else{
+            [NJDPopLoading showAutoHideWithMessage:@"操作失败"];
+        }
+    } failure:^(NSError * _Nullable error) {
+         [NJDPopLoading showAutoHideWithMessage:@"操作失败"];
+    }];
+    
+}
+
 /*
 #pragma mark - Navigation
 

@@ -25,6 +25,7 @@
 		1960379E1F87627400117ECE /* TrafficAcceptView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1960379D1F87627400117ECE /* TrafficAcceptView.m */; };
 		196037A21F87660800117ECE /* TrafficAccept.xib in Resources */ = {isa = PBXBuildFile; fileRef = 196037A11F87660800117ECE /* TrafficAccept.xib */; };
 		1971E60A1F8B3D0A00839DD1 /* ViewImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1971E6091F8B3D0A00839DD1 /* ViewImageModel.m */; };
+		1971E60D1F8B61F400839DD1 /* WindowRejectReasonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1971E60C1F8B61F400839DD1 /* WindowRejectReasonView.m */; };
 		1976ECBA1F7F26BC00A15BE4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECB91F7F26BC00A15BE4 /* LoginViewController.m */; };
 		1976ECBC1F7F26E100A15BE4 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1976ECBB1F7F26E100A15BE4 /* LoginStoryboard.storyboard */; };
 		1976ECD71F7F3F7500A15BE4 /* TrafficAssistantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECD61F7F3F7500A15BE4 /* TrafficAssistantViewController.m */; };
@@ -141,6 +142,8 @@
 		196037A11F87660800117ECE /* TrafficAccept.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TrafficAccept.xib; path = view/TrafficAccept.xib; sourceTree = "<group>"; };
 		1971E6081F8B3D0A00839DD1 /* ViewImageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewImageModel.h; sourceTree = "<group>"; };
 		1971E6091F8B3D0A00839DD1 /* ViewImageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewImageModel.m; sourceTree = "<group>"; };
+		1971E60B1F8B61F400839DD1 /* WindowRejectReasonView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowRejectReasonView.h; sourceTree = "<group>"; };
+		1971E60C1F8B61F400839DD1 /* WindowRejectReasonView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WindowRejectReasonView.m; sourceTree = "<group>"; };
 		1976ECB81F7F26BC00A15BE4 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		1976ECB91F7F26BC00A15BE4 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		1976ECBB1F7F26E100A15BE4 /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
@@ -382,6 +385,8 @@
 				190B3A9B1F89C27800FA753C /* WindowClerkHistoryTableViewCell.m */,
 				1971E6081F8B3D0A00839DD1 /* ViewImageModel.h */,
 				1971E6091F8B3D0A00839DD1 /* ViewImageModel.m */,
+				1971E60B1F8B61F400839DD1 /* WindowRejectReasonView.h */,
+				1971E60C1F8B61F400839DD1 /* WindowRejectReasonView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1034,6 +1039,7 @@
 				193E99581F87755A00C2CA16 /* TrafficRejectView.m in Sources */,
 				1BD82C6F1F814391006D6ADC /* NJDUserInfoMO+CoreDataClass.m in Sources */,
 				190B3AA21F8A7A0400FA753C /* RequestHistoryViewController.m in Sources */,
+				1971E60D1F8B61F400839DD1 /* WindowRejectReasonView.m in Sources */,
 				1976ECF41F7F77ED00A15BE4 /* WindowClerkViewController.m in Sources */,
 				1960378A1F832B2600117ECE /* TrafficAssistantTableViewCell.m in Sources */,
 				1B219C3F1F827FDA007FFEA5 /* HETForgetPasswordTwoController.m in Sources */,

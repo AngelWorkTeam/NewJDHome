@@ -38,6 +38,10 @@ NSString * const kgetListToCKRY        = @"getListToCKRY";   //24
 
 NSString * const kchangeBidState       = @"changeBidState";  //25
 
+NSString * const kloadXGYList       = @"loadXGYList";  //26  高工提供的获取协管员的列表
+//参数token和regionId（辖区id）
+
+
 @implementation NetworkingManager (YYNetRequest)
 
 
@@ -97,13 +101,13 @@ NSString * const kchangeBidState       = @"changeBidState";  //25
         parms  = @{@"userId":userId
                    ,@"page":@(page)
                    ,@"token":SAFE_STRING([NJDUserInfoMO userInfo].token)
-                   ,@"recordFlag":@"done"
+                   ,@"recordFlag":@"wait"
                    };
     }else{
         parms  = @{@"userId":userId
                    ,@"page":@(page)
                    ,@"token":SAFE_STRING([NJDUserInfoMO userInfo].token)
-                   ,@"recordFlag":@"wait"
+                   ,@"recordFlag":@"done"
                    };
     }
     
@@ -428,5 +432,39 @@ NSString * const kchangeBidState       = @"changeBidState";  //25
     [self printfUrl:task.currentRequest.URL];
 }
 
+//  27.   获取辖区内窗口管理人员
+//regionId     是   辖区id
+//token是    令牌
 
+
++(void)GetRegionXGYSBayRegionId:(NSString *)regionId
+                               success:(NJDHttpSuccessBlockDictionary _Nullable)success
+                               failure:(NJDHttpFailureBlock _Nullable)fail{
+    AFHTTPSessionManager *m = [self manager];
+    NSDictionary *parms;
+    
+    parms  = @{@"regionId":regionId
+               ,@"token":SAFE_STRING([NJDUserInfoMO userInfo].token)
+               };
+    
+    NSURLSessionTask *task = [m POST:kURL(kUserDomain, kloadXGYList)
+                          parameters:parms
+                            progress:nil
+                             success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                                 if ([self dealWithResponse:responseObject
+                                                    failure:fail] == NO) {
+                                     return ;
+                                 }
+                                 
+                                 if (![responseObject isKindOfClass:[NSDictionary class]]) {
+                                     !fail?:fail([self responseTypeError]);
+                                     return ;
+                                 }
+                                 !success?:success(responseObject);
+                             }
+                             failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                 !fail?:fail(error);
+                             }];
+    [self printfUrl:task.currentRequest.URL];
+}
 @end

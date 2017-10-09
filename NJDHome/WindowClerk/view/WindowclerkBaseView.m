@@ -38,6 +38,7 @@
 @property (nonatomic, strong) UIButton *renlianzhaopianButton; // 人脸照片
 
 @property (nonatomic, strong) NSArray *buttonTitleArray;
+
 @end
 
 
@@ -123,6 +124,13 @@
             make.height.mas_equalTo(30);
         }];
         leftView = button;
+        if (i == 0) {
+            _ziliaozhaopianButton = button;
+        }else if( i == 1){
+            _shengfengzhengButton = button;
+        }else if(i == 2){
+            _renlianzhaopianButton = button;
+        }
     }
     
     return cellview;
@@ -182,6 +190,7 @@
                 break;
             case 7:
                 _banlizhuangtaiLabel = contentLabel;
+                _banlizhuangtaiLabel.textColor = [UIColor redColor];
                 break;
             case 8:
                 _chakanzhaopianLabel = contentLabel;
@@ -269,6 +278,12 @@
     }
     _banlizhuangtaiLabel.text = stateStr;
     
+}
+
+- (void)setHiddenIDCardImagePath:(BOOL)hiddenIDCardImagePath
+{
+    _hiddenIDCardImagePath = hiddenIDCardImagePath;
+    _shengfengzhengButton.hidden = hiddenIDCardImagePath;
 }
 
 /*

@@ -33,7 +33,7 @@
 @property (nonatomic, copy) NSString * personTypeName ;
 @property (nonatomic, copy) NSString * politicsState ;  //政治面貌
 @property (nonatomic, copy) NSString * profession ;    //职业
-@property (nonatomic, copy) NSString * regionId ;
+@property (nonatomic, copy) NSString * regionId ;               // 辖区ID
 @property (nonatomic, copy) NSString * relativeRecordId ;
 @property (nonatomic, copy) NSString * roomNumber ;           // 房间号
 @property (nonatomic, copy) NSString * state ;                //-1退回0待派工1已派工待受理2已受理待登记3已完成登记

@@ -314,13 +314,21 @@
 #pragma mark - Navigation
 - (void)trafficActionButtonAction:(NSInteger)index withModel:(TrafficAssistantTaskModel *)model
 {
-    if (index == 0) {
-        [self showTrafficAcceptAction:model];
-    }else if(index == 1){
-        [self showTrafficRejectAction:model];
-    }else if(index == 2){
-        [self showTrafficZhuanjiaoAction:model];
+    if([model.type isEqualToString:@"0"]){ // // 注销
+        
+        
+    }else if ([model.type isEqualToString:@"1"]){  //// 申报
+        if (index == 0) {
+            [self showTrafficAcceptAction:model];
+        }else if(index == 1){
+            [self showTrafficRejectAction:model];
+        }else if(index == 2){
+            [self showTrafficZhuanjiaoAction:model];
+        }
+    }else if ([model.type isEqualToString:@"2"]){    // 变更
+        
     }
+
 }
 
 - (void)showTrafficAcceptAction:(TrafficAssistantTaskModel *)model
@@ -344,7 +352,7 @@
 - (void)showTrafficRejectAction:(TrafficAssistantTaskModel *)model
 {
     TrafficRejectView *view = [TrafficRejectView new];
-    view.title = @"受理";
+    view.title = @"";
     view.model = model;
     view.rejectReasonArray  = [NSMutableArray arrayWithObjects:@"本地户口无需登记",@"信息不完整",@"无法联系到本人",@"已经登记且有效期1月以上无需重复登记", nil];
 
@@ -357,7 +365,6 @@
     view.TrafficRejectAction  = ^(NSString *timeStr, NSString *userSuggest){
         
     };
-    
 }
 
 - (void)showTrafficZhuanjiaoAction:(TrafficAssistantTaskModel *)model
@@ -365,12 +372,18 @@
     TrafficZhuanjiaoView *view = [TrafficZhuanjiaoView new];
     view.title = @"转交";
     view.model = model;
-    view.xgyArray = [NSMutableArray arrayWithObjects:@"1111",@"2222",@"3333",@"4444", nil];
-    [self.view addSubview:view];
+     [self.view addSubview:view];
+    
+    [self getRegionXGYWithModel:model WithSuccessBlock:^(NSDictionary * _Nullable dictValue) {
+        NSLog(@"dictValue: %@",dictValue);
+        view.xgyArray = [NSMutableArray arrayWithObjects:@"1111",@"2222",@"3333",@"4444", nil];
+       
+    }];
     
     [view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(self.view);
     }];
+    
     
     view.zhuanjiaoAction = ^(NSString *name) {
         
@@ -436,6 +449,17 @@
     
 }
 
+- (void)getRegionXGYWithModel:(TrafficAssistantTaskModel *)model WithSuccessBlock:(void(^)(NSDictionary * _Nullable dictValue))successblock
+{
+    NSString *regionId = model.regionId;
+    [NetworkingManager GetRegionXGYSBayRegionId:regionId success:^(NSDictionary * _Nullable dictValue) {
+        successblock(dictValue);
+        
+    } failure:^(NSError * _Nullable error) {
+        NSString *errorMsg = error.userInfo[NSLocalizedDescriptionKey];
+        [NJDPopLoading showAutoHideWithMessage:@"获取协管员名单失败"];
+    }];
+}
 
 /*
 #pragma mark - Navigation

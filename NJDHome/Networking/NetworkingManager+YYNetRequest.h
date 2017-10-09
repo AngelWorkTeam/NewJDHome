@@ -118,4 +118,13 @@
 +(void)renderGetICCardRecordListByPage:(NSInteger)page
                                success:(NJDHttpSuccessBlockDictionary _Nullable)success
                                failure:(NJDHttpFailureBlock _Nullable)fail;
+
+//  27.   获取辖区内窗口管理人员
+//regionId     是   辖区id
+//token是    令牌
+
+
++(void)GetRegionXGYSBayRegionId:(NSString *)regionId
+                        success:(NJDHttpSuccessBlockDictionary _Nullable)success
+                        failure:(NJDHttpFailureBlock _Nullable)fail;
 @end

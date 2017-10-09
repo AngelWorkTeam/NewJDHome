@@ -22,8 +22,9 @@
 #import "WindowClerkHistoryTableViewCell.h"
 #import "TrafficsHistoryTableViewCell.h"
 
+#import "MWPhotoBrowser.h"
 
-@interface ShenBaoProgressViewController () <UITableViewDelegate, UITableViewDataSource,WindowClerkTableViewCellDelegate,WindowClerkHistoryTableViewCellDelegate>
+@interface ShenBaoProgressViewController () <UITableViewDelegate, UITableViewDataSource,WindowClerkHistoryTableViewCellDelegate,MWPhotoBrowserDelegate>
 @property (nonatomic, strong) UIView   *tabbarView;
 
 @property (nonatomic, strong) UIButton *NewTaskQueryButton;
@@ -39,6 +40,10 @@
 
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, assign) BOOL  isLast;
+
+@property (nonatomic, strong) NSMutableArray *photoArray;
+@property (nonatomic, strong) NSString       *selectRecordId;
+@property (nonatomic, strong) NSString       *selectType;
 @end
 #define tabarHeight 49
 
@@ -157,6 +162,7 @@
         }
         cell.cellDelegate = self;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.hiddenIDCardImagePath = true;
           cell.model = _datasoureArray[indexPath.row];
         //_datasoureArray[indexPath.row];
         return cell;
@@ -364,17 +370,59 @@
     [self.table reloadData];
 }
 
-#pragma mark - WindowClerkTableViewCellDelegate
-- (void)windowClerkButtonAction:(NSInteger)index withModel:(WindowClerkCellModel *)model
-{
-    
-}
+
 #pragma mark - WindowClerkHistoryTableViewCellDelegate
 
 
 - (void)windowClerkHistoryButtonAction:(NSInteger)index withModel:(WindowClerkCellModel *)model
 {
+    [self showImageWithIndex:index model:model];
+}
+
+
+- (void)showImageWithIndex:(NSInteger )index model:(WindowClerkCellModel *)model
+{
     
+    NSArray *picArray = @[];
+    if(index == 0){  // 资料照片
+        picArray =  model.didPigPaths;
+    }else if(index == 1){  // 身份证照片
+        picArray = model.idCardPigPaths;
+    }else if(index == 2){  // 人脸照片
+        picArray = model.facePigPaths;
+    }
+    NSLog(@"index: %ld count:%d", (long)index, picArray.count);
+    NSString *recorid = model.recordId;
+    NSString *type = @"0";
+    if (index == 1) {
+        type = @"1";
+    }
+    _selectRecordId = recorid;
+    _selectType  = type;
+    _photoArray = [[NSMutableArray alloc]initWithArray:picArray];
+    
+    if(picArray.count > 0){
+        
+        MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+        browser.displayActionButton = false;
+        //设置当前要显示的图片
+        [browser setCurrentPhotoIndex:1];
+        [self.navigationController pushViewController:browser animated:true];
+    }
+}
+
+- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser
+{
+    return _photoArray.count;
+    
+}
+- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index
+{
+    NSString *str =[_photoArray objectAtIndex:index];
+    NSString *pathStr = [NSString stringWithFormat:@"%@%@",windwonImageBasePath,str];
+    
+    MWPhoto *photo = [MWPhoto photoWithURL:[NSURL URLWithString:pathStr]];
+    return photo;
 }
 
 

@@ -15,4 +15,7 @@ typedef void (^windowbuttonAction) (NSInteger index, NSString *title);
 @property (nonatomic, strong) WindowClerkCellModel *model;
 
 @property (nonatomic, strong) windowbuttonAction windowAction;
+
+@property (nonatomic, assign) BOOL hiddenIDCardImagePath;
+
 @end

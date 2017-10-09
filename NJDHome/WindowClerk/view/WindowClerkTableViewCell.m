@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) UIButton *caozuoDoneButton;
 
+@property (nonatomic, strong) NSMutableArray *buttonArray;
 
 @end
 
@@ -28,6 +29,7 @@
 
 - (void)initContentView
 {
+    _buttonArray = [NSMutableArray new];
     WindowclerkBaseView  *contentUserInfo = [[WindowclerkBaseView alloc]initWithFrame:CGRectZero];
     [self.contentView addSubview:contentUserInfo];
     _contentUserInfo = contentUserInfo;
@@ -66,7 +68,21 @@
         make.bottom.mas_equalTo(caozuoview.mas_bottom);
     }];
     
-    
+    NSArray *buttonTitleArray = @[@"受理",@"退回"];
+    UIView *lastLeftView = titleLabel;
+    for(int i = 0; i < buttonTitleArray.count ; i++){
+        UIButton *shoulibutton = [self createButtonWithTitle:buttonTitleArray[i] withIndex:i];
+        [caozuoview addSubview:shoulibutton];
+        [shoulibutton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(caozuoview.mas_top);
+            make.left.mas_equalTo(lastLeftView.mas_right).offset(10);
+            make.width.mas_equalTo(60);
+            make.height.mas_equalTo(30);
+            make.bottom.mas_equalTo(caozuoview.mas_bottom);
+        }];
+        [_buttonArray addObject:shoulibutton];
+        lastLeftView = shoulibutton;
+    }
 }
 
 - (UILabel *)createTitleLableWithTitle:(NSString *)title
@@ -89,17 +105,39 @@
     [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
     return button;
 }
+
 - (void)setModel:(WindowClerkCellModel *)model
 {
     _model = model;
     
     _contentUserInfo.model = model;
+    
+    if (_buttonArray && _buttonArray.count == 2) {
+        UIButton *firstButton = _buttonArray[0];
+        UIButton *sendcondButton = _buttonArray[1];
+        if ([model.state isEqualToString:@"0"]) {
+            [firstButton setTitle:@"[受理]" forState:UIControlStateNormal];
+            [sendcondButton setTitle:@"[退回]" forState:UIControlStateNormal];
+            firstButton.hidden = false;
+            sendcondButton.hidden = false;
+        }else if([model.state isEqualToString:@"1"]){
+            [firstButton setTitle:@"[办理完成]" forState:UIControlStateNormal];
+            firstButton.hidden = false;
+            sendcondButton.hidden = true;
+        }else{
+            firstButton.hidden = true;
+            sendcondButton.hidden = true;
+        }
+    }
 }
 
 - (void)buttonAction:(UIButton *)sender
 {
-
-    
+    NSInteger tag = sender.tag;
+    NSInteger index = tag - 1000;
+    if ([self.cellDelegate respondsToSelector:@selector(windowClerkOperationAction:withModel:)]) {
+        [self.cellDelegate windowClerkOperationAction:index withModel:_model];
+    }
 }
 
 @end
