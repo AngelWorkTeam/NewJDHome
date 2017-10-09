@@ -17,7 +17,7 @@ pod 'ReactiveCocoa',    '~> 2.0'
 pod 'MBProgressHUD'
 pod 'MJRefresh'
 pod 'MagicalRecord'
-pod 'MWPhotoBrowser'
+pod 'MWPhotoBrowser',   :path => "./"
 
 #pod 'Objection'
 end

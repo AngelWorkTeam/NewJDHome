@@ -45,6 +45,9 @@
         if (self.superview) {
             [self removeFromSuperview];
         }
+    }else if(sender.state == UIGestureRecognizerStateEnded&&
+             self.keyboardShow == YES){
+        [self endEditing:YES];
     }
 }
 - (IBAction)comfirmHandle:(id)sender {
