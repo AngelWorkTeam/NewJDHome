@@ -224,9 +224,24 @@
         _HistoryTaskQueryButton = [[UIButton alloc]initWithFrame:CGRectMake(njdScreenWidth/2, 0, njdScreenWidth/2, tabarHeight)];
         [_HistoryTaskQueryButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [_HistoryTaskQueryButton setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+        _HistoryTaskQueryButton.titleLabel.font = [UIFont systemFontOfSize:15];
+        
+        //        _HistoryTaskQueryButton.backgroundColor = [UIColor yellowColor];
+        //        _HistoryTaskQueryButton.titleLabel.backgroundColor = [UIColor blueColor];
+        
         [_HistoryTaskQueryButton setTitle:@"历史任务查询" forState:UIControlStateNormal];
+        [_HistoryTaskQueryButton setImage:[UIImage imageNamed:@"btn_record-query_nor"] forState:UIControlStateNormal];
+        [_HistoryTaskQueryButton setImage:[UIImage imageNamed:@"btn_record-query_sel"] forState:UIControlStateSelected];
         [_HistoryTaskQueryButton addTarget:self action:@selector(HistoryTaskButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         _HistoryTaskQueryButton.selected = !_isNewTask;
+        
+        CGRect imageRect = _HistoryTaskQueryButton.imageView.frame;
+        CGRect titleRect = _HistoryTaskQueryButton.titleLabel.frame;
+        
+        //  居中现实
+        _HistoryTaskQueryButton.imageEdgeInsets = UIEdgeInsetsMake(-titleRect.size.height, titleRect.size.width - 20, 0, 0);
+        _HistoryTaskQueryButton.titleEdgeInsets = UIEdgeInsetsMake(imageRect.size.height, -imageRect.size.width, 0, 0);
+        
     }
     
     return _HistoryTaskQueryButton;
@@ -238,14 +253,26 @@
         _NewTaskQueryButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, njdScreenWidth/2, tabarHeight )];
         [_NewTaskQueryButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [_NewTaskQueryButton setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+        //        _NewTaskQueryButton.backgroundColor = [UIColor yellowColor];
+        //        _NewTaskQueryButton.titleLabel.backgroundColor = [UIColor blueColor];
         [_NewTaskQueryButton setTitle:@"新任务查询" forState:UIControlStateNormal];
+        _NewTaskQueryButton.titleLabel.font = [UIFont systemFontOfSize:15];
+        [_NewTaskQueryButton setImage:[UIImage imageNamed:@"btn_task-query_nor"] forState:UIControlStateNormal];
+        [_NewTaskQueryButton setImage:[UIImage imageNamed:@"btn_task-query_sel"] forState:UIControlStateSelected];
         [_NewTaskQueryButton addTarget:self action:@selector(NewTaskButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         _NewTaskQueryButton.selected = _isNewTask;
+        
+        CGRect imageRect = _NewTaskQueryButton.imageView.frame;
+        CGRect titleRect = _NewTaskQueryButton.titleLabel.frame;
+        
+        //  居中现实
+        _NewTaskQueryButton.imageEdgeInsets = UIEdgeInsetsMake(-titleRect.size.height, titleRect.size.width - 19 , 0, 0);
+        _NewTaskQueryButton.titleEdgeInsets = UIEdgeInsetsMake(imageRect.size.height, -imageRect.size.width, 0, 0);
+        
     }
     
     return _NewTaskQueryButton;
 }
-
 - (UITableView *)table
 {
     if (_table == nil) {

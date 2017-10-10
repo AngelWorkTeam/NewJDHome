@@ -233,7 +233,7 @@
         CGRect titleRect = _HistoryTaskQueryButton.titleLabel.frame;
         
         //  居中现实
-          _HistoryTaskQueryButton.imageEdgeInsets = UIEdgeInsetsMake(-titleRect.size.height, titleRect.size.width - 19, 0, 0);
+          _HistoryTaskQueryButton.imageEdgeInsets = UIEdgeInsetsMake(-titleRect.size.height, titleRect.size.width - 20, 0, 0);
           _HistoryTaskQueryButton.titleEdgeInsets = UIEdgeInsetsMake(imageRect.size.height, -imageRect.size.width, 0, 0);
         
     }
@@ -260,7 +260,7 @@
         CGRect titleRect = _NewTaskQueryButton.titleLabel.frame;
         
         //  居中现实
-        _NewTaskQueryButton.imageEdgeInsets = UIEdgeInsetsMake(-titleRect.size.height, titleRect.size.width , 0, 0);
+        _NewTaskQueryButton.imageEdgeInsets = UIEdgeInsetsMake(-titleRect.size.height, titleRect.size.width - 19 , 0, 0);
         _NewTaskQueryButton.titleEdgeInsets = UIEdgeInsetsMake(imageRect.size.height, -imageRect.size.width, 0, 0);
         
     }

@@ -73,12 +73,11 @@
         make.bottom.mas_equalTo(caozuoview.mas_bottom);
     }];
 
-    
     [caozuoview mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(contentUserInfo.mas_bottom);
         make.left.mas_equalTo(self.contentView.mas_left).offset(10);
         make.right.mas_equalTo(self.contentView.mas_right);
-        make.bottom.mas_equalTo(self.contentView.mas_bottom);
+        make.bottom.mas_equalTo(self.contentView.mas_bottom).offset(-5);
     }];
 }
 
