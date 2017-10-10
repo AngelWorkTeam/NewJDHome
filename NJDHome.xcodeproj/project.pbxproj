@@ -23,7 +23,6 @@
 		196037971F87139000117ECE /* NetworkingManager+YYNetRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 196037961F87139000117ECE /* NetworkingManager+YYNetRequest.m */; };
 		1960379B1F87187C00117ECE /* NetworkingConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1960379A1F87187C00117ECE /* NetworkingConstant.m */; };
 		1960379E1F87627400117ECE /* TrafficAcceptView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1960379D1F87627400117ECE /* TrafficAcceptView.m */; };
-		196037A21F87660800117ECE /* TrafficAccept.xib in Resources */ = {isa = PBXBuildFile; fileRef = 196037A11F87660800117ECE /* TrafficAccept.xib */; };
 		1971E60A1F8B3D0A00839DD1 /* ViewImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1971E6091F8B3D0A00839DD1 /* ViewImageModel.m */; };
 		1971E60D1F8B61F400839DD1 /* WindowRejectReasonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1971E60C1F8B61F400839DD1 /* WindowRejectReasonView.m */; };
 		1976ECBA1F7F26BC00A15BE4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1976ECB91F7F26BC00A15BE4 /* LoginViewController.m */; };
@@ -142,7 +141,6 @@
 		1960379A1F87187C00117ECE /* NetworkingConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkingConstant.m; sourceTree = "<group>"; };
 		1960379C1F87627400117ECE /* TrafficAcceptView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrafficAcceptView.h; path = view/TrafficAcceptView.h; sourceTree = "<group>"; };
 		1960379D1F87627400117ECE /* TrafficAcceptView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrafficAcceptView.m; path = view/TrafficAcceptView.m; sourceTree = "<group>"; };
-		196037A11F87660800117ECE /* TrafficAccept.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TrafficAccept.xib; path = view/TrafficAccept.xib; sourceTree = "<group>"; };
 		1971E6081F8B3D0A00839DD1 /* ViewImageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewImageModel.h; sourceTree = "<group>"; };
 		1971E6091F8B3D0A00839DD1 /* ViewImageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewImageModel.m; sourceTree = "<group>"; };
 		1971E60B1F8B61F400839DD1 /* WindowRejectReasonView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowRejectReasonView.h; sourceTree = "<group>"; };
@@ -319,7 +317,6 @@
 				196037901F836DDD00117ECE /* TrafficsHistoryTableViewCell.m */,
 				1960379C1F87627400117ECE /* TrafficAcceptView.h */,
 				1960379D1F87627400117ECE /* TrafficAcceptView.m */,
-				196037A11F87660800117ECE /* TrafficAccept.xib */,
 				190B3A9D1F8A55EF00FA753C /* TrafficZhuanjiaoView.h */,
 				190B3A9E1F8A55EF00FA753C /* TrafficZhuanjiaoView.m */,
 			);
@@ -887,7 +884,6 @@
 				1BC5FFDA1F860CC10088EBFD /* description.html in Resources */,
 				19B707EB1F7E2E2E0086C565 /* Main.storyboard in Resources */,
 				1BDEABFF1F847CE500B61640 /* SubmitCell3.xib in Resources */,
-				196037A21F87660800117ECE /* TrafficAccept.xib in Resources */,
 				1BB776931F851FC10029A861 /* SubmitCell5.xib in Resources */,
 				1BF3C26D1F834AB8009F07CC /* Views.xib in Resources */,
 				1BB7768B1F84F8100029A861 /* SubmitCell4.xib in Resources */,
@@ -920,7 +916,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		477E205565694053916ABC6A /* [CP] Copy Pods Resources */ = {
@@ -931,7 +927,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-NJDHome/Pods-NJDHome-resources.sh",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
-				"$PODS_CONFIGURATION_BUILD_DIR/MWPhotoBrowser/MWPhotoBrowser.bundle",
+				$PODS_CONFIGURATION_BUILD_DIR/MWPhotoBrowser/MWPhotoBrowser.bundle,
 				"${PODS_ROOT}/SAMCategories/SAMCategories/SAMCategories.bundle",
 			);
 			name = "[CP] Copy Pods Resources";

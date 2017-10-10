@@ -105,7 +105,7 @@
     self.title = @"新金东人之家";
     self.view.backgroundColor = [UIColor sam_colorWithHex:@"efeff6"];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
-                                              initWithTitle:@"设置" style:UIBarButtonItemStylePlain
+                                              initWithTitle:@"退出" style:UIBarButtonItemStylePlain
                                               target:self
                                               action:@selector(settingHandle:)];
 }
