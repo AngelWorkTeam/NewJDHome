@@ -30,7 +30,7 @@
 @property (nonatomic, copy) NSString *landlordPhone ;
 @property (nonatomic, copy) NSString *pengikutNum ;
 
-@property (nonatomic, copy) NSString * personTypeName ;
+@property (nonatomic, copy) NSString * personTypeName ;   // personTypeName 
 @property (nonatomic, copy) NSString * politicsState ;  //政治面貌
 @property (nonatomic, copy) NSString * profession ;    //职业
 @property (nonatomic, copy) NSString * regionId ;               // 辖区ID

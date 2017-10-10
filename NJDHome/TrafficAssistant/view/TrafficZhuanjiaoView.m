@@ -20,6 +20,9 @@
 
 @property (nonatomic, strong) UITapGestureRecognizer *tap;
 
+@property (nonatomic, assign) NSInteger selectIndex;
+
+@property (nonatomic, strong)  NSMutableArray *nameArray;
 @end
 
 @implementation TrafficZhuanjiaoView
@@ -214,6 +217,7 @@
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectZero];
     [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     [button setTitle:title forState:UIControlStateNormal];
+     button.layer.cornerRadius = 3;
     button.tag = index;
     button.titleLabel.font = [UIFont systemFontOfSize:12];
     
@@ -224,6 +228,7 @@
 {
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectZero];
     button.backgroundColor = [UIColor redColor];
+    button.layer.cornerRadius = 3;
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [button setTitle:title forState:UIControlStateNormal];
     button.titleLabel.font = [UIFont systemFontOfSize:15];
@@ -259,11 +264,12 @@
 {
      if (_xgyArray && _xgyArray.count > 0) {
         if (self.zhuanjiaoAction  ) {
-            NSString *name = _selectXGYNameButton.titleLabel.text;
-            
-            self.zhuanjiaoAction(name);
+//            NSString *name = _selectXGYNameButton.titleLabel.text;
+             UserInfo *titleArray = _xgyArray[_selectIndex];
+            self.zhuanjiaoAction(titleArray);
         }
      }
+     [self removeFromSuperview];
 }
 
 - (void)RejectAction:(UIButton *)sender
@@ -274,9 +280,11 @@
 - (void)selectionXGYName:(UIButton *)sender
 {
     if (_xgyArray && _xgyArray.count > 0) {
-        [self popPickWithData:_xgyArray selectRow:^(NSInteger index) {
-            NSString *titleArray = _xgyArray[index];
-            [sender setTitle:titleArray forState:UIControlStateNormal];
+       
+        [self popPickWithData:_nameArray selectRow:^(NSInteger index) {
+            UserInfo *titleArray = _xgyArray[index];
+            _selectIndex = index;
+            [sender setTitle:titleArray.username forState:UIControlStateNormal];
         }];
     }
 }
@@ -285,9 +293,17 @@
 {
     _xgyArray = xgyArray;
     if (xgyArray && xgyArray.count > 0) {
+        _selectIndex = 0;
+        UserInfo *userinfo = xgyArray[0];
+        [_selectXGYNameButton setTitle:userinfo.realName forState:UIControlStateNormal];
         
-        NSString *name = xgyArray[0];
-        [_selectXGYNameButton setTitle:name forState:UIControlStateNormal];
+        _nameArray =  [NSMutableArray new];
+        for(int i = 0; i < _xgyArray.count ; i++)
+        {
+            UserInfo *userinfo = _xgyArray[i];
+            NSString *realname = userinfo.username;
+            [_nameArray  addObject:realname];
+        }
     }
 }
 

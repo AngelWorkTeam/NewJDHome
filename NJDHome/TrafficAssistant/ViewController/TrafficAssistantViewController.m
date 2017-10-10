@@ -19,7 +19,7 @@
 #import "TrafficAcceptView.h"
 #import "TrafficRejectView.h"
 #import "TrafficZhuanjiaoView.h"
-
+#import "UserInfo.h"
 @interface TrafficAssistantViewController ()<UITableViewDelegate, UITableViewDataSource, TrafficAssistantTableViewCellDelegate>
 
 @property (nonatomic, strong) UIView   *tabbarView;
@@ -218,9 +218,24 @@
         _HistoryTaskQueryButton = [[UIButton alloc]initWithFrame:CGRectMake(njdScreenWidth/2, 0, njdScreenWidth/2, tabarHeight)];
         [_HistoryTaskQueryButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [_HistoryTaskQueryButton setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+         _HistoryTaskQueryButton.titleLabel.font = [UIFont systemFontOfSize:15];
+        
+//        _HistoryTaskQueryButton.backgroundColor = [UIColor yellowColor];
+//        _HistoryTaskQueryButton.titleLabel.backgroundColor = [UIColor blueColor];
+        
         [_HistoryTaskQueryButton setTitle:@"历史任务查询" forState:UIControlStateNormal];
+        [_HistoryTaskQueryButton setImage:[UIImage imageNamed:@"btn_record-query_nor"] forState:UIControlStateNormal];
+        [_HistoryTaskQueryButton setImage:[UIImage imageNamed:@"btn_record-query_sel"] forState:UIControlStateSelected];
         [_HistoryTaskQueryButton addTarget:self action:@selector(HistoryTaskButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         _HistoryTaskQueryButton.selected = !_isNewTask;
+        
+        CGRect imageRect = _HistoryTaskQueryButton.imageView.frame;
+        CGRect titleRect = _HistoryTaskQueryButton.titleLabel.frame;
+        
+        //  居中现实
+          _HistoryTaskQueryButton.imageEdgeInsets = UIEdgeInsetsMake(-titleRect.size.height, titleRect.size.width, 0, 0);
+          _HistoryTaskQueryButton.titleEdgeInsets = UIEdgeInsetsMake(imageRect.size.height, -imageRect.size.width, 0, 0);
+        
     }
     
     return _HistoryTaskQueryButton;
@@ -232,9 +247,22 @@
         _NewTaskQueryButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, njdScreenWidth/2, tabarHeight )];
         [_NewTaskQueryButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [_NewTaskQueryButton setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+//        _NewTaskQueryButton.backgroundColor = [UIColor yellowColor];
+//        _NewTaskQueryButton.titleLabel.backgroundColor = [UIColor blueColor];
         [_NewTaskQueryButton setTitle:@"新任务查询" forState:UIControlStateNormal];
+        _NewTaskQueryButton.titleLabel.font = [UIFont systemFontOfSize:15];
+        [_NewTaskQueryButton setImage:[UIImage imageNamed:@"btn_task-query_nor"] forState:UIControlStateNormal];
+        [_NewTaskQueryButton setImage:[UIImage imageNamed:@"btn_task-query_sel"] forState:UIControlStateSelected];
         [_NewTaskQueryButton addTarget:self action:@selector(NewTaskButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         _NewTaskQueryButton.selected = _isNewTask;
+        
+        CGRect imageRect = _NewTaskQueryButton.imageView.frame;
+        CGRect titleRect = _NewTaskQueryButton.titleLabel.frame;
+        
+        //  居中现实
+        _NewTaskQueryButton.imageEdgeInsets = UIEdgeInsetsMake(-titleRect.size.height, titleRect.size.width , 0, 0);
+        _NewTaskQueryButton.titleEdgeInsets = UIEdgeInsetsMake(imageRect.size.height, -imageRect.size.width, 0, 0);
+        
     }
     
     return _NewTaskQueryButton;
@@ -332,18 +360,37 @@
         }else if(index == 2){
             [self showTrafficZhuanjiaoAction:model];
         }
-        
     }else if([model.state isEqualToString:@"2"]){
-        if([model.type isEqualToString:@"0"]){ // // 注销登记
-            
-            
-        }else if ([model.type isEqualToString:@"1"]){  //// 申报登记
-            
-            
-        }else if ([model.type isEqualToString:@"2"]){    // 变更登记
-            
-        }
+        
+        [self showbiangengzhuxiaoshengbaoAction:model];
+//        if([model.type isEqualToString:@"0"]){ // // 注销登记
+//        }else if ([model.type isEqualToString:@"1"]){  //// 申报登记
+//        }else if ([model.type isEqualToString:@"2"]){    // 变更登记
+//        }
     }
+}
+
+- (void)showbiangengzhuxiaoshengbaoAction:(TrafficAssistantTaskModel *)model
+{
+    TrafficRejectView *view = [TrafficRejectView new];
+    view.title = @"完成登记";
+    
+    view.model = model;
+    view.rejectReasonArray  = [NSMutableArray arrayWithObjects:@"无任何记录人员新登记",@"有历史记录但现在不在册人员新登记",@"现在在册记录重新登记", nil];
+    view.tuihuiyuanyinTitle.text = @"完成情况:";
+    view.qitayuanyinTitle.text = @"完成说明:";
+    [view.acceptButton setTitle:@"完成" forState:UIControlStateNormal];
+    [self.view addSubview:view];
+    
+    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(self.view);
+    }];
+    
+    @weakify(self);
+    view.TrafficRejectAction  = ^(NSString *reason, NSString *userSuggest){
+        @strongify(self);
+        [self TrafficShenbaoDengjiactionWithReason:reason note:userSuggest model:model];
+    };
 }
 
 - (void)showTrafficAcceptAction:(TrafficAssistantTaskModel *)model
@@ -393,7 +440,24 @@
     
     [self getRegionXGYWithModel:model WithSuccessBlock:^(NSDictionary * _Nullable dictValue) {
         NSLog(@"dictValue: %@",dictValue);
-        view.xgyArray = [NSMutableArray arrayWithObjects:@"1111",@"2222",@"3333",@"4444", nil];
+        NSDictionary *checkResult = [dictValue objectForKey:@"checkResult"];
+        NSNumber *isSuccess = checkResult[@"success"];
+        if( isSuccess.boolValue ){
+            NSMutableArray *xgyArray =  [NSMutableArray new];
+           NSArray *guards = dictValue[@"guards"];
+            for (int i = 0; i < guards.count; i++) {
+                NSDictionary *personInfo = guards[i];
+                NSDictionary *userinfos = personInfo[@"user"];
+                
+               UserInfo *modelValue = [UserInfo modelWithDictionary:userinfos];
+                [xgyArray addObject:modelValue];
+            }
+                view.xgyArray = xgyArray;
+        }else{
+            NSString *successInfo = @"获取协管员失败";
+            [NJDPopLoading showAutoHideWithMessage:successInfo];
+        }
+    
        
     }];
     
@@ -402,8 +466,9 @@
     }];
     
     
-    view.zhuanjiaoAction = ^(NSString *name) {
-        
+    view.zhuanjiaoAction = ^( UserInfo *modelValue) {
+        NSString *changedUserId = modelValue.userId;
+        [self TrafficZhuanjiaoActionWithUserName:changedUserId model:model];
     };
 }
 
@@ -487,6 +552,26 @@
         [NJDPopLoading showAutoHideWithMessage:errorMsg];
     }];
     
+}
+
+- (void)TrafficShenbaoDengjiactionWithReason:(NSString *)reason note:(NSString *)note model:(TrafficAssistantTaskModel *)model
+{
+     NSString *recordId = model.recordId;
+
+    [NetworkingManager trafficRegisterRecordTheRecordWithRecordId:recordId personTypeName:reason note:note success:^(NSDictionary * _Nullable dictValue) {
+        NSDictionary *checkResult = [dictValue objectForKey:@"checkResult"];
+        NSNumber *isSuccess = checkResult[@"success"];
+        if( isSuccess.boolValue ){
+            NSString *successInfo = @"成功";
+            [NJDPopLoading showAutoHideWithMessage:successInfo];
+        }else {
+            NSString *successInfo = @"失败";
+            [NJDPopLoading showAutoHideWithMessage:successInfo];
+        }
+    } failure:^(NSError * _Nullable error) {
+        NSString *errorMsg = error.userInfo[NSLocalizedDescriptionKey];
+        [NJDPopLoading showAutoHideWithMessage:errorMsg];
+    }];
 }
 
 - (void)getRegionXGYWithModel:(TrafficAssistantTaskModel *)model WithSuccessBlock:(void(^)(NSDictionary * _Nullable dictValue))successblock

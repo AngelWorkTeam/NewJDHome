@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "TrafficAssistantTaskModel.h"
-
-typedef void (^TraffiZhuanjiaoAction) (NSString *name);
+#import "UserInfo.h"
+typedef void (^TraffiZhuanjiaoAction) (UserInfo *name);
 
 @interface TrafficZhuanjiaoView : UIView
 

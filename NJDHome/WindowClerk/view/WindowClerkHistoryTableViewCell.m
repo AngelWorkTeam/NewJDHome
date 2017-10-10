@@ -10,6 +10,7 @@
 
 @interface WindowClerkHistoryTableViewCell ()
 @property (nonatomic, strong) WindowclerkBaseView *contentUserInfo;
+@property (nonatomic, strong) UILabel *beizhuContent;
 @end
 @implementation WindowClerkHistoryTableViewCell
 
@@ -50,22 +51,35 @@
     UIView *caozuoview = [[UIView alloc]initWithFrame:CGRectZero];
     [self.contentView addSubview:caozuoview];
     
-    [caozuoview mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(contentUserInfo.mas_bottom);
-        make.left.mas_equalTo(self.contentView.mas_left).offset(10);
-        make.right.mas_equalTo(self.contentView.mas_right);
-        make.bottom.mas_equalTo(self.contentView.mas_bottom).offset(2);
-    }];
-    
     UILabel *titleLabel = [self createTitleLableWithTitle:@"备注:"];
     [caozuoview addSubview:titleLabel];
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(caozuoview.mas_top);
         make.left.mas_equalTo(caozuoview.mas_left);
         make.width.mas_equalTo(60);
-        make.bottom.mas_equalTo(self.contentView.mas_bottom);
+        make.bottom.mas_equalTo(caozuoview.mas_bottom);
     }];
     
+    _beizhuContent  = [self createTitleLableWithTitle:@"备注:"];
+    _beizhuContent.preferredMaxLayoutWidth = njdScreenWidth - 10*2 - 60;
+    [_beizhuContent setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+    _beizhuContent.numberOfLines = 0;
+    [caozuoview addSubview:_beizhuContent];
+    
+    [_beizhuContent mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(caozuoview.mas_top);
+        make.left.mas_equalTo(titleLabel.mas_right);
+        make.right.mas_equalTo(caozuoview.mas_right);
+        make.bottom.mas_equalTo(caozuoview.mas_bottom);
+    }];
+
+    
+    [caozuoview mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(contentUserInfo.mas_bottom);
+        make.left.mas_equalTo(self.contentView.mas_left).offset(10);
+        make.right.mas_equalTo(self.contentView.mas_right);
+        make.bottom.mas_equalTo(self.contentView.mas_bottom);
+    }];
 }
 
 - (UILabel *)createTitleLableWithTitle:(NSString *)title
@@ -82,7 +96,11 @@
     _model = model;
     
     _contentUserInfo.model = model;
-    
+    if ([model.takeType isEqualToString:@"1"]) {
+        _beizhuContent.text = @"居住证办理完成，可带身份证到辖区派出所自行领取！";
+    }else if([model.takeType isEqualToString:@"2"]) {
+        _beizhuContent.text = @"居住证已通过到付的形式寄往您的住处，请注意查收！";
+    }
 }
 
 - (void)setHiddenIDCardImageButton:(BOOL)hiddenIDCardImageButton

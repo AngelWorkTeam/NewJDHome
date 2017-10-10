@@ -26,7 +26,7 @@ typedef NS_ENUM(NSInteger, RoleType) {
 
 @property (nonatomic, copy) NSString *userId;    //  用户id
 
-@property (nonatomic, copy) NSString *userName;   //用户名（也是登陆账号）
+@property (nonatomic, copy) NSString *username;   //用户名（也是登陆账号）
 
 @property (nonatomic, copy) NSString *userPassword;
 

@@ -14,6 +14,9 @@ typedef void (^TraffiRejectAction) (NSString *reason, NSString *userSuggest);
 
 @interface TrafficRejectView : UIView
 
+@property (nonatomic, strong) UILabel *tuihuiyuanyinTitle ;  //退回原因title
+@property (nonatomic, strong) UILabel *qitayuanyinTitle;     //其他原因title
+@property (nonatomic, strong)  UIButton *acceptButton ;     // 确认button
 
 @property (nonatomic, strong) TrafficAssistantTaskModel *model;
 

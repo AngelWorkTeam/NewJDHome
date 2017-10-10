@@ -400,13 +400,13 @@ NSString * const kloadXGYList       = @"loadXGYList";  //26  高工提供的获�
         parms  = @{@"userId":userId
                    ,@"page":@(page)
                    ,@"token":SAFE_STRING([NJDUserInfoMO userInfo].token)
-                   ,@"recordFlag":@"wait"
+                   ,@"flag":@"wait"
                    };
     }else{
         parms  = @{@"userId":userId
                    ,@"page":@(page)
                    ,@"token":SAFE_STRING([NJDUserInfoMO userInfo].token)
-                   ,@"recordFlag":@"done"
+                   ,@"flag":@"done"
                    };
     }
     

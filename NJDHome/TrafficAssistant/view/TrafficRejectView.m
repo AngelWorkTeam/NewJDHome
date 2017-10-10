@@ -26,6 +26,7 @@
 
 @property (nonatomic, strong) UITapGestureRecognizer *tap;
 
+
 @property (nonatomic)  BOOL keyboardShow;
 @end
 
@@ -156,6 +157,7 @@
     
     UILabel *tuihuiyuanyinTitle = [self createTitleLableWithTitle:@"退回原因:"];
     [containerView addSubview:tuihuiyuanyinTitle];
+    _tuihuiyuanyinTitle = tuihuiyuanyinTitle;
     [tuihuiyuanyinTitle mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(shoujihaomaTitle.mas_bottom);
         make.left.mas_equalTo(containerView.mas_left).offset(10);
@@ -186,6 +188,7 @@
 
     UILabel *qitayuanyinTitle = [self createTitleLableWithTitle:@"其他原因:"];
     [containerView addSubview:qitayuanyinTitle];
+    _qitayuanyinTitle = qitayuanyinTitle;
     [qitayuanyinTitle mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(tuihuiyuanyinTitle.mas_bottom);
         make.left.mas_equalTo(containerView.mas_left).offset(10);
@@ -223,6 +226,7 @@
     
     UIButton *acceptButton  = [self createButtonWithTitle:@"提交"];
     [lastView addSubview:acceptButton];
+    _acceptButton = acceptButton;
     [acceptButton addTarget:self action:@selector(AcceptAction:) forControlEvents:UIControlEventTouchUpInside];
     [acceptButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(lastView.mas_centerX).offset(-40);
