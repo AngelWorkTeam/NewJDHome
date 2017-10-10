@@ -49,6 +49,8 @@
 		1B219C3E1F827FD7007FFEA5 /* HETForgetPasswordThreeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC4B8F51F827C8500CFCD2B /* HETForgetPasswordThreeController.m */; };
 		1B219C3F1F827FDA007FFEA5 /* HETForgetPasswordTwoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC4B8F71F827C8500CFCD2B /* HETForgetPasswordTwoController.m */; };
 		1B219C401F827FDD007FFEA5 /* HETForgetPasswordViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC4B8F91F827C8500CFCD2B /* HETForgetPasswordViewModel.m */; };
+		1B34E8731F8CC0850018C59F /* UnRegisterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B34E8711F8CC0850018C59F /* UnRegisterCell.m */; };
+		1B34E8741F8CC0850018C59F /* UnRegisterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B34E8721F8CC0850018C59F /* UnRegisterCell.xib */; };
 		1B4E53EA1F8B0714000FA147 /* TestTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4E53E91F8B0714000FA147 /* TestTable.m */; };
 		1BA97CD81F88C6D700675097 /* RenderUnRegisterRecordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA97CD61F88C6D700675097 /* RenderUnRegisterRecordVC.m */; };
 		1BA97CD91F88C6D700675097 /* RenderUnRegisterRecordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BA97CD71F88C6D700675097 /* RenderUnRegisterRecordVC.xib */; };
@@ -178,6 +180,9 @@
 		1B0260B01F81FE13000A4411 /* SettingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingVC.m; sourceTree = "<group>"; };
 		1B0260B21F820A79000A4411 /* ModifyPswVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModifyPswVC.h; sourceTree = "<group>"; };
 		1B0260B31F820A79000A4411 /* ModifyPswVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModifyPswVC.m; sourceTree = "<group>"; };
+		1B34E8701F8CC0850018C59F /* UnRegisterCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnRegisterCell.h; sourceTree = "<group>"; };
+		1B34E8711F8CC0850018C59F /* UnRegisterCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnRegisterCell.m; sourceTree = "<group>"; };
+		1B34E8721F8CC0850018C59F /* UnRegisterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UnRegisterCell.xib; sourceTree = "<group>"; };
 		1B4E53E81F8B0714000FA147 /* TestTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestTable.h; sourceTree = "<group>"; };
 		1B4E53E91F8B0714000FA147 /* TestTable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestTable.m; sourceTree = "<group>"; };
 		1BA842681F7F463400D4221B /* NetworkingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingManager.h; sourceTree = "<group>"; };
@@ -790,6 +795,9 @@
 				1BC5FFE31F8631070088EBFD /* ApplyCardCell2.h */,
 				1BC5FFE41F8631070088EBFD /* ApplyCardCell2.m */,
 				1BC5FFE51F8631070088EBFD /* ApplyCardCell2.xib */,
+				1B34E8701F8CC0850018C59F /* UnRegisterCell.h */,
+				1B34E8711F8CC0850018C59F /* UnRegisterCell.m */,
+				1B34E8721F8CC0850018C59F /* UnRegisterCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -887,6 +895,7 @@
 				1BB776981F8530CD0029A861 /* imgsCell.xib in Resources */,
 				1BDEABF61F847A1A00B61640 /* SubmitCell2.xib in Resources */,
 				1BDEABF11F84758600B61640 /* SubmitCell1.xib in Resources */,
+				1B34E8741F8CC0850018C59F /* UnRegisterCell.xib in Resources */,
 				1BA97CD91F88C6D700675097 /* RenderUnRegisterRecordVC.xib in Resources */,
 				1BC5FFD91F86051E0088EBFD /* TermVC.xib in Resources */,
 				1BC5FFDF1F862D600088EBFD /* ApplyCardVC.xib in Resources */,
@@ -911,7 +920,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		477E205565694053916ABC6A /* [CP] Copy Pods Resources */ = {
@@ -922,7 +931,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-NJDHome/Pods-NJDHome-resources.sh",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
-				"$PODS_CONFIGURATION_BUILD_DIR/MWPhotoBrowser/MWPhotoBrowser.bundle",
+				$PODS_CONFIGURATION_BUILD_DIR/MWPhotoBrowser/MWPhotoBrowser.bundle,
 				"${PODS_ROOT}/SAMCategories/SAMCategories/SAMCategories.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -1000,6 +1009,7 @@
 				19B707FD1F7E35FC0086C565 /* AppDelegate.m in Sources */,
 				190B3AA51F8A7ACC00FA753C /* ShenBaoProgressViewController.m in Sources */,
 				1BAE264A1F80AA21004D3F22 /* NJDPopLoading.m in Sources */,
+				1B34E8731F8CC0850018C59F /* UnRegisterCell.m in Sources */,
 				1BD459FB1F7FF94400A5B031 /* RegisterVC.m in Sources */,
 				19B707E81F7E2E2E0086C565 /* LoginVC.m in Sources */,
 				195498101F886137005B3229 /* THDatePickerView.m in Sources */,
