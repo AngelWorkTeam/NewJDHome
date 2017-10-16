@@ -56,11 +56,12 @@
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(caozuoview.mas_top);
         make.left.mas_equalTo(caozuoview.mas_left);
-        make.width.mas_equalTo(60);
+        make.width.mas_equalTo(70);
         make.bottom.mas_equalTo(caozuoview.mas_bottom);
     }];
     
     _beizhuContent  = [self createTitleLableWithTitle:@"备注:"];
+    _beizhuContent.textColor = [UIColor redColor];
     _beizhuContent.preferredMaxLayoutWidth = njdScreenWidth - 10*2 - 60;
     [_beizhuContent setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
     _beizhuContent.numberOfLines = 0;
@@ -86,7 +87,7 @@
     UILabel *titleLable = [[UILabel alloc]initWithFrame:CGRectZero];
     titleLable.text = title;
     titleLable.textColor = [UIColor colorWithHexString:@"666666"];
-    titleLable.font = [UIFont systemFontOfSize:12];
+    titleLable.font = [UIFont systemFontOfSize:15];
     return titleLable;
 }
 

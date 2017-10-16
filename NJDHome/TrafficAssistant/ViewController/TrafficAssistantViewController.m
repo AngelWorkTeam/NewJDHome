@@ -370,6 +370,12 @@
     }
 }
 
+- (void)reloadDataFromPageZero
+{
+    _page = 0;
+    [self.table.mj_header beginRefreshing];
+}
+
 - (void)showbiangengzhuxiaoshengbaoAction:(TrafficAssistantTaskModel *)model
 {
     TrafficRejectView *view = [TrafficRejectView new];
@@ -498,6 +504,7 @@
                                                       if( isSuccess.boolValue ){
                                                           NSString *successInfo = @"成功";
                                                           [NJDPopLoading showAutoHideWithMessage:successInfo];
+                                                          [self reloadDataFromPageZero];
                                                       }else {
                                                           NSString *successInfo = @"失败";
                                                           [NJDPopLoading showAutoHideWithMessage:successInfo];
@@ -520,6 +527,7 @@
         if( isSuccess.boolValue ){
             NSString *successInfo = @"成功";
             [NJDPopLoading showAutoHideWithMessage:successInfo];
+              [self reloadDataFromPageZero];
         }else {
             NSString *successInfo = @"失败";
             [NJDPopLoading showAutoHideWithMessage:successInfo];
@@ -542,6 +550,7 @@
         if( isSuccess.boolValue ){
             NSString *successInfo = @"成功";
             [NJDPopLoading showAutoHideWithMessage:successInfo];
+              [self reloadDataFromPageZero];
         }else {
             NSString *successInfo = @"失败";
             [NJDPopLoading showAutoHideWithMessage:successInfo];
@@ -564,6 +573,7 @@
         if( isSuccess.boolValue ){
             NSString *successInfo = @"成功";
             [NJDPopLoading showAutoHideWithMessage:successInfo];
+              [self reloadDataFromPageZero];
         }else {
             NSString *successInfo = @"失败";
             [NJDPopLoading showAutoHideWithMessage:successInfo];

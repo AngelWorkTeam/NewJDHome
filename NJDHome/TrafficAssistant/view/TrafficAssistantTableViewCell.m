@@ -17,6 +17,8 @@
 @property (nonatomic, strong) NSMutableArray *buttonArray;
 @end
 
+CGFloat trafficCellLabelFontSize = 15.0;
+
 @implementation TrafficAssistantTableViewCell
 
 - (void)awakeFromNib {
@@ -63,13 +65,13 @@
         make.top.mas_equalTo(contentUserInfo.mas_bottom);
         make.left.mas_equalTo(self.contentView.mas_left).offset(10);
         make.right.mas_equalTo(self.contentView.mas_right);
-        make.bottom.mas_equalTo(self.contentView.mas_bottom);
+        make.bottom.mas_equalTo(self.contentView.mas_bottom).offset(-5);
     }];
     
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(caozuoview.mas_top);
         make.left.mas_equalTo(caozuoview.mas_left);
-        make.width.mas_equalTo(60);
+        make.width.mas_equalTo(70);
         make.bottom.mas_equalTo(caozuoview.mas_bottom);
     }];
     
@@ -82,7 +84,7 @@
         [button mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(caozuoview.mas_top);
             make.left.mas_equalTo(lastView.mas_right);
-            make.width.mas_equalTo(60);
+            make.width.mas_equalTo(75);
             make.bottom.mas_equalTo(caozuoview.mas_bottom);
         }];
         lastView = button;
@@ -138,7 +140,7 @@
     UILabel *titleLable = [[UILabel alloc]initWithFrame:CGRectZero];
     titleLable.text = title;
     titleLable.textColor = [UIColor colorWithHexString:@"666666"];
-    titleLable.font = [UIFont systemFontOfSize:12];
+    titleLable.font = [UIFont systemFontOfSize:trafficCellLabelFontSize];
     return titleLable;
 }
 
@@ -151,7 +153,7 @@
     [button setTitle:title forState:UIControlStateNormal];
     button.tag = index;
     button.layer.cornerRadius = 3;
-    button.titleLabel.font = [UIFont systemFontOfSize:12];
+    button.titleLabel.font = [UIFont systemFontOfSize:trafficCellLabelFontSize];
     [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
     return button;
 }

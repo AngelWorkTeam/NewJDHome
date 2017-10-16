@@ -342,7 +342,7 @@
 
 
 - (void)acceptAction:(id)sender {
-    [self removeFromSuperview];
+   
     
     NSString *checkDate = nil;
     NSString *checkTime = nil;
@@ -354,8 +354,12 @@
             checkDate = timerArray[0];
             checkTime = timerArray[1];
         }
+    }else{
+        [NJDPopLoading showAutoHideWithMessage:@"请选择日期！"];
+        return;
     }
     
+   [self removeFromSuperview];
     NSString *userSuggest = _suggestInfo.text;
     if (!(userSuggest && userSuggest.length > 0)) {
         userSuggest = @"";

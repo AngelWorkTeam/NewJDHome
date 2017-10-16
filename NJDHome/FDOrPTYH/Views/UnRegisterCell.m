@@ -26,13 +26,13 @@
     // Configure the view for the selected state
 }
 -(void)setName:(NSString *)name{
-    self.nameLabel.text = name;
+    self.nameLabel.text = SAFE_STRING(name);
 }
 -(void)setDetailAddr:(NSString *)detailAddr{
-    self.detailAddrLabel.text = detailAddr;
+    self.detailAddrLabel.text = SAFE_STRING(detailAddr);
 }
 -(void)setRoomNum:(NSString *)roomNum{
-    self.roomNumLabel.text = roomNum;
+    self.roomNumLabel.text = SAFE_STRING(roomNum);
 }
 - (IBAction)changeHandle:(id)sender {
     !self.changeBlock?:self.changeBlock();

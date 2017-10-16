@@ -17,6 +17,7 @@
 
 @end
 
+CGFloat windowclerkCellLabelFontSize = 15.0;
 @implementation WindowClerkTableViewCell
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -63,9 +64,9 @@
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(caozuoview.mas_top);
         make.left.mas_equalTo(caozuoview.mas_left);
-        make.width.mas_equalTo(60);
+        make.width.mas_equalTo(70);
         make.height.mas_equalTo(30);
-        make.bottom.mas_equalTo(caozuoview.mas_bottom);
+        make.bottom.mas_equalTo(caozuoview.mas_bottom).offset(-5);
     }];
     
     NSArray *buttonTitleArray = @[@"受理",@"退回"];
@@ -76,7 +77,7 @@
         [shoulibutton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(caozuoview.mas_top);
             make.left.mas_equalTo(lastLeftView.mas_right).offset(10);
-            make.width.mas_equalTo(60);
+            make.width.mas_equalTo(75);
             make.height.mas_equalTo(30);
             make.bottom.mas_equalTo(caozuoview.mas_bottom);
         }];
@@ -90,7 +91,7 @@
     UILabel *titleLable = [[UILabel alloc]initWithFrame:CGRectZero];
     titleLable.text = title;
     titleLable.textColor = [UIColor colorWithHexString:@"666666"];
-    titleLable.font = [UIFont systemFontOfSize:12];
+    titleLable.font = [UIFont systemFontOfSize:windowclerkCellLabelFontSize];
     return titleLable;
 }
 
@@ -101,7 +102,7 @@
     NSString *titleStr = [NSString stringWithFormat:@"[%@]",title];
     [button setTitle:titleStr forState:UIControlStateNormal];
     button.tag = index + 1000;
-    button.titleLabel.font = [UIFont systemFontOfSize:12];
+    button.titleLabel.font = [UIFont systemFontOfSize:windowclerkCellLabelFontSize];
     [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
     return button;
 }

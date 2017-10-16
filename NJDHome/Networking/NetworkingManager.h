@@ -102,6 +102,16 @@ typedef void (^NJDHttpFailureBlock)(NSError * _Nullable error);
               idCardImg:(UIImage *_Nonnull)idCardImg
                 success:(NJDHttpSuccessBlockDictionary _Nullable)success
                 failure:(NJDHttpFailureBlock _Nullable )fail;
+
++(void)getPersonsRecordWithPage:(NSInteger)page
+                        success:(NJDHttpSuccessBlockArray _Nullable )success
+                        failure:(NJDHttpFailureBlock _Nullable)fail;
+
++(void)changeRecord:(NSString *_Nonnull)recordId
+        changeState:(NSInteger)state
+               room:(NSString *_Nonnull)roomNum
+            success:(NJDHttpSuccessBlockDictionary _Nullable )success
+            failure:(NJDHttpFailureBlock _Nullable)fail;
 /////// for yy code
 
 +(void)printfUrl:(NSURL *_Nonnull)url;

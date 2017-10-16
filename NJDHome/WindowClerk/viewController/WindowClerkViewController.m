@@ -285,6 +285,11 @@
     return _table;
 }
 
+- (void)reloadDataFromPageZero
+{
+    _page = 0;
+    [self.table.mj_header beginRefreshing];
+}
 
 - (void)reloadTrafficData
 {
@@ -377,7 +382,7 @@
     }else if([model.state isEqualToString:@"1"]){
        // 办理完成
         [self showBanliwancActionWithTitle:@"确认办理完成?" okAction:^(UIAlertAction *action) {
-            [self windwonClerkAcceptWithRecordId:recordId state:@"1" reason:@""];
+            [self windwonClerkAcceptWithRecordId:recordId state:@"2" reason:@""];
         }];
     }
     
@@ -479,6 +484,7 @@
         NSNumber *isSuccess = checkResult[@"success"];
         if( isSuccess.boolValue ){
             [NJDPopLoading showAutoHideWithMessage:@"成功"];
+            [self reloadDataFromPageZero];
         }else{
             [NJDPopLoading showAutoHideWithMessage:@"操作失败"];
         }

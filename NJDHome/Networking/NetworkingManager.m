@@ -33,6 +33,9 @@ NSString *const kSubmitInfo = @"saveCheckInRecord";
 NSString *const kApplyCard = @"saveBidInfo";
 NSString *const kUnregisterRenter = @"logOutRecord";
 
+NSString *const kPersonsByLandlordUserId = @"getPersonsByLandlordUserId";
+NSString *const kChangeRecord = @"changeRecord";
+
 @implementation NetworkingManager
 +(void)printfUrl:(NSURL *)url{
     NSLog(@"req:%@",url.absoluteString);
@@ -523,5 +526,53 @@ constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
               !fail?:fail(error);
           }];
     manager.requestSerializer.timeoutInterval = 30;
+}
+
++(void)getPersonsRecordWithPage:(NSInteger)page
+                        success:(NJDHttpSuccessBlockArray)success
+                        failure:(NJDHttpFailureBlock)fail{
+    AFHTTPSessionManager *m = [self manager];
+    
+    NSURLSessionTask *task = [m GET:kURL(kUserDomain, kPersonsByLandlordUserId)
+                         parameters:@{@"page":@(page),
+                                      @"token":SAFE_STRING([NJDUserInfoMO userInfo].token),
+                                      @"userId":SAFE_STRING([NJDUserInfoMO userInfo].userId)
+                                      }
+                           progress:nil
+                            success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                                if([self dealWithResponse:responseObject failure:fail] == NO){
+                                    return ;
+                                }
+                                NSArray *arr = responseObject[@"records"];
+                                !success?:success(arr);
+                            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                !fail?:fail(error);
+                            }];
+    [self printfUrl:task.currentRequest.URL];
+}
+
++(void)changeRecord:(NSString *)recordId
+         changeState:(NSInteger)state
+               room:(NSString *)roomNum
+                        success:(NJDHttpSuccessBlockDictionary)success
+                        failure:(NJDHttpFailureBlock)fail{
+    AFHTTPSessionManager *m = [self manager];
+    
+    NSURLSessionTask *task = [m GET:kURL(kUserDomain, kChangeRecord)
+                         parameters:@{@"recordId":recordId,
+                                      @"token":SAFE_STRING([NJDUserInfoMO userInfo].token),
+                                      @"roomNumber":roomNum,
+                                      @"type":@(state)
+                                      }
+                           progress:nil
+                            success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                                if([self dealWithResponse:responseObject failure:fail] == NO){
+                                    return ;
+                                }
+                                !success?:success(responseObject);
+                            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                !fail?:fail(error);
+                            }];
+    [self printfUrl:task.currentRequest.URL];
 }
 @end

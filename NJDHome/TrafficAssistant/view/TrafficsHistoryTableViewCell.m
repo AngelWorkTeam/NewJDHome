@@ -47,7 +47,7 @@
         make.top.mas_equalTo(self.contentView.mas_top);
         make.left.mas_equalTo(self.contentView.mas_left).offset(10);
         make.right.mas_equalTo(self.contentView.mas_right);
-        make.bottom.mas_equalTo(self.contentView.mas_bottom).offset(-10);
+        make.bottom.mas_equalTo(self.contentView.mas_bottom).offset(-5);
     }];
     
 

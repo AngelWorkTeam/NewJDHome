@@ -41,7 +41,7 @@
 
 @end
 
-
+CGFloat windowclerkLabelFontSize = 15.0;
 
 @implementation WindowclerkBaseView
 
@@ -106,7 +106,7 @@
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(cellview.mas_top);
         make.left.mas_equalTo(cellview.mas_left);
-        make.width.mas_equalTo(60);
+        make.width.mas_equalTo(70);
         make.height.mas_equalTo(30);
         make.bottom.mas_equalTo(cellview.mas_bottom);
     }];
@@ -120,7 +120,7 @@
         [button mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(cellview.mas_top);
             make.left.mas_equalTo(leftView.mas_right).offset(10);
-            make.width.mas_equalTo(60);
+            make.width.mas_equalTo(75);
             make.height.mas_equalTo(30);
         }];
         leftView = button;
@@ -140,7 +140,7 @@
 {
     UIView *cellview = [[UIView alloc]initWithFrame:CGRectZero];
     
-    CGFloat titleWidth = 60;
+    CGFloat titleWidth = 70;
     
     UILabel *titleLabel = [self createTitleLableWithTitle:title];
     [cellview addSubview:titleLabel];
@@ -210,7 +210,7 @@
     UILabel *titleLable = [[UILabel alloc]initWithFrame:CGRectZero];
     titleLable.text = title;
     titleLable.textColor = [UIColor colorWithHexString:@"666666"];
-    titleLable.font = [UIFont systemFontOfSize:12];
+    titleLable.font = [UIFont systemFontOfSize:windowclerkLabelFontSize];
     titleLable.numberOfLines = 0;
     return titleLable;
 }
@@ -220,7 +220,7 @@
     UILabel *titleLable = [[UILabel alloc]initWithFrame:CGRectZero];
     titleLable.text = title;
     titleLable.textColor = [UIColor colorWithHexString:@"999999"];
-    titleLable.font = [UIFont systemFontOfSize:12];
+    titleLable.font = [UIFont systemFontOfSize:windowclerkLabelFontSize];
     return titleLable;
 }
 
@@ -231,7 +231,7 @@
     NSString *titleStr = [NSString stringWithFormat:@"[%@]",title];
     [button setTitle:titleStr forState:UIControlStateNormal];
     button.tag = index + 1000;
-    button.titleLabel.font = [UIFont systemFontOfSize:12];
+    button.titleLabel.font = [UIFont systemFontOfSize:windowclerkLabelFontSize];
     [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
     return button;
 }

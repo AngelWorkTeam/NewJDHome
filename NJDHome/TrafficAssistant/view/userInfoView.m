@@ -45,7 +45,7 @@
 @property (nonatomic, strong) NSArray *titleArray2;
 @end
 
-
+CGFloat trafficLabelFontSize = 15.0;
 
 @implementation userInfoView
 
@@ -138,7 +138,7 @@
 {
     UIView *cellview = [[UIView alloc]initWithFrame:CGRectZero];
    
-    
+    CGFloat LabelWidth = 70.0;
     UILabel *titleLabel = [self createTitleLableWithTitle:title];
     
     [cellview addSubview:titleLabel];
@@ -146,7 +146,7 @@
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(cellview.mas_top);
         make.left.mas_equalTo(cellview.mas_left);
-        make.width.mas_equalTo(60);
+        make.width.mas_equalTo(LabelWidth);
         make.height.mas_equalTo(userinfocellHeight);
     }];
     
@@ -203,13 +203,13 @@
                 case 0:
                 _zongjiaoxinyang = contentLabel;
                 [titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-                    make.width.mas_equalTo(60);
+                    make.width.mas_equalTo(LabelWidth);
                 }];
                 break;
                 case 1:
                 _zhenzhimianmao = contentLabel;
                 [titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-                    make.width.mas_equalTo(60);
+                    make.width.mas_equalTo(LabelWidth);
                 }];
                 break;
                 case 2:
@@ -219,7 +219,7 @@
             {
                 _zhichengjishudengji = contentLabel;
                 [titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-                    make.width.mas_equalTo(80);
+                    make.width.mas_equalTo(98);
                 }];
                 break;}
             default:
@@ -258,7 +258,7 @@
     UILabel *titleLable = [[UILabel alloc]initWithFrame:CGRectZero];
     titleLable.text = title;
     titleLable.textColor = [UIColor colorWithHexString:@"666666"];
-    titleLable.font = [UIFont systemFontOfSize:12];
+    titleLable.font = [UIFont systemFontOfSize:trafficLabelFontSize];
     return titleLable;
 }
 
@@ -267,7 +267,7 @@
     UILabel *titleLable = [[UILabel alloc]initWithFrame:CGRectZero];
     titleLable.text = title;
     titleLable.textColor = [UIColor colorWithHexString:@"999999"];
-    titleLable.font = [UIFont systemFontOfSize:12];
+    titleLable.font = [UIFont systemFontOfSize:trafficLabelFontSize];
     return titleLable;
 }
 
