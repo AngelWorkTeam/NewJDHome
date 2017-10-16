@@ -301,7 +301,7 @@
         for(int i = 0; i < _xgyArray.count ; i++)
         {
             UserInfo *userinfo = _xgyArray[i];
-            NSString *realname = userinfo.username;
+            NSString *realname = userinfo.realName;
             [_nameArray  addObject:realname];
         }
     }
@@ -310,7 +310,7 @@
 - (void)setModel:(TrafficAssistantTaskModel *)model
 {
     _model = model;
-    _username.text = [NJDUserInfoMO userInfo].username ;
+    _username.text = [NJDUserInfoMO userInfo].realName ;
 }
 
 - (void)tapGestureAction:(UITapGestureRecognizer *)tap
