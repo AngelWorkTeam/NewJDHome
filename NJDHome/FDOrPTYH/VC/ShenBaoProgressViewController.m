@@ -67,10 +67,10 @@
     
    // [self.view addSubview:self.tabbarView];
     
-    _page = 0;
+    _page = 1;
     _isLast = false;
     MJRefreshNormalHeader *header =[MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        _page = 0;
+        _page = 1;
         _isLast = false;
         [self reloadTrafficData];
     }];
@@ -290,7 +290,7 @@
         if( isSuccess.boolValue ){
             _isLast = false;
             [self.table.mj_footer resetNoMoreData];
-            if(_page == 0) {
+            if(_page == 1) {
                 _datasoureArray = [NSMutableArray new];
             }
         }else{
@@ -311,7 +311,7 @@
         }
         
     } failure:^(NSError * _Nullable error) {
-        if(_page == 0){
+        if(_page == 1){
             [self headerEndfresshViewWithSuccess];
         }else{
             [self endRefreshViewNoMoreDara];
@@ -332,7 +332,7 @@
         if( isSuccess.boolValue ){
             _isLast = false;
             [self.table.mj_footer resetNoMoreData];
-            if(_page == 0) {
+            if(_page == 1) {
                 _datasoureArray = [NSMutableArray new];
             }
         }else{
@@ -353,7 +353,7 @@
         }
         
     } failure:^(NSError * _Nullable error) {
-        if(_page == 0){
+        if(_page == 1){
             [self headerEndfresshViewWithSuccess];
         }else{
             [self endRefreshViewNoMoreDara];
@@ -364,7 +364,7 @@
 
 - (void)loadFaled
 {
-    if(_page == 0){
+    if(_page == 1){
         [self headerEndfresshViewWithSuccess];
     }else{
         [self endRefreshViewNoMoreDara];
