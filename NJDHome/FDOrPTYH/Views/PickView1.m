@@ -84,12 +84,26 @@
 - (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component{
     return kScreenWidth;
 }
--(NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    NSString *str = [NSString stringWithFormat:@"%@",self.dataArr[row]];
-    CGFloat fontSize = self.pickFontSize < 10?10:self.pickFontSize;
-    NSAttributedString *attrStr = [[NSAttributedString alloc] initWithString:str attributes:@{NSForegroundColorAttributeName:self.pickItemColor==nil?[UIColor blackColor]:self.pickItemColor,
-                                                                                              NSFontAttributeName:[UIFont systemFontOfSize:fontSize]}];
-    return attrStr;
+//-(NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component{
+//    NSString *str = [NSString stringWithFormat:@"%@",self.dataArr[row]];
+//    CGFloat fontSize = self.pickFontSize < 10?10:self.pickFontSize;
+//    NSAttributedString *attrStr = [[NSAttributedString alloc] initWithString:str attributes:@{NSForegroundColorAttributeName:self.pickItemColor==nil?[UIColor blackColor]:self.pickItemColor,
+//                                                                                              NSFontAttributeName:[UIFont systemFontOfSize:fontSize]}];
+//    return attrStr;
+//}
+-(UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
+    UILabel *label;
+    if (view) {
+        label = (UILabel *)view;
+    }else{
+        label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 30)];
+    }
+    label.text = [NSString stringWithFormat:@"%@",self.dataArr[row]];
+    label.font = [UIFont systemFontOfSize:13];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor = [UIColor blackColor];
+    return label;
+    
 }
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
    

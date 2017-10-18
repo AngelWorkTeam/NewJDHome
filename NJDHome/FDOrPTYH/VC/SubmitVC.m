@@ -21,6 +21,8 @@
 
 //房东为租客填写时，房屋地址为房东已经录入的房屋地址
 @property (nonatomic,copy) NSArray *addr;
+@property (nonatomic,copy) NSArray *landLordAddr;
+@property (nonatomic,copy) NSString *regionId;
 //身份证照片
 @property (nonatomic,copy) UIImage *idCardImg;
 //随同人员数组
@@ -155,6 +157,12 @@
     cell.title = dic[@"title"];
     cell.contentStr = dic[@"value"];
     cell.placeHolder = [dic[@"need"] boolValue] == YES?@"必填":@"选填";
+    NSInteger keyboardType = [dic[@"keyboardType"] integerValue];
+    if(keyboardType == 1){
+        cell.keyboardType = UIKeyboardTypeNumberPad;
+    }else{
+        cell.keyboardType = UIKeyboardTypeDefault;
+    }
     return cell;
 }
 
@@ -190,9 +198,9 @@
         @weakify(self);
         ((SubmitCell4 *)cell).addChildInfo = ^{
              @strongify(self);
-            if (self.childInfos.count >= 2) {
-                return ;
-            }
+//            if (self.childInfos.count >= 2) {
+//                return ;
+//            }
             [self.childInfos addObject:@{@"childName":@"",
                                          @"childSex":@"男",
                                          @"childBirth":[[NSDate date] LocalDayISO8601String]
@@ -267,6 +275,7 @@
                                      animated:YES];
         };
     }
+    
     return cell;
 }
 -(void)prepareForCell2PickDataSourceWithCell:(SubmitCell2 *)cell path:(NSIndexPath *)path{
@@ -279,16 +288,21 @@
         if (path.row == 6) {
             cell.pickType = PickTypeDate;
             cell.dataSource = nil;
+            cell.selectInfo = nil;
             return;
         }
         if (path.row == 7 && [NJDUserInfoMO roleType] == BNRRoleTypeLandlord){
             cell.pickType = PickTypeCustom;
             cell.dataSource = self.addr;
+            cell.selectInfo = nil;
             return;
         }
         if (path.row == 7) {
             cell.pickType = PickTypeAddr;
             cell.dataSource = nil;
+            cell.selectInfo = ^(NSString *selectInfo) {
+                self.regionId = selectInfo;
+            };
             return;
         }
     }
@@ -347,6 +361,25 @@
             }
         }
     }
+    if(self.landLordAddr.count){
+        if(params[@"temporaryAddress"]){
+            NSString *addr = params[@"temporaryAddress"];
+            NSInteger i = 0;
+            for(i = 0; i < self.landLordAddr.count; i++){
+                NSDictionary *dic = self.landLordAddr[i];
+                if([SAFE_STRING(dic[@"address"]) isEqualToString:addr]){
+                    params[@"regionId"] = SAFE_STRING(dic[@"regionId"]);
+                    break;
+                }
+            }
+            if(i == self.landLordAddr.count){
+                [NJDPopLoading showAutoHideWithMessage:@"无法取得您租房的地址信息"];
+                return;
+            }
+        }
+    }else{
+        params[@"regionId"] = SAFE_STRING(self.regionId);
+    }
     [NJDPopLoading showMessageWithLoading:@"正在提交"];
     [NetworkingManager submitWithInfo:params.copy
                             idCardImg:self.idCardImg
@@ -360,7 +393,11 @@
                               }
                               failure:^(NSError * _Nullable error) {
                                   [NJDPopLoading hideHud];
-                                  [NJDPopLoading showAutoHideWithMessage:error.userInfo[NSLocalizedDescriptionKey]];
+                                  if(error.userInfo[NSLocalizedDescriptionKey]){
+                                      [NJDPopLoading showAutoHideWithMessage:error.userInfo[NSLocalizedDescriptionKey]];
+                                  }else{
+                                      [NJDPopLoading showAutoHideWithMessage:@"提交出错了"];
+                                  }
                               }];
 }
 #pragma mark - noti
@@ -409,6 +446,7 @@
                 [arr addObject:SAFE_STRING(dic[@"address"])];
             }
             self.addr = arr.copy;
+            self.landLordAddr = arrayValue;
             if (self.dataSource.count > 0 &&
                 ((NSArray *)self.dataSource[0]).count > 7) {
                 NSMutableDictionary *dic = self.dataSource[0][7];
@@ -455,7 +493,8 @@
                         @"value":@"",@"tips":@"必须填写房间号",@"need":@1
                         }.mutableCopy,
                       @{@"title":@"电       话",@"key":@"personPhone",
-                        @"value":@"",@"tips":@"必须填手机号码",@"need":@1
+                        @"value":@"",@"tips":@"必须填手机号码",@"need":@1,
+                        @"keyboardType":@"1",
                         }.mutableCopy
                       ];
     
@@ -492,7 +531,8 @@
                             @"value":@"",@"need":@0
                             }.mutableCopy,
                           @{@"title":@"房主电话",@"key":@"landlordPhone",
-                            @"value":@"",@"need":@0
+                            @"value":@"",@"need":@0,
+                            @"keyboardType":@"1",
                             }.mutableCopy,];
 
         self.dataSource = @[arr1,arr2,arr3,arr4,arr5];

@@ -52,6 +52,7 @@
     }else{
         [self transparentNavigationBar];
     }
+    [self titleFont];
 }
 -(void)createNoBackWithOpaue:(BOOL)opaque{
     self.navigationItem.leftBarButtonItem = nil;
@@ -61,7 +62,15 @@
     }else{
         [self transparentNavigationBar];
     }
-        
+    [self titleFont];
+}
+-(void)titleFont{
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     @{
+       NSForegroundColorAttributeName: [UIColor whiteColor],
+       NSFontAttributeName: [UIFont boldSystemFontOfSize:21],
+       }
+     ];
 }
 // 统一 Back 按钮的处理
 - (void)createBackButton{

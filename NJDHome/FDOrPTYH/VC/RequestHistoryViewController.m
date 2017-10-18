@@ -46,7 +46,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.title = @"申请记录";
     
     [self setupTitleScrollView];
     
@@ -58,7 +58,10 @@
     
     self.automaticallyAdjustsScrollViewInsets = NO;
 }
-
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self createBackNavWithOpaque:YES];
+}
 // 选中按钮
 - (void)selButton:(UIButton *)button
 {
@@ -238,11 +241,13 @@
     ShenBaoProgressViewController *shenbao =  [ShenBaoProgressViewController new];
     shenbao.title = @"申报进度查询";
     shenbao.shenbaoProgress = true;
+    shenbao.needSpace = true;
     [self addChildViewController:shenbao];
     
     ShenBaoProgressViewController *ICcard = [ShenBaoProgressViewController new];
     ICcard.title = @"IC卡居住证申请记录";
     ICcard.shenbaoProgress = false;
+    ICcard.needSpace = true;
     [self addChildViewController:ICcard];
     
 }

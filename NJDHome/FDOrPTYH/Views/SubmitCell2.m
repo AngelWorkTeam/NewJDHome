@@ -37,6 +37,7 @@
             pickView1.selectData = ^(NSString *element, NSInteger index){
                 self.contentStr = element;
                 !self.didChangeValue?:self.didChangeValue(element);
+                !self.selectInfo?:self.selectInfo([NSString stringWithFormat:@"%@",@(index)]);
             };
             pickView1.dataArr = self.dataSource;
             [[UIApplication sharedApplication].keyWindow addSubview:pickView1];
@@ -50,6 +51,7 @@
             dayView.selectDay = ^(NSString *day) {
                 self.contentStr = day;
                 !self.didChangeValue?:self.didChangeValue(day);
+                !self.selectInfo?:self.selectInfo(day);
             };
             dayView.frame = [UIApplication sharedApplication].keyWindow.bounds;
             [[UIApplication sharedApplication].keyWindow addSubview:dayView];
@@ -59,6 +61,7 @@
             add.selectAddr = ^(NSString *regionId, NSString *address){
                 self.contentStr = address;
                 !self.didChangeValue?:self.didChangeValue(address);
+                !self.selectInfo?:self.selectInfo(regionId);
             };
         }
     }

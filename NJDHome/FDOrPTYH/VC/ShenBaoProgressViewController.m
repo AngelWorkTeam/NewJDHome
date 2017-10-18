@@ -75,12 +75,22 @@
         [self reloadTrafficData];
     }];
     
-    [self.table mas_makeConstraints:^(MASConstraintMaker *make) {
+    if (self.needSpace) {
+        [self.table mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(self.view.mas_top);
             make.left.mas_equalTo(self.view.mas_left);
             make.right.mas_equalTo(self.view.mas_right);
             make.bottom.mas_equalTo(self.view.mas_bottom).offset(-64);  // 母鸡 要-64
-    }];
+        }];
+    }else{
+        [self.table mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(self.view.mas_top);
+            make.left.mas_equalTo(self.view.mas_left);
+            make.right.mas_equalTo(self.view.mas_right);
+            make.bottom.mas_equalTo(self.view.mas_bottom);  // 母鸡 要-64
+        }];
+    }
+  
     self.table.mj_header =  header;   // 马上进入刷新状态
     [header setTitle:@"下拉刷新" forState:MJRefreshStateIdle];
     [header setTitle:@"下拉刷新" forState:MJRefreshStatePulling];
@@ -108,8 +118,13 @@
 }
 
 -(void)initViews{
-    [self createNoBackWithOpaue:YES];
-    self.title = @"新金东人之家";
+    [self createBackNavWithOpaque:YES];
+    if ([NJDUserInfoMO roleType] == BNRRoleTypeLandlord){
+        self.title = @"申报进度查询";
+    }else{
+        self.title = @"申请记录";
+    }
+    
     self.view.backgroundColor = [UIColor sam_colorWithHex:@"efeff6"];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
                                               initWithTitle:@"设置" style:UIBarButtonItemStylePlain
@@ -127,7 +142,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self createNoBackWithOpaue:YES];
+    [self createBackNavWithOpaque:YES];
     
 }
 

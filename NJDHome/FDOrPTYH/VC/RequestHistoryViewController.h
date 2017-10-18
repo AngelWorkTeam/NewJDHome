@@ -14,7 +14,7 @@
 - (NSArray<UIViewController *> *)yymessageChildViewControllerArray;
 
 @end
-@interface RequestHistoryViewController : UIViewController
+@interface RequestHistoryViewController : NJDBaseController
 
 @property (nonatomic, weak) id<YYMessagesViewControllerProtocol> childvcarrayDelegate;
 

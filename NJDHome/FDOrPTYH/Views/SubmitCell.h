@@ -12,7 +12,7 @@
 @property (nonatomic,copy) NSString *title;
 @property (nonatomic,copy) NSString *contentStr;
 @property (nonatomic,copy) NSString *placeHolder;
-
+@property (nonatomic) UIKeyboardType keyboardType;
 @property (nonatomic,copy) void (^shouldDismissKeyboard)(void);
 @property (nonatomic,copy) void (^shouldLoacteMiddle)(void);
 

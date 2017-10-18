@@ -11,5 +11,6 @@
 @interface ShenBaoProgressViewController : NJDBaseController
 
 @property (nonatomic, assign) BOOL shenbaoProgress;
+@property (nonatomic, assign) BOOL needSpace;
 
 @end

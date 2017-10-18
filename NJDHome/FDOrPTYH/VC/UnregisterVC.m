@@ -177,9 +177,9 @@
                                        NSMutableDictionary *sourceDic = self.dataSource[0][0];
                                        sourceDic[@"value"] = SAFE_STRING(dic[@"name"]);
                                        sourceDic = self.dataSource[0][1];
-                                       sourceDic[@"value"] = SAFE_STRING(dic[@"id_card_number"]);
+                                       sourceDic[@"value"] = SAFE_STRING(dic[@"gender"]);
                                        sourceDic = self.dataSource[0][3];
-                                       sourceDic[@"value"] = SAFE_STRING(dic[@"address"]);
+                                       sourceDic[@"value"] = SAFE_STRING(dic[@"id_card_number"]);
                                        self.idCardImg = img;
                                        [self.table reloadData];
                                    } failure:^(NSError * _Nullable error) {
@@ -213,7 +213,23 @@
     for (NSDictionary *dic in self.dataSource[0]) {
         params[dic[@"key"]] = dic[@"value"];
     }
-   
+    if(self.landLordAddrs.count){
+        if(params[@"temporaryAddress"]){
+            NSString *addr = params[@"temporaryAddress"];
+            NSInteger i = 0;
+            for(i = 0; i < self.landLordAddrs.count; i++){
+                NSDictionary *dic = self.landLordAddrs[i];
+                if([SAFE_STRING(dic[@"address"]) isEqualToString:addr]){
+                    params[@"regionId"] = SAFE_STRING(dic[@"regionId"]);
+                    break;
+                }
+            }
+            if(i == self.landLordAddrs.count){
+                [NJDPopLoading showAutoHideWithMessage:@"无法取得您租房的地址信息"];
+                return;
+            }
+        }
+    }
     [NJDPopLoading showMessageWithLoading:@"正在提交"];
     [NetworkingManager unRegisterRender:params.copy
                               idCardImg:self.idCardImg

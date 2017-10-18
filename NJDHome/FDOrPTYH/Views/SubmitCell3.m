@@ -44,4 +44,7 @@
 -(void)textFieldDidEndEditing:(UITextField *)textField{
     !self.didChangeValue?:self.didChangeValue(textField.text);
 }
+-(void)setKeyboardType:(UIKeyboardType)keyboardType{
+    self.contentTextField.keyboardType = keyboardType;
+}
 @end

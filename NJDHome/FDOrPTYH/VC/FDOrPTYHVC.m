@@ -13,7 +13,7 @@
 
 #import "RequestHistoryViewController.h"
 #import "RenderUnRegisterRecordVC.h"
-
+#import "ShenBaoProgressViewController.h"
 @interface FDOrPTYHVC ()
 //房屋地址，只有当登入用户是房东时，才有此属性
 @property (nonatomic,copy) NSArray *addresses;
@@ -45,7 +45,7 @@
     [self createNoBackWithOpaue:YES];
     self.title = @"新金东人之家";
     self.view.backgroundColor = [UIColor sam_colorWithHex:@"efeff6"];
-   
+
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
                                               initWithImage:[UIImage imageNamed:@"setting"] style:UIBarButtonItemStylePlain
                                                                          target:self
@@ -110,13 +110,17 @@
             }
         }else if(sender.view.tag == 1003){
             
-            RequestHistoryViewController *vc = [RequestHistoryViewController new];
-            [self.navigationController pushViewController:vc animated:YES];
+ 
 
             if ([NJDUserInfoMO roleType] == BNRRoleTypeLandlord) {
-                
+                ShenBaoProgressViewController *shenbao =  [ShenBaoProgressViewController new];
+                shenbao.title = @"申报进度查询";
+                shenbao.shenbaoProgress = true;
+                shenbao.needSpace = false;
+              [self.navigationController pushViewController:shenbao animated:YES];
             }else{
-                
+                RequestHistoryViewController *vc = [RequestHistoryViewController new];
+                [self.navigationController pushViewController:vc animated:YES];
             }
         }
     }

@@ -116,16 +116,34 @@ NSString *const kChangeRecord = @"changeRecord";
     
     return manager;
 }
-
++(NSString *)appendQuryStringWithUrl:(NSString *)urlStr
+                              params:(NSDictionary *)params{
+    if (params.allKeys.count == 0){
+        return urlStr;
+    }
+    urlStr = [urlStr stringByAppendingString:@"?"];
+    __block NSString * blockStr = urlStr;
+    [params enumerateKeysAndObjectsUsingBlock:^(NSString * key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        blockStr = [blockStr stringByAppendingString:key];
+        blockStr = [blockStr stringByAppendingString:@"="];
+        blockStr = [blockStr stringByAppendingFormat:@"%@",obj];
+        blockStr = [blockStr stringByAppendingString:@"&"];
+    }];
+    if(blockStr.length > 2){
+        blockStr = [blockStr substringToIndex:blockStr.length-1];
+    }
+    return [blockStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+}
 +(AFHTTPSessionManager *)loginWithUsername:(nonnull NSString *)username
                                   password:(NSString *)password
                                    success:(NJDHttpSuccessBlockDictionary)success
                                    failure:(NJDHttpFailureBlock)fail{
     AFHTTPSessionManager *manager = [self manager];
-   NSURLSessionTask *task = [manager GET:kURL(kUserDomain, kLoginPath)
-                              parameters:@{@"username":SAFE_STRING(username),
-                                     @"password":SAFE_STRING(password)
-                                     }
+    NSString *url = [self appendQuryStringWithUrl:kURL(kUserDomain, kLoginPath) params:@{@"username":SAFE_STRING(username),
+                                                                                         @"password":SAFE_STRING(password)
+                                                                                         }];
+   NSURLSessionTask *task = [manager POST:url
+                              parameters:nil
                         progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                             if ([self dealWithResponse:responseObject
                                                failure:fail] == NO) {
@@ -423,8 +441,11 @@ constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
     dic[@"token"] = SAFE_STRING([NJDUserInfoMO userInfo].token);
     AFHTTPSessionManager *manager = [self manager];
     manager.requestSerializer.timeoutInterval = 60;
-    [manager POST:kURL(kUserDomain, kSubmitInfo)
-       parameters:dic.copy
+    NSString *url = [self
+                     appendQuryStringWithUrl: kURL(kUserDomain, kSubmitInfo)
+                           params:dic.copy];
+    [manager POST:url
+       parameters:nil
 constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
          NSData *data = UIImageJPEGRepresentation(idCardImg, 0.75);
          [formData appendPartWithFileData: data
@@ -575,4 +596,5 @@ constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
                             }];
     [self printfUrl:task.currentRequest.URL];
 }
+
 @end

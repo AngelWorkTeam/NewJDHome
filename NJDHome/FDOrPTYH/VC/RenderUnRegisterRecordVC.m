@@ -161,7 +161,7 @@
                                             if (arrayValue.count > 0) {
                                                 self.page = page;
                                                 self.havePage = YES;
-                                                [self.dateSource addObjectsFromArray:@[@{},@{}]];
+                                                [self.dateSource addObjectsFromArray:arrayValue];
                                                 [self.table reloadData];
                                                 [self.table.mj_footer endRefreshing];
                                             }else{
