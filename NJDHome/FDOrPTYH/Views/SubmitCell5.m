@@ -12,6 +12,7 @@
 @interface SubmitCell5() <UINavigationControllerDelegate, UIImagePickerControllerDelegate,UICollectionViewDataSource>
 
 @property (nonatomic,strong) UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @end
 @implementation SubmitCell5
 
@@ -19,7 +20,9 @@
     [super awakeFromNib];
     // Initialization code
 }
-
+-(void)setTitle:(NSString *)title{
+    self.titleLabel.text = title;
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

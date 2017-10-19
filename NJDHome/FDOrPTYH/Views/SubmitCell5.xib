@@ -59,6 +59,9 @@
                     <constraint firstItem="0A8-IG-FfL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="woe-fK-GvJ"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="titleLabel" destination="UnW-eT-VYd" id="RWO-kl-PTM"/>
+            </connections>
         </tableViewCell>
     </objects>
     <resources>

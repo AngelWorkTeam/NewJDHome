@@ -14,7 +14,7 @@
 #import "ApplyCardCell2.h"
 
 #import "IDCardVC.h"
-NSString * const kPostFeeTips  = @"邮费由收件人支付，采用到付方式，邮寄资费按照省内每件15元(人民币)计算";
+static NSString * const kPostFeeTips  = @"邮费由收件人支付，采用到付方式，邮寄资费按照省内每件15元(人民币)计算";
 @interface ApplyCardVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *table;
 
@@ -172,6 +172,12 @@ NSString * const kPostFeeTips  = @"邮费由收件人支付，采用到付方式
     cell.title = dic[@"title"];
     cell.contentStr = dic[@"value"];
     cell.placeHolder = [dic[@"need"] boolValue] == YES?@"必填":@"选填";
+    NSInteger keyboardType = [dic[@"keyboardType"] integerValue];
+    if(keyboardType == 1){
+        cell.keyboardType = UIKeyboardTypeNumberPad;
+    }else{
+        cell.keyboardType = UIKeyboardTypeDefault;
+    }
     return cell;
 }
 -(SubmitCell *)getCell:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -374,7 +380,8 @@ NSString * const kPostFeeTips  = @"邮费由收件人支付，采用到付方式
                         @"value":@"",@"tips":@"必须填写身份证号",@"need":@1
                         }.mutableCopy,
                       @{@"title":@"电       话",@"key":@"telephoneNumber",
-                        @"value":@"",@"tips":@"必须填手机号码",@"need":@1
+                        @"value":@"",@"tips":@"必须填手机号码",@"need":@1,
+                         @"keyboardType":@"1"
                         }.mutableCopy,
                       @{@"title":@"户籍地址",@"key":@"personAddress",
                         @"value":@"",@"tips":@"必须填写户籍地址",@"need":@1
