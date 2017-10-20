@@ -77,6 +77,15 @@
         UIImage *portraitImg = [info objectForKey:UIImagePickerControllerOriginalImage];
         NSData *data = UIImageJPEGRepresentation(portraitImg, 0.75);
         portraitImg = [UIImage imageWithData:data scale:0.6];
+//        UIImageView *imgView = [[UIImageView alloc] initWithImage:portraitImg];
+//        imgView.frame = CGRectMake(0, 0, kScreenWidth*3, kScreenWidth*3*portraitImg.size.height/portraitImg.size.width);
+//        imgView.contentMode = UIViewContentModeScaleAspectFit;
+//        UIGraphicsBeginImageContext(imgView.frame.size);
+//        CGContextRef context = UIGraphicsGetCurrentContext();
+//        [imgView.layer renderInContext:context];
+//        UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+//        UIGraphicsEndImageContext();
+        
         !self.tookPhoto?:self.tookPhoto(portraitImg);
         [self.collectionView reloadData];
     }];

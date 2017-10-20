@@ -7,6 +7,7 @@
 //
 
 #import "ApplyCardVC.h"
+#import "FDOrPTYHVC.h"
 #import "SubmitCell1.h"
 #import "SubmitCell3.h"
 #import "SubmitCell5.h"
@@ -350,6 +351,13 @@ static NSString * const kPostFeeTips  = @"邮费由收件人支付，采用到�
                              [NJDPopLoading hideHud];
                              if ([dictValue[@"success"] boolValue] == YES) {
                                  [NJDPopLoading showAutoHideWithMessage:dictValue[@"resultMsg"]];
+                                 for (UIViewController *vc in self.navigationController.viewControllers) {
+                                     if([vc isKindOfClass:[FDOrPTYHVC class]]){
+                                         [self.navigationController popToViewController:vc animated:YES];
+                                         return ;
+                                     }
+                                 }
+                     
                                  [self.navigationController popViewControllerAnimated:YES];
                              }
                          } failure:^(NSError * _Nullable error) {
