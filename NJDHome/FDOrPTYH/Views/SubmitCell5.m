@@ -75,8 +75,11 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     [picker dismissViewControllerAnimated:YES completion:^() {
         UIImage *portraitImg = [info objectForKey:UIImagePickerControllerOriginalImage];
-        NSData *data = UIImageJPEGRepresentation(portraitImg, 0.75);
-        portraitImg = [UIImage imageWithData:data scale:0.6];
+        if (portraitImg.size.width > 960) {
+            NSData *data = UIImageJPEGRepresentation(portraitImg, 0.2);
+            portraitImg = [UIImage imageWithData:data scale:2];
+        }
+        
 //        UIImageView *imgView = [[UIImageView alloc] initWithImage:portraitImg];
 //        imgView.frame = CGRectMake(0, 0, kScreenWidth*3, kScreenWidth*3*portraitImg.size.height/portraitImg.size.width);
 //        imgView.contentMode = UIViewContentModeScaleAspectFit;
