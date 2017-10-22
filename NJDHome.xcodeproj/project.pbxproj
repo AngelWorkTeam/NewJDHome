@@ -123,6 +123,7 @@
 		190B3AA11F8A7A0400FA753C /* RequestHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestHistoryViewController.m; sourceTree = "<group>"; };
 		190B3AA31F8A7ACC00FA753C /* ShenBaoProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShenBaoProgressViewController.h; sourceTree = "<group>"; };
 		190B3AA41F8A7ACC00FA753C /* ShenBaoProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShenBaoProgressViewController.m; sourceTree = "<group>"; };
+		190B3AA61F9CBA4B00FA753C /* NJDHome.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NJDHome.entitlements; sourceTree = "<group>"; };
 		193E99551F87755A00C2CA16 /* TrafficRejectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrafficRejectView.h; path = view/TrafficRejectView.h; sourceTree = "<group>"; };
 		193E99561F87755A00C2CA16 /* TrafficRejectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrafficRejectView.m; path = view/TrafficRejectView.m; sourceTree = "<group>"; };
 		1954980E1F886137005B3229 /* THDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = THDatePickerView.h; path = view/THDatePickerView.h; sourceTree = "<group>"; };
@@ -452,6 +453,7 @@
 		19B707E21F7E2E2E0086C565 /* NJDHome */ = {
 			isa = PBXGroup;
 			children = (
+				190B3AA61F9CBA4B00FA753C /* NJDHome.entitlements */,
 				1B0260AA1F81E4A1000A4411 /* FDOrPTYH */,
 				1BD82C331F81348A006D6ADC /* Model */,
 				1BAE26521F80BC4A004D3F22 /* IDCard */,
@@ -853,6 +855,11 @@
 					19B707DF1F7E2E2E0086C565 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1207,6 +1214,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = NJDHome/NJDHome.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = B36LSC79E6;
@@ -1214,10 +1222,10 @@
 				INFOPLIST_FILE = NJDHome/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yy.njdhome;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tanqixin.njdhome;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d67265d6-e3bb-4cd8-93e9-17da9e315f68";
-				PROVISIONING_PROFILE_SPECIFIER = "*wildDevelopAll";
+				PROVISIONING_PROFILE = "c6ce160d-b012-4a3b-a028-28d59737f9cf";
+				PROVISIONING_PROFILE_SPECIFIER = njdhome_development_profile;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1229,17 +1237,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = NJDHome/NJDHome.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = B36LSC79E6;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/NJDHome/Helper/Globle/DJDHome.pch";
 				INFOPLIST_FILE = NJDHome/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yy.njdhome;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tanqixin.njdhome;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d67265d6-e3bb-4cd8-93e9-17da9e315f68";
-				PROVISIONING_PROFILE_SPECIFIER = "*wildDevelopAll";
+				PROVISIONING_PROFILE = "101d5249-ec52-43ec-bbbe-029405ff7fd9";
+				PROVISIONING_PROFILE_SPECIFIER = njdhome_distribution_profile;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

@@ -17,7 +17,20 @@
 #import "WindowClerkViewController.h"
 #define kToken @"token"
 
-@interface AppDelegate ()
+// 引入JPush功能所需头文件
+#import "JPUSHService.h"
+// iOS10注册APNs所需头文件
+#ifdef NSFoundationVersionNumber_iOS_9_x_Max
+#import <UserNotifications/UserNotifications.h>
+#endif
+
+
+#define JPUSHAppKey  @""
+#define JPUSHChannel @"appStore"
+
+static const BOOL isProduction = false;
+
+@interface AppDelegate ()<JPUSHRegisterDelegate>
 @property (nonatomic, copy) NSString *token;
 @end
 
@@ -38,6 +51,7 @@
     [self.window makeKeyAndVisible];
 //
 //    [Bugly startWithAppId:@"02841f4dd3"];
+    [self initJPUSH:launchOptions];
     
     [self startObserveLoginOut];
     return YES;
@@ -49,28 +63,35 @@
     return (AppDelegate *) [UIApplication sharedApplication].delegate;
 }
 
-- (void)loginSuccessWithUserType:(RoleType)role
+
+- (void)initJPUSH:(NSDictionary *)launchOptions
 {
-//    Role_LandLord = 0,//房东
-//    Role_Renter = 1,//租客
-//    Role_WindowClerk = 2,//窗口人员
-//    Role_TrafficAssistant = 3,//协管员
-    switch (role) {
-        case Role_LandLord:
-            [self toLandLord];
-            break;
-        case Role_Renter:
-            [self toRenter];
-            break;
-        case Role_WindowClerk:
-            [self toWindowClerk];
-            break;
-        case Role_TrafficAssistant:
-            [self toTrafficAssistant];
-            break;
+    //添加初始化APNs代码
+    //Required
+    //notice: 3.0.0及以后版本注册可以这样写，也可以继续用之前的注册方式
+    JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
+    entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound;
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+        // 可以添加自定义categories
+        // NSSet<UNNotificationCategory *> *categories for iOS10 or later
+        // NSSet<UIUserNotificationCategory *> *categories for iOS8 and iOS9
     }
+    [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
     
+    //添加初始化JPush代码
+    // Required
+    // init Push
+    // notice: 2.1.5版本的SDK新增的注册方法，改成可上报IDFA，如果没有使用IDFA直接传nil
+    // 如需继续使用pushConfig.plist文件声明appKey等配置内容，请依旧使用[JPUSHService setupWithOption:launchOptions]方式初始化。
+    
+    //0 (默认值)表示采用的是开发证书，1 表示采用生产证书发布应用
+    [JPUSHService setupWithOption:launchOptions appKey:JPUSHAppKey
+                          channel:JPUSHChannel
+                 apsForProduction:isProduction
+            advertisingIdentifier:nil];
 }
+
+
 
 // 登录
 - (void)toSignin
@@ -107,39 +128,51 @@
     return nav;
 }
 
-// 窗口人员
-- (void)toWindowClerk
-{
-    // 登录 viewController
+
+- (void)application:(UIApplication *)application
+didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     
-    
-    WindowClerkViewController *vc = [WindowClerkViewController new];
-    
-    UINavigationController *nav =  [[UINavigationController alloc]initWithRootViewController:vc];
-    
-    self.window.rootViewController = nav;
+    /// Required - 注册 DeviceToken
+    [JPUSHService registerDeviceToken:deviceToken];
 }
 
-// 协管员
-- (void)toTrafficAssistant
-{
-    // 登录 viewController
-    TrafficAssistantViewController *viewController =  [TrafficAssistantViewController new];
+#pragma mark- JPUSHRegisterDelegate
+
+// iOS 10 Support
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(NSInteger))completionHandler {
+    // Required
+    NSDictionary * userInfo = notification.request.content.userInfo;
+    if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        [JPUSHService handleRemoteNotification:userInfo];
+    }
+    completionHandler(UNNotificationPresentationOptionAlert); // 需要执行这个方法，选择是否提醒用户，有Badge、Sound、Alert三种类型可以选择设置
+}
+
+// iOS 10 Support
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler {
+    // Required
+    NSDictionary * userInfo = response.notification.request.content.userInfo;
+    if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        [JPUSHService handleRemoteNotification:userInfo];
+    }
+    completionHandler();  // 系统要求执行这个方法
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     
-    self.window.rootViewController = viewController;
+    // Required, iOS 7 Support
+    [JPUSHService handleRemoteNotification:userInfo];
+    completionHandler(UIBackgroundFetchResultNewData);
 }
 
-// 租客
-- (void)toRenter
-{
-
-}
-
-// 房东
-- (void)toLandLord
-{
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     
+    // Required,For systems with less than or equal to iOS6
+    [JPUSHService handleRemoteNotification:userInfo];
 }
+
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

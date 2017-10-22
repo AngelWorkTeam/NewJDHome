@@ -24,6 +24,9 @@ PODS:
   - FMDB (2.7.2):
     - FMDB/standard (= 2.7.2)
   - FMDB/standard (2.7.2)
+  - JCore (1.1.6)
+  - JPush (3.0.2):
+    - JCore (~> 1.1.1)
   - MagicalRecord (2.3.2):
     - MagicalRecord/Core (= 2.3.2)
   - MagicalRecord/Core (2.3.2)
@@ -55,6 +58,7 @@ DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - BNRSDKLib
   - Bugly (~> 2.4.0)
+  - JPush (= 3.0.2)
   - MagicalRecord
   - Masonry
   - MBProgressHUD
@@ -76,6 +80,8 @@ SPEC CHECKSUMS:
   Bugly: da3c02408c14838d498429320545a8e439392978
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
+  JCore: 18fc8725124f26e55625eaf224659b3a999dcf63
+  JPush: 01a693fafe51b93eafc2e368bbc7a7cc07e12ce4
   MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
@@ -87,6 +93,6 @@ SPEC CHECKSUMS:
   YTKKeyValueStore: 4d002941540dd5108fa23009b71e0f2f937f7a0f
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 05c85a4c3ebb9f9b6ec17e6e5e0fa0832ca3870a
+PODFILE CHECKSUM: 8aad52358f51882014d582920e1e8fb047fc02e4
 
 COCOAPODS: 1.3.1

@@ -19,6 +19,7 @@ pod 'MJRefresh'
 pod 'MagicalRecord'
 pod 'MWPhotoBrowser',   :path => "./MWPhotoBrowser-2.1.2"
 #pod 'MWPhotoBrowser',   :git => "https://github.com/AngelWorkTeam/NJDhome.git"
+pod 'JPush', '3.0.2'
 
 #pod 'Objection'
 end
