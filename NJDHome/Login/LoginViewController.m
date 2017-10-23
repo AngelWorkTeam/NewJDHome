@@ -51,7 +51,7 @@
 }
 - (IBAction)loginAction:(id)sender {
     
-    [[AppDelegate sharedApplicationDelegate]loginSuccessWithUserType:Role_TrafficAssistant];
+  //  [[AppDelegate sharedApplicationDelegate]loginSuccessWithUserType:Role_TrafficAssistant];
 }
 
 - (IBAction)registerHandle:(id)sender {

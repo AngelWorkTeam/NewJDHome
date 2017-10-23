@@ -15,7 +15,7 @@
 
 + (AppDelegate *)sharedApplicationDelegate;
 
-- (void)loginSuccessWithUserType:(RoleType)role;
+//- (void)loginSuccessWithUserType:(RoleType)role;
 
 @end
 

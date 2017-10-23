@@ -25,7 +25,8 @@
 #endif
 
 
-#define JPUSHAppKey  @""
+#define JPUSHAppKey  @"9927a5e29074f35fdb7f841a"
+#define JPUSHMaterSecrect @"90dd33ef6d6d8c2d784dd625"
 #define JPUSHChannel @"appStore"
 
 static const BOOL isProduction = false;
@@ -170,7 +171,6 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     // Required,For systems with less than or equal to iOS6
     [JPUSHService handleRemoteNotification:userInfo];
 }
-
 
 
 
