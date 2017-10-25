@@ -1215,6 +1215,7 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = NJDHome/NJDHome.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = B36LSC79E6;
@@ -1224,7 +1225,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tanqixin.njdhome;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c6ce160d-b012-4a3b-a028-28d59737f9cf";
+				PROVISIONING_PROFILE = "6e0459bf-46a8-42b4-91c1-1cb3d6710f40";
 				PROVISIONING_PROFILE_SPECIFIER = njdhome_development_profile;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1238,6 +1239,7 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = NJDHome/NJDHome.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = B36LSC79E6;
@@ -1247,8 +1249,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tanqixin.njdhome;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "101d5249-ec52-43ec-bbbe-029405ff7fd9";
-				PROVISIONING_PROFILE_SPECIFIER = njdhome_distribution_profile;
+				PROVISIONING_PROFILE = "345de55c-f800-450e-aa00-8f13ef3bb68e";
+				PROVISIONING_PROFILE_SPECIFIER = com.tanqixin.njdhome;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
