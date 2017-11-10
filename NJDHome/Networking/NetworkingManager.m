@@ -168,11 +168,13 @@ NSString *const kChangeRecord = @"changeRecord";
     UIImage *img = params[@"identityImgFile"];
     [dic removeObjectForKey:@"identityImgFile"];
     void (^formDataBlock)(id formData) = ^(id<AFMultipartFormData>  _Nonnull formData) {
-         NSData *data = UIImageJPEGRepresentation(img, 0.75);
-        [formData appendPartWithFileData: data
-                                    name: @"identityImgFile"
-                                fileName: @"identityImgFile.png"
-                                mimeType: @"image/png"];
+        if (img) {
+            NSData *data = UIImageJPEGRepresentation(img, 0.75);
+            [formData appendPartWithFileData: data
+                                        name: @"identityImgFile"
+                                    fileName: @"identityImgFile.png"
+                                    mimeType: @"image/png"];
+        }
     };
     [manager POST:kURL(kUserDomain, kRegister)
        parameters:dic.copy

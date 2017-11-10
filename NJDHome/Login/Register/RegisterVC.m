@@ -47,6 +47,7 @@
     self.view.backgroundColor = [UIColor sam_colorWithHex:@"efeff6"];
     self.scanIdBtn.layer.cornerRadius = 6.;
     self.scanIdBtn.layer.masksToBounds = YES;
+    self.idCardTextField.placeholder = @"选填";
     
 }
 -(void)configViewModel{
@@ -59,14 +60,12 @@
                                                              RACObserve(self.nameTextFeild, text)]],
                                                      self.pwdTextField.rac_textSignal,
                                                      self.pwdAgainTextField.rac_textSignal,
-                                                     [RACSignal
-                                                      merge:@[self.idCardTextField.rac_textSignal,
-                                                              RACObserve(self.idCardTextField, text)]],
+                                                 
                                                      self.phoneTextField.rac_textSignal]
                                      reduce:^id(NSString *name,NSString *pwd,
-                                                NSString *pwdAgian, NSString *idCard,
+                                                NSString *pwdAgian,
                                                 NSString *phone){
-                                         return @((name.length>0&&pwd.length>0&&pwdAgian.length>0&&idCard.length>0&&phone.length>0));
+                                         return @((name.length>0&&pwd.length>0&&pwdAgian.length>0&&phone.length>0));
                                      }];
     [enableSignal subscribeNext:^(NSNumber *x) {
         @strongify(self);
@@ -112,9 +111,11 @@
         self.errorMsg = @"密码必须大于等于6位";
         return NO;
     }
-    if (![NSString isValidateIdentityCard:self.idCardTextField.text]) {
-        self.errorMsg = @"身份证输入有误";
-        return NO;
+    if (self.idCardTextField.text.length > 0) {
+        if (![NSString isValidateIdentityCard:self.idCardTextField.text]) {
+            self.errorMsg = @"身份证输入有误";
+            return NO;
+        }
     }
     if (![NSString isValidPassword:self.phoneTextField.text]) {
         self.errorMsg = @"手机号输入有误";
@@ -125,12 +126,14 @@
 #pragma mark - action handle
 
 - (IBAction)registerHandle:(id)sender {
-//    if([self inputValid] == NO){
-//        return;
-//    }
+    if([self inputValid] == NO){
+        return;
+    }
     self.registerDic[@"name"] = self.nameTextFeild.text;
     self.registerDic[@"pwd"] = self.pwdTextField.text;
-    self.registerDic[@"identityCard"] = self.idCardTextField.text;
+    if (self.idCardTextField.text.length > 0) {
+        self.registerDic[@"identityCard"] = self.idCardTextField.text;
+    }
     self.registerDic[@"telephoneNumber"] = self.phoneTextField.text;
     self.registerDic[@"flag"] = [self.role isEqualToString:@"FD"]?@"FD":@"RY";
     self.loadingMsg = @"正在注册";
